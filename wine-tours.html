@@ -163,6 +163,45 @@ footer { background: var(--charcoal); padding: 80px 40px 40px; color: rgba(245,2
 .tour-card p { font-size: 0.92rem; color: var(--text-light); line-height: 1.65; margin-bottom: 20px; }
 .tour-features { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
 .tour-feature { padding: 6px 14px; background: var(--cream); border-radius: 16px; font-size: 0.78rem; color: var(--text); }
+.tour-inquiry-form {
+  max-width: 720px;
+  margin: 0 auto;
+  background: var(--white);
+  border: 1px solid rgba(74,14,27,0.08);
+  border-radius: 8px;
+  padding: 32px;
+}
+.tour-inquiry-form .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.tour-inquiry-form .form-group { margin-bottom: 16px; }
+.tour-inquiry-form label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+.tour-inquiry-form input,
+.tour-inquiry-form select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(74,14,27,0.15);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+.tour-inquiry-form .form-note {
+  margin-top: 12px;
+  font-size: 0.82rem;
+  color: var(--text-light);
+}
+.tour-inquiry-form .form-note a { color: var(--burgundy); }
+@media (max-width: 640px) {
+  .tour-inquiry-form .form-row { grid-template-columns: 1fr; }
+}
 
 
 /* ============================================================
@@ -259,12 +298,84 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     </div>
   </a>
 </div>
-<section style="padding: 60px 40px 80px; max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;"><div class="tour-card"><h3>Traverse City Wine Tours Co.</h3><div class="tour-type">Premium Tour Service</div><p>Full-service guided wine tours covering both Old Mission and Leelanau Peninsulas. Luxury vehicles, knowledgeable guides, and customizable itineraries.</p><div class="tour-features"><span class="tour-feature">Private Tours</span><span class="tour-feature">Group Tours</span><span class="tour-feature">Custom Routes</span><span class="tour-feature">Luxury Vehicles</span></div><a href="#" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-<div class="tour-card"><h3>TC Wine Bus</h3><div class="tour-type">Shuttle Service</div><p>Hop-on, hop-off wine trail shuttle service operating daily routes along both peninsulas. Perfect for visitors who want flexibility.</p><div class="tour-features"><span class="tour-feature">Daily Routes</span><span class="tour-feature">Hop-On Hop-Off</span><span class="tour-feature">Affordable</span><span class="tour-feature">Both Peninsulas</span></div><a href="#" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-<div class="tour-card"><h3>Northern Michigan Wine Tours</h3><div class="tour-type">Guided Experiences</div><p>Boutique wine tour company specializing in small-group experiences with sommelier-led tastings and behind-the-scenes winery access.</p><div class="tour-features"><span class="tour-feature">Small Groups</span><span class="tour-feature">Sommelier Guides</span><span class="tour-feature">VIP Access</span><span class="tour-feature">Food Pairings</span></div><a href="#" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
-<div class="tour-card"><h3>Grand Traverse Limo</h3><div class="tour-type">Luxury Private Tours</div><p>Private limousine and luxury SUV wine tours for couples, bridal parties, and special occasions. White-glove service.</p><div class="tour-features"><span class="tour-feature">Private Limo</span><span class="tour-feature">Special Occasions</span><span class="tour-feature">Bridal Parties</span><span class="tour-feature">Champagne Service</span></div><a href="#" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+<section style="padding: 60px 40px 40px; max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+  <div class="tour-card">
+    <h3>Traverse City Wine Tours Co.</h3>
+    <div class="tour-type">Premium Tour Service</div>
+    <p>Full-service guided wine tours covering both Old Mission and Leelanau Peninsulas. Luxury vehicles, knowledgeable guides, and customizable itineraries.</p>
+    <div class="tour-features"><span class="tour-feature">Private Tours</span><span class="tour-feature">Group Tours</span><span class="tour-feature">Custom Routes</span><span class="tour-feature">Luxury Vehicles</span></div>
+    <a href="#tour-inquiry" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;" data-operator="Traverse City Wine Tours Co.">Request this tour <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+  <div class="tour-card">
+    <h3>TC Wine Bus</h3>
+    <div class="tour-type">Shuttle Service</div>
+    <p>Hop-on, hop-off wine trail shuttle service operating daily routes along both peninsulas. Perfect for visitors who want flexibility.</p>
+    <div class="tour-features"><span class="tour-feature">Daily Routes</span><span class="tour-feature">Hop-On Hop-Off</span><span class="tour-feature">Affordable</span><span class="tour-feature">Both Peninsulas</span></div>
+    <a href="#tour-inquiry" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;" data-operator="TC Wine Bus">Request this tour <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+  <div class="tour-card">
+    <h3>Northern Michigan Wine Tours</h3>
+    <div class="tour-type">Guided Experiences</div>
+    <p>Boutique wine tour company specializing in small-group experiences with sommelier-led tastings and behind-the-scenes winery access.</p>
+    <div class="tour-features"><span class="tour-feature">Small Groups</span><span class="tour-feature">Sommelier Guides</span><span class="tour-feature">VIP Access</span><span class="tour-feature">Food Pairings</span></div>
+    <a href="#tour-inquiry" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;" data-operator="Northern Michigan Wine Tours">Request this tour <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
+  <div class="tour-card">
+    <h3>Grand Traverse Limo</h3>
+    <div class="tour-type">Luxury Private Tours</div>
+    <p>Private limousine and luxury SUV wine tours for couples, bridal parties, and special occasions. White-glove service.</p>
+    <div class="tour-features"><span class="tour-feature">Private Limo</span><span class="tour-feature">Special Occasions</span><span class="tour-feature">Bridal Parties</span><span class="tour-feature">Champagne Service</span></div>
+    <a href="#tour-inquiry" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;" data-operator="Grand Traverse Limo">Request this tour <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  </div>
 </section>
-<section class="newsletter">
+<section id="tour-inquiry" style="padding: 20px 40px 80px; max-width: 1000px; margin: 0 auto;">
+  <div class="section-header" style="margin-bottom: 32px;">
+    <div class="section-tag">Inquiry</div>
+    <h2 class="section-title">Request a Tour</h2>
+    <p style="margin-top:16px;color:var(--text-light);max-width:640px;margin-left:auto;margin-right:auto;">Tell us which operator and date you have in mind. We pass the request along — the tour company confirms availability and pricing directly with you.</p>
+  </div>
+  <form class="tour-inquiry-form" data-lead-form="tour">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="tour-name">Name</label>
+        <input type="text" id="tour-name" name="name" required autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label for="tour-email">Email</label>
+        <input type="email" id="tour-email" name="email" required autocomplete="email">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="tour-operator">Tour operator</label>
+        <select id="tour-operator" name="operator" required>
+          <option value="">Select a tour</option>
+          <option value="Traverse City Wine Tours Co.">Traverse City Wine Tours Co.</option>
+          <option value="TC Wine Bus">TC Wine Bus</option>
+          <option value="Northern Michigan Wine Tours">Northern Michigan Wine Tours</option>
+          <option value="Grand Traverse Limo">Grand Traverse Limo</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="tour-party">Party size</label>
+        <input type="number" id="tour-party" name="party_size" min="1" max="50" placeholder="e.g. 6">
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="tour-date">Preferred date</label>
+        <input type="date" id="tour-date" name="preferred_date">
+      </div>
+      <div class="form-group">
+        <label for="tour-message">Notes</label>
+        <input type="text" id="tour-message" name="message" placeholder="Pickup hotel, dietary notes, occasion">
+      </div>
+    </div>
+    <button type="submit" class="btn-primary">Send tour request</button>
+    <p class="form-note">By submitting you agree we may share this request with the selected operator. See our <a href="privacy.html">privacy policy</a>.</p>
+  </form>
+</section>
+<section class="newsletter" id="newsletter">
   <div class="newsletter-inner">
     <h2>Stay Connected to Wine Country</h2>
     <p>Weekly updates on new wines, events, seasonal guides, and exclusive offers from Traverse City's finest wineries.</p>
@@ -313,4 +424,12 @@ window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scr
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)';}});},{threshold:0.1});
 document.querySelectorAll('.winery-card,.article-card,.plan-card,.tour-card,.stay-card,.pricing-card,.fade-in,.journal-card,.pen-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity 0.6s ease, transform 0.6s ease';obs.observe(el);});
 </script><script src="js/leads.js" defer></script>
+<script>
+document.querySelectorAll('[data-operator]').forEach(function (link) {
+  link.addEventListener('click', function () {
+    var select = document.getElementById('tour-operator');
+    if (select) select.value = link.getAttribute('data-operator') || '';
+  });
+});
+</script>
 </body></html>

@@ -13,7 +13,7 @@ export const PAYLOAD_FIELDS = {
   bach_kit: ["bride_name", "weekend", "group_size", "vibe"],
   advertise: ["company", "budget", "message"],
   contact: ["subject", "message"],
-  tour: ["party_size", "preferred_date", "message"],
+  tour: ["operator", "party_size", "preferred_date", "message"],
 };
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

@@ -9,9 +9,9 @@
       "address": "12239 Center Rd, Traverse City, MI 49686",
       "phone": "(231) 223-7355",
       "website": "https://www.cgtwines.com",
-      "hours": "Mon\u2013Sat 10am\u20136pm \u00b7 Sun 12\u20135pm",
-      "description": "Founded in 1974, Chateau Grand Traverse is the pioneer of northern Michigan winemaking. As the first to plant European vinifera grapes in the region, they proved that Traverse City's terroir \u2014 sitting on the same latitude as Bordeaux and Burgundy \u2014 could produce world-class wines.",
-      "long_description": "Chateau Grand Traverse holds a legendary place in Michigan wine history. Ed O'Keefe Jr. founded the estate in 1974 with a bold vision: to prove that the Grand Traverse region could rival the great wine regions of Europe. Sitting on the 45th parallel \u2014 the same latitude as Bordeaux, Burgundy, and the Willamette Valley \u2014 the estate's vineyards benefit from the moderating influence of Grand Traverse Bay, creating a microclimate ideal for cool-climate varietals.\n\nToday, the winery farms over 120 acres of vines and is best known for its exceptional Rieslings, which have earned acclaim from wine critics worldwide. Their late-harvest and ice wine Rieslings are particularly celebrated, showcasing the unique terroir of Old Mission Peninsula.\n\nThe tasting room offers panoramic views of the bay and vineyards, and the estate hosts seasonal events, wine dinners, and private tastings throughout the year. Visitors can explore the production facilities and learn about the winemaking process from grape to glass.",
+      "hours": "Mon–Sat 10am–6pm · Sun 12–5pm",
+      "description": "Founded in 1974, Chateau Grand Traverse is the pioneer of northern Michigan winemaking. As the first to plant European vinifera grapes in the region, they proved that Traverse City's terroir — sitting on the same latitude as Bordeaux and Burgundy — could produce world-class wines.",
+      "long_description": "Chateau Grand Traverse holds a legendary place in Michigan wine history. Ed O'Keefe Jr. founded the estate in 1974 with a bold vision: to prove that the Grand Traverse region could rival the great wine regions of Europe. Sitting on the 45th parallel — the same latitude as Bordeaux, Burgundy, and the Willamette Valley — the estate's vineyards benefit from the moderating influence of Grand Traverse Bay, creating a microclimate ideal for cool-climate varietals.\n\nToday, the winery farms over 120 acres of vines and is best known for its exceptional Rieslings, which have earned acclaim from wine critics worldwide. Their late-harvest and ice wine Rieslings are particularly celebrated, showcasing the unique terroir of Old Mission Peninsula.\n\nThe tasting room offers panoramic views of the bay and vineyards, and the estate hosts seasonal events, wine dinners, and private tastings throughout the year. Visitors can explore the production facilities and learn about the winemaking process from grape to glass.",
       "known_for": [
         "Riesling",
         "Ice Wine",
@@ -39,7 +39,7 @@
           "Customizable"
         ],
         "shipments_per_year": 4,
-        "bottles_per_shipment": "4\u20136",
+        "bottles_per_shipment": "4–6",
         "discount": "15%",
         "perks": [
           "Quarterly shipments",
@@ -61,9 +61,9 @@
       "address": "10844 E Revold Rd, Suttons Bay, MI 49682",
       "phone": "(231) 944-1251",
       "website": "https://www.blackstarfarms.com",
-      "hours": "Daily 10am\u20136pm",
+      "hours": "Daily 10am–6pm",
       "description": "Black Star Farms is a premier agricultural destination combining an award-winning winery with a luxury inn, farm market, and equestrian facility. Set on a beautifully restored 160-acre farm, it offers one of the most complete wine country experiences in the Midwest.",
-      "long_description": "Black Star Farms is far more than a winery \u2014 it's a complete agricultural destination that embodies the spirit of Leelanau Peninsula. The estate combines an award-winning winery with a luxury inn, creamery, farm market, and equestrian facility, all set on a beautifully restored 160-acre historic farm.\n\nThe winery produces an impressive range of wines, with particular strength in their Arcturos label red blends and their renowned dessert wines. Their late-harvest Riesling and ice wines consistently earn top honors in national and international competitions. The winemaking team sources grapes from both their estate vineyards and carefully selected partner vineyards across the Leelanau Peninsula.\n\nThe Inn at Black Star Farms offers luxury bed-and-breakfast accommodations with vineyard views, making it the perfect home base for a wine country getaway. The farm market features artisan cheeses from their on-site creamery, along with local preserves, spirits, and gourmet foods.\n\nBlack Star Farms also operates a tasting room in downtown Suttons Bay, providing a convenient option for visitors exploring the village.",
+      "long_description": "Black Star Farms is far more than a winery — it's a complete agricultural destination that embodies the spirit of Leelanau Peninsula. The estate combines an award-winning winery with a luxury inn, creamery, farm market, and equestrian facility, all set on a beautifully restored 160-acre historic farm.\n\nThe winery produces an impressive range of wines, with particular strength in their Arcturos label red blends and their renowned dessert wines. Their late-harvest Riesling and ice wines consistently earn top honors in national and international competitions. The winemaking team sources grapes from both their estate vineyards and carefully selected partner vineyards across the Leelanau Peninsula.\n\nThe Inn at Black Star Farms offers luxury bed-and-breakfast accommodations with vineyard views, making it the perfect home base for a wine country getaway. The farm market features artisan cheeses from their on-site creamery, along with local preserves, spirits, and gourmet foods.\n\nBlack Star Farms also operates a tasting room in downtown Suttons Bay, providing a convenient option for visitors exploring the village.",
       "known_for": [
         "Red Blends (Arcturos)",
         "Ice Wine",
@@ -94,7 +94,7 @@
           "Mixed"
         ],
         "shipments_per_year": 4,
-        "bottles_per_shipment": "2\u20136",
+        "bottles_per_shipment": "2–6",
         "discount": "10%",
         "perks": [
           "Quarterly shipments (Mar/Jun/Sep/Dec)",
@@ -118,11 +118,11 @@
       "address": "11480 Center Rd, Traverse City, MI 49686",
       "phone": "(231) 933-9787",
       "website": "https://www.peninsulacellars.com",
-      "hours": "Mon\u2013Sat 10am\u20136pm \u00b7 Sun 12\u20136pm",
+      "hours": "Mon–Sat 10am–6pm · Sun 12–6pm",
       "description": "Housed in a charming 1896 one-room schoolhouse, Peninsula Cellars brings a warm, family-friendly atmosphere to the Old Mission wine trail. Known for approachable wines and a welcoming tasting experience.",
-      "long_description": "Peninsula Cellars is one of Old Mission Peninsula's most beloved wineries, celebrated for its warm hospitality and the unique charm of its historic setting. The tasting room occupies an 1896 one-room schoolhouse, creating an intimate and memorable backdrop for wine tasting.\n\nThe Kroupa family has farmed the surrounding land for generations, transitioning from cherry farming to grape growing as the region's wine industry blossomed. This deep agricultural heritage informs their winemaking philosophy: let the fruit and the land speak for themselves.\n\nPeninsula Cellars is known for producing approachable, fruit-forward wines that appeal to both newcomers and experienced wine enthusiasts. Their Gew\u00fcrztraminer, Pinot Grigio, and semi-sweet cherry wines are perennial favorites, while their dry reds showcase the surprising depth that Old Mission Peninsula terroir can achieve.\n\nThe relaxed, unpretentious atmosphere makes this a perfect first stop on the wine trail, and the knowledgeable staff takes pride in helping visitors discover new favorites.",
+      "long_description": "Peninsula Cellars is one of Old Mission Peninsula's most beloved wineries, celebrated for its warm hospitality and the unique charm of its historic setting. The tasting room occupies an 1896 one-room schoolhouse, creating an intimate and memorable backdrop for wine tasting.\n\nThe Kroupa family has farmed the surrounding land for generations, transitioning from cherry farming to grape growing as the region's wine industry blossomed. This deep agricultural heritage informs their winemaking philosophy: let the fruit and the land speak for themselves.\n\nPeninsula Cellars is known for producing approachable, fruit-forward wines that appeal to both newcomers and experienced wine enthusiasts. Their Gewürztraminer, Pinot Grigio, and semi-sweet cherry wines are perennial favorites, while their dry reds showcase the surprising depth that Old Mission Peninsula terroir can achieve.\n\nThe relaxed, unpretentious atmosphere makes this a perfect first stop on the wine trail, and the knowledgeable staff takes pride in helping visitors discover new favorites.",
       "known_for": [
-        "Gew\u00fcrztraminer",
+        "Gewürztraminer",
         "Pinot Grigio",
         "Cherry Wine",
         "Riesling",
@@ -143,8 +143,8 @@
           "Honor Roll"
         ],
         "shipments_per_year": 2,
-        "bottles_per_shipment": "~6\u20138",
-        "avg_per_shipment": "$180\u2013200",
+        "bottles_per_shipment": "~6–8",
+        "avg_per_shipment": "$180–200",
         "discount": "Club pricing",
         "perks": [
           "2 shipments/year (April & November)",
@@ -166,9 +166,9 @@
       "address": "15900 Rue de Vin, Traverse City, MI 49686",
       "phone": "(231) 223-4110",
       "website": "https://www.chateauchantal.com",
-      "hours": "Mon\u2013Sat 11am\u20137pm \u00b7 Sun 12\u20136pm",
+      "hours": "Mon–Sat 11am–7pm · Sun 12–6pm",
       "description": "Perched atop one of the highest points on Old Mission Peninsula, Chateau Chantal combines a European-inspired estate with a bed & breakfast, offering breathtaking 360-degree views of both East and West Grand Traverse Bays.",
-      "long_description": "Chateau Chantal occupies one of the most dramatic settings in all of Traverse City wine country. Perched atop one of the highest points on Old Mission Peninsula, the European-inspired estate commands breathtaking 360-degree views of both East and West Grand Traverse Bays \u2014 a vista that alone makes the visit worthwhile.\n\nFounded by Robert and Nadine Begin, the winery draws on Robert's winemaking education in France to produce wines that honor both Old World tradition and New World innovation. The portfolio spans an impressive range, from crisp whites and elegant sparkling wines to bold reds and popular fruit wines.\n\nThe on-site bed & breakfast offers luxurious accommodations in the heart of wine country, with each room providing vineyard or bay views. Guests enjoy exclusive access to wine tastings, cooking classes, and seasonal events.\n\nChateau Chantal's Jazz at Sunset series, held on the terrace overlooking the bays, is one of the most popular summer events in the region, combining world-class music with stunning scenery and exceptional wine.",
+      "long_description": "Chateau Chantal occupies one of the most dramatic settings in all of Traverse City wine country. Perched atop one of the highest points on Old Mission Peninsula, the European-inspired estate commands breathtaking 360-degree views of both East and West Grand Traverse Bays — a vista that alone makes the visit worthwhile.\n\nFounded by Robert and Nadine Begin, the winery draws on Robert's winemaking education in France to produce wines that honor both Old World tradition and New World innovation. The portfolio spans an impressive range, from crisp whites and elegant sparkling wines to bold reds and popular fruit wines.\n\nThe on-site bed & breakfast offers luxurious accommodations in the heart of wine country, with each room providing vineyard or bay views. Guests enjoy exclusive access to wine tastings, cooking classes, and seasonal events.\n\nChateau Chantal's Jazz at Sunset series, held on the terrace overlooking the bays, is one of the most popular summer events in the region, combining world-class music with stunning scenery and exceptional wine.",
       "known_for": [
         "Sparkling Wine",
         "Cerise (Cherry Sparkling)",
@@ -222,14 +222,14 @@
       "address": "3309 Blue Water Rd, Traverse City, MI 49686",
       "phone": "(231) 223-9303",
       "website": "https://www.brysestate.com",
-      "hours": "Mon\u2013Sat 11am\u20136pm \u00b7 Sun 12\u20136pm",
+      "hours": "Mon–Sat 11am–6pm · Sun 12–6pm",
       "description": "Brys Estate is a modern, architecturally stunning winery with panoramic views of East Grand Traverse Bay. Their focus on small-lot, handcrafted wines has earned them a reputation as one of the peninsula's finest producers.",
-      "long_description": "Brys Estate Vineyard & Winery represents the modern face of Old Mission Peninsula winemaking. Walt and Eileen Brys transformed a former cherry farm into one of the region's most visually striking and critically acclaimed wineries.\n\nThe contemporary tasting room, with its soaring ceilings and floor-to-ceiling windows, offers panoramic views of East Grand Traverse Bay and the surrounding vineyards. The architecture itself is a draw \u2014 clean lines and natural materials that complement rather than compete with the landscape.\n\nWinemaker Coenraad Stassen brings international experience to the cellar, producing small-lot wines that consistently earn high marks from critics and competitions. The estate's Signature Red blend and Naked Chardonnay are standout wines, but the entire portfolio reflects careful attention to quality.\n\nBrys Estate also operates a distillery, producing small-batch spirits from their own fruit. The tasting experience offers flights of both wine and spirits, making it a versatile stop on the wine trail.",
+      "long_description": "Brys Estate Vineyard & Winery represents the modern face of Old Mission Peninsula winemaking. Walt and Eileen Brys transformed a former cherry farm into one of the region's most visually striking and critically acclaimed wineries.\n\nThe contemporary tasting room, with its soaring ceilings and floor-to-ceiling windows, offers panoramic views of East Grand Traverse Bay and the surrounding vineyards. The architecture itself is a draw — clean lines and natural materials that complement rather than compete with the landscape.\n\nWinemaker Coenraad Stassen brings international experience to the cellar, producing small-lot wines that consistently earn high marks from critics and competitions. The estate's Signature Red blend and Naked Chardonnay are standout wines, but the entire portfolio reflects careful attention to quality.\n\nBrys Estate also operates a distillery, producing small-batch spirits from their own fruit. The tasting experience offers flights of both wine and spirits, making it a versatile stop on the wine trail.",
       "known_for": [
         "Signature Red Blend",
         "Naked Chardonnay",
         "Pinot Blanc",
-        "Gew\u00fcrztraminer",
+        "Gewürztraminer",
         "Craft Spirits"
       ],
       "amenities": [
@@ -246,19 +246,19 @@
       "wine_club": {
         "name": "Brys Estate Wine Club",
         "tiers": [
-          "Classic Mix 4-bottle (~$85\u2013100/order)",
-          "Classic White & Ros\u00e9 4-bottle (~$75\u201385/order)",
-          "Classic Red 4-bottle (~$135\u2013155/order)",
-          "Signature Mix 6-bottle (~$125\u2013140/order)",
-          "Signature White & Ros\u00e9 6-bottle (~$105\u2013115/order)",
-          "Signature Red 6-bottle (~$180\u2013195/order)",
+          "Classic Mix 4-bottle (~$85–100/order)",
+          "Classic White & Rosé 4-bottle (~$75–85/order)",
+          "Classic Red 4-bottle (~$135–155/order)",
+          "Signature Mix 6-bottle (~$125–140/order)",
+          "Signature White & Rosé 6-bottle (~$105–115/order)",
+          "Signature Red 6-bottle (~$180–195/order)",
           "Classic Your Choice 4-bottle",
           "Signature Your Choice 6-bottle",
           "12-bottle Your Choice"
         ],
         "shipments_per_year": 4,
         "bottles_per_shipment": "4 or 6",
-        "discount": "15\u201320% off bottles; 20\u201325% on cases",
+        "discount": "15–20% off bottles; 20–25% on cases",
         "perks": [
           "4 orders/year (Feb, May, Aug, Nov)",
           "Complimentary 3-Wine Tasting Towers each visit",
@@ -280,13 +280,13 @@
       "address": "2896 Bowers Harbor Rd, Traverse City, MI 49686",
       "phone": "(231) 223-7615",
       "website": "https://www.bowersharbor.com",
-      "hours": "Mon\u2013Sat 10:30am\u20136pm \u00b7 Sun 12\u20136pm",
+      "hours": "Mon–Sat 10:30am–6pm · Sun 12–6pm",
       "description": "A beloved local favorite known for its friendly atmosphere and fun approach to wine. Bowers Harbor Vineyards produces approachable wines in a relaxed setting that makes everyone feel welcome.",
-      "long_description": "Bowers Harbor Vineyards has earned a special place in the hearts of Traverse City locals and visitors alike. The winery's approachable, fun-loving atmosphere sets it apart on the Old Mission wine trail, making it a favorite for both first-time tasters and seasoned wine enthusiasts.\n\nThe winery is known for creative wine names and labels that don't take themselves too seriously \u2014 but don't let the playful branding fool you. The wines themselves are seriously good, with consistent quality across a diverse portfolio that spans dry whites, crisp ros\u00e9s, and medium-bodied reds.\n\nTheir Langley Chardonnay and Pinot Grigio are perennial favorites, while their sweet wines, including the popular Shipwreck series, are perfect for those who prefer a sweeter sip. The tasting room staff is known for being particularly welcoming and knowledgeable, making this an ideal first stop for wine trail newcomers.\n\nThe property also features lovely outdoor seating areas where you can enjoy a glass of wine surrounded by cherry and apple orchards.",
+      "long_description": "Bowers Harbor Vineyards has earned a special place in the hearts of Traverse City locals and visitors alike. The winery's approachable, fun-loving atmosphere sets it apart on the Old Mission wine trail, making it a favorite for both first-time tasters and seasoned wine enthusiasts.\n\nThe winery is known for creative wine names and labels that don't take themselves too seriously — but don't let the playful branding fool you. The wines themselves are seriously good, with consistent quality across a diverse portfolio that spans dry whites, crisp rosés, and medium-bodied reds.\n\nTheir Langley Chardonnay and Pinot Grigio are perennial favorites, while their sweet wines, including the popular Shipwreck series, are perfect for those who prefer a sweeter sip. The tasting room staff is known for being particularly welcoming and knowledgeable, making this an ideal first stop for wine trail newcomers.\n\nThe property also features lovely outdoor seating areas where you can enjoy a glass of wine surrounded by cherry and apple orchards.",
       "known_for": [
         "Langley Chardonnay",
         "Pinot Grigio",
-        "Ros\u00e9",
+        "Rosé",
         "Shipwreck White",
         "Cherry Wine"
       ],
@@ -328,15 +328,15 @@
       "address": "16985 Smokey Hollow Rd, Traverse City, MI 49686",
       "phone": "(231) 223-7722",
       "website": "https://www.2lwinery.com",
-      "hours": "Daily 12\u20136pm",
+      "hours": "Daily 12–6pm",
       "description": "A sleek, contemporary winery near the tip of Old Mission Peninsula, 2 Lads is known for its modern aesthetic, small-production wines, and arguably the best view of any tasting room in the region.",
-      "long_description": "2 Lads Winery stands out on Old Mission Peninsula for its boldly contemporary approach to both winemaking and design. Located near the tip of the peninsula, the winery rewards the drive with what many consider the most spectacular view of any tasting room in the region \u2014 sweeping vistas across the vineyards to Grand Traverse Bay.\n\nThe modern, minimalist tasting room is a striking contrast to the more traditional estates on the peninsula, reflecting the forward-thinking philosophy of founders Chris Baldyga and Cornel Olivier. The wines are produced in small lots with a focus on quality over quantity, and the lineup leans toward dry, food-friendly styles.\n\nTheir Cabernet Franc and Pinot Noir are standouts, showing impressive depth and complexity for cool-climate reds. The white wines, particularly the Gr\u00fcner Veltliner and Pinot Blanc, are crisp and elegant.\n\n2 Lads is an ideal stop for wine enthusiasts who appreciate a more curated, intimate tasting experience.",
+      "long_description": "2 Lads Winery stands out on Old Mission Peninsula for its boldly contemporary approach to both winemaking and design. Located near the tip of the peninsula, the winery rewards the drive with what many consider the most spectacular view of any tasting room in the region — sweeping vistas across the vineyards to Grand Traverse Bay.\n\nThe modern, minimalist tasting room is a striking contrast to the more traditional estates on the peninsula, reflecting the forward-thinking philosophy of founders Chris Baldyga and Cornel Olivier. The wines are produced in small lots with a focus on quality over quantity, and the lineup leans toward dry, food-friendly styles.\n\nTheir Cabernet Franc and Pinot Noir are standouts, showing impressive depth and complexity for cool-climate reds. The white wines, particularly the Grüner Veltliner and Pinot Blanc, are crisp and elegant.\n\n2 Lads is an ideal stop for wine enthusiasts who appreciate a more curated, intimate tasting experience.",
       "known_for": [
         "Cabernet Franc",
         "Pinot Noir",
-        "Gr\u00fcner Veltliner",
+        "Grüner Veltliner",
         "Pinot Blanc",
-        "Ros\u00e9"
+        "Rosé"
       ],
       "amenities": [
         "Tasting Room",
@@ -374,15 +374,15 @@
       "address": "8175 Center Rd, Traverse City, MI 49686",
       "phone": "(231) 938-6116",
       "website": "https://www.marivineyards.com",
-      "hours": "Daily 12\u20136pm",
+      "hours": "Daily 12–6pm",
       "description": "Mari Vineyards features a dramatic underground cellar built into the hillside and a focus on bold, terroir-driven wines. Their Italian-inspired approach produces some of the most distinctive wines on the peninsula.",
-      "long_description": "Mari Vineyards brings an Italian soul to Old Mission Peninsula. Founded by Marty Lagina, the winery draws inspiration from the great wine estates of Tuscany and Piedmont, while embracing the unique terroir of northern Michigan.\n\nThe centerpiece of the estate is its dramatic underground cellar \u2014 a 23,000-square-foot production facility built into the hillside, where wines age in French and American oak barrels at a naturally consistent temperature. Tours of the cellar are a highlight of any visit.\n\nThe wines are bold and expressive, with a focus on varieties that thrive in the region's cool climate. Their Sangiovese-based blends are a nod to Italian tradition, while their Riesling and Pinot Grigio showcase the peninsula's signature white wine excellence. The Bestow dessert wine is a visitor favorite.\n\nThe tasting room features a beautiful terrace with vineyard views, and the estate hosts regular events including live music, wine dinners, and harvest celebrations.",
+      "long_description": "Mari Vineyards brings an Italian soul to Old Mission Peninsula. Founded by Marty Lagina, the winery draws inspiration from the great wine estates of Tuscany and Piedmont, while embracing the unique terroir of northern Michigan.\n\nThe centerpiece of the estate is its dramatic underground cellar — a 23,000-square-foot production facility built into the hillside, where wines age in French and American oak barrels at a naturally consistent temperature. Tours of the cellar are a highlight of any visit.\n\nThe wines are bold and expressive, with a focus on varieties that thrive in the region's cool climate. Their Sangiovese-based blends are a nod to Italian tradition, while their Riesling and Pinot Grigio showcase the peninsula's signature white wine excellence. The Bestow dessert wine is a visitor favorite.\n\nThe tasting room features a beautiful terrace with vineyard views, and the estate hosts regular events including live music, wine dinners, and harvest celebrations.",
       "known_for": [
         "Sangiovese Blends",
         "Bestow Dessert Wine",
         "Riesling",
         "Pinot Grigio",
-        "Dry Ros\u00e9"
+        "Dry Rosé"
       ],
       "amenities": [
         "Tasting Room",
@@ -423,14 +423,14 @@
       "address": "12011 Center Rd, Traverse City, MI 49686",
       "phone": "(231) 282-9463",
       "website": "https://www.bonobowinery.com",
-      "hours": "Mon\u2013Sat 11am\u20136pm \u00b7 Sun 12\u20135pm",
+      "hours": "Mon–Sat 11am–6pm · Sun 12–5pm",
       "description": "A boutique winery focused on small-batch, handcrafted wines. Bonobo is known for its intimate tasting experience and commitment to sustainable practices.",
-      "long_description": "Bonobo Winery brings a boutique sensibility to Old Mission Peninsula, producing small-batch wines with meticulous attention to detail. Named after the bonobo primate \u2014 known for its social, peaceful nature \u2014 the winery reflects a philosophy of community, sustainability, and craftsmanship.\n\nThe intimate tasting room provides a personal, unhurried experience that stands in pleasant contrast to larger estates. The knowledgeable staff guides visitors through carefully curated flights that highlight the range of what Old Mission Peninsula terroir can achieve.\n\nThe wine portfolio focuses on quality over quantity, with limited-production wines made from estate and locally sourced grapes. Their Pinot Noir and Chardonnay are particularly noteworthy, showing a Burgundian elegance that speaks to the region's cool-climate potential.\n\nBonobo's commitment to sustainable viticulture and minimal-intervention winemaking resonates with a growing audience of environmentally conscious wine enthusiasts.",
+      "long_description": "Bonobo Winery brings a boutique sensibility to Old Mission Peninsula, producing small-batch wines with meticulous attention to detail. Named after the bonobo primate — known for its social, peaceful nature — the winery reflects a philosophy of community, sustainability, and craftsmanship.\n\nThe intimate tasting room provides a personal, unhurried experience that stands in pleasant contrast to larger estates. The knowledgeable staff guides visitors through carefully curated flights that highlight the range of what Old Mission Peninsula terroir can achieve.\n\nThe wine portfolio focuses on quality over quantity, with limited-production wines made from estate and locally sourced grapes. Their Pinot Noir and Chardonnay are particularly noteworthy, showing a Burgundian elegance that speaks to the region's cool-climate potential.\n\nBonobo's commitment to sustainable viticulture and minimal-intervention winemaking resonates with a growing audience of environmentally conscious wine enthusiasts.",
       "known_for": [
         "Pinot Noir",
         "Chardonnay",
         "Pinot Meunier",
-        "Dry Ros\u00e9",
+        "Dry Rosé",
         "Blanc de Blancs"
       ],
       "amenities": [
@@ -469,13 +469,13 @@
       "address": "806 Red Dr, Traverse City, MI 49684",
       "phone": "(231) 995-0500",
       "website": "https://www.leftfootcharley.com",
-      "hours": "Mon\u2013Sat 12\u20138pm \u00b7 Sun 12\u20136pm",
+      "hours": "Mon–Sat 12–8pm · Sun 12–6pm",
       "description": "Located in the historic Village at Grand Traverse Commons, Left Foot Charley is an urban winery known for natural winemaking, exceptional Rieslings, and a vibrant tasting room atmosphere.",
-      "long_description": "Left Foot Charley breaks the mold of traditional Traverse City wineries. Located not on a scenic peninsula road but in the historic Village at Grand Traverse Commons \u2014 a beautifully repurposed former state hospital campus \u2014 the winery brings an urban, artisanal energy to the region's wine scene.\n\nWinemaker Bryan Ulbrich is one of the region's most respected and innovative producers. His approach emphasizes natural winemaking: native yeasts, minimal intervention, and a deep respect for what the grapes and the vintage want to express. The results are wines of remarkable purity and character.\n\nLeft Foot Charley's Rieslings are widely considered among the finest in the state, ranging from bone-dry to lusciously sweet. The Blaufr\u00e4nkisch (a rare Austrian red variety) and the P\u00e9tillant Naturel sparkling wines showcase Ulbrich's adventurous spirit.\n\nThe tasting room has a lively, community-oriented atmosphere, with regular live music, food pop-ups, and wine release events. It's a must-visit for anyone interested in the cutting edge of Michigan winemaking.",
+      "long_description": "Left Foot Charley breaks the mold of traditional Traverse City wineries. Located not on a scenic peninsula road but in the historic Village at Grand Traverse Commons — a beautifully repurposed former state hospital campus — the winery brings an urban, artisanal energy to the region's wine scene.\n\nWinemaker Bryan Ulbrich is one of the region's most respected and innovative producers. His approach emphasizes natural winemaking: native yeasts, minimal intervention, and a deep respect for what the grapes and the vintage want to express. The results are wines of remarkable purity and character.\n\nLeft Foot Charley's Rieslings are widely considered among the finest in the state, ranging from bone-dry to lusciously sweet. The Blaufränkisch (a rare Austrian red variety) and the Pétillant Naturel sparkling wines showcase Ulbrich's adventurous spirit.\n\nThe tasting room has a lively, community-oriented atmosphere, with regular live music, food pop-ups, and wine release events. It's a must-visit for anyone interested in the cutting edge of Michigan winemaking.",
       "known_for": [
         "Riesling",
-        "Blaufr\u00e4nkisch",
-        "P\u00e9tillant Naturel",
+        "Blaufränkisch",
+        "Pétillant Naturel",
         "Pinot Blanc",
         "Cider"
       ],
@@ -492,17 +492,17 @@
       "wine_club": {
         "name": "LFC Wine Club",
         "tiers": [
-          "Club 53 \u2014 3 bottles/quarter (~$70/release)",
-          "Club 63 \u2014 6 bottles/quarter (~$140/release)",
-          "Rooted \u2014 12 bottles/quarter (~$250/release)"
+          "Club 53 — 3 bottles/quarter (~$70/release)",
+          "Club 63 — 6 bottles/quarter (~$140/release)",
+          "Rooted — 12 bottles/quarter (~$250/release)"
         ],
         "shipments_per_year": 4,
         "bottles_per_shipment": "3, 6, or 12",
-        "avg_per_shipment": "$70\u2013$250",
+        "avg_per_shipment": "$70–$250",
         "discount": "15% off (Club 53), 20% off (Club 63)",
         "perks": [
           "4 releases/year (Feb, May, Aug, Nov)",
-          "15\u201320% off wine & cider by glass, bottle or growler",
+          "15–20% off wine & cider by glass, bottle or growler",
           "First access to new releases & library wines",
           "Exclusive vineyard visits & winemaker tastings",
           "25% off every Monday in the Barrel Room",
@@ -521,15 +521,15 @@
       "address": "4519 S Elm Valley Rd, Suttons Bay, MI 49682",
       "phone": "(231) 271-3522",
       "website": "https://www.lmawby.com",
-      "hours": "Thu\u2013Mon 12\u20135pm (Seasonal)",
-      "description": "Michigan's premier sparkling wine house, L. Mawby produces m\u00e9thode traditionnelle bubbles that rival those of much more famous regions. A Leelanau Peninsula icon and a must-visit for sparkling wine lovers.",
-      "long_description": "L. Mawby is a true original \u2014 a winery that committed entirely to sparkling wine at a time when Michigan's wine industry was still in its infancy. Larry Mawby founded the estate in 1973, and his single-minded dedication to bubbles has produced some of the most celebrated sparkling wines in the United States.\n\nThe wines are made using m\u00e9thode traditionnelle \u2014 the same painstaking, bottle-fermented process used in Champagne. The result is sparkling wines of remarkable finesse and complexity, with fine bubbles and flavors that develop beautifully over time.\n\nL. Mawby produces two lines: the L. Mawby label for vintage-dated, premium sparklings, and the M. Lawrence label for more accessible, fruit-forward bubbles. Both are exceptional values compared to imported sparkling wines of similar quality.\n\nThe intimate tasting room, surrounded by vineyards on a quiet Leelanau back road, offers a refreshingly low-key experience. Tastings are by appointment and feel more like visiting a friend's wine cellar than a commercial operation. Larry Mawby's poetry \u2014 he's a published poet as well as a winemaker \u2014 adorns the labels, adding a literary dimension to the experience.",
+      "hours": "Thu–Mon 12–5pm (Seasonal)",
+      "description": "Michigan's premier sparkling wine house, L. Mawby produces méthode traditionnelle bubbles that rival those of much more famous regions. A Leelanau Peninsula icon and a must-visit for sparkling wine lovers.",
+      "long_description": "L. Mawby is a true original — a winery that committed entirely to sparkling wine at a time when Michigan's wine industry was still in its infancy. Larry Mawby founded the estate in 1973, and his single-minded dedication to bubbles has produced some of the most celebrated sparkling wines in the United States.\n\nThe wines are made using méthode traditionnelle — the same painstaking, bottle-fermented process used in Champagne. The result is sparkling wines of remarkable finesse and complexity, with fine bubbles and flavors that develop beautifully over time.\n\nL. Mawby produces two lines: the L. Mawby label for vintage-dated, premium sparklings, and the M. Lawrence label for more accessible, fruit-forward bubbles. Both are exceptional values compared to imported sparkling wines of similar quality.\n\nThe intimate tasting room, surrounded by vineyards on a quiet Leelanau back road, offers a refreshingly low-key experience. Tastings are by appointment and feel more like visiting a friend's wine cellar than a commercial operation. Larry Mawby's poetry — he's a published poet as well as a winemaker — adorns the labels, adding a literary dimension to the experience.",
       "known_for": [
-        "M\u00e9thode Traditionnelle Sparkling",
+        "Méthode Traditionnelle Sparkling",
         "Blanc de Blancs",
         "Talismon Brut",
         "M. Lawrence Fizz",
-        "Sex (Sparkling Ros\u00e9)"
+        "Sex (Sparkling Rosé)"
       ],
       "amenities": [
         "Tasting Room (By Appointment)",
@@ -571,13 +571,13 @@
       "address": "10343 E Hilltop Rd, Suttons Bay, MI 49682",
       "phone": "(231) 271-5553",
       "website": "https://www.cicconevineyard.com",
-      "hours": "Mon\u2013Sat 12\u20136pm \u00b7 Sun 12\u20135pm",
+      "hours": "Mon–Sat 12–6pm · Sun 12–5pm",
       "description": "A family-owned estate producing Italian-inspired wines on the Leelanau Peninsula. Ciccone Vineyard brings an authentic Italian winemaking heritage to northern Michigan.",
-      "long_description": "Ciccone Vineyard & Winery is a family passion project that brings authentic Italian winemaking tradition to the rolling hills of Leelanau Peninsula. Founded by Tony Ciccone, the estate draws on his Italian-American heritage to produce wines that honor Old World traditions while embracing New World terroir.\n\nThe vineyard sits on a beautiful hilltop property with views across Leelanau's agricultural landscape. The estate grows a mix of European vinifera and hybrid varieties, producing a diverse portfolio that ranges from dry, food-friendly reds to aromatic whites and sweet dessert wines.\n\nCiccone's Dolcetto and Cabernet Franc are standouts in the red wine category, showing an Italian-influenced elegance and structure. The Gew\u00fcrztraminer and Pinot Grigio are aromatic and refreshing, perfect for warm-weather sipping.\n\nThe tasting room experience is intimate and personal, reflecting the family's genuine hospitality. Visitors often find themselves chatting with family members behind the bar, learning about the wines and the stories behind them.",
+      "long_description": "Ciccone Vineyard & Winery is a family passion project that brings authentic Italian winemaking tradition to the rolling hills of Leelanau Peninsula. Founded by Tony Ciccone, the estate draws on his Italian-American heritage to produce wines that honor Old World traditions while embracing New World terroir.\n\nThe vineyard sits on a beautiful hilltop property with views across Leelanau's agricultural landscape. The estate grows a mix of European vinifera and hybrid varieties, producing a diverse portfolio that ranges from dry, food-friendly reds to aromatic whites and sweet dessert wines.\n\nCiccone's Dolcetto and Cabernet Franc are standouts in the red wine category, showing an Italian-influenced elegance and structure. The Gewürztraminer and Pinot Grigio are aromatic and refreshing, perfect for warm-weather sipping.\n\nThe tasting room experience is intimate and personal, reflecting the family's genuine hospitality. Visitors often find themselves chatting with family members behind the bar, learning about the wines and the stories behind them.",
       "known_for": [
         "Dolcetto",
         "Cabernet Franc",
-        "Gew\u00fcrztraminer",
+        "Gewürztraminer",
         "Pinot Grigio",
         "Dolce Vita Dessert Wine"
       ],
@@ -617,9 +617,9 @@
       "address": "34 S Manitou Trail, Lake Leelanau, MI 49653",
       "phone": "(231) 256-7165",
       "website": "https://www.goodharbor.com",
-      "hours": "Mon\u2013Sat 11am\u20135pm \u00b7 Sun 12\u20135pm",
+      "hours": "Mon–Sat 11am–5pm · Sun 12–5pm",
       "description": "One of Leelanau's original wineries, Good Harbor Vineyards has been producing award-winning wines since 1980. Known for their Fishtown White and consistent quality across their entire portfolio.",
-      "long_description": "Good Harbor Vineyards is one of the founding estates of Leelanau Peninsula's wine industry. Since 1980, the Simpson family has produced honest, well-crafted wines that reflect the character of the region.\n\nThe winery is best known for Fishtown White, a semi-sweet blend that has become one of the most popular wines in northern Michigan. But the portfolio extends well beyond crowd-pleasers \u2014 their dry Pinot Grigio, Riesling, and Chardonnay are consistently excellent, and their Moonstruck dessert wine is a regional treasure.\n\nLocated near the village of Lake Leelanau, Good Harbor benefits from the unique microclimate created by Lake Michigan and the surrounding terrain. The estate vineyards are planted on well-drained glacial soils that stress the vines just enough to concentrate flavors.\n\nThe tasting room is welcoming and unpretentious, with a knowledgeable staff that's happy to guide visitors through the range. Good Harbor is a reliable stop on any Leelanau wine trail itinerary.",
+      "long_description": "Good Harbor Vineyards is one of the founding estates of Leelanau Peninsula's wine industry. Since 1980, the Simpson family has produced honest, well-crafted wines that reflect the character of the region.\n\nThe winery is best known for Fishtown White, a semi-sweet blend that has become one of the most popular wines in northern Michigan. But the portfolio extends well beyond crowd-pleasers — their dry Pinot Grigio, Riesling, and Chardonnay are consistently excellent, and their Moonstruck dessert wine is a regional treasure.\n\nLocated near the village of Lake Leelanau, Good Harbor benefits from the unique microclimate created by Lake Michigan and the surrounding terrain. The estate vineyards are planted on well-drained glacial soils that stress the vines just enough to concentrate flavors.\n\nThe tasting room is welcoming and unpretentious, with a knowledgeable staff that's happy to guide visitors through the range. Good Harbor is a reliable stop on any Leelanau wine trail itinerary.",
       "known_for": [
         "Fishtown White",
         "Pinot Grigio",
@@ -666,9 +666,9 @@
       "address": "8580 E Horn Rd, Lake Leelanau, MI 49653",
       "phone": "(231) 256-2564",
       "website": "https://www.fortyfivenorth.com",
-      "hours": "Daily 11am\u20136pm (Seasonal)",
+      "hours": "Daily 11am–6pm (Seasonal)",
       "description": "Named for the 45th parallel that runs through the property, Forty-Five North is known for bold reds and a stunning hilltop setting overlooking Lake Leelanau.",
-      "long_description": "Forty-Five North Vineyard & Winery takes its name from the 45th parallel \u2014 the latitude that runs directly through the property, placing it exactly halfway between the equator and the North Pole. This geographic sweet spot, shared with Bordeaux and Piedmont, contributes to the exceptional quality of their wines.\n\nThe winery is set on a beautiful hilltop with sweeping views of Lake Leelanau and the surrounding countryside. The modern tasting room makes the most of the setting, with large windows and an outdoor deck that invite you to linger.\n\nForty-Five North has built a strong reputation for red wines \u2014 unusual for a cool-climate region. Their Cabernet Franc and red blends show surprising depth and structure, while their whites, particularly the Pinot Blanc and Riesling, are crisp and well-balanced.\n\nThe winery also produces hard ciders from local apples, offering a refreshing alternative for non-wine drinkers in the group.",
+      "long_description": "Forty-Five North Vineyard & Winery takes its name from the 45th parallel — the latitude that runs directly through the property, placing it exactly halfway between the equator and the North Pole. This geographic sweet spot, shared with Bordeaux and Piedmont, contributes to the exceptional quality of their wines.\n\nThe winery is set on a beautiful hilltop with sweeping views of Lake Leelanau and the surrounding countryside. The modern tasting room makes the most of the setting, with large windows and an outdoor deck that invite you to linger.\n\nForty-Five North has built a strong reputation for red wines — unusual for a cool-climate region. Their Cabernet Franc and red blends show surprising depth and structure, while their whites, particularly the Pinot Blanc and Riesling, are crisp and well-balanced.\n\nThe winery also produces hard ciders from local apples, offering a refreshing alternative for non-wine drinkers in the group.",
       "known_for": [
         "Cabernet Franc",
         "Red Blends",
@@ -714,15 +714,15 @@
       "address": "9580 Shady Ln, Suttons Bay, MI 49682",
       "phone": "(231) 947-8865",
       "website": "https://www.shadylanecellars.com",
-      "hours": "Daily 11am\u20136pm",
+      "hours": "Daily 11am–6pm",
       "description": "Set in a beautifully restored 1800s fieldstone chicken coop, Shady Lane Cellars produces elegant, cool-climate wines with a focus on Riesling and Pinot Noir.",
-      "long_description": "Shady Lane Cellars is one of Leelanau Peninsula's most charming wineries, housed in a beautifully restored 1800s fieldstone building that was originally a chicken coop. The rustic-elegant setting perfectly matches the winery's approach to winemaking: respectful of tradition, attentive to detail, and full of character.\n\nThe winery has built an excellent reputation for cool-climate varietals, with particular strength in Riesling and Pinot Noir. Their Rieslings span the sweetness spectrum from bone-dry to late harvest, all showing the minerality and acidity that distinguish great Riesling. The Pinot Noir is elegant and expressive, reflecting careful vineyard management and gentle winemaking.\n\nShady Lane also produces notable Cabernet Franc, Gr\u00fcner Veltliner, and a popular Ros\u00e9 that sells out quickly each vintage. The winemaking team takes a minimal-intervention approach, letting the fruit and terroir express themselves with clarity.\n\nThe peaceful, tree-lined setting on a quiet back road feels a world away from the bustle of tourist season, making Shady Lane an ideal stop for visitors seeking a more contemplative wine-tasting experience.",
+      "long_description": "Shady Lane Cellars is one of Leelanau Peninsula's most charming wineries, housed in a beautifully restored 1800s fieldstone building that was originally a chicken coop. The rustic-elegant setting perfectly matches the winery's approach to winemaking: respectful of tradition, attentive to detail, and full of character.\n\nThe winery has built an excellent reputation for cool-climate varietals, with particular strength in Riesling and Pinot Noir. Their Rieslings span the sweetness spectrum from bone-dry to late harvest, all showing the minerality and acidity that distinguish great Riesling. The Pinot Noir is elegant and expressive, reflecting careful vineyard management and gentle winemaking.\n\nShady Lane also produces notable Cabernet Franc, Grüner Veltliner, and a popular Rosé that sells out quickly each vintage. The winemaking team takes a minimal-intervention approach, letting the fruit and terroir express themselves with clarity.\n\nThe peaceful, tree-lined setting on a quiet back road feels a world away from the bustle of tourist season, making Shady Lane an ideal stop for visitors seeking a more contemplative wine-tasting experience.",
       "known_for": [
         "Riesling",
         "Pinot Noir",
         "Cabernet Franc",
-        "Gr\u00fcner Veltliner",
-        "Ros\u00e9"
+        "Grüner Veltliner",
+        "Rosé"
       ],
       "amenities": [
         "Tasting Room",
@@ -764,7 +764,7 @@
       "address": "5019 N West Bay Shore Dr, Omena, MI 49674",
       "phone": "(231) 386-5201",
       "website": "https://www.leelanaucellars.com",
-      "hours": "Mon\u2013Sat 10am\u20136pm \u00b7 Sun 12\u20135pm",
+      "hours": "Mon–Sat 10am–6pm · Sun 12–5pm",
       "description": "One of the original Leelanau Peninsula wineries, Leelanau Cellars has been producing wines since 1974. Known for a wide range of approachable wines and their popular Witches Brew.",
       "long_description": "Leelanau Cellars holds an important place in the history of Michigan wine. As one of the first wineries established on the Leelanau Peninsula in 1974, it helped pioneer the region's transformation from cherry farming to wine production.\n\nOver the decades, Leelanau Cellars has built a loyal following for its approachable, well-priced wines. The portfolio is broad, ranging from dry table wines to sweet fruit wines, ensuring there's something for every palate. Their Witches Brew, a spiced red wine released each fall, has become a beloved seasonal tradition throughout Michigan.\n\nThe winery's location on the western shore of the peninsula, near the village of Omena, offers lovely water views and a relaxed atmosphere. The tasting room is spacious and welcoming, with a knowledgeable staff that's happy to help visitors navigate the extensive wine list.\n\nLeelanau Cellars also operates a second tasting room in downtown Traverse City, making their wines accessible to visitors who may not have time to drive the full peninsula wine trail.",
       "known_for": [
@@ -817,15 +817,15 @@
       "address": "9720 S Center Hwy, Traverse City, MI 49684",
       "phone": "(231) 228-4017",
       "website": "https://www.brengmanbrothers.com",
-      "hours": "Daily 11am\u20136pm",
+      "hours": "Daily 11am–6pm",
       "description": "A newer addition to the Leelanau wine trail, Brengman Brothers has quickly earned acclaim for their well-crafted wines and warm, lodge-like tasting room.",
-      "long_description": "Brengman Brothers is a relatively newer addition to the Leelanau Peninsula wine scene, but it has quickly established itself as a must-visit destination. The brothers bring a fresh energy to the region while respecting the winemaking traditions that have made Traverse City a world-class wine destination.\n\nThe tasting room has a warm, lodge-like atmosphere that's perfect for northern Michigan \u2014 think exposed wood beams, a stone fireplace, and comfortable seating that invites you to stay a while. The outdoor patio is a popular gathering spot in summer.\n\nThe wine portfolio is focused and well-executed, with strengths in both white and red wines. Their Pinot Grigio and Riesling are crisp and refreshing, while their red blends show impressive depth and balance. The winery also produces a popular hard cider for those seeking something different.\n\nBrengman Brothers has built a strong reputation for hospitality, and the tasting room team goes out of their way to create a memorable experience for every visitor.",
+      "long_description": "Brengman Brothers is a relatively newer addition to the Leelanau Peninsula wine scene, but it has quickly established itself as a must-visit destination. The brothers bring a fresh energy to the region while respecting the winemaking traditions that have made Traverse City a world-class wine destination.\n\nThe tasting room has a warm, lodge-like atmosphere that's perfect for northern Michigan — think exposed wood beams, a stone fireplace, and comfortable seating that invites you to stay a while. The outdoor patio is a popular gathering spot in summer.\n\nThe wine portfolio is focused and well-executed, with strengths in both white and red wines. Their Pinot Grigio and Riesling are crisp and refreshing, while their red blends show impressive depth and balance. The winery also produces a popular hard cider for those seeking something different.\n\nBrengman Brothers has built a strong reputation for hospitality, and the tasting room team goes out of their way to create a memorable experience for every visitor.",
       "known_for": [
         "Pinot Grigio",
         "Riesling",
         "Red Blends",
         "Hard Cider",
-        "Ros\u00e9"
+        "Rosé"
       ],
       "amenities": [
         "Tasting Room",
@@ -864,9 +864,9 @@
       "address": "5620 N Manitou Trail, Northport, MI 49670",
       "phone": "(231) 256-7003",
       "website": "https://www.gillspier.com",
-      "hours": "Daily 12\u20135pm (Seasonal)",
+      "hours": "Daily 12–5pm (Seasonal)",
       "description": "A small, quality-focused winery in the northern reaches of Leelanau Peninsula. Gill's Pier produces limited quantities of handcrafted wines from their estate vineyard.",
-      "long_description": "Gill's Pier Vineyard & Winery occupies a special niche on the Leelanau Peninsula \u2014 a small, quality-focused estate producing limited quantities of handcrafted wines. Located in the northern reaches of the peninsula near Northport, the winery benefits from the unique microclimate created by the surrounding bodies of water.\n\nThe estate vineyard is planted to varieties that thrive in the cool climate, including Riesling, Pinot Noir, and Pinot Gris. The winemaking approach is hands-on and attentive, with small lot sizes allowing for careful control at every stage of production.\n\nGill's Pier wines are known for their purity and sense of place. The Riesling is elegant and mineral-driven, the Pinot Noir is delicate and earthy, and the Pinot Gris is crisp and aromatic. Production is limited, so certain wines sell out quickly.\n\nThe tasting room is intimate and personal \u2014 you may well find yourself chatting with the winemaker. The drive to the northern end of the peninsula is scenic and rewarding, passing through cherry orchards and along the lakefront.",
+      "long_description": "Gill's Pier Vineyard & Winery occupies a special niche on the Leelanau Peninsula — a small, quality-focused estate producing limited quantities of handcrafted wines. Located in the northern reaches of the peninsula near Northport, the winery benefits from the unique microclimate created by the surrounding bodies of water.\n\nThe estate vineyard is planted to varieties that thrive in the cool climate, including Riesling, Pinot Noir, and Pinot Gris. The winemaking approach is hands-on and attentive, with small lot sizes allowing for careful control at every stage of production.\n\nGill's Pier wines are known for their purity and sense of place. The Riesling is elegant and mineral-driven, the Pinot Noir is delicate and earthy, and the Pinot Gris is crisp and aromatic. Production is limited, so certain wines sell out quickly.\n\nThe tasting room is intimate and personal — you may well find yourself chatting with the winemaker. The drive to the northern end of the peninsula is scenic and rewarding, passing through cherry orchards and along the lakefront.",
       "known_for": [
         "Riesling",
         "Pinot Noir",
@@ -909,13 +909,13 @@
       "address": "6530 S Lake Shore Dr, Cedar, MI 49621",
       "phone": "(231) 228-4800",
       "website": "https://www.bellago.com",
-      "hours": "Mon\u2013Sat 12\u20135pm \u00b7 Sun 12\u20135pm",
+      "hours": "Mon–Sat 12–5pm · Sun 12–5pm",
       "description": "Perched above Lake Leelanau, Bel Lago is known for its stunning views, estate-grown wines, and Italian-inspired approach to winemaking.",
-      "long_description": "Bel Lago Vineyard & Winery \u2014 'beautiful lake' in Italian \u2014 earns its name with one of the most stunning settings on the Leelanau Peninsula. Perched on a bluff above Lake Leelanau, the estate offers sweeping views that enhance every visit.\n\nThe winery takes an estate-focused approach, growing the majority of their grapes on their own vineyards. This control over the farming allows winemaker Charlie Edson to make decisions in the vineyard that directly influence the quality and character of the final wines.\n\nBel Lago's Auxerrois is a standout \u2014 this rare Alsatian variety thrives in the local climate and produces a wine unlike anything else in the region. Their Pinot Noir and Gew\u00fcrztraminer are also excellent, showing the range of what Leelanau terroir can achieve.\n\nThe tasting room is warm and inviting, and the outdoor deck \u2014 overlooking the lake and vineyards \u2014 is one of the finest spots in wine country to enjoy a glass of wine on a summer afternoon.",
+      "long_description": "Bel Lago Vineyard & Winery — 'beautiful lake' in Italian — earns its name with one of the most stunning settings on the Leelanau Peninsula. Perched on a bluff above Lake Leelanau, the estate offers sweeping views that enhance every visit.\n\nThe winery takes an estate-focused approach, growing the majority of their grapes on their own vineyards. This control over the farming allows winemaker Charlie Edson to make decisions in the vineyard that directly influence the quality and character of the final wines.\n\nBel Lago's Auxerrois is a standout — this rare Alsatian variety thrives in the local climate and produces a wine unlike anything else in the region. Their Pinot Noir and Gewürztraminer are also excellent, showing the range of what Leelanau terroir can achieve.\n\nThe tasting room is warm and inviting, and the outdoor deck — overlooking the lake and vineyards — is one of the finest spots in wine country to enjoy a glass of wine on a summer afternoon.",
       "known_for": [
         "Auxerrois",
         "Pinot Noir",
-        "Gew\u00fcrztraminer",
+        "Gewürztraminer",
         "Chardonnay",
         "Estate Wines"
       ],
@@ -956,14 +956,14 @@
       "address": "103 E River St, Leland, MI 49654",
       "phone": "(231) 256-2115",
       "website": "https://www.verterrawinery.com",
-      "hours": "Daily 12\u20136pm (Seasonal)",
+      "hours": "Daily 12–6pm (Seasonal)",
       "description": "An artisan winery located in the charming village of Leland, Verterra produces small-batch wines that showcase the distinctive terroir of Leelanau Peninsula.",
-      "long_description": "Verterra Winery brings a boutique, artisan approach to Leelanau Peninsula winemaking. Located in the charming village of Leland \u2014 home to the famous Fishtown historic district \u2014 the winery offers a convenient and delightful tasting experience in one of northern Michigan's most picturesque settings.\n\nThe name Verterra comes from 'truth of the earth,' and the wines reflect this philosophy. Winemaker Paul Quester sources grapes from carefully selected Leelanau vineyards and works with minimal intervention to let the terroir speak through each bottle.\n\nThe portfolio is thoughtfully curated, with strengths in aromatic whites like Gr\u00fcner Veltliner and Gew\u00fcrztraminer, elegant Pinot Noir, and a distinctive orange wine that showcases the winery's experimental spirit. Production is small, and the wines are primarily available at the tasting room.\n\nVerterra's Leland location makes it easy to combine a tasting visit with exploration of Fishtown, shopping in the village's galleries and boutiques, and lunch at one of the excellent local restaurants.",
+      "long_description": "Verterra Winery brings a boutique, artisan approach to Leelanau Peninsula winemaking. Located in the charming village of Leland — home to the famous Fishtown historic district — the winery offers a convenient and delightful tasting experience in one of northern Michigan's most picturesque settings.\n\nThe name Verterra comes from 'truth of the earth,' and the wines reflect this philosophy. Winemaker Paul Quester sources grapes from carefully selected Leelanau vineyards and works with minimal intervention to let the terroir speak through each bottle.\n\nThe portfolio is thoughtfully curated, with strengths in aromatic whites like Grüner Veltliner and Gewürztraminer, elegant Pinot Noir, and a distinctive orange wine that showcases the winery's experimental spirit. Production is small, and the wines are primarily available at the tasting room.\n\nVerterra's Leland location makes it easy to combine a tasting visit with exploration of Fishtown, shopping in the village's galleries and boutiques, and lunch at one of the excellent local restaurants.",
       "known_for": [
-        "Gr\u00fcner Veltliner",
+        "Grüner Veltliner",
         "Pinot Noir",
         "Orange Wine",
-        "Gew\u00fcrztraminer",
+        "Gewürztraminer",
         "Small-Batch Wines"
       ],
       "amenities": [
@@ -1000,7 +1000,7 @@
       "address": "1000 Camino Maria Dr, Traverse City, MI 49686",
       "phone": "(231) 929-4206",
       "website": "https://www.hawthornevineyards.com",
-      "hours": "Daily 12\u20136pm (seasonal)",
+      "hours": "Daily 12–6pm (seasonal)",
       "known_for": [
         "Riesling",
         "Pinot Grigio",
@@ -1010,7 +1010,8 @@
       "slug": "hawthorne-vineyards",
       "featured": false,
       "lat": 44.9312,
-      "lng": -85.4701
+      "lng": -85.4701,
+      "description": "Hawthorne Vineyards occupies one of the most dramatic ridge-top positions on Old Mission Peninsula, perched above Peninsula Drive with sweeping views over both East and West Grand Traverse Bay."
     },
     {
       "name": "Tabone Vineyards",
@@ -1019,7 +1020,7 @@
       "address": "14916 Peninsula Dr, Traverse City, MI 49686",
       "phone": "(231) 223-4101",
       "website": "https://tabonevineyards.com",
-      "hours": "Thu\u2013Sun 12\u20135pm (seasonal)",
+      "hours": "Thu–Sun 12–5pm (seasonal)",
       "known_for": [
         "Riesling",
         "Pinot Blanc",
@@ -1028,7 +1029,8 @@
       "slug": "tabone-vineyards",
       "featured": false,
       "lat": 44.9512,
-      "lng": -85.4645
+      "lng": -85.4645,
+      "description": "Tabone Vineyards is a small-batch estate winery with roots stretching back more than 30 years on Old Mission Peninsula, making it one of the longer-tenured family operations on the wine trail."
     },
     {
       "name": "Aurora Cellars",
@@ -1037,11 +1039,11 @@
       "address": "5062 N. West Bay Shore Dr, Lake Leelanau, MI 49653",
       "phone": "(231) 271-2838",
       "website": "https://www.auroracellars.com",
-      "hours": "Daily 11am\u20136pm (seasonal)",
+      "hours": "Daily 11am–6pm (seasonal)",
       "known_for": [
         "Pinot Grigio",
         "Riesling",
-        "Ros\u00e9",
+        "Rosé",
         "Red Blends"
       ],
       "slug": "aurora-cellars",
@@ -1056,19 +1058,20 @@
         ],
         "shipments_per_year": 2,
         "bottles_per_shipment": "Varies",
-        "discount": "15\u201325% off depending on tier",
+        "discount": "15–25% off depending on tier",
         "perks": [
           "2 allocations/year (Spring & Fall)",
-          "15\u201325% off wine & glass pours",
+          "15–25% off wine & glass pours",
           "Access to exclusive wines",
           "Priority invitations to special events",
-          "Loyalty points (2\u20133x per dollar)",
+          "Loyalty points (2–3x per dollar)",
           "Private vineyard tours & winemaker tastings (Proprietor)",
           "Overnight Estate stays (Proprietor)"
         ],
         "url": "https://www.auroracellars.com/wine-club",
         "fee": "No membership fee"
-      }
+      },
+      "description": "Aurora Cellars has cultivated a well-deserved reputation as one of Leelanau Peninsula's finest hidden gems — a boutique winery nestled in the heart of the wine trail that rewards visitors who seek it out with exceptional wines and genuinely warm hospitality."
     },
     {
       "name": "Blustone Vineyards",
@@ -1077,17 +1080,18 @@
       "address": "780 N. Sylt Rd, Lake Leelanau, MI 49653",
       "phone": "(231) 271-4860",
       "website": "https://www.blustonevineyards.com",
-      "hours": "Daily 12\u20136pm (seasonal)",
+      "hours": "Daily 12–6pm (seasonal)",
       "known_for": [
         "Pinot Blanc",
         "Riesling",
-        "Ros\u00e9",
+        "Rosé",
         "Pinot Noir"
       ],
       "slug": "blustone-vineyards",
       "featured": false,
       "lat": 45.0812,
-      "lng": -85.7923
+      "lng": -85.7923,
+      "description": "Blustone Vineyards offers one of the most visually striking tasting experiences on Leelanau Peninsula, with a sleek modern tasting room featuring floor-to-ceiling windows that wrap the visitor in a complete 360-degree vineyard panorama."
     },
     {
       "name": "Boathouse Vineyards",
@@ -1096,17 +1100,18 @@
       "address": "3808 S. Lake Leelanau Dr, Lake Leelanau, MI 49653",
       "phone": "(231) 271-6222",
       "website": "https://www.boathousevineyards.com",
-      "hours": "Daily 12\u20136pm (seasonal)",
+      "hours": "Daily 12–6pm (seasonal)",
       "known_for": [
         "Pinot Grigio",
         "Riesling",
-        "Ros\u00e9",
+        "Rosé",
         "Cab Franc"
       ],
       "slug": "boathouse-vineyards",
       "featured": false,
       "lat": 44.9634,
-      "lng": -85.7812
+      "lng": -85.7812,
+      "description": "Boathouse Vineyards occupies one of the most serene and distinctive locations on Leelanau Peninsula — positioned directly on The Narrows, the waterway connecting North and South Lake Leelanau, with boat traffic drifting past the patio as you taste."
     },
     {
       "name": "Rove Estate",
@@ -1115,17 +1120,18 @@
       "address": "7007 E. Traverse Hwy, Traverse City, MI 49684",
       "phone": "(231) 932-7683",
       "website": "https://www.roveestate.com",
-      "hours": "Daily 12\u20137pm (seasonal)",
+      "hours": "Daily 12–7pm (seasonal)",
       "known_for": [
         "Chardonnay",
         "Pinot Noir",
-        "Dry Ros\u00e9",
+        "Dry Rosé",
         "Hard Cider"
       ],
       "slug": "rove-estate",
       "featured": false,
       "lat": 45.0234,
-      "lng": -85.7712
+      "lng": -85.7712,
+      "description": "Rove Estate commands what may be the single most dramatic vantage point on Leelanau Peninsula — perched at 1,165 feet, the highest tasting room in Leelanau County, with panoramic views that sweep across vineyards, farmland, and distant lakes in every direction."
     },
     {
       "name": "Chateau Fontaine",
@@ -1134,7 +1140,7 @@
       "address": "2290 S. French Rd, Lake Leelanau, MI 49653",
       "phone": "(231) 256-0000",
       "website": "https://www.chateaufontaine.com",
-      "hours": "Daily 11am\u20136pm (seasonal)",
+      "hours": "Daily 11am–6pm (seasonal)",
       "known_for": [
         "Pinot Grigio",
         "Chardonnay",
@@ -1144,7 +1150,8 @@
       "slug": "chateau-fontaine",
       "featured": false,
       "lat": 44.9812,
-      "lng": -85.7634
+      "lng": -85.7634,
+      "description": "Chateau Fontaine sits on 75 acres of rolling Leelanau Peninsula farmland that was once a potato farm — a transformation that mirrors the broader story of Michigan wine country, where agricultural land found its highest calling not in row crops but in vineyards."
     },
     {
       "name": "Raftshol Vineyards",
@@ -1153,7 +1160,7 @@
       "address": "1865 N. West Bay Shore Dr, Suttons Bay, MI 49682",
       "phone": "(231) 271-5650",
       "website": "https://www.raftshol.com",
-      "hours": "Thu\u2013Sun 12\u20135pm (seasonal)",
+      "hours": "Thu–Sun 12–5pm (seasonal)",
       "known_for": [
         "Cab Franc",
         "Merlot",
@@ -1163,7 +1170,8 @@
       "slug": "raftshol-vineyards",
       "featured": false,
       "lat": 45.0512,
-      "lng": -85.8034
+      "lng": -85.8034,
+      "description": "Raftshol Vineyards is one of the more historically significant producers on Leelanau Peninsula — a family farm that brothers Warren and Curtis Raftshol transformed into a winery in 1985 and which helped pioneer red vinifera viticulture in a region better known for aromatic whites."
     },
     {
       "name": "Willow Vineyard",
@@ -1172,7 +1180,7 @@
       "address": "10702 E. Hilltop Rd, Suttons Bay, MI 49682",
       "phone": "(231) 271-4810",
       "website": "https://www.willowvineyard.com",
-      "hours": "Fri\u2013Sun 12\u20135pm (seasonal)",
+      "hours": "Fri–Sun 12–5pm (seasonal)",
       "known_for": [
         "Pinot Noir",
         "Chardonnay",
@@ -1182,7 +1190,8 @@
       "slug": "willow-vineyard",
       "featured": false,
       "lat": 44.9923,
-      "lng": -85.7512
+      "lng": -85.7512,
+      "description": "Willow Vineyard occupies a spectacular wind-swept hillside above Suttons Bay, established in 1992 by John and Jo Crampton as a labor of love that has grown into one of Leelanau Peninsula's most distinctive boutique operations."
     },
     {
       "name": "Silver Leaf Vineyard & Winery",
@@ -1191,17 +1200,18 @@
       "address": "9065 E. Horn Rd, Lake Leelanau, MI 49653",
       "phone": "(231) 256-9112",
       "website": "https://www.silverleafvineyard.com",
-      "hours": "Fri\u2013Sun 11am\u20135pm (seasonal)",
+      "hours": "Fri–Sun 11am–5pm (seasonal)",
       "known_for": [
         "Chardonnay",
         "Cab Franc",
         "Cherry Wine",
-        "Ros\u00e9"
+        "Rosé"
       ],
       "slug": "silver-leaf-vineyard",
       "featured": false,
       "lat": 45.0134,
-      "lng": -85.7823
+      "lng": -85.7823,
+      "description": "Silver Leaf Vineyard & Winery offers one of the more intimate and artistically minded tasting experiences on Leelanau Peninsula — a small-batch estate operation where local artwork lines the tasting room walls and every bottle is hand-filled, reflecting a commitment to craft that extends well beyond the wine itself."
     },
     {
       "name": "Chateau de Leelanau",
@@ -1210,7 +1220,7 @@
       "address": "5048 S. West Bay Shore Dr, Suttons Bay, MI 49682",
       "phone": "(231) 271-8888",
       "website": "https://www.chateaudeleelanau.com",
-      "hours": "Daily 11am\u20136pm (seasonal)",
+      "hours": "Daily 11am–6pm (seasonal)",
       "known_for": [
         "Sparkling Wines",
         "Riesling",
@@ -1220,7 +1230,8 @@
       "slug": "chateau-de-leelanau",
       "featured": false,
       "lat": 44.9712,
-      "lng": -85.7923
+      "lng": -85.7923,
+      "description": "Chateau de Leelanau occupies a distinctive position on the Leelanau Peninsula wine trail — a winery equally committed to grape-based estate wines and to celebrating the broader agricultural heritage of the region through its Michigan fruit wine program."
     },
     {
       "name": "Good Neighbor Organic Winery",
@@ -1229,7 +1240,7 @@
       "address": "3560 N. Setterbo Rd, Suttons Bay, MI 49682",
       "phone": "(231) 271-2600",
       "website": "https://www.goodneighbororganic.com",
-      "hours": "Sat\u2013Sun 12\u20135pm (seasonal)",
+      "hours": "Sat–Sun 12–5pm (seasonal)",
       "known_for": [
         "Organic Riesling",
         "Pinot Gris",
@@ -1239,7 +1250,8 @@
       "slug": "good-neighbor-organic",
       "featured": false,
       "lat": 45.0312,
-      "lng": -85.7456
+      "lng": -85.7456,
+      "description": "Good Neighbor Organic Winery holds a unique position on Leelanau Peninsula as one of the only certified organic producers in the Traverse City wine region."
     },
     {
       "name": "Longview Winery",
@@ -1248,17 +1260,18 @@
       "address": "5975 N. West Bay Shore Dr, Northport, MI 49670",
       "phone": "(231) 386-5562",
       "website": "https://www.longviewwinery.com",
-      "hours": "Fri\u2013Sun 12\u20135pm (seasonal)",
+      "hours": "Fri–Sun 12–5pm (seasonal)",
       "known_for": [
         "Riesling",
         "Pinot Grigio",
         "Cab Franc",
-        "Ros\u00e9"
+        "Rosé"
       ],
       "slug": "longview-winery",
       "featured": false,
       "lat": 45.1234,
-      "lng": -85.8312
+      "lng": -85.8312,
+      "description": "Longview Winery occupies the quieter northern end of Leelanau Peninsula near Northport, a location that rewards visitors willing to drive the extra miles with both exceptional wines and a genuine sense of off-the-beaten-path discovery."
     },
     {
       "name": "Laurentide Winery",
@@ -1267,17 +1280,18 @@
       "address": "135 E. Harbor Hwy, Lake Leelanau, MI 49653",
       "phone": "(231) 256-9500",
       "website": "https://www.laurentidewinery.com",
-      "hours": "Daily 12\u20136pm (seasonal)",
+      "hours": "Daily 12–6pm (seasonal)",
       "known_for": [
         "Pinot Gris",
         "Chardonnay",
         "Pinot Noir",
-        "Ros\u00e9"
+        "Rosé"
       ],
       "slug": "laurentide-winery",
       "featured": false,
       "lat": 45.1134,
-      "lng": -85.8456
+      "lng": -85.8456,
+      "description": "Laurentide Winery takes its name from the ancient Laurentide Ice Sheet, the glacier whose retreat carved the Leelanau Peninsula landscape and deposited the well-drained soils that make this region so exceptional for viticulture."
     },
     {
       "name": "Tandem Ciders",
@@ -1286,7 +1300,7 @@
       "address": "2055 N. Setterbo Rd, Suttons Bay, MI 49682",
       "phone": "(231) 271-0050",
       "website": "https://www.tandemciders.com",
-      "hours": "Daily 12\u20136pm (seasonal)",
+      "hours": "Daily 12–6pm (seasonal)",
       "known_for": [
         "Dry Hard Cider",
         "Apple Wine",
@@ -1296,7 +1310,8 @@
       "slug": "tandem-ciders",
       "featured": false,
       "lat": 45.0423,
-      "lng": -85.7534
+      "lng": -85.7534,
+      "description": "Tandem Ciders occupies a unique niche on the Leelanau Peninsula wine trail — a dedicated artisan cidery that celebrates the peninsula's deep apple-growing heritage alongside its more recently established wine culture."
     }
   ],
   "articles": [
@@ -1336,7 +1351,7 @@
       "title": "Sparkling Wine in Michigan: L. Mawby and the Art of Bubbles",
       "slug": "sparkling-wine-michigan-mawby",
       "category": "Winery Spotlight",
-      "excerpt": "How one winemaker's dedication to m\u00e9thode traditionnelle put Michigan sparkling wine on the map.",
+      "excerpt": "How one winemaker's dedication to méthode traditionnelle put Michigan sparkling wine on the map.",
       "photo": "wine-glasses",
       "filter": "brightness(1.0)"
     },

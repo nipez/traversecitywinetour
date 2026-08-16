@@ -31,10 +31,15 @@ PAGE_TITLES = {
     "about.html": "About | Traverse City Wine Tour",
     "privacy.html": "Privacy Policy | Traverse City Wine Tour",
     "contact.html": "Contact | Traverse City Wine Tour",
-    "events.html": "Wine Events | Traverse City Festivals & Tastings",
+    "events.html": "Wine Country Seasons | Traverse City Events Guide",
     "advertise.html": "Advertise | Traverse City Wine Tour",
     "bachelorette.html": "Bachelorette Wine Tours | Traverse City",
     "sitemap.html": "Sitemap | Traverse City Wine Tour",
+    "wineries/forty-five-north.html": "Forty-Five North | TC Winery Guide",
+    "wineries/gills-pier.html": "Gill's Pier | TC Winery Guide",
+    "breweries/shorts-brewing-elk-rapids.html": "Short's Elk Rapids | TC Brewery Guide",
+    "breweries/shorts-brewing-bellaire.html": "Short's Bellaire Pub | TC Brewery Guide",
+    "breweries/jolly-pumpkin.html": "Jolly Pumpkin | TC Brewery Guide",
     "wineries/tandem-ciders.html": "Tandem Ciders on the Wine Trail | TC Winery Guide",
     "cideries/tandem-ciders.html": "Tandem Ciders | Traverse City Cidery Guide",
     "journal/first-timers-guide-wine-tasting-traverse-city.html": "First-Timer's Wine Tasting Guide | TC Wine Journal",
@@ -64,9 +69,21 @@ PAGE_DESCS = {
     "about.html": "Traverse City Wine Tour is an independent guide to wineries, cideries, and breweries on Old Mission and Leelanau Peninsulas.",
     "privacy.html": "How Traverse City Wine Tour collects, stores, and uses emails and form submissions for newsletters, lodging listings, and planning kits.",
     "contact.html": "Contact Traverse City Wine Tour for listing updates, advertising, and visitor questions about Michigan wine country.",
-    "events.html": "Find Traverse City wine events, harvest festivals, and tasting-room happenings across Old Mission and Leelanau Peninsulas.",
+    "events.html": "A seasonal guide to Traverse City wine country: blossom trail, cherry festival, harvest tastings, and winter wine rooms on Old Mission and Leelanau.",
     "advertise.html": "Advertise on Traverse City Wine Tour. Reach visitors planning Michigan wine-country trips with enhanced listings and sponsored profiles.",
     "bachelorette.html": "Plan a Traverse City bachelorette wine tour. Private drivers, tasting-room etiquette, and itineraries for Old Mission and Leelanau.",
+    "wineries/willow-vineyard.html": "Willow Vineyard sits on a wind-swept Suttons Bay hillside with West Bay views, estate Pinot Noir, Chardonnay, and seasonal tastings.",
+    "wineries/shady-lane-cellars.html": "Taste Riesling and Pinot Noir at Shady Lane Cellars, a Leelanau winery in a restored 1800s fieldstone chicken coop.",
+    "wineries/left-foot-charley.html": "Left Foot Charley is an urban Traverse City winery in the Commons, known for natural Rieslings and a lively tasting room.",
+    "wineries/forty-five-north.html": "Forty-Five North sits on the 45th parallel above Lake Leelanau, with bold reds, hilltop views, and a modern tasting room.",
+    "wineries/ciccone-vineyard.html": "Ciccone Vineyard is a family estate on Leelanau Peninsula making Italian-inspired wines, from Dolcetto to Gewürztraminer.",
+    "wineries/gills-pier.html": "Gill's Pier is a small Northport-area estate winery with limited Riesling, Pinot Noir, and Pinot Gris from Leelanau fruit.",
+    "wineries/chateau-grand-traverse.html": "Chateau Grand Traverse pioneered Old Mission vinifera in 1974 and remains a must-stop for Riesling, ice wine, and bay views.",
+    "wineries/laurentide-winery.html": "Laurentide Winery takes its name from the glacier that shaped Leelanau, with estate wines on rolling peninsula farmland.",
+    "wineries/bowers-harbor-vineyards.html": "Bowers Harbor is a relaxed Old Mission favorite for approachable wines, a friendly tasting room, and a fun wine-trail stop.",
+    "wineries/chateau-de-leelanau.html": "Chateau de Leelanau makes estate grape wines and hard cider on the Leelanau Peninsula wine trail.",
+    "cideries/bel-lago-cidery.html": "Bel Lago crafts estate wines and heritage-style hard ciders on a Lake Leelanau hillside tasting-room property.",
+    "wineries/verterra-winery.html": "Verterra is a small-batch Leland winery known for Grüner Veltliner, Pinot Noir, and artisan wines near Fishtown.",
     "sitemap.html": "Browse every Traverse City Wine Tour page: wineries, cideries, breweries, journal guides, and trip-planning tools.",
     "wineries/tandem-ciders.html": "Visit Tandem Ciders as a Leelanau wine-trail stop. Farmhouse ciders from local apples in a rustic Suttons Bay barn tasting room.",
     "cideries/tandem-ciders.html": "Tandem Ciders crafts small-batch, terroir-driven hard cider from Leelanau and Old Mission apples in a rustic Suttons Bay barn.",
@@ -183,7 +200,13 @@ def fit_title(title: str, max_len: int = 60) -> str:
                 return title
     if len(title) <= max_len:
         return title
-    return title[: max_len - 1].rsplit(" ", 1)[0] + "…"
+    # Prefer a complete short title over an ellipsis Google will show as-is.
+    if " | " in title:
+        left = title.split(" | ", 1)[0].strip()
+        if len(left) <= max_len:
+            return left
+        title = left
+    return title[:max_len].rsplit(" ", 1)[0]
 
 
 def existing_title(html: str) -> str:

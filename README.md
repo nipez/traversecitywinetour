@@ -59,3 +59,14 @@ npx wrangler pages secret put ADMIN_TOKEN
 - **Pages.dev:** https://tcwinetours.pages.dev
 
 Direct Upload originally (not Git-connected). Re-deploy from this repo after connecting the project to GitHub if you want Git-based deploys.
+
+## Search Console & Google Business Profile
+
+These steps cannot be completed from the repo. After a production deploy:
+
+1. In [Google Search Console](https://search.google.com/search-console), verify `https://traversecitywinetour.com` if it is not already.
+2. Submit `https://traversecitywinetour.com/sitemap.xml`.
+3. Inspect `/wineries/45-north` and confirm it 301s to `/wineries/forty-five-north`.
+4. Request indexing for `/events`, `/wine-tours`, `/where-to-stay`, and `/cideries/tandem-ciders` after the content SEO pass ships.
+5. In Google Business Profile, keep the public site URL as `https://traversecitywinetour.com` (or the specific landing page you want to rank) and make sure hours/address match the homepage.
+6. Do not submit placeholder `#` links or “Coming Soon” pages as the primary listing URL.

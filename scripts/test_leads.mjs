@@ -44,4 +44,20 @@ const lodging = parseLeadBody(JSON.stringify({
 assert.equal(lodging.lead.payload.property_name, "Bay Inn");
 assert.equal(lodging.lead.payload.notes, "lake view");
 
+const tour = parseLeadBody(JSON.stringify({
+  type: "tour",
+  email: "guest@example.com",
+  name: "Riley",
+  consent: true,
+  operator: "Grand Traverse Limo",
+  party_size: "8",
+  preferred_date: "2026-09-12",
+  message: "Hotel pickup at Park Place",
+}));
+assert.equal(tour.lead.type, "tour");
+assert.equal(tour.lead.payload.operator, "Grand Traverse Limo");
+assert.equal(tour.lead.payload.party_size, "8");
+
+expectError({ type: "tour", email: "a@b.com", consent: true }, "Name is required");
+
 console.log("lead validation tests passed");
