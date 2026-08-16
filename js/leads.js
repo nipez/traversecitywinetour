@@ -33,13 +33,18 @@
     const wrap = document.createElement("label");
     wrap.className = compact ? "lead-consent lead-consent-compact" : "lead-consent";
     wrap.innerHTML =
-      '<input type="checkbox" name="consent" value="true" required> ' +
-      'I agree to the <a href="' +
+      '<input type="checkbox" name="consent" value="true" required>' +
+      "<span>I agree to the <a href=\"" +
       privacyHref() +
-      '">Privacy Policy</a> and to being contacted about this request.';
+      '">Privacy Policy</a> and to being contacted about this request.</span>';
     const button = form.querySelector('button[type="submit"], .form-submit');
-    if (button) form.insertBefore(wrap, button);
-    else form.appendChild(wrap);
+    if (!button) {
+      form.appendChild(wrap);
+    } else if (compact) {
+      button.insertAdjacentElement("afterend", wrap);
+    } else {
+      form.insertBefore(wrap, button);
+    }
   }
 
   function setStatus(form, message, kind) {
@@ -163,10 +168,13 @@
     style.id = "lead-form-styles";
     style.textContent = `
       .lead-consent { display:flex; align-items:flex-start; gap:10px; margin:16px 0 8px; font-size:0.82rem; line-height:1.5; color:inherit; }
-      .lead-consent input { margin-top:3px; accent-color:#4A0E1B; }
+      .lead-consent input { flex:0 0 auto; margin-top:3px; accent-color:#4A0E1B; }
+      .lead-consent span { flex:1 1 auto; min-width:0; text-align:left; }
       .lead-consent a { color:#C9A96E; }
-      .lead-consent-compact { max-width:480px; margin:12px auto 0; color:rgba(245,240,232,0.72); justify-content:center; text-align:left; }
-      .newsletter-form { flex-wrap:wrap; }
+      .lead-consent-compact { flex:1 1 100%; width:100%; max-width:none; margin:10px 0 0; color:rgba(245,240,232,0.72); justify-content:flex-start; }
+      .newsletter-form { flex-wrap:wrap; align-items:center; }
+      .newsletter-form input[type="email"] { flex:1 1 180px; min-width:0; }
+      .newsletter-form button { flex:0 0 auto; }
       .lead-status { margin-top:12px; font-size:0.88rem; line-height:1.5; }
       .lead-status[data-kind="ok"] { color:#2f6b3a; }
       .newsletter .lead-status[data-kind="ok"] { color:#D4BC8B; }
