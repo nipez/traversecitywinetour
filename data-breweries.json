@@ -1,0 +1,390 @@
+[
+  {
+    "name": "Rare Bird Brewpub",
+    "slug": "rare-bird-brewpub",
+    "area": "Downtown Traverse City",
+    "type": "Brewery",
+    "address": "229 Lake Ave, Traverse City, MI 49684",
+    "phone": "(231) 943-2053",
+    "website": "https://www.rarebirdbrewpub.com",
+    "hours": "Mon\u2013Thu 3\u201311pm \u00b7 Fri 12\u201312am \u00b7 Sat 11am\u201312am \u00b7 Sun 11am\u201310pm",
+    "description": "A TC institution housed in a beautifully restored 1931 red brick building downtown. Rare Bird uses only Michigan-grown hops and malt, producing distinctive house beers alongside a rotating craft selection. The food program is excellent \u2014 don't skip the Korean Pork Belly tacos.",
+    "known_for": [
+      "Michigan Hops & Malt",
+      "Seasonal House Beers",
+      "Korean Pork Belly Tacos",
+      "35+ Taps"
+    ],
+    "amenities": [
+      "Full Kitchen",
+      "Dog Friendly Patio",
+      "Michigan Ingredients",
+      "Live Events"
+    ],
+    "lat": 44.7648,
+    "lng": -85.6225
+  },
+  {
+    "name": "Right Brain Brewery",
+    "slug": "right-brain-brewery",
+    "area": "Traverse City",
+    "type": "Brewery",
+    "address": "225 E 16th St, Traverse City, MI 49686",
+    "phone": "(231) 944-1239",
+    "website": "https://www.rightbrainbrewery.com",
+    "hours": "Mon\u2013Thu 3\u201311pm \u00b7 Fri 12\u201312am \u00b7 Sat 12\u201312am \u00b7 Sun 12\u201310pm",
+    "description": "One of TC's most creative breweries \u2014 Right Brain grows many of its own ingredients on-property including fruits, vegetables, flowers, honey, and hops. Located off Boardman Lake with a massive rotating tap list and an artistic, community-focused taproom known for wildly experimental recipes.",
+    "known_for": [
+      "Barrel Aged Maple Cherry Potion",
+      "Karma Palace IPA",
+      "Farm-Grown Ingredients",
+      "30+ Rotating Taps"
+    ],
+    "amenities": [
+      "Taproom",
+      "Boardman Lake Area",
+      "On-Site Farming",
+      "Board Games",
+      "Family Friendly"
+    ],
+    "lat": 44.7508,
+    "lng": -85.6112
+  },
+  {
+    "name": "The Workshop Brewing Company",
+    "slug": "workshop-brewing-company",
+    "area": "Downtown Traverse City",
+    "type": "Brewery",
+    "address": "221 Garland St, Traverse City, MI 49684",
+    "phone": "(231) 421-8977",
+    "website": "https://www.workshopbrewing.com",
+    "hours": "Mon\u2013Thu 3\u201311pm \u00b7 Fri 12\u201312am \u00b7 Sat 12\u201312am \u00b7 Sun 12\u201310pm",
+    "description": "Consistently rated the best brewery in TC, Workshop anchors the creative Warehouse District. Committed to Michigan-grown ingredients, communal tables (some made from old church pews), and classic craft styles executed exceptionally well. A true gathering place for locals and visitors alike.",
+    "known_for": [
+      "Michigan-Grown Ingredients",
+      "Classic Craft Styles",
+      "Seasonal Releases",
+      "Communal Atmosphere"
+    ],
+    "amenities": [
+      "Taproom",
+      "Warehouse District",
+      "Communal Tables",
+      "Small Food Menu",
+      "Live Music"
+    ],
+    "lat": 44.7618,
+    "lng": -85.6244
+  },
+  {
+    "name": "The Filling Station Microbrewery",
+    "slug": "filling-station-microbrewery",
+    "area": "Traverse City",
+    "type": "Brewery",
+    "address": "642 Railroad Pl, Traverse City, MI 49686",
+    "phone": "(231) 946-8168",
+    "website": "https://www.thefillingstationmicrobrewery.com",
+    "hours": "Mon\u2013Thu 11am\u201311pm \u00b7 Fri\u2013Sat 11am\u201312am \u00b7 Sun 10am\u201310pm",
+    "description": "A Boardman Lake favorite known for breakfast pizzas, beermosas, and a rotating tap list of house-crafted beers. Casual, welcoming vibe and a waterfront-adjacent location make it a go-to for a relaxed afternoon in TC.",
+    "known_for": [
+      "Breakfast Pizza",
+      "Beermosas",
+      "Rotating Tap List",
+      "Boardman Lake Location"
+    ],
+    "amenities": [
+      "Full Kitchen",
+      "Waterfront Adjacent",
+      "Dog Friendly",
+      "Brunch",
+      "Outdoor Seating"
+    ],
+    "lat": 44.7524,
+    "lng": -85.6098
+  },
+  {
+    "name": "North Peak Brewing Company",
+    "slug": "north-peak-brewing",
+    "area": "Downtown Traverse City",
+    "type": "Brewery",
+    "address": "400 W Front St, Traverse City, MI 49684",
+    "phone": "(231) 941-7325",
+    "website": "https://pub.northpeak.net",
+    "hours": "Sun\u2013Thu 11:30am\u201310pm \u00b7 Fri\u2013Sat 11:30am\u201311pm",
+    "description": "A downtown TC staple housed in a century-old candy factory. North Peak celebrates Northern Michigan with a cherry porter, local walleye fish fry, cheddar ale soup, and a rotating lineup of craft beers. A full pub menu and prime Front Street location make it one of TC's most visited spots.",
+    "known_for": [
+      "Cherry Porter",
+      "Northern Michigan Inspired Beers",
+      "Full Pub Menu",
+      "Front Street Location"
+    ],
+    "amenities": [
+      "Full Kitchen",
+      "Downtown Location",
+      "Deck Seating",
+      "Mug Club",
+      "Family Friendly"
+    ],
+    "lat": 44.7658,
+    "lng": -85.6271
+  },
+  {
+    "name": "MiddleCoast Brewing Company",
+    "slug": "middlecoast-brewing",
+    "area": "Downtown Traverse City",
+    "type": "Brewery",
+    "address": "329 E State St, Traverse City, MI 49684",
+    "phone": "(231) 421-8271",
+    "website": "https://www.middlecoastbrewing.com",
+    "hours": "Mon\u2013Thu 3\u201310pm \u00b7 Fri 12\u201311pm \u00b7 Sat 11am\u201311pm \u00b7 Sun 11am\u20139pm",
+    "description": "Located inside the State Street Market food hall, MiddleCoast offers approachable craft beers in a vibrant industrial-chic setting with multiple food vendors and outdoor seating. The Beach Please Blonde Ale and All Day Vacay IPA are summer staples.",
+    "known_for": [
+      "Beach Please Blonde Ale",
+      "All Day Vacay IPA",
+      "State Street Market",
+      "Food Hall Setting"
+    ],
+    "amenities": [
+      "Taproom",
+      "Food Hall",
+      "Outdoor Seating",
+      "Live Music",
+      "Downtown"
+    ],
+    "lat": 44.7635,
+    "lng": -85.6195
+  },
+  {
+    "name": "Brewery Ferment",
+    "slug": "brewery-ferment",
+    "area": "Traverse City",
+    "type": "Brewery",
+    "address": "1402 N Cedar St, Traverse City, MI 49686",
+    "phone": "(231) 735-6091",
+    "website": "https://www.breweryferment.com",
+    "hours": "Tue\u2013Thu 3\u20139pm \u00b7 Fri 2\u201310pm \u00b7 Sat 12\u201310pm \u00b7 Sun 12\u20137pm",
+    "description": "A beloved neighborhood craft brewery combining an excellent taproom with a curated bottle shop. Brewery Ferment focuses on Belgian-influenced and farmhouse-style ales alongside classic American craft styles \u2014 a thoughtful, community-centered experience for serious beer lovers.",
+    "known_for": [
+      "Belgian-Style Ales",
+      "Farmhouse Saisons",
+      "Bottle Shop",
+      "Neighborhood Feel"
+    ],
+    "amenities": [
+      "Taproom",
+      "Bottle Shop",
+      "Neighborhood Location",
+      "Dog Friendly",
+      "Community Events"
+    ],
+    "lat": 44.7712,
+    "lng": -85.6148
+  },
+  {
+    "name": "Brewery Terra Firma",
+    "slug": "brewery-terra-firma",
+    "area": "Traverse City",
+    "type": "Brewery",
+    "address": "2959 Hartman Rd, Traverse City, MI 49685",
+    "phone": "(231) 929-1600",
+    "website": "https://breweryterrafirma.com",
+    "hours": "Mon 12\u20138pm \u00b7 Tue\u2013Sat 12\u201310pm \u00b7 Sun 12\u20139pm",
+    "description": "Michigan's only agricultural brewery \u2014 built on a 10-acre MAEAP-certified farm minutes from downtown TC. Terra Firma grows many of its own brewing ingredients and recaptures waste heat and water throughout production. Culinary-inspired, whole-ingredient craft beers with an on-site beer garden and fire pits.",
+    "known_for": [
+      "Farm-to-Glass Brewing",
+      "Culinary-Inspired Ales",
+      "Belgian Styles",
+      "Sustainable Practices"
+    ],
+    "amenities": [
+      "Taproom",
+      "Beer Garden",
+      "Fire Pits",
+      "Dog Friendly",
+      "Food Friendly",
+      "Farm Setting"
+    ],
+    "lat": 44.7441,
+    "lng": -85.5892
+  },
+  {
+    "name": "Earthen Ales",
+    "slug": "earthen-ales",
+    "area": "Traverse City (Two Locations)",
+    "type": "Brewery",
+    "address": "Grand Traverse Commons & 8th Street Tank Space, Traverse City",
+    "phone": "(231) 944-1130",
+    "website": "https://earthenales.com",
+    "hours": "Daily 12\u20139pm (hours vary by location)",
+    "description": "With two TC locations \u2014 the original in the historic Grand Traverse Commons and the Tank Space on 8th Street \u2014 Earthen Ales is a neighborhood favorite with a relaxed atmosphere, outside-food-welcome policy, and rotating taps of thoughtfully crafted beers. The Commons building, a former state psychiatric hospital, is one of the most atmospheric spots in TC.",
+    "known_for": [
+      "Grand Traverse Commons Location",
+      "Outside Food Welcome",
+      "Rotating Taps",
+      "Neighborhood Feel"
+    ],
+    "amenities": [
+      "Two Locations",
+      "Outside Food Welcome",
+      "Dog Friendly",
+      "Historic Building"
+    ],
+    "lat": 44.7561,
+    "lng": -85.6093
+  },
+  {
+    "name": "Hop Lot Brewing",
+    "slug": "hop-lot-brewing",
+    "area": "Suttons Bay / Leelanau Peninsula",
+    "type": "Brewery",
+    "address": "658 S W Bay Shore Dr, Suttons Bay, MI 49682",
+    "phone": "(231) 866-4445",
+    "website": "https://hoplotbrewing.com",
+    "hours": "Mon\u2013Sat 12\u20139pm \u00b7 Sun 12\u20138pm",
+    "description": "Rated one of the best beer gardens in the country, Hop Lot is a family-friendly brewery tucked behind acres of hardwoods along M-22 in Suttons Bay. The on-site hop garden supplies fresh Cascade hops for rotating ales. In winter, a heated igloo village transforms the grounds into one of the most memorable cold-weather experiences in the TC region.",
+    "known_for": [
+      "German-Style Biergarten",
+      "Winter Igloo Village",
+      "On-Site Hop Garden",
+      "Fresh Seasonal Ales"
+    ],
+    "amenities": [
+      "Beer Garden",
+      "Igloos (Winter)",
+      "Campfires",
+      "Outdoor Games",
+      "Family Friendly",
+      "M-22"
+    ],
+    "lat": 44.9498,
+    "lng": -85.6441
+  },
+  {
+    "name": "Jolly Pumpkin Restaurant & Brewery",
+    "slug": "jolly-pumpkin",
+    "area": "Old Mission Peninsula",
+    "type": "Brewery",
+    "address": "13512 Peninsula Dr, Traverse City, MI 49686",
+    "phone": "(231) 223-4333",
+    "website": "https://jollypumpkin.com/traversecity/",
+    "hours": "Sun\u2013Thu 11:30am\u20139pm \u00b7 Fri\u2013Sat 11:30am\u201310pm",
+    "description": "A full-service restaurant and artisan brewery on Old Mission Peninsula, renowned for wild-fermented, Belgian-inspired ales made with native yeasts and aged in oak barrels. Features beers from Jolly Pumpkin Artisan Ales, North Peak Brewing, and Old Mission Beer Co., alongside one of the best dining rooms on the peninsula.",
+    "known_for": [
+      "Wild-Fermented Ales",
+      "Oak-Aged Beer",
+      "Belgian-Inspired",
+      "Full Restaurant"
+    ],
+    "amenities": [
+      "Full Kitchen",
+      "Old Mission Peninsula",
+      "Artisan Beer",
+      "Bar & Dining",
+      "Patio"
+    ],
+    "lat": 44.8102,
+    "lng": -85.4981
+  },
+  {
+    "name": "Lake Ann Brewing Company",
+    "slug": "lake-ann-brewing",
+    "area": "Lake Ann (15 min from TC)",
+    "type": "Brewery",
+    "address": "6535 First St, Lake Ann, MI 49650",
+    "phone": "(231) 640-2327",
+    "website": "https://lakeannbrewing.com",
+    "hours": "Thu\u2013Fri 3\u20139pm \u00b7 Sat 12\u20139pm \u00b7 Sun 12\u20136pm",
+    "description": "A small, community-rooted brewery in the charming village of Lake Ann, about 15 minutes from Traverse City. Lake Ann Brewing's relaxed taproom sits across from a lovely park. The adjacent Stone Oven restaurant means you can bring excellent wood-fired food into the brewery. Small tap list, big local charm.",
+    "known_for": [
+      "Small-Batch Ales",
+      "Local Community Vibe",
+      "TART Trail Adjacent",
+      "Rotating Seasonal Taps"
+    ],
+    "amenities": [
+      "Taproom",
+      "Park Across Street",
+      "Outside Food Welcome",
+      "Dog Friendly"
+    ],
+    "lat": 44.7263,
+    "lng": -85.8492
+  },
+  {
+    "name": "Silver Spruce Brewing Company",
+    "slug": "silver-spruce-brewing",
+    "area": "Traverse City (Two Locations)",
+    "type": "Brewery",
+    "address": "Two locations: 8th St & Silver Lake Rd, Traverse City",
+    "phone": "(231) 421-8050",
+    "website": "https://silversprucebrewing.com",
+    "hours": "Daily 12\u20139pm (hours vary by location)",
+    "description": "Silver Spruce operates two Traverse City taprooms focused on approachable, well-crafted classic styles. From light lagers to robust stouts, the emphasis is on brewing every style well rather than chasing trends. Two convenient TC locations make this an easy addition to any craft beer day.",
+    "known_for": [
+      "Classic Beer Styles",
+      "Two TC Locations",
+      "Lagers & Ales",
+      "Approachable Craft Beer"
+    ],
+    "amenities": [
+      "Two Taprooms",
+      "Dog Friendly",
+      "Outdoor Seating",
+      "Community Events"
+    ],
+    "lat": 44.7558,
+    "lng": -85.6078
+  },
+  {
+    "name": "Short's Brewing \u2014 Bellaire Pub",
+    "slug": "shorts-brewing-bellaire",
+    "area": "Bellaire (45 min from TC)",
+    "type": "Brewery",
+    "address": "121 N Bridge St, Bellaire, MI 49615",
+    "phone": "(231) 498-2300",
+    "website": "https://www.shortsbrewing.com",
+    "hours": "Sun\u2013Thu 11am\u201310pm \u00b7 Fri\u2013Sat 11am\u201311pm",
+    "description": "The original Short's pub in Bellaire is a pilgrimage destination for Michigan craft beer fans \u2014 a renovated 100-year-old hardware store serving 20 rotating Short's beers and Starcut Ciders alongside gourmet pizzas, sandwiches, and soups. Fearlessly creative brewing (Soft Parade, Huma Lupa Licious, dozens of seasonals) has made Short's one of the defining craft breweries in the Midwest. Worth every mile of the 45-minute drive.",
+    "known_for": [
+      "Soft Parade Fruit Ale",
+      "Huma Lupa Licious IPA",
+      "Starcut Ciders",
+      "20 Rotating Taps"
+    ],
+    "amenities": [
+      "Full Kitchen",
+      "Live Music",
+      "Beer Garden",
+      "Bellaire Beer Garden",
+      "Merch Shop"
+    ],
+    "lat": 44.9779,
+    "lng": -85.2012
+  },
+  {
+    "name": "Short's Brewing \u2014 Elk Rapids Pull Barn",
+    "slug": "shorts-brewing-elk-rapids",
+    "area": "Elk Rapids (30 min from TC)",
+    "type": "Brewery",
+    "address": "211 Industrial Park Dr, Elk Rapids, MI 49629",
+    "phone": "(231) 498-2300",
+    "website": "https://www.shortsbrewing.com/locations/elk-rapids/",
+    "hours": "Mon\u2013Thu 2\u20138pm \u00b7 Fri 11am\u20139pm \u00b7 Sat\u2013Sun 11am\u20138pm",
+    "description": "The Pull Barn at Short's Elk Rapids production facility is the laid-back counterpart to the Bellaire pub \u2014 nestled between Lake Michigan, Elk Lake, and Bass Lake with bay views, year-round outdoor seating, draft beers, experimental releases, and a bring-your-own-food policy. About 30 minutes north of Traverse City on US-31.",
+    "known_for": [
+      "Production Facility Taproom",
+      "Bay Views",
+      "Experimental Releases",
+      "Bring Your Own Food"
+    ],
+    "amenities": [
+      "Outdoor Seating",
+      "Bay Views",
+      "Food Friendly",
+      "Year-Round",
+      "Dog Friendly"
+    ],
+    "lat": 44.9998,
+    "lng": -85.4152
+  }
+]

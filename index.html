@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-374F6WS33Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-374F6WS33Y');
+</script>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://traversecitywinetour.com/">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traverse City Wine Tours & Winery Guide | Michigan Wine Country</title>
+<meta name="description" content="Your complete guide to Traverse City wine country. Explore 40+ wineries across Old Mission and Leelanau Peninsulas, book tours, and plan your visit to Michigan's premier wine region.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --burgundy: #4A0E1B; --wine: #722F37; --merlot: #8B3A3A;
+  --gold: #C9A96E; --gold-light: #D4BC8B;
+  --cream: #F5F0E8; --cream-dark: #EDE6D8;
+  --charcoal: #2C2420; --text: #3A3330; --text-light: #7A7068; --white: #FEFCF9;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Outfit', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+svg { flex-shrink: 0; }
+
+/* TOP BAR */
+.top-bar { background: var(--burgundy); color: var(--gold-light); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 0; text-align: center; }
+
+/* NAV */
+nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid rgba(74,14,27,0.08); transition: box-shadow 0.3s; }
+nav.scrolled { box-shadow: 0 2px 30px rgba(74,14,27,0.08); }
+.nav-inner { max-width: 1340px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 80px; }
+.logo { display: flex; flex-direction: column; line-height: 1; text-decoration: none; }
+.logo-main { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 600; color: var(--burgundy); letter-spacing: -0.01em; }
+.logo-sub { font-family: 'Outfit', sans-serif; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-top: 2px; }
+.nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+.nav-links a { text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text); position: relative; padding: 4px 0; transition: color 0.3s; }
+.nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: var(--gold); transition: width 0.3s; }
+.nav-links a:hover { color: var(--burgundy); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta { background: var(--burgundy) !important; color: var(--cream) !important; padding: 10px 24px !important; border-radius: 4px; font-size: 0.78rem !important; letter-spacing: 0.06em !important; transition: background 0.3s !important; }
+.nav-cta:hover { background: var(--wine) !important; }
+.nav-cta::after { display: none !important; }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+
+/* HERO */
+.hero { position: relative; height: 92vh; min-height: 600px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, #2a0a10 0%, #4A0E1B 30%, #3d1a1a 60%, #2C2420 100%); }
+.hero-bg-photo { position: absolute; inset: 0; background-image: url('wineglasses.jpg'); background-size: cover; background-position: center 40%; opacity: 0.22; mix-blend-mode: luminosity; }
+.hero-bg::before {
+  content: ''; position: absolute; inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 50% at 20% 80%, rgba(114,47,55,0.4) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(201,169,110,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 100% 80% at 50% 50%, rgba(74,14,27,0.2) 0%, transparent 70%);
+}
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A96E' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+.hero-vine-left, .hero-vine-right {
+  position: absolute; z-index: 1; opacity: 0.06; pointer-events: none;
+}
+.hero-vine-left { left: -40px; top: 10%; width: 300px; height: 500px; }
+.hero-vine-right { right: -40px; bottom: 5%; width: 280px; height: 480px; transform: scaleX(-1); }
+.hero-content { position: relative; z-index: 2; max-width: 860px; padding: 0 40px; }
+.hero-tag { display: inline-flex; align-items: center; gap: 14px; font-size: 0.68rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
+.hero-tag::before, .hero-tag::after { content: ''; width: 50px; height: 1px; background: var(--gold); opacity: 0.5; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 500; line-height: 1.08; color: var(--cream); opacity: 0; animation: fadeUp 0.8s 0.4s forwards; }
+.hero h1 em { font-style: italic; color: var(--gold-light); }
+.hero-desc { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.65; color: rgba(245,240,232,0.7); margin-top: 24px; max-width: 620px; margin-left: auto; margin-right: auto; opacity: 0; animation: fadeUp 0.8s 0.6s forwards; }
+.hero-buttons { display: flex; gap: 16px; justify-content: center; margin-top: 40px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s 0.8s forwards; }
+.hero-scroll { position: absolute; bottom: 32px; left: 0; right: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px; text-decoration: none; opacity: 0; animation: fadeUp 0.8s 1.2s forwards; text-align: center; }
+.hero-scroll span { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); opacity: 0.6; }
+.hero-scroll svg { animation: scrollBounce 2s infinite; color: var(--gold); opacity: 0.5; }
+
+/* BUTTONS */
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--burgundy); padding: 16px 36px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.3s; border-radius: 4px; }
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+.btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--cream); padding: 16px 36px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border: 1px solid rgba(245,240,232,0.3); cursor: pointer; transition: all 0.3s; border-radius: 4px; }
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+.btn-outline-dark { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--burgundy); padding: 16px 36px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border: 1px solid var(--burgundy); cursor: pointer; transition: all 0.3s; border-radius: 4px; }
+.btn-outline-dark:hover { background: var(--burgundy); color: var(--cream); }
+.btn-burgundy { display: inline-flex; align-items: center; gap: 8px; background: var(--burgundy); color: var(--cream); padding: 16px 36px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: background 0.3s; }
+.btn-burgundy:hover { background: var(--wine); }
+
+/* SECTION HEADERS */
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-tag { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 500; color: var(--burgundy); line-height: 1.15; }
+.section-divider { width: 60px; height: 1.5px; background: var(--gold); margin: 20px auto 0; }
+.section-desc { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; line-height: 1.6; color: var(--text-light); margin-top: 16px; max-width: 560px; margin-left: auto; margin-right: auto; }
+
+/* STATS BAR */
+.stats-bar { background: var(--cream); padding: 56px 40px; border-bottom: 1px solid rgba(74,14,27,0.06); }
+.stats-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center; }
+.stat-item { position: relative; }
+.stat-item:not(:last-child)::after { content: ''; position: absolute; right: -20px; top: 50%; transform: translateY(-50%); height: 40px; width: 1px; background: rgba(74,14,27,0.1); }
+.stat-number { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 500; color: var(--burgundy); line-height: 1; }
+.stat-label { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-top: 8px; }
+
+/* PENINSULAS */
+.peninsulas { padding: 100px 40px; background: var(--white); }
+.pen-grid { max-width: 1340px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.pen-card { position: relative; border-radius: 10px; overflow: hidden; height: 480px; display: flex; align-items: flex-end; text-decoration: none; color: inherit; }
+.pen-card-bg { position: absolute; inset: 0; transition: transform 0.6s; }
+.pen-card:hover .pen-card-bg { transform: scale(1.04); }
+.pen-card-bg.old-mission {
+  background-image: url('wineglasses.jpg');
+  background-size: cover; background-position: center 35%;
+}
+.pen-card-bg.old-mission::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(145deg, rgba(74,14,27,0.55) 0%, rgba(44,14,20,0.3) 60%, transparent 100%);
+}
+.pen-card-bg.old-mission::before {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: radial-gradient(ellipse at 30% 30%, rgba(201,169,110,0.08) 0%, transparent 60%);
+}
+.pen-card-bg.leelanau {
+  background-image: url('grapes.jpg');
+  background-size: cover; background-position: center 50%;
+}
+.pen-card-bg.leelanau::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(145deg, rgba(26,42,32,0.55) 0%, rgba(20,32,20,0.3) 60%, transparent 100%);
+}
+.pen-card-bg.leelanau::before {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: radial-gradient(ellipse at 70% 30%, rgba(201,169,110,0.08) 0%, transparent 60%);
+}
+.pen-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, transparent 70%); z-index: 1; }
+.pen-content { position: relative; z-index: 2; padding: 40px; width: 100%; }
+.pen-label { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.pen-name { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 500; color: var(--cream); margin-bottom: 10px; }
+.pen-desc { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; line-height: 1.6; color: rgba(245,240,232,0.65); margin-bottom: 20px; }
+.pen-stats { display: flex; gap: 24px; margin-bottom: 24px; }
+.pen-stat { font-size: 0.78rem; color: rgba(245,240,232,0.5); display: flex; align-items: center; gap: 6px; }
+.pen-stat svg { color: var(--gold); opacity: 0.7; }
+.pen-link { display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); text-decoration: none; transition: gap 0.3s; }
+.pen-link:hover { gap: 12px; }
+
+/* FEATURED WINERIES */
+.featured-wineries { padding: 100px 40px; background: var(--cream); }
+.featured-inner { max-width: 1340px; margin: 0 auto; }
+.winery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.winery-card { background: var(--white); border-radius: 8px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; border: 1px solid rgba(74,14,27,0.06); text-decoration: none; color: inherit; display: block; }
+.winery-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(74,14,27,0.1); }
+.winery-img { height: 220px; position: relative; overflow: hidden; }
+.winery-img-inner { width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 0.5s; }
+.winery-card:hover .winery-img-inner { transform: scale(1.05); }
+.winery-badge { position: absolute; top: 16px; left: 16px; background: var(--burgundy); color: var(--gold-light); font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 12px; border-radius: 3px; z-index: 2; }
+.winery-peninsula-tag { position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.92); color: var(--burgundy); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; border-radius: 3px; z-index: 2; backdrop-filter: blur(6px); }
+.winery-info { padding: 28px; }
+.winery-name { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 600; color: var(--burgundy); margin-bottom: 6px; }
+.winery-type { font-size: 0.75rem; color: var(--text-light); letter-spacing: 0.04em; margin-bottom: 16px; }
+.winery-details { display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 1px solid rgba(74,14,27,0.06); }
+.winery-detail { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; color: var(--text-light); }
+.winery-detail svg { color: var(--gold); }
+.winery-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--burgundy); text-decoration: none; transition: gap 0.3s; }
+.winery-link:hover { gap: 10px; }
+.winery-grid-cta { text-align: center; margin-top: 48px; }
+
+/* EXPERIENCE SECTION */
+.experience { padding: 100px 40px; background: var(--white); }
+.exp-inner { max-width: 1340px; margin: 0 auto; }
+.exp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; }
+.exp-card { text-align: center; padding: 40px 32px; border-radius: 8px; transition: transform 0.3s; }
+.exp-card:hover { transform: translateY(-4px); }
+.exp-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--cream); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; }
+.exp-icon svg { color: var(--burgundy); }
+.exp-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 500; color: var(--burgundy); margin-bottom: 12px; }
+.exp-card p { font-size: 0.92rem; line-height: 1.7; color: var(--text-light); }
+
+/* PARALLAX QUOTE */
+.quote-section { 
+  position: relative; padding: 120px 40px; text-align: center; overflow: hidden;
+  background: linear-gradient(135deg, var(--burgundy) 0%, #2a0a10 50%, var(--charcoal) 100%);
+}
+.quote-section::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3z' fill='%23C9A96E' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+  opacity: 0.6;
+}
+.quote-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+.quote-mark { font-family: 'Playfair Display', serif; font-size: 6rem; color: var(--gold); opacity: 0.3; line-height: 0.5; margin-bottom: 16px; }
+.quote-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.3rem, 2.5vw, 1.8rem); font-style: italic; line-height: 1.65; color: var(--cream); }
+.quote-attr { margin-top: 28px; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+
+/* PLAN VISIT */
+.plan-visit { padding: 100px 40px; background: var(--cream); }
+.plan-inner { max-width: 1340px; margin: 0 auto; }
+.plan-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.plan-card { background: var(--white); border-radius: 8px; padding: 36px 28px; border: 1px solid rgba(74,14,27,0.06); transition: transform 0.3s, box-shadow 0.3s; text-decoration: none; color: inherit; display: block; }
+.plan-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(74,14,27,0.08); }
+.plan-card-icon { width: 48px; height: 48px; border-radius: 8px; background: linear-gradient(135deg, var(--burgundy), var(--wine)); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+.plan-card-icon svg { color: var(--gold-light); }
+.plan-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; color: var(--burgundy); margin-bottom: 10px; }
+.plan-card p { font-size: 0.88rem; line-height: 1.65; color: var(--text-light); }
+.plan-card-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--burgundy); }
+
+/* JOURNAL */
+.journal { padding: 100px 40px; background: var(--white); }
+.journal-inner { max-width: 1340px; margin: 0 auto; }
+.journal-grid { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 28px; }
+.journal-card { border-radius: 8px; overflow: hidden; text-decoration: none; color: inherit; display: block; transition: transform 0.3s, box-shadow 0.3s; background: var(--white); border: 1px solid rgba(74,14,27,0.06); }
+.journal-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(74,14,27,0.08); }
+.journal-card-img { height: 220px; overflow: hidden; position: relative; }
+.journal-card:first-child .journal-card-img { height: 300px; }
+.journal-card-img-inner { width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 0.5s; }
+.journal-card:hover .journal-card-img-inner { transform: scale(1.05); }
+.journal-card-body { padding: 28px; }
+.journal-card-cat { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.journal-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; color: var(--burgundy); margin-bottom: 10px; line-height: 1.35; }
+.journal-card p { font-size: 0.88rem; line-height: 1.6; color: var(--text-light); }
+.journal-card-meta { display: flex; align-items: center; gap: 12px; margin-top: 16px; font-size: 0.75rem; color: var(--text-light); }
+.journal-cta { text-align: center; margin-top: 48px; }
+
+/* NEWSLETTER */
+.newsletter { background: var(--burgundy); padding: 80px 40px; text-align: center; }
+.newsletter-inner { max-width: 600px; margin: 0 auto; }
+.newsletter h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 500; color: var(--cream); margin-bottom: 12px; }
+.newsletter p { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: rgba(245,240,232,0.7); margin-bottom: 32px; }
+.newsletter-form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; }
+.newsletter-form input { flex: 1; padding: 14px 20px; border: 1px solid rgba(201,169,110,0.3); background: rgba(255,255,255,0.06); color: var(--cream); font-family: 'Outfit', sans-serif; font-size: 0.88rem; border-radius: 4px; outline: none; transition: border-color 0.3s; }
+.newsletter-form input::placeholder { color: rgba(245,240,232,0.4); }
+.newsletter-form input:focus { border-color: var(--gold); }
+.newsletter-form button { padding: 14px 28px; background: var(--gold); color: var(--burgundy); font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s; white-space: nowrap; }
+.newsletter-form button:hover { background: var(--gold-light); }
+
+/* FOOTER */
+footer { background: var(--charcoal); padding: 80px 40px 40px; color: rgba(245,240,232,0.6); }
+.footer-inner { max-width: 1340px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-brand .logo-main { color: var(--cream); font-size: 1.4rem; }
+.footer-brand .logo-sub { color: var(--gold); }
+.footer-brand p { font-size: 0.88rem; line-height: 1.7; margin-top: 16px; color: rgba(245,240,232,0.5); }
+.footer-col h4 { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a { font-size: 0.88rem; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.3s; }
+.footer-col a:hover { color: var(--gold-light); }
+.footer-bottom { border-top: 1px solid rgba(245,240,232,0.08); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; }
+.footer-bottom a { color: rgba(245,240,232,0.4); text-decoration: none; transition: color 0.3s; }
+.footer-bottom a:hover { color: var(--gold-light); }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes scrollBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+  .stat-item:nth-child(2)::after { display: none; }
+  .winery-grid { grid-template-columns: repeat(2, 1fr); }
+  .exp-grid { grid-template-columns: 1fr; gap: 24px; }
+  .plan-grid { grid-template-columns: repeat(2, 1fr); }
+  .journal-grid { grid-template-columns: 1fr 1fr; }
+  .journal-card:first-child { grid-column: span 2; }
+  .journal-card:first-child .journal-card-img { height: 260px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; position: absolute; top: 80px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 24px 40px; gap: 16px; border-bottom: 1px solid rgba(74,14,27,0.08); box-shadow: 0 8px 30px rgba(74,14,27,0.08); }
+  .nav-links.show { display: flex; }
+  .nav-toggle { display: block; }
+  .hero { height: 80vh; min-height: 500px; }
+  .stats-inner { grid-template-columns: 1fr 1fr; }
+  .stat-item::after { display: none; }
+  .pen-grid { grid-template-columns: 1fr; }
+  .pen-card { height: 380px; }
+  .winery-grid { grid-template-columns: 1fr; }
+  .plan-grid { grid-template-columns: 1fr; }
+  .journal-grid { grid-template-columns: 1fr; }
+  .journal-card:first-child { grid-column: span 1; }
+  .newsletter-form { flex-direction: column; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .hero-buttons { flex-direction: column; align-items: center; }
+}
+
+/* ============================================================
+   ACCESSIBILITY: LARGER TEXT FOR 55+ READERS
+   ============================================================ */
+html { font-size: 18px !important; scroll-behavior: smooth; }
+body { font-size: 1rem; line-height: 1.7; }
+p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
+.winery-desc, .exp-card p, .plan-card p, .journal-card p,
+.pen-desc, .section-desc, .footer-brand p,
+.article-body p, .article-body li { font-size: 1rem; line-height: 1.75; }
+.winery-type, .winery-detail, .winery-link, .pen-stat, .pen-link, .pen-label,
+.journal-card-cat, .journal-card-meta, .section-tag, .stat-label, .top-bar,
+.footer-col a, .footer-bottom, .plan-card-link, .quote-attr,
+.hero-tag, .hero-scroll span, .winery-badge, .winery-peninsula-tag { font-size: 0.875rem; line-height: 1.6; }
+.nav-links a, .nav-cta { font-size: 0.9rem !important; }
+.btn-primary, .btn-outline, .btn-outline-dark, .btn-burgundy { font-size: 0.9rem; }
+.winery-name { font-size: 1.25rem; }
+.newsletter-form input, .newsletter-form button { font-size: 1rem; padding: 16px 24px; }
+.hero-desc { line-height: 1.75; }
+.pen-card::after { background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 55%, transparent 75%) !important; }
+.hero-bg-photo { opacity: 0.18 !important; }
+.quote-text { color: var(--cream) !important; opacity: 1 !important; }
+.footer-brand p, .footer-col a { color: rgba(245,240,232,0.72) !important; }
+.footer-bottom { color: rgba(245,240,232,0.65) !important; }
+.section-desc { line-height: 1.75; font-size: 1.1rem; }
+.winery-detail { font-size: 0.9rem; line-height: 1.6; }
+
+</style>
+</head>
+<body>
+
+<div class="top-bar">Michigan's #1 Wine Destination &nbsp;·&nbsp; 40+ Wineries on Two Peninsulas &nbsp;·&nbsp; Start Planning Today</div>
+
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="logo.svg" alt="Traverse City Wine Guide" height="44" style="display:block;"></a>
+    <ul class="nav-links">
+      <li><a href="wineries/index.html">Wineries</a></li>
+      <li><a href="cideries/index.html">Cideries</a></li>
+      <li><a href="breweries/index.html">Breweries</a></li>
+      <li><a href="journal/index.html">Journal</a></li>
+      <li><a href="plan-your-day.html">Plan Your Day</a></li>
+      <li><a href="wine-tours.html" class="nav-cta">Book a Tour</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-bg-photo"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Traverse City, Michigan</div>
+    <h1>Discover the Heart of<br><em>Michigan Wine Country</em></h1>
+    <p class="hero-desc">Explore over 40 wineries across the Old Mission and Leelanau Peninsulas. From world-class Rieslings to stunning bay views, your perfect wine country escape starts here.</p>
+    <div class="hero-buttons">
+      <a href="wineries/index.html" class="btn-primary">
+        Explore Wineries
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="wine-tours.html" class="btn-outline">Book a Wine Tour</a>
+    </div>
+  </div>
+  <a href="#discover" class="hero-scroll">
+    <span>Scroll to explore</span>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+  </a>
+</section>
+
+<!-- STATS -->
+<section class="stats-bar" id="discover">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-number">40+</div>
+      <div class="stat-label">Wineries & Tasting Rooms</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">2</div>
+      <div class="stat-label">Scenic Peninsulas</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">50+</div>
+      <div class="stat-label">Years of Winemaking</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">45°</div>
+      <div class="stat-label">Parallel — Same as Bordeaux</div>
+    </div>
+  </div>
+</section>
+
+<!-- PENINSULAS -->
+<section class="peninsulas">
+  <div style="max-width: 1340px; margin: 0 auto;">
+    <div class="section-header">
+      <div class="section-tag">Two Peninsulas, Endless Possibilities</div>
+      <h2 class="section-title">Explore the Wine Trails</h2>
+      <div class="section-divider"></div>
+      <p class="section-desc">Each peninsula offers its own distinct character, varietals, and tasting experiences — all surrounded by the breathtaking waters of Grand Traverse Bay.</p>
+    </div>
+  </div>
+  <div class="pen-grid" style="max-width: 1340px; margin: 0 auto;">
+    <a href="old-mission-peninsula.html" class="pen-card">
+      <div class="pen-card-bg old-mission"></div>
+      <div class="pen-content">
+        <div class="pen-label">Wine Trail</div>
+        <h3 class="pen-name">Old Mission Peninsula</h3>
+        <p class="pen-desc">A narrow finger of land stretching 18 miles into Grand Traverse Bay, home to Michigan's pioneering wineries and stunning water views from both sides.</p>
+        <div class="pen-stats">
+          <span class="pen-stat"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> 10 Wineries</span>
+          <span class="pen-stat"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> Center Road Corridor</span>
+        </div>
+        <span class="pen-link">Explore Old Mission <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+    <a href="leelanau-peninsula.html" class="pen-card">
+      <div class="pen-card-bg leelanau"></div>
+      <div class="pen-content">
+        <div class="pen-label">Wine Trail</div>
+        <h3 class="pen-name">Leelanau Peninsula</h3>
+        <p class="pen-desc">Michigan's largest wine-producing region, with rolling hills, charming villages, and a diverse collection of wineries spanning from Lake Michigan to the bay.</p>
+        <div class="pen-stats">
+          <span class="pen-stat"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> 30+ Wineries</span>
+          <span class="pen-stat"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> Multiple Routes</span>
+        </div>
+        <span class="pen-link">Explore Leelanau <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FEATURED WINERIES -->
+<section class="featured-wineries">
+  <div class="featured-inner">
+    <div class="section-header">
+      <div class="section-tag">Hand-Selected Favorites</div>
+      <h2 class="section-title">Featured Wineries</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="winery-grid">
+
+      <a href="wineries/chateau-grand-traverse.html" class="winery-card">
+        <div class="winery-img">
+          <div class="winery-img-inner" style="background-image:url('wineglasses.jpg');background-size:cover;background-position:center; "></div>
+          <span class="winery-badge">Pioneer</span>
+          <span class="winery-peninsula-tag">Old Mission</span>
+        </div>
+        <div class="winery-info">
+          <h3 class="winery-name">Chateau Grand Traverse</h3>
+          <div class="winery-type">Estate Winery & Tasting Room · Est. 1974</div>
+          <div class="winery-details">
+            <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 12239 Center Rd</div>
+            <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Mon–Sat 10am–6pm · Sun 12–5pm</div>
+          </div>
+          <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a href="wineries/chateau-chantal.html" class="winery-card">
+        <div class="winery-img">
+          <div class="winery-img-inner" style="background-image:url('wineglasses.jpg');background-size:cover;background-position:center;"></div>
+          <span class="winery-badge">Featured</span>
+          <span class="winery-peninsula-tag">Old Mission</span>
+        </div>
+        <div class="winery-info">
+          <h3 class="winery-name">Chateau Chantal</h3>
+          <div class="winery-type">Winery & B&B Inn</div>
+          <div class="winery-details">
+            <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 15900 Rue de Vin</div>
+            <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Mon–Sat 11am–7pm · Sun 12–6pm</div>
+          </div>
+          <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a href="wineries/peninsula-cellars.html" class="winery-card">
+        <div class="winery-img">
+          <div class="winery-img-inner" style="background-image:url('wineglasses.jpg');background-size:cover;background-position:center;"></div>
+          <span class="winery-badge">Featured</span>
+          <span class="winery-peninsula-tag">Old Mission</span>
+        </div>
+        <div class="winery-info">
+          <h3 class="winery-name">Peninsula Cellars</h3>
+          <div class="winery-type">Family Owned Winery</div>
+          <div class="winery-details">
+            <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 11480 Center Rd</div>
+            <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Mon–Sat 10am–6pm · Sun 12–6pm</div>
+          </div>
+          <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a href="wineries/brys-estate.html" class="winery-card">
+        <div class="winery-img">
+          <div class="winery-img-inner" style="background-image:url('wineglasses.jpg');background-size:cover;background-position:center;"></div>
+          <span class="winery-peninsula-tag">Old Mission</span>
+        </div>
+        <div class="winery-info">
+          <h3 class="winery-name">Brys Estate Vineyard & Winery</h3>
+          <div class="winery-type">Estate Vineyard & Winery</div>
+          <div class="winery-details">
+            <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 3309 Blue Water Rd</div>
+            <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Mon–Sat 11am–6pm · Sun 12–6pm</div>
+          </div>
+          <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a href="wineries/black-star-farms.html" class="winery-card">
+        <div class="winery-img">
+          <div class="winery-img-inner" style="background-image:url('wineglasses.jpg');background-size:cover;background-position:center;"></div>
+          <span class="winery-badge">Must Visit</span>
+          <span class="winery-peninsula-tag">Leelanau</span>
+        </div>
+        <div class="winery-info">
+          <h3 class="winery-name">Black Star Farms</h3>
+          <div class="winery-type">Winery, Inn & Agricultural Estate</div>
+          <div class="winery-details">
+            <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 10844 E Revold Rd, Suttons Bay</div>
+            <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Daily 10am–6pm</div>
+          </div>
+          <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a href="wineries/45-north.html" class="winery-card">
+        <div class="winery-img">
+          <div class="winery-img-inner" style="background-image:url('wineglasses.jpg');background-size:cover;background-position:center;"></div>
+          <span class="winery-peninsula-tag">Leelanau</span>
+        </div>
+        <div class="winery-info">
+          <h3 class="winery-name">45 North Vineyard & Winery</h3>
+          <div class="winery-type">Vineyard & Winery</div>
+          <div class="winery-details">
+            <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 8580 E Horn Rd, Lake Leelanau</div>
+            <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Mon–Sat 11am–6pm · Sun 12–5pm</div>
+          </div>
+          <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+    </div>
+    <div class="winery-grid-cta">
+      <a href="wineries/index.html" class="btn-primary">View All 40+ Wineries <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience">
+  <div class="exp-inner">
+    <div class="section-header">
+      <div class="section-tag">Your Wine Country Experience</div>
+      <h2 class="section-title">More Than Just a Tasting</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="exp-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+        </div>
+        <h3>Seasonal Events</h3>
+        <p>From harvest festivals in autumn to ice wine celebrations in winter, Traverse City wine country offers year-round events that bring the community together.</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M16.24 7.76a6 6 0 010 8.49m-8.48-.01a6 6 0 010-8.49"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <h3>Guided Wine Tours</h3>
+        <p>Let an expert guide lead you through the peninsulas. Enjoy worry-free transportation, insider access, and curated tastings at the region's best wineries.</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>Food & Wine Pairings</h3>
+        <p>Many wineries offer gourmet food pairings, on-site restaurants, and farm-to-table dining experiences that perfectly complement their wines.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+  <div class="quote-content">
+    <div class="quote-mark">"</div>
+    <p class="quote-text">The Old Mission and Leelanau Peninsulas share the 45th parallel with Bordeaux, creating a microclimate where cool-climate grapes flourish and world-class wines are born from the shores of Grand Traverse Bay.</p>
+    <div class="quote-attr">The Terroir of Traverse City</div>
+  </div>
+</section>
+
+<!-- PLAN YOUR VISIT -->
+<section class="plan-visit">
+  <div class="plan-inner">
+    <div class="section-header">
+      <div class="section-tag">Everything You Need</div>
+      <h2 class="section-title">Plan Your Wine Country Visit</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="plan-grid">
+      <a href="wine-tours.html" class="plan-card">
+        <div class="plan-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3.5V16h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3>Wine Tours</h3>
+        <p>Browse guided tour options from trusted local operators. Sit back and let someone else drive.</p>
+        <span class="plan-card-link">Browse Tours <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a href="where-to-stay.html" class="plan-card">
+        <div class="plan-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21V7l9-4 9 4v14"/><path d="M9 21V11h6v10"/></svg>
+        </div>
+        <h3>Where to Stay</h3>
+        <p>From charming B&Bs at the wineries to downtown boutique hotels. Find your perfect home base.</p>
+        <span class="plan-card-link">Find Lodging <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a href="plan-your-visit.html" class="plan-card">
+        <div class="plan-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        </div>
+        <h3>Visitor Guide</h3>
+        <p>Seasonal tips, tasting etiquette, driving directions, and everything first-timers need to know.</p>
+        <span class="plan-card-link">Read the Guide <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+      <a href="events.html" class="plan-card">
+        <div class="plan-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
+        </div>
+        <h3>Events Calendar</h3>
+        <p>Wine dinners, harvest festivals, live music, and seasonal celebrations happening across the region.</p>
+        <span class="plan-card-link">See Events <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>      <a href="plan-your-day.html" class="plan-card">
+        <div class="plan-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/><path d="M2 20l4-8 4 4 4-6 4 8"/></svg>
+        </div>
+        <h3>Plan Your Day</h3>
+        <p>Build a custom winery itinerary on a real interactive map. Add stops, get drive times, share your route.</p>
+        <span class="plan-card-link">Open Map <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </a>
+    </div>
+    <!-- BACHELORETTE CALLOUT BANNER -->
+    <a href="bachelorette.html" style="display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:28px;background:linear-gradient(135deg,#4A0E1B 0%,#6B1A2A 50%,#722F37 100%);border-radius:8px;padding:36px 48px;text-decoration:none;transition:transform 0.3s,box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(74,14,27,0.25)';" onmouseout="this.style.transform='';this.style.boxShadow='';">
+      <div>
+        <div style="font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:#C9A96E;margin-bottom:10px;">Michigan's #1 Bachelorette Destination</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:500;color:#F5F0E8;margin-bottom:8px;">Planning a Bachelorette Party in Traverse City?</h3>
+        <p style="font-size:0.92rem;color:rgba(245,240,232,0.65);max-width:520px;line-height:1.6;">Bus tours, the best group-friendly wineries, a done-for-you weekend itinerary, and a free planning kit for the maid of honor. Everything in one place.</p>
+      </div>
+      <div style="flex-shrink:0;display:flex;align-items:center;gap:10px;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#C9A96E;white-space:nowrap;">
+        Start Planning <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- JOURNAL -->
+<section class="journal">
+  <div class="journal-inner">
+    <div class="section-header">
+      <div class="section-tag">From the Journal</div>
+      <h2 class="section-title">Wine Country Stories</h2>
+      <div class="section-divider"></div>
+    </div>
+    <div class="journal-grid">
+      <a href="journal/best-rieslings-traverse-city.html" class="journal-card">
+        <div class="journal-card-img">
+          <div class="journal-card-img-inner" style="background-image:url('wineglasses.jpg');background-size:cover;background-position:center;"></div>
+        </div>
+        <div class="journal-card-body">
+          <div class="journal-card-cat">Tasting Notes</div>
+          <h3>The 10 Best Rieslings in Traverse City: A Tasting Guide</h3>
+          <p>From bone-dry to lusciously sweet ice wines, discover the Rieslings that have put Michigan on the world wine map.</p>
+          <div class="journal-card-meta"><span>8 min read</span> · <span>Wine Guide</span></div>
+        </div>
+      </a>
+      <a href="journal/old-mission-vs-leelanau.html" class="journal-card">
+        <div class="journal-card-img">
+          <div class="journal-card-img-inner" style="background-image:url('wineglasses.jpg');background-size:cover;background-position:center;"></div>
+        </div>
+        <div class="journal-card-body">
+          <div class="journal-card-cat">Guide</div>
+          <h3>Old Mission vs. Leelanau: Which Peninsula Is Right for You?</h3>
+          <p>A side-by-side comparison to help you choose your wine trail adventure.</p>
+          <div class="journal-card-meta"><span>6 min read</span> · <span>Planning</span></div>
+        </div>
+      </a>
+      <a href="journal/winter-wine-trail.html" class="journal-card">
+        <div class="journal-card-img">
+          <div class="journal-card-img-inner" style="background-image:url('wineglasses.jpg');background-size:cover;background-position:center;"></div>
+        </div>
+        <div class="journal-card-body">
+          <div class="journal-card-cat">Seasonal</div>
+          <h3>Why Winter Is the Best Kept Secret of TC Wine Country</h3>
+          <p>Cozy tasting rooms, ice wine releases, and zero crowds — winter has its perks.</p>
+          <div class="journal-card-meta"><span>5 min read</span> · <span>Seasonal</span></div>
+        </div>
+      </a>
+    </div>
+    <div class="journal-cta">
+      <a href="journal/index.html" class="btn-outline-dark">Read the Journal <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <h2>Stay Connected to Wine Country</h2>
+    <p>Weekly updates on new wines, events, seasonal guides, and exclusive offers from Traverse City's finest wineries.</p>
+    <form class="newsletter-form" onsubmit="return false;">
+      <input type="email" placeholder="Enter your email address">
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><span class="logo-main">Traverse City Wine</span><span class="logo-sub">Tours & Winery Guide</span></div>
+        <p>Your complete guide to exploring Michigan's premier wine region. Discover wineries, plan tours, and experience the best of Traverse City wine country.</p>
+      </div>
+      <div class="footer-col"><h4>Explore</h4><ul>
+        <li><a href="wineries/index.html">All Wineries</a></li>
+        <li><a href="old-mission-peninsula.html">Old Mission Peninsula</a></li>
+        <li><a href="leelanau-peninsula.html">Leelanau Peninsula</a></li>
+        <li><a href="journal/index.html">Wine Country Journal</a></li>
+        <li><a href="events.html">Events Calendar</a></li>
+        <li><a href="plan-your-day.html">Plan Your Day</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Plan Your Trip</h4><ul>
+        <li><a href="wine-tours.html">Wine Tours</a></li>
+        <li><a href="bachelorette.html">Bachelorette Parties</a></li>
+        <li><a href="where-to-stay.html">Hotels & Lodging</a></li>
+        <li><a href="plan-your-visit.html">Visitor Guide</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Resources</h4><ul>
+        <li><a href="advertise.html">Advertise With Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 TraverseCityWineTours.com &middot; All Rights Reserved</span>
+      <div style="display: flex; gap: 24px;">
+        <a href="sitemap.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 10); });
+
+// Scroll animations
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(x => {
+    if (x.isIntersecting) {
+      x.target.style.opacity = '1';
+      x.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.winery-card, .pen-card, .exp-card, .plan-card, .journal-card, .stat-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  obs.observe(el);
+});
+
+// Stagger stat items
+document.querySelectorAll('.stat-item').forEach((el, i) => {
+  el.style.transitionDelay = `${i * 0.1}s`;
+});
+</script>
+
+</body>
+</html>

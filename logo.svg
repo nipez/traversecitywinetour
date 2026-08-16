@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 44" width="200" height="44">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4A843"/>
+      <stop offset="100%" style="stop-color:#B8892E"/>
+    </linearGradient>
+    <clipPath id="bowl">
+      <path d="M10,2 C8,9 7,16 9,21 C10,24 12,26 15,27 L18,28 L21,27 C24,26 26,24 27,21 C29,16 28,9 26,2 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Glass icon — compact, 36px tall -->
+  <path d="M10,2 C8,9 7,16 9,21 C10,24 12,26 15,27 L18,28 L21,27 C24,26 26,24 27,21 C29,16 28,9 26,2 Z"
+        fill="none" stroke="url(#g)" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="7" y="17" width="22" height="12" fill="url(#g)" opacity="0.8" clip-path="url(#bowl)"/>
+  <line x1="18" y1="28" x2="18" y2="35" stroke="url(#g)" stroke-width="2" stroke-linecap="round"/>
+  <path d="M13,35 Q18,33 23,35" stroke="url(#g)" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <!-- Wave -->
+  <path d="M5,39 C8,35 11,40 14,38 C16,37 17,37 18,37 C19,37 20,37 22,38 C25,40 28,35 31,39"
+        fill="none" stroke="url(#g)" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Text — stacked tight next to glass -->
+  <text x="40" y="17"
+        font-family="Georgia, serif"
+        font-size="7.5" font-weight="400" letter-spacing="2.5"
+        fill="#7A8C6E">TRAVERSE CITY</text>
+  <text x="38" y="34"
+        font-family="Georgia, serif"
+        font-size="19" font-weight="700" letter-spacing="1"
+        fill="#4A0E1B">WINE GUIDE</text>
+</svg>

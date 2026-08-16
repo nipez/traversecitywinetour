@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-374F6WS33Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-374F6WS33Y');
+</script>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://traversecitywinetour.com/winery-map">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Winery Map | Traverse City Wine Tours</title>
+<meta name="description" content="Explore 40+ wineries across Old Mission and Leelanau Peninsulas on our interactive map. Zoom, pan, and hover to discover your next tasting room.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --burgundy: #4A0E1B; --wine: #722F37; --merlot: #8B3A3A;
+  --gold: #C9A96E; --gold-light: #D4BC8B;
+  --cream: #F5F0E8; --cream-dark: #EDE6D8;
+  --charcoal: #2C2420; --text: #3A3330; --text-light: #7A7068; --white: #FEFCF9;
+  --old-mission-color: #8B3A3A; --leelanau-color: #2D5A3D;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Outfit', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+svg { flex-shrink: 0; }
+
+.top-bar { background: var(--burgundy); color: var(--gold-light); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 0; text-align: center; }
+nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid rgba(74,14,27,0.08); transition: box-shadow 0.3s; }
+nav.scrolled { box-shadow: 0 2px 30px rgba(74,14,27,0.08); }
+.nav-inner { max-width: 1340px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 80px; }
+.logo { display: flex; flex-direction: column; line-height: 1; text-decoration: none; }
+.logo-main { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 600; color: var(--burgundy); letter-spacing: -0.01em; }
+.logo-sub { font-family: 'Outfit', sans-serif; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-top: 2px; }
+.nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+.nav-links a { text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text); position: relative; padding: 4px 0; transition: color 0.3s; }
+.nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: var(--gold); transition: width 0.3s; }
+.nav-links a:hover { color: var(--burgundy); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta { background: var(--burgundy) !important; color: var(--cream) !important; padding: 10px 24px !important; border-radius: 4px; font-size: 0.78rem !important; letter-spacing: 0.06em !important; transition: background 0.3s !important; }
+.nav-cta:hover { background: var(--wine) !important; }
+.nav-cta::after { display: none !important; }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+
+.page-hero { position: relative; height: 32vh; min-height: 260px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+.page-hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, #2a0a10 0%, #4A0E1B 30%, #3d1a1a 60%, #2C2420 100%); }
+.page-hero-bg::after { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A96E' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); opacity: 0.5; }
+.page-hero-content { position: relative; z-index: 2; max-width: 800px; padding: 0 40px; }
+.page-hero-tag { display: inline-flex; align-items: center; gap: 10px; font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 20px; }
+.page-hero-tag::before, .page-hero-tag::after { content: ''; width: 40px; height: 1px; background: var(--gold); }
+.page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 500; line-height: 1.12; color: var(--cream); }
+.page-hero h1 em { font-style: italic; color: var(--gold-light); }
+.page-hero-desc { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; line-height: 1.6; color: rgba(245,240,232,0.75); margin-top: 14px; max-width: 550px; margin-left: auto; margin-right: auto; }
+
+.breadcrumbs { max-width: 1340px; margin: 0 auto; padding: 16px 40px; }
+.breadcrumbs a { font-size: 0.78rem; color: var(--text-light); text-decoration: none; transition: color 0.3s; }
+.breadcrumbs a:hover { color: var(--burgundy); }
+.breadcrumbs span { font-size: 0.78rem; color: var(--text-light); margin: 0 8px; }
+.breadcrumbs .current { font-size: 0.78rem; color: var(--burgundy); font-weight: 500; }
+
+.map-section { max-width: 1340px; margin: 0 auto; padding: 0 40px 80px; }
+.map-wrapper { position: relative; background: var(--cream); border-radius: 12px; overflow: hidden; border: 1px solid rgba(74,14,27,0.08); box-shadow: 0 4px 40px rgba(74,14,27,0.06); }
+.map-toolbar { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; background: var(--white); border-bottom: 1px solid rgba(74,14,27,0.06); flex-wrap: wrap; gap: 12px; }
+.map-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.filter-btn { padding: 8px 18px; border: 1px solid rgba(74,14,27,0.15); background: transparent; color: var(--text); font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; border-radius: 20px; cursor: pointer; transition: all 0.3s; }
+.filter-btn.active { background: var(--burgundy); color: var(--cream); border-color: var(--burgundy); }
+.filter-btn:hover:not(.active) { border-color: var(--burgundy); color: var(--burgundy); }
+.filter-btn.old-mission.active { background: var(--old-mission-color); border-color: var(--old-mission-color); }
+.filter-btn.leelanau.active { background: var(--leelanau-color); border-color: var(--leelanau-color); }
+.map-zoom-controls { display: flex; gap: 4px; }
+.zoom-btn { width: 36px; height: 36px; border: 1px solid rgba(74,14,27,0.12); background: var(--white); color: var(--burgundy); font-size: 1.1rem; font-weight: 600; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s; font-family: 'Outfit', sans-serif; }
+.zoom-btn:hover { background: var(--burgundy); color: var(--cream); }
+.zoom-btn.reset { font-size: 0.65rem; width: auto; padding: 0 12px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500; }
+.map-canvas-wrap { position: relative; height: 650px; cursor: grab; overflow: hidden; }
+.map-canvas-wrap:active { cursor: grabbing; }
+.map-canvas-wrap canvas { position: absolute; top: 0; left: 0; }
+
+.map-tooltip { position: fixed; z-index: 200; pointer-events: none; background: var(--white); border-radius: 10px; box-shadow: 0 8px 40px rgba(74,14,27,0.15), 0 1px 4px rgba(0,0,0,0.08); padding: 0; min-width: 260px; max-width: 300px; opacity: 0; transform: translateY(6px); transition: opacity 0.2s, transform 0.2s; overflow: hidden; }
+.map-tooltip.visible { opacity: 1; transform: translateY(0); }
+.map-tooltip-header { padding: 14px 18px 10px; border-bottom: 1px solid rgba(74,14,27,0.06); }
+.map-tooltip-peninsula { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
+.map-tooltip-peninsula.old-mission { color: var(--old-mission-color); }
+.map-tooltip-peninsula.leelanau { color: var(--leelanau-color); }
+.map-tooltip-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--burgundy); line-height: 1.25; }
+.map-tooltip-type { font-size: 0.72rem; color: var(--text-light); margin-top: 2px; }
+.map-tooltip-body { padding: 12px 18px 14px; }
+.map-tooltip-detail { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; color: var(--text-light); margin-bottom: 6px; }
+.map-tooltip-detail:last-child { margin-bottom: 0; }
+.map-tooltip-detail svg { color: var(--gold); flex-shrink: 0; }
+.map-tooltip-wines { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+.map-tooltip-wine-tag { padding: 3px 10px; background: var(--cream); border-radius: 12px; font-size: 0.68rem; color: var(--burgundy); font-weight: 500; }
+.map-tooltip-footer { padding: 10px 18px; background: var(--cream); display: flex; align-items: center; justify-content: space-between; }
+.map-tooltip-footer span { font-size: 0.68rem; color: var(--text-light); letter-spacing: 0.06em; text-transform: uppercase; }
+.map-tooltip-footer svg { color: var(--gold); }
+
+.map-legend { display: flex; align-items: center; gap: 20px; padding: 14px 24px; background: var(--white); border-top: 1px solid rgba(74,14,27,0.06); }
+.legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--text-light); }
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+.legend-dot.old-mission { background: var(--old-mission-color); }
+.legend-dot.leelanau { background: var(--leelanau-color); }
+.legend-instructions { margin-left: auto; font-size: 0.72rem; color: var(--text-light); opacity: 0.6; }
+
+.newsletter { background: var(--burgundy); padding: 80px 40px; text-align: center; }
+.newsletter-inner { max-width: 600px; margin: 0 auto; }
+.newsletter h2 { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 500; color: var(--cream); margin-bottom: 12px; }
+.newsletter p { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: rgba(245,240,232,0.7); margin-bottom: 32px; }
+.newsletter-form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; }
+.newsletter-form input { flex: 1; padding: 14px 20px; border: 1px solid rgba(201,169,110,0.3); background: rgba(255,255,255,0.06); color: var(--cream); font-family: 'Outfit', sans-serif; font-size: 0.88rem; border-radius: 4px; outline: none; transition: border-color 0.3s; }
+.newsletter-form input::placeholder { color: rgba(245,240,232,0.4); }
+.newsletter-form input:focus { border-color: var(--gold); }
+.newsletter-form button { padding: 14px 28px; background: var(--gold); color: var(--burgundy); font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border: none; border-radius: 4px; cursor: pointer; transition: background 0.3s; white-space: nowrap; }
+.newsletter-form button:hover { background: var(--gold-light); }
+
+footer { background: var(--charcoal); padding: 80px 40px 40px; color: rgba(245,240,232,0.6); }
+.footer-inner { max-width: 1340px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-brand .logo-main { color: var(--cream); font-size: 1.4rem; }
+.footer-brand .logo-sub { color: var(--gold); }
+.footer-brand p { font-size: 0.88rem; line-height: 1.7; margin-top: 16px; color: rgba(245,240,232,0.5); }
+.footer-col h4 { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 10px; }
+.footer-col a { font-size: 0.88rem; color: rgba(245,240,232,0.5); text-decoration: none; transition: color 0.3s; }
+.footer-col a:hover { color: var(--gold-light); }
+.footer-bottom { border-top: 1px solid rgba(245,240,232,0.08); padding-top: 32px; display: flex; justify-content: space-between; align-items: center; font-size: 0.78rem; }
+.footer-bottom a { color: rgba(245,240,232,0.4); text-decoration: none; transition: color 0.3s; }
+.footer-bottom a:hover { color: var(--gold-light); }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; position: absolute; top: 80px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 24px 40px; gap: 16px; border-bottom: 1px solid rgba(74,14,27,0.08); }
+  .nav-links.show { display: flex; }
+  .nav-toggle { display: block; }
+  .map-section { padding: 0 16px 40px; }
+  .map-canvas-wrap { height: 500px; }
+  .newsletter-form { flex-direction: column; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .map-toolbar { padding: 12px 16px; }
+  .map-legend { flex-wrap: wrap; padding: 12px 16px; }
+  .legend-instructions { margin-left: 0; flex-basis: 100%; margin-top: 4px; }
+}
+
+/* ============================================================
+   ACCESSIBILITY: LARGER TEXT FOR 55+ READERS
+   ============================================================ */
+html { font-size: 18px !important; scroll-behavior: smooth; }
+body { font-size: 1rem; line-height: 1.7; }
+p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
+.winery-desc, .exp-card p, .plan-card p, .journal-card p,
+.pen-desc, .section-desc, .footer-brand p,
+.article-body p, .article-body li { font-size: 1rem; line-height: 1.75; }
+.winery-type, .winery-detail, .winery-link, .pen-stat, .pen-link, .pen-label,
+.journal-card-cat, .journal-card-meta, .section-tag, .stat-label, .top-bar,
+.footer-col a, .footer-bottom, .plan-card-link, .quote-attr,
+.hero-tag, .hero-scroll span, .winery-badge, .winery-peninsula-tag { font-size: 0.875rem; line-height: 1.6; }
+.nav-links a, .nav-cta { font-size: 0.9rem !important; }
+.btn-primary, .btn-outline, .btn-outline-dark, .btn-burgundy { font-size: 0.9rem; }
+.winery-name { font-size: 1.25rem; }
+.newsletter-form input, .newsletter-form button { font-size: 1rem; padding: 16px 24px; }
+.hero-desc { line-height: 1.75; }
+.pen-card::after { background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 55%, transparent 75%) !important; }
+.hero-bg-photo { opacity: 0.18 !important; }
+.quote-text { color: var(--cream) !important; opacity: 1 !important; }
+.footer-brand p, .footer-col a { color: rgba(245,240,232,0.72) !important; }
+.footer-bottom { color: rgba(245,240,232,0.65) !important; }
+.section-desc { line-height: 1.75; font-size: 1.1rem; }
+.winery-detail { font-size: 0.9rem; line-height: 1.6; }
+
+</style>
+</head>
+<body>
+
+<div class="top-bar">Michigan's #1 Wine Destination &nbsp;·&nbsp; 40+ Wineries on Two Peninsulas &nbsp;·&nbsp; Start Planning Today</div>
+
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="logo.svg" alt="Traverse City Wine Guide" height="44" style="display:block;"></a>
+    <ul class="nav-links">
+      <li><a href="wineries/index.html">Wineries</a></li>
+      <li><a href="cideries/index.html">Cideries</a></li>
+      <li><a href="breweries/index.html">Breweries</a></li>
+      <li><a href="journal/index.html">Journal</a></li>
+      <li><a href="plan-your-day.html">Plan Your Day</a></li>
+      <li><a href="wine-tours.html" class="nav-cta">Book a Tour</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-tag">Interactive Experience</div>
+    <h1>Explore the <em>Winery Map</em></h1>
+    <p class="page-hero-desc">Discover every tasting room across both peninsulas. Zoom, pan, and hover to find your next wine country adventure.</p>
+  </div>
+</section>
+
+<div class="breadcrumbs"><a href="index.html">Home</a><span>›</span><a href="wineries/index.html">Wineries</a><span>›</span><span class="current">Interactive Map</span></div>
+
+<section class="map-section">
+  <div class="map-wrapper">
+    <div class="map-toolbar">
+      <div class="map-filters">
+        <button class="filter-btn active" data-filter="all">All Wineries</button>
+        <button class="filter-btn old-mission" data-filter="old-mission">Old Mission</button>
+        <button class="filter-btn leelanau" data-filter="leelanau">Leelanau</button>
+      </div>
+      <div class="map-zoom-controls">
+        <button class="zoom-btn" id="zoomIn">+</button>
+        <button class="zoom-btn" id="zoomOut">−</button>
+        <button class="zoom-btn reset" id="zoomReset">Reset</button>
+      </div>
+    </div>
+    <div class="map-canvas-wrap" id="mapWrap">
+      <canvas id="mapCanvas"></canvas>
+    </div>
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-dot old-mission"></div> Old Mission Peninsula</div>
+      <div class="legend-item"><div class="legend-dot leelanau"></div> Leelanau Peninsula</div>
+      <div class="legend-instructions">Scroll to zoom · Drag to pan · Hover for details</div>
+    </div>
+  </div>
+</section>
+
+<div class="map-tooltip" id="tooltip"></div>
+
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <h2>Stay Connected to Wine Country</h2>
+    <p>Weekly updates on new wines, events, seasonal guides, and exclusive offers from Traverse City's finest wineries.</p>
+    <form class="newsletter-form" onsubmit="return false;"><input type="email" placeholder="Enter your email address"><button type="submit">Subscribe</button></form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><span class="logo-main">Traverse City Wine</span><span class="logo-sub">Tours & Winery Guide</span></div>
+        <p>Your complete guide to exploring Michigan's premier wine region. Discover wineries, plan tours, and experience the best of Traverse City wine country.</p>
+      </div>
+      <div class="footer-col"><h4>Explore</h4><ul>
+        <li><a href="wineries/index.html">All Wineries</a></li>
+        <li><a href="old-mission-peninsula.html">Old Mission Peninsula</a></li>
+        <li><a href="leelanau-peninsula.html">Leelanau Peninsula</a></li>
+        <li><a href="journal/index.html">Wine Country Journal</a></li>
+        <li><a href="events.html">Events Calendar</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Plan Your Trip</h4><ul>
+        <li><a href="wine-tours.html">Wine Tours</a></li>
+        <li><a href="where-to-stay.html">Hotels & Lodging</a></li>
+        <li><a href="plan-your-day.html">Plan Your Day</a></li>
+      <li><a href="plan-your-visit.html">Visitor Guide</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Resources</h4><ul>
+        <li><a href="advertise.html">Advertise With Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 TraverseCityWineTours.com &middot; All Rights Reserved</span>
+      <div style="display: flex; gap: 24px;"><a href="sitemap.html">Sitemap</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ────────────────────────────────────────────────────────────
+// WINERY DATA — real approximate coordinates
+// ────────────────────────────────────────────────────────────
+const wineries = [
+  // OLD MISSION PENINSULA — thin finger stretching north from TC
+  { name:"Chateau Grand Traverse", type:"Estate Winery & Tasting Room", peninsula:"old-mission", lat:44.8310, lng:-85.4740, address:"12239 Center Rd", hours:"Mon–Sat 10am–6pm · Sun 12–5pm", phone:"(231) 223-7355", wines:["Riesling","Ice Wine","Late Harvest","Pinot Grigio","Merlot"], link:"wineries/chateau-grand-traverse.html" },
+  { name:"Chateau Chantal", type:"Winery & B&B Inn", peninsula:"old-mission", lat:44.8620, lng:-85.4830, address:"15900 Rue de Vin", hours:"Mon–Sat 11am–7pm · Sun 12–6pm", phone:"(231) 223-4110", wines:["Sparkling","Pinot Noir","Chardonnay","Riesling"], link:"wineries/chateau-chantal.html" },
+  { name:"Peninsula Cellars", type:"Family Owned Winery", peninsula:"old-mission", lat:44.8170, lng:-85.4700, address:"11480 Center Rd", hours:"Mon–Sat 10am–6pm · Sun 12–6pm", phone:"(231) 933-9787", wines:["Gewürztraminer","Riesling","Pinot Grigio","Red Blends"], link:"wineries/peninsula-cellars.html" },
+  { name:"Brys Estate", type:"Estate Vineyard & Winery", peninsula:"old-mission", lat:44.8490, lng:-85.4790, address:"3309 Blue Water Rd", hours:"Mon–Sat 11am–6pm · Sun 12–6pm", phone:"(231) 223-9303", wines:["Pinot Blanc","Riesling","Merlot","Cab Franc"], link:"wineries/brys-estate.html" },
+  { name:"2 Lads Winery", type:"Modern Tasting Room", peninsula:"old-mission", lat:44.8580, lng:-85.4750, address:"16985 Smokey Hollow Rd", hours:"Mon–Sat 12–6pm · Sun 12–5pm", phone:"(231) 223-7722", wines:["Pinot Grigio","Rosé","Cab Franc","Riesling"], link:"#" },
+  { name:"Bowers Harbor Vineyards", type:"Estate Winery", peninsula:"old-mission", lat:44.8060, lng:-85.5020, address:"2896 Bowers Harbor Rd", hours:"Mon–Sat 10:30am–6pm · Sun 12–6pm", phone:"(231) 223-7615", wines:["Riesling","Pinot Grigio","Langley Red","Rosé"], link:"#" },
+  { name:"Hawthorne Vineyards", type:"Boutique Winery", peninsula:"old-mission", lat:44.8380, lng:-85.4760, address:"1000 Camino Maria Dr", hours:"Mon–Sat 11am–6pm · Sun 12–5pm", phone:"(231) 223-4157", wines:["Chardonnay","Pinot Noir","Riesling"], link:"#" },
+  { name:"Left Foot Charley", type:"Urban Winery", peninsula:"old-mission", lat:44.7640, lng:-85.6180, address:"806 Red Dr, Traverse City", hours:"Mon–Sat 12–6pm · Sun 12–5pm", phone:"(231) 995-0500", wines:["Riesling","Blaufränkisch","Pinot Blanc","Cider"], link:"#" },
+  { name:"Mari Vineyards", type:"Estate Winery", peninsula:"old-mission", lat:44.8440, lng:-85.4770, address:"8175 Center Rd", hours:"Daily 11am–6pm", phone:"(231) 938-6116", wines:["Sangiovese","Nebbiolo","Cab Franc","Riesling"], link:"#" },
+  { name:"Bonobo Winery", type:"Tasting Room & Patio", peninsula:"old-mission", lat:44.7990, lng:-85.4680, address:"12011 Center Rd", hours:"Daily 11am–7pm", phone:"(231) 282-9463", wines:["Rosé","Pinot Noir","Riesling","Sparkling"], link:"#" },
+
+  // LEELANAU PENINSULA — large peninsula NW of TC
+  { name:"Black Star Farms", type:"Winery, Inn & Agricultural Estate", peninsula:"leelanau", lat:44.8980, lng:-85.6460, address:"10844 E Revold Rd, Suttons Bay", hours:"Daily 10am–6pm", phone:"(231) 944-1270", wines:["Arcturos Red","Riesling","Pinot Gris","Dessert Wines"], link:"wineries/black-star-farms.html" },
+  { name:"45 North Vineyard & Winery", type:"Vineyard & Winery", peninsula:"leelanau", lat:44.8810, lng:-85.7260, address:"8580 E Horn Rd, Lake Leelanau", hours:"Mon–Sat 11am–6pm · Sun 12–5pm", phone:"(231) 256-2553", wines:["Riesling","Pinot Noir","Cab Franc","Rosé"], link:"wineries/45-north.html" },
+  { name:"L. Mawby", type:"Sparkling Wine House", peninsula:"leelanau", lat:44.9130, lng:-85.6970, address:"4519 S Elm Valley Rd, Suttons Bay", hours:"Thu–Mon 12–5pm", phone:"(231) 271-3522", wines:["Sparkling Brut","Sparkling Rosé","Blanc de Blancs"], link:"#" },
+  { name:"Ciccone Vineyard", type:"Estate Vineyard & Winery", peninsula:"leelanau", lat:44.9050, lng:-85.6850, address:"10343 E Hilltop Rd, Suttons Bay", hours:"Mon–Sat 12–5pm", phone:"(231) 271-5551", wines:["Dolcetto","Pinot Grigio","Gewürztraminer","Cab Franc"], link:"#" },
+  { name:"Gill's Pier Winery", type:"Vineyard & Winery", peninsula:"leelanau", lat:44.9780, lng:-85.7050, address:"5620 N Manitou Trail, Northport", hours:"Daily 12–5pm", phone:"(231) 256-7003", wines:["Riesling","Pinot Noir","Grüner Veltliner"], link:"#" },
+  { name:"Leelanau Cellars", type:"Historic Winery", peninsula:"leelanau", lat:44.9320, lng:-85.6050, address:"5019 N West Bay Shore Dr, Omena", hours:"Mon–Sat 10am–6pm · Sun 12–5pm", phone:"(231) 386-5201", wines:["Winter White","Witches Brew","Riesling","Red Blends"], link:"#" },
+  { name:"Bel Lago Vineyard", type:"Vineyard & Winery", peninsula:"leelanau", lat:44.8550, lng:-85.8050, address:"6530 S Lake Shore Dr, Cedar", hours:"Daily 12–5pm", phone:"(231) 228-4800", wines:["Pinot Grigio","Auxerrois","Tempranillo","Pinot Noir"], link:"#" },
+  { name:"Shady Lane Cellars", type:"Estate Winery", peninsula:"leelanau", lat:44.9100, lng:-85.6600, address:"9580 Shady Ln, Suttons Bay", hours:"Daily 11am–6pm", phone:"(231) 947-8865", wines:["Riesling","Franc-n-Blanc","Pinot Noir","Sparkling"], link:"#" },
+  { name:"Verterra Winery", type:"Tasting Room", peninsula:"leelanau", lat:44.9420, lng:-85.7580, address:"103 E River St, Leland", hours:"Daily 11am–6pm", phone:"(231) 256-2115", wines:["Pinot Noir","Chardonnay","Riesling","Merlot"], link:"#" },
+  { name:"Brengman Brothers", type:"Winery & Cider Room", peninsula:"leelanau", lat:44.8200, lng:-85.6700, address:"9720 S Center Hwy", hours:"Daily 11am–7pm", phone:"(231) 944-0004", wines:["Hard Cider","Riesling","Pinot Noir","Rosé"], link:"#" },
+  { name:"Raftshol Vineyards", type:"Family Vineyard & Winery", peninsula:"leelanau", lat:44.8830, lng:-85.6200, address:"1865 N West Bay Shore Dr, Suttons Bay", hours:"Daily 12–6pm", phone:"(231) 271-5650", wines:["Cherry Wine","Riesling","Cab Franc","Rosé"], link:"#" },
+  { name:"Willow Vineyards", type:"Boutique Winery", peninsula:"leelanau", lat:44.9070, lng:-85.6750, address:"10702 E Hilltop Rd, Suttons Bay", hours:"Thu–Mon 12–5pm", phone:"(231) 271-4810", wines:["Pinot Noir","Riesling","Pinot Gris","Sparkling"], link:"#" },
+  { name:"Good Harbor Vineyards", type:"Estate Winery", peninsula:"leelanau", lat:44.8830, lng:-85.8300, address:"34 S Manitou Trail, Lake Leelanau", hours:"Mon–Sat 11am–5pm · Sun 12–5pm", phone:"(231) 256-7165", wines:["Fishtown White","Riesling","Pinot Grigio","Moonstruck"], link:"#" },
+];
+
+// ────────────────────────────────────────────────────────────
+// GEOGRAPHIC OUTLINE DATA — based on real coastlines
+// Leelanau is a large peninsula west of GT Bay
+// Old Mission is a thin finger extending north between the two arms of GT Bay
+// ────────────────────────────────────────────────────────────
+
+// Old Mission Peninsula — very narrow, runs N from TC at ~-85.48
+const oldMission = [
+  // Base (south) — connects to mainland near TC
+  [-85.510, 44.765], [-85.495, 44.763], [-85.475, 44.762], [-85.458, 44.763], [-85.445, 44.766],
+  // East shore going north
+  [-85.448, 44.780], [-85.452, 44.795], [-85.455, 44.810], [-85.458, 44.825],
+  [-85.460, 44.840], [-85.462, 44.855], [-85.464, 44.870], [-85.466, 44.885],
+  [-85.468, 44.900], [-85.470, 44.915], [-85.472, 44.930], [-85.474, 44.945],
+  [-85.475, 44.960], [-85.476, 44.975], [-85.475, 44.985],
+  // Tip
+  [-85.478, 44.993], [-85.484, 44.998], [-85.492, 44.999], [-85.500, 44.997],
+  // West shore going south
+  [-85.504, 44.990], [-85.505, 44.975], [-85.504, 44.960], [-85.503, 44.945],
+  [-85.502, 44.930], [-85.501, 44.915], [-85.500, 44.900], [-85.498, 44.885],
+  [-85.496, 44.870], [-85.494, 44.855], [-85.492, 44.840], [-85.490, 44.825],
+  [-85.488, 44.810], [-85.487, 44.795], [-85.490, 44.780],
+  // Back to base
+  [-85.510, 44.765],
+];
+
+// Leelanau Peninsula — large landmass west of GT Bay's west arm
+const leelanau = [
+  // Southeast — starts near mouth of West Bay, near TC
+  [-85.580, 44.770], [-85.610, 44.775], [-85.650, 44.778],
+  [-85.700, 44.775], [-85.740, 44.778], [-85.780, 44.784],
+  // Southwest coast going west/south (near Empire, Sleeping Bear)
+  [-85.820, 44.790], [-85.855, 44.798], [-85.880, 44.810],
+  [-85.905, 44.825], [-85.920, 44.840],
+  // West coast going north along Lake Michigan
+  [-85.930, 44.860], [-85.935, 44.880], [-85.933, 44.900],
+  [-85.928, 44.920], [-85.920, 44.940], [-85.910, 44.960],
+  [-85.895, 44.978], [-85.875, 44.995],
+  // Northwest tip — near Leland / Northport area
+  [-85.850, 45.010], [-85.825, 45.025], [-85.800, 45.035],
+  [-85.770, 45.042], [-85.740, 45.048],
+  // North tip — Northport / Cathead Bay
+  [-85.710, 45.050], [-85.680, 45.048], [-85.655, 45.042],
+  [-85.635, 45.032], [-85.620, 45.018],
+  // East coast (along West Arm of GT Bay) heading south
+  [-85.608, 45.000], [-85.600, 44.980], [-85.596, 44.960],
+  [-85.590, 44.940], [-85.585, 44.920],
+  // Suttons Bay indent
+  [-85.580, 44.910], [-85.575, 44.895], [-85.573, 44.880],
+  // Omena / south of Suttons Bay
+  [-85.575, 44.860], [-85.578, 44.840], [-85.576, 44.820],
+  [-85.574, 44.800], [-85.576, 44.785],
+  // Close back to start
+  [-85.580, 44.770],
+];
+
+// Lake Leelanau (inland lake) — simplified
+const lakeLeelanauNorth = [
+  [-85.730, 44.945], [-85.720, 44.950], [-85.712, 44.960],
+  [-85.710, 44.975], [-85.715, 44.985], [-85.725, 44.988],
+  [-85.735, 44.982], [-85.738, 44.970], [-85.735, 44.955], [-85.730, 44.945],
+];
+const lakeLeelanauSouth = [
+  [-85.715, 44.885], [-85.706, 44.890], [-85.700, 44.905],
+  [-85.702, 44.920], [-85.708, 44.930], [-85.718, 44.935],
+  [-85.728, 44.930], [-85.732, 44.918], [-85.730, 44.905],
+  [-85.725, 44.893], [-85.715, 44.885],
+];
+
+// Mainland mass — south of the bays
+const mainland = [
+  [-85.940, 44.720], [-85.940, 44.790],
+  // Connects to Leelanau at south
+  [-85.920, 44.800], [-85.880, 44.790], [-85.820, 44.785],
+  [-85.780, 44.780], [-85.740, 44.775], [-85.700, 44.772],
+  [-85.650, 44.775], [-85.610, 44.772], [-85.580, 44.768],
+  // South shore of West Bay
+  [-85.560, 44.764], [-85.540, 44.760], [-85.525, 44.758],
+  // TC waterfront  
+  [-85.510, 44.760], [-85.495, 44.758], [-85.475, 44.757], [-85.458, 44.758],
+  [-85.445, 44.760],
+  // South shore of East Bay
+  [-85.430, 44.758], [-85.410, 44.755], [-85.390, 44.752],
+  [-85.370, 44.750], [-85.350, 44.750],
+  // East side
+  [-85.350, 44.720],
+  [-85.940, 44.720],
+];
+
+// East shore — land east of East Bay (Elk Rapids area)
+const eastShore = [
+  [-85.390, 44.752], [-85.370, 44.755], [-85.355, 44.760],
+  [-85.350, 44.775], [-85.348, 44.800], [-85.350, 44.830],
+  [-85.352, 44.860], [-85.355, 44.890], [-85.358, 44.920],
+  [-85.360, 44.950], [-85.362, 44.975], [-85.365, 45.000],
+  [-85.370, 45.050],
+  [-85.350, 45.050], [-85.350, 44.752],
+  [-85.390, 44.752],
+];
+
+// ────────────────────────────────────────────────────────────
+// GEO BOUNDS & MAP STATE
+// ────────────────────────────────────────────────────────────
+const GEO = { minLat: 44.710, maxLat: 45.065, minLng: -85.960, maxLng: -85.330 };
+
+let scale = 1, offsetX = 0, offsetY = 0;
+let dragging = false, dragStartX = 0, dragStartY = 0, dragOffsetX = 0, dragOffsetY = 0;
+let hoveredWinery = null;
+let activeFilter = 'all';
+
+const canvas = document.getElementById('mapCanvas');
+const ctx = canvas.getContext('2d');
+const wrap = document.getElementById('mapWrap');
+const tooltip = document.getElementById('tooltip');
+
+function resize() {
+  const dpr = window.devicePixelRatio || 1;
+  const w = wrap.clientWidth, h = wrap.clientHeight;
+  canvas.width = w * dpr; canvas.height = h * dpr;
+  canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  draw();
+}
+
+// Convert lat/lng → canvas pixel with pan+zoom
+function geo(lat, lng) {
+  const w = wrap.clientWidth, h = wrap.clientHeight;
+  const pad = 40;
+  const x = pad + ((lng - GEO.minLng) / (GEO.maxLng - GEO.minLng)) * (w - pad * 2);
+  const y = pad + ((GEO.maxLat - lat) / (GEO.maxLat - GEO.minLat)) * (h - pad * 2);
+  const cx = w / 2, cy = h / 2;
+  return [(x + offsetX - cx) * scale + cx, (y + offsetY - cy) * scale + cy];
+}
+
+// Draw a polygon from [lng, lat] pairs
+function poly(points, fill, stroke, lw) {
+  ctx.beginPath();
+  points.forEach((p, i) => {
+    const [x, y] = geo(p[1], p[0]);
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.closePath();
+  if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+  if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth = lw || 1; ctx.stroke(); }
+}
+
+function drawWater() {
+  const w = wrap.clientWidth, h = wrap.clientHeight;
+  // Base water
+  ctx.fillStyle = '#cdd8e2';
+  ctx.fillRect(0, 0, w, h);
+  // Subtle lighter tone
+  const grd = ctx.createRadialGradient(w * 0.5, h * 0.45, 0, w * 0.5, h * 0.45, w * 0.6);
+  grd.addColorStop(0, 'rgba(190,210,225,0.5)');
+  grd.addColorStop(1, 'rgba(190,210,225,0)');
+  ctx.fillStyle = grd;
+  ctx.fillRect(0, 0, w, h);
+}
+
+function drawLabel(text, lat, lng, opts = {}) {
+  const [x, y] = geo(lat, lng);
+  ctx.save();
+  ctx.translate(x, y);
+  if (opts.rotate) ctx.rotate(opts.rotate);
+  ctx.font = opts.font || `500 ${Math.max(8, 10 * scale)}px 'Outfit', sans-serif`;
+  ctx.fillStyle = opts.color || 'rgba(58,51,48,0.4)';
+  ctx.textAlign = opts.align || 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText(text, 0, 0);
+  ctx.restore();
+}
+
+function drawPin(x, y, color, hovered, filtered) {
+  const r = hovered ? 10 : 6.5;
+  const alpha = filtered ? 1 : 0.2;
+  ctx.save();
+  ctx.globalAlpha = alpha;
+
+  if (hovered) {
+    ctx.beginPath(); ctx.arc(x, y, 20, 0, Math.PI * 2);
+    ctx.fillStyle = color + '18'; ctx.fill();
+    ctx.beginPath(); ctx.arc(x, y, 14, 0, Math.PI * 2);
+    ctx.fillStyle = color + '28'; ctx.fill();
+  }
+
+  // Shadow
+  ctx.beginPath(); ctx.arc(x, y + 1.5, r, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(0,0,0,0.15)'; ctx.fill();
+
+  // Circle
+  ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
+  ctx.fillStyle = color; ctx.fill();
+  ctx.strokeStyle = '#fff'; ctx.lineWidth = hovered ? 3 : 2; ctx.stroke();
+
+  // Highlight
+  ctx.beginPath(); ctx.arc(x - r * 0.22, y - r * 0.22, r * 0.3, 0, Math.PI * 2);
+  ctx.fillStyle = 'rgba(255,255,255,0.3)'; ctx.fill();
+
+  ctx.restore();
+}
+
+function draw() {
+  const w = wrap.clientWidth, h = wrap.clientHeight;
+  ctx.clearRect(0, 0, w, h);
+
+  drawWater();
+
+  // Land masses
+  poly(mainland, '#e6e0d2', 'rgba(74,14,27,0.05)', 0.5);
+  poly(eastShore, '#e6e0d2', 'rgba(74,14,27,0.05)', 0.5);
+
+  // Peninsulas with distinct fills
+  poly(leelanau, '#dce5d6', 'rgba(45,90,61,0.25)', 1.5);
+  poly(oldMission, '#e8ddd0', 'rgba(139,58,58,0.3)', 1.5);
+
+  // Inland lakes (water color)
+  poly(lakeLeelanauNorth, '#c0cfda', 'rgba(150,175,195,0.4)', 0.5);
+  poly(lakeLeelanauSouth, '#c0cfda', 'rgba(150,175,195,0.4)', 0.5);
+
+  // Center Road on Old Mission (dashed)
+  ctx.beginPath();
+  ctx.setLineDash([5, 4]);
+  const centerRd = [[44.770, -85.480], [44.810, -85.472], [44.850, -85.477], [44.890, -85.482], [44.930, -85.486], [44.960, -85.478], [44.990, -85.488]];
+  centerRd.forEach((p, i) => { const [x, y] = geo(p[0], p[1]); i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); });
+  ctx.strokeStyle = 'rgba(139,58,58,0.15)'; ctx.lineWidth = 1; ctx.stroke();
+  ctx.setLineDash([]);
+
+  // M-22 on Leelanau (simplified loop)
+  ctx.beginPath();
+  ctx.setLineDash([5, 4]);
+  const m22 = [[44.775, -85.640], [44.800, -85.700], [44.830, -85.780], [44.860, -85.840], [44.900, -85.870], [44.940, -85.880], [44.980, -85.850], [45.010, -85.800], [45.035, -85.740], [45.045, -85.690], [45.030, -85.635], [45.000, -85.605], [44.960, -85.592], [44.920, -85.585], [44.880, -85.590], [44.840, -85.580], [44.800, -85.590], [44.775, -85.610]];
+  m22.forEach((p, i) => { const [x, y] = geo(p[0], p[1]); i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); });
+  ctx.strokeStyle = 'rgba(45,90,61,0.12)'; ctx.lineWidth = 1; ctx.stroke();
+  ctx.setLineDash([]);
+
+  // 45th parallel
+  ctx.beginPath();
+  const [p1x, p1y] = geo(45.000, GEO.minLng);
+  const [p2x, p2y] = geo(45.000, GEO.maxLng);
+  ctx.moveTo(p1x, p1y); ctx.lineTo(p2x, p2y);
+  ctx.setLineDash([10, 6]);
+  ctx.strokeStyle = 'rgba(201,169,110,0.25)'; ctx.lineWidth = 1; ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Labels
+  drawLabel('OLD MISSION', 44.900, -85.480, { font: `600 ${Math.max(7, 9 * scale)}px 'Outfit', sans-serif`, color: 'rgba(139,58,58,0.4)', rotate: -Math.PI / 2 * 0.95 });
+  drawLabel('LEELANAU', 44.910, -85.770, { font: `600 ${Math.max(9, 12 * scale)}px 'Outfit', sans-serif`, color: 'rgba(45,90,61,0.35)' });
+  drawLabel('West Arm', 44.850, -85.545, { font: `italic 300 ${Math.max(8, 10 * scale)}px 'Cormorant Garamond', serif`, color: 'rgba(100,130,155,0.45)' });
+  drawLabel('East Arm', 44.850, -85.420, { font: `italic 300 ${Math.max(8, 10 * scale)}px 'Cormorant Garamond', serif`, color: 'rgba(100,130,155,0.45)' });
+  drawLabel('Grand Traverse Bay', 44.950, -85.540, { font: `italic 300 ${Math.max(8, 11 * scale)}px 'Cormorant Garamond', serif`, color: 'rgba(100,130,155,0.35)' });
+  drawLabel('TRAVERSE CITY', 44.760, -85.615, { font: `500 ${Math.max(8, 9 * scale)}px 'Outfit', sans-serif`, color: 'rgba(58,51,48,0.45)' });
+  drawLabel('Suttons Bay', 44.900, -85.605, { font: `400 ${Math.max(7, 8 * scale)}px 'Outfit', sans-serif`, color: 'rgba(58,51,48,0.3)' });
+  drawLabel('Northport', 45.010, -85.665, { font: `400 ${Math.max(7, 8 * scale)}px 'Outfit', sans-serif`, color: 'rgba(58,51,48,0.3)' });
+  drawLabel('Leland', 44.960, -85.750, { font: `400 ${Math.max(7, 8 * scale)}px 'Outfit', sans-serif`, color: 'rgba(58,51,48,0.3)' });
+  drawLabel('Lake Leelanau', 44.910, -85.720, { font: `italic 300 ${Math.max(7, 8 * scale)}px 'Cormorant Garamond', serif`, color: 'rgba(100,130,155,0.4)' });
+  drawLabel('45th Parallel', 45.003, -85.370, { font: `italic 300 ${Math.max(7, 9 * scale)}px 'Cormorant Garamond', serif`, color: 'rgba(201,169,110,0.45)', align: 'left' });
+
+  // Winery pins
+  const filtered = wineries.filter(w => activeFilter === 'all' || w.peninsula === activeFilter);
+  const unfiltered = wineries.filter(w => activeFilter !== 'all' && w.peninsula !== activeFilter);
+
+  unfiltered.forEach(w => {
+    const [x, y] = geo(w.lat, w.lng);
+    drawPin(x, y, w.peninsula === 'old-mission' ? '#8B3A3A' : '#2D5A3D', false, false);
+  });
+  filtered.forEach(w => {
+    const [x, y] = geo(w.lat, w.lng);
+    drawPin(x, y, w.peninsula === 'old-mission' ? '#8B3A3A' : '#2D5A3D', hoveredWinery === w, true);
+  });
+}
+
+// ────────────────────────────────────────────────────────────
+// INTERACTION
+// ────────────────────────────────────────────────────────────
+function getHovered(mx, my) {
+  let closest = null, cd = Infinity;
+  const hr = Math.max(14, 18 / scale);
+  wineries.forEach(w => {
+    if (activeFilter !== 'all' && w.peninsula !== activeFilter) return;
+    const [x, y] = geo(w.lat, w.lng);
+    const d = Math.hypot(mx - x, my - y);
+    if (d < hr && d < cd) { closest = w; cd = d; }
+  });
+  return closest;
+}
+
+function showTooltip(w, mx, my) {
+  const winesHtml = w.wines.slice(0, 4).map(v => `<span class="map-tooltip-wine-tag">${v}</span>`).join('');
+  tooltip.innerHTML = `
+    <div class="map-tooltip-header">
+      <div class="map-tooltip-peninsula ${w.peninsula}">${w.peninsula === 'old-mission' ? 'Old Mission Peninsula' : 'Leelanau Peninsula'}</div>
+      <div class="map-tooltip-name">${w.name}</div>
+      <div class="map-tooltip-type">${w.type}</div>
+    </div>
+    <div class="map-tooltip-body">
+      <div class="map-tooltip-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>${w.address}</div>
+      <div class="map-tooltip-detail"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>${w.hours}</div>
+      <div class="map-tooltip-wines">${winesHtml}</div>
+    </div>
+    <div class="map-tooltip-footer"><span>Click to view details</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>`;
+
+  const rect = wrap.getBoundingClientRect();
+  let tx = mx + rect.left + 18, ty = my + rect.top - 20;
+  if (tx + 290 > window.innerWidth - 16) tx = mx + rect.left - 290 - 18;
+  if (ty + 280 > window.innerHeight - 16) ty = window.innerHeight - 280 - 16;
+  if (ty < 16) ty = 16;
+  tooltip.style.left = tx + 'px'; tooltip.style.top = ty + 'px';
+  tooltip.classList.add('visible');
+}
+
+wrap.addEventListener('mousemove', e => {
+  if (dragging) return;
+  const r = wrap.getBoundingClientRect();
+  const mx = e.clientX - r.left, my = e.clientY - r.top;
+  const w = getHovered(mx, my);
+  if (w !== hoveredWinery) {
+    hoveredWinery = w;
+    wrap.style.cursor = w ? 'pointer' : 'grab';
+    w ? showTooltip(w, mx, my) : tooltip.classList.remove('visible');
+    draw();
+  } else if (w) showTooltip(w, mx, my);
+});
+
+wrap.addEventListener('mouseleave', () => {
+  if (hoveredWinery) { hoveredWinery = null; tooltip.classList.remove('visible'); draw(); }
+});
+
+wrap.addEventListener('click', () => {
+  if (hoveredWinery?.link && hoveredWinery.link !== '#') window.location.href = hoveredWinery.link;
+});
+
+// Drag
+wrap.addEventListener('mousedown', e => {
+  if (hoveredWinery) return;
+  dragging = true; dragStartX = e.clientX; dragStartY = e.clientY;
+  dragOffsetX = offsetX; dragOffsetY = offsetY;
+  wrap.style.cursor = 'grabbing'; tooltip.classList.remove('visible');
+});
+window.addEventListener('mousemove', e => {
+  if (!dragging) return;
+  offsetX = dragOffsetX + (e.clientX - dragStartX) / scale;
+  offsetY = dragOffsetY + (e.clientY - dragStartY) / scale;
+  draw();
+});
+window.addEventListener('mouseup', () => { if (dragging) { dragging = false; wrap.style.cursor = 'grab'; } });
+
+// Touch
+wrap.addEventListener('touchstart', e => {
+  if (e.touches.length === 1) {
+    dragging = true; dragStartX = e.touches[0].clientX; dragStartY = e.touches[0].clientY;
+    dragOffsetX = offsetX; dragOffsetY = offsetY;
+  }
+}, { passive: true });
+wrap.addEventListener('touchmove', e => {
+  if (!dragging || e.touches.length !== 1) return;
+  offsetX = dragOffsetX + (e.touches[0].clientX - dragStartX) / scale;
+  offsetY = dragOffsetY + (e.touches[0].clientY - dragStartY) / scale;
+  draw();
+}, { passive: true });
+wrap.addEventListener('touchend', () => { dragging = false; });
+
+// Scroll zoom
+wrap.addEventListener('wheel', e => {
+  e.preventDefault();
+  const factor = e.deltaY > 0 ? 0.9 : 1.1;
+  const newScale = Math.max(0.5, Math.min(6, scale * factor));
+  const r = wrap.getBoundingClientRect();
+  const mx = e.clientX - r.left, my = e.clientY - r.top;
+  const w = wrap.clientWidth, h = wrap.clientHeight;
+  const cx = w / 2, cy = h / 2;
+  // Zoom toward cursor
+  offsetX = offsetX + (mx - cx) / scale - (mx - cx) / newScale;
+  offsetY = offsetY + (my - cy) / scale - (my - cy) / newScale;
+  scale = newScale;
+  draw();
+}, { passive: false });
+
+// Buttons
+document.getElementById('zoomIn').onclick = () => { scale = Math.min(6, scale * 1.3); draw(); };
+document.getElementById('zoomOut').onclick = () => { scale = Math.max(0.5, scale * 0.7); draw(); };
+document.getElementById('zoomReset').onclick = () => { scale = 1; offsetX = 0; offsetY = 0; draw(); };
+
+// Filters
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter = btn.dataset.filter;
+    hoveredWinery = null; tooltip.classList.remove('visible');
+    draw();
+  };
+});
+
+// Nav
+document.getElementById('mainNav');
+window.addEventListener('scroll', () => { document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 10); });
+
+window.addEventListener('resize', resize);
+resize();
+</script>
+</body>
+</html>

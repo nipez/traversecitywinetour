@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-374F6WS33Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-374F6WS33Y');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where to Stay | Traverse City Wine Tours</title>
+<meta name="description" content="Find the best hotels, B&Bs, inns, and vacation rentals for your Traverse City wine country getaway. From vineyard estates to downtown boutique hotels.">
+<link rel="canonical" href="https://traversecitywinetour.com/where-to-stay">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --burgundy: #4A0E1B; --wine: #722F37; --merlot: #8B3A3A;
+  --gold: #C9A96E; --gold-light: #D4BC8B;
+  --cream: #F5F0E8; --cream-dark: #EDE6D8;
+  --charcoal: #2C2420; --text: #3A3330; --text-light: #7A7068; --white: #FEFCF9;
+  --green: #2D5A3D; --success: #3D7A4A;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Outfit', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+svg { flex-shrink: 0; }
+
+/* TOP BAR */
+.top-bar { background: var(--burgundy); color: var(--gold-light); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 0; text-align: center; }
+
+/* NAV */
+nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid rgba(74,14,27,0.08); transition: box-shadow 0.3s; }
+nav.scrolled { box-shadow: 0 2px 30px rgba(74,14,27,0.08); }
+.nav-inner { max-width: 1340px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 80px; }
+.logo { display: flex; flex-direction: column; line-height: 1; text-decoration: none; }
+.logo-main { font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 600; color: var(--burgundy); letter-spacing: -0.01em; }
+.logo-sub { font-family: 'Outfit', sans-serif; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-top: 2px; }
+.nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+.nav-links a { text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text); position: relative; padding: 4px 0; transition: color 0.3s; }
+.nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: var(--gold); transition: width 0.3s; }
+.nav-links a:hover { color: var(--burgundy); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta { background: var(--burgundy) !important; color: var(--cream) !important; padding: 10px 24px !important; border-radius: 4px; font-size: 0.78rem !important; letter-spacing: 0.06em !important; transition: background 0.3s !important; }
+.nav-cta:hover { background: var(--wine) !important; }
+.nav-cta::after { display: none !important; }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+
+/* PAGE HERO */
+.page-hero { position: relative; height: 45vh; min-height: 360px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+.page-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(74,14,27,0.82) 0%, rgba(44,36,32,0.65) 50%, rgba(74,14,27,0.5) 100%); }
+.page-hero-content { position: relative; z-index: 2; max-width: 800px; padding: 0 40px; }
+.page-hero-tag { display: inline-flex; align-items: center; gap: 10px; font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 20px; }
+.page-hero-tag::before, .page-hero-tag::after { content: ''; width: 40px; height: 1px; background: var(--gold); }
+.page-hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 500; line-height: 1.12; color: var(--cream); }
+.page-hero h1 em { font-style: italic; color: var(--gold-light); }
+.page-hero-desc { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; line-height: 1.6; color: rgba(245,240,232,0.8); margin-top: 16px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+/* BREADCRUMBS */
+.breadcrumbs { max-width: 1340px; margin: 0 auto; padding: 20px 40px; }
+.breadcrumbs a { font-size: 0.78rem; color: var(--text-light); text-decoration: none; transition: color 0.3s; }
+.breadcrumbs a:hover { color: var(--burgundy); }
+.breadcrumbs span { font-size: 0.78rem; color: var(--text-light); margin: 0 8px; }
+.breadcrumbs .current { font-size: 0.78rem; color: var(--burgundy); font-weight: 500; }
+
+/* SECTION LAYOUT */
+.section-wrap { max-width: 1340px; margin: 0 auto; padding: 0 40px; }
+.section-head { margin-bottom: 40px; }
+.section-tag { font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 10px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 500; color: var(--burgundy); line-height: 1.15; }
+.section-title em { font-style: italic; color: var(--gold); }
+.section-desc { font-size: 0.92rem; color: var(--text-light); line-height: 1.7; margin-top: 10px; max-width: 600px; }
+
+/* ── FEATURED LISTINGS ── */
+.featured-section { padding: 60px 0 80px; background: var(--white); }
+.featured-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+
+.featured-card { background: var(--white); border-radius: 12px; overflow: hidden; border: 1px solid rgba(74,14,27,0.08); box-shadow: 0 4px 24px rgba(74,14,27,0.06); transition: transform 0.3s, box-shadow 0.3s; position: relative; display: flex; flex-direction: column; }
+.featured-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(74,14,27,0.12); }
+
+.featured-badge { position: absolute; top: 16px; left: 16px; z-index: 3; background: var(--gold); color: var(--burgundy); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 5px 12px; border-radius: 3px; }
+.ad-badge { position: absolute; top: 16px; right: 16px; z-index: 3; background: rgba(44,36,32,0.6); color: rgba(245,240,232,0.7); font-size: 0.52rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; backdrop-filter: blur(4px); }
+
+.featured-img { height: 200px; position: relative; overflow: hidden; }
+.featured-img-inner { width: 100%; height: 100%; background-size: cover; background-position: center; transition: transform 0.5s; }
+.featured-card:hover .featured-img-inner { transform: scale(1.04); }
+
+/* Placeholder featured images using gradients */
+.img-vineyard-inn { background: linear-gradient(135deg, #2a4a2a 0%, #4a6a3a 40%, #6a8a4a 100%); }
+.img-bay-inn { background: linear-gradient(135deg, #1a2a4a 0%, #2a4a6a 50%, #3a6a8a 100%); }
+.img-farmhouse { background: linear-gradient(135deg, #4a3a1a 0%, #6a5a2a 50%, #8a7a3a 100%); }
+
+.featured-img-label { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+.featured-img-label svg { opacity: 0.5; }
+.featured-img-label span { font-family: 'Playfair Display', serif; font-size: 1rem; color: rgba(245,240,232,0.5); }
+
+.featured-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+.featured-type { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 6px; }
+.featured-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; color: var(--burgundy); margin-bottom: 8px; line-height: 1.2; }
+.featured-desc { font-size: 0.83rem; color: var(--text-light); line-height: 1.65; margin-bottom: 14px; flex: 1; }
+.featured-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.featured-tag { font-size: 0.62rem; padding: 4px 10px; border-radius: 20px; background: var(--cream); color: var(--text-light); border: 1px solid rgba(74,14,27,0.08); }
+.featured-wine-angle { background: rgba(201,169,110,0.1); border: 1px solid rgba(201,169,110,0.25); border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; display: flex; align-items: flex-start; gap: 8px; }
+.featured-wine-angle svg { color: var(--gold); margin-top: 1px; flex-shrink: 0; }
+.featured-wine-angle p { font-size: 0.75rem; color: var(--text); line-height: 1.5; }
+.featured-meta { display: flex; align-items: center; gap: 14px; font-size: 0.72rem; color: var(--text-light); padding-top: 14px; border-top: 1px solid rgba(74,14,27,0.06); }
+.featured-meta svg { color: var(--gold); }
+.featured-cta { display: inline-flex; align-items: center; gap: 6px; background: var(--burgundy); color: var(--cream); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 20px; border-radius: 4px; text-decoration: none; transition: background 0.25s; margin-top: 14px; align-self: flex-start; }
+.featured-cta:hover { background: var(--wine); }
+
+/* Sponsor slot card */
+.sponsor-slot { border: 2px dashed rgba(201,169,110,0.35); background: rgba(201,169,110,0.02); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 32px; gap: 16px; text-decoration: none; color: inherit; transition: all 0.3s; min-height: 420px; }
+.sponsor-slot:hover { border-color: rgba(201,169,110,0.6); background: rgba(201,169,110,0.05); transform: translateY(-2px); }
+.sponsor-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(201,169,110,0.1); display: flex; align-items: center; justify-content: center; }
+.sponsor-eyebrow { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 600; }
+.sponsor-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--burgundy); font-weight: 600; }
+.sponsor-desc { font-size: 0.78rem; color: var(--text-light); line-height: 1.6; max-width: 220px; }
+.sponsor-stats { display: flex; gap: 20px; justify-content: center; margin-top: 4px; }
+.sponsor-stat { text-align: center; }
+.sponsor-stat-val { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--burgundy); font-weight: 600; }
+.sponsor-stat-label { font-size: 0.6rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.1em; }
+.sponsor-btn { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); border: 1px solid rgba(201,169,110,0.4); padding: 9px 18px; border-radius: 4px; transition: all 0.25s; }
+.sponsor-slot:hover .sponsor-btn { background: var(--gold); color: var(--burgundy); }
+
+/* ── FILTER BAR ── */
+.filter-section { background: var(--cream-dark); border-top: 1px solid rgba(74,14,27,0.06); border-bottom: 1px solid rgba(74,14,27,0.06); }
+.filter-inner { max-width: 1340px; margin: 0 auto; padding: 16px 40px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.filter-label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light); font-weight: 600; margin-right: 4px; white-space: nowrap; }
+.filter-btn { padding: 7px 16px; border-radius: 20px; border: 1px solid rgba(74,14,27,0.15); background: var(--white); font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 500; color: var(--text); cursor: pointer; transition: all 0.2s; }
+.filter-btn:hover { border-color: var(--gold); color: var(--burgundy); }
+.filter-btn.active { background: var(--burgundy); color: var(--cream); border-color: var(--burgundy); }
+
+/* ── DIRECTORY ── */
+.directory-section { padding: 60px 0 40px; }
+.directory-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+.dir-card { background: var(--white); border-radius: 10px; border: 1px solid rgba(74,14,27,0.07); padding: 22px; display: flex; gap: 16px; align-items: flex-start; transition: all 0.25s; text-decoration: none; color: inherit; }
+.dir-card:hover { border-color: rgba(201,169,110,0.4); box-shadow: 0 6px 24px rgba(74,14,27,0.06); transform: translateY(-2px); }
+.dir-icon { width: 44px; height: 44px; border-radius: 8px; background: var(--cream); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.2rem; }
+.dir-body { flex: 1; min-width: 0; }
+.dir-type { font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 3px; }
+.dir-name { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 600; color: var(--burgundy); margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dir-location { font-size: 0.72rem; color: var(--text-light); display: flex; align-items: center; gap: 4px; margin-bottom: 8px; }
+.dir-desc { font-size: 0.75rem; color: var(--text-light); line-height: 1.5; margin-bottom: 10px; }
+.dir-link { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--burgundy); display: flex; align-items: center; gap: 4px; }
+
+/* ── LIST YOUR PLACE ── */
+.list-section { padding: 80px 0; background: var(--cream); border-top: 1px solid rgba(74,14,27,0.06); }
+.list-inner { max-width: 1340px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+.list-left .section-tag { margin-bottom: 12px; }
+.list-left .section-title { margin-bottom: 16px; }
+
+.tier-cards { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+.tier-card { background: var(--white); border-radius: 10px; border: 1px solid rgba(74,14,27,0.08); padding: 20px 24px; display: flex; gap: 16px; align-items: flex-start; }
+.tier-card.featured-tier { border-color: rgba(201,169,110,0.4); background: rgba(201,169,110,0.04); }
+.tier-badge-wrap { flex-shrink: 0; }
+.tier-badge { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 8px; font-size: 1.1rem; }
+.tier-badge.gold { background: rgba(201,169,110,0.15); }
+.tier-badge.free { background: var(--cream-dark); }
+.tier-info h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 600; color: var(--burgundy); margin-bottom: 3px; }
+.tier-price { font-size: 0.72rem; color: var(--gold); font-weight: 600; margin-bottom: 6px; }
+.tier-features { list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.tier-features li { font-size: 0.75rem; color: var(--text-light); display: flex; align-items: center; gap: 6px; }
+.tier-features li::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 0.7rem; }
+
+/* FORM */
+.list-form-wrap { background: var(--white); border-radius: 16px; border: 1px solid rgba(74,14,27,0.08); box-shadow: 0 8px 40px rgba(74,14,27,0.06); padding: 40px; }
+.list-form-wrap h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; color: var(--burgundy); margin-bottom: 6px; }
+.list-form-wrap p { font-size: 0.82rem; color: var(--text-light); margin-bottom: 28px; line-height: 1.5; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); margin-bottom: 6px; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 11px 14px; border: 1px solid rgba(74,14,27,0.15); border-radius: 6px;
+  background: var(--white); font-family: 'Outfit', sans-serif; font-size: 0.84rem; color: var(--text);
+  transition: border-color 0.25s, box-shadow 0.25s; outline: none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,0.12);
+}
+.form-group textarea { resize: vertical; min-height: 90px; }
+.form-group select { cursor: pointer; }
+.listing-type-group { margin-bottom: 16px; }
+.listing-type-group label { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); margin-bottom: 10px; }
+.listing-type-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.listing-type-option { position: relative; }
+.listing-type-option input[type="radio"] { position: absolute; opacity: 0; }
+.listing-type-option label { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid rgba(74,14,27,0.15); border-radius: 6px; cursor: pointer; font-size: 0.78rem; color: var(--text); transition: all 0.2s; background: var(--white); }
+.listing-type-option input:checked + label { border-color: var(--gold); background: rgba(201,169,110,0.08); color: var(--burgundy); font-weight: 600; }
+.listing-type-option label:hover { border-color: rgba(201,169,110,0.5); }
+.tier-select-group { margin-bottom: 20px; }
+.tier-select-group label { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); margin-bottom: 10px; }
+.tier-options { display: flex; flex-direction: column; gap: 10px; }
+.tier-option { position: relative; }
+.tier-option input[type="radio"] { position: absolute; opacity: 0; }
+.tier-option label { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border: 1px solid rgba(74,14,27,0.12); border-radius: 8px; cursor: pointer; transition: all 0.2s; background: var(--white); }
+.tier-option input:checked + label { border-color: var(--gold); background: rgba(201,169,110,0.07); }
+.tier-option label:hover { border-color: rgba(201,169,110,0.4); }
+.tier-opt-name { font-size: 0.82rem; font-weight: 600; color: var(--burgundy); }
+.tier-opt-price { font-size: 0.75rem; color: var(--gold); font-weight: 600; }
+.tier-opt-desc { font-size: 0.68rem; color: var(--text-light); margin-top: 1px; }
+.form-submit { width: 100%; padding: 14px; background: var(--burgundy); color: var(--cream); border: none; border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.25s; margin-top: 8px; }
+.form-submit:hover { background: var(--wine); }
+.form-success { display: none; text-align: center; padding: 32px; }
+.form-success .fs-icon { font-size: 2.5rem; margin-bottom: 12px; }
+.form-success h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--burgundy); margin-bottom: 8px; }
+.form-success p { font-size: 0.82rem; color: var(--text-light); line-height: 1.5; }
+
+/* ── NEWSLETTER ── */
+.newsletter { background: var(--burgundy); padding: 80px 40px; text-align: center; }
+.newsletter-inner { max-width: 600px; margin: 0 auto; }
+.newsletter h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 500; color: var(--cream); margin-bottom: 12px; }
+.newsletter p { font-size: 0.92rem; color: rgba(245,240,232,0.7); line-height: 1.6; margin-bottom: 32px; }
+.newsletter-form { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; }
+.newsletter-form input { flex: 1; padding: 14px 20px; border: 1px solid rgba(201,169,110,0.3); border-radius: 4px; background: rgba(255,255,255,0.08); color: var(--cream); font-family: 'Outfit', sans-serif; font-size: 0.88rem; outline: none; transition: border-color 0.3s; }
+.newsletter-form input::placeholder { color: rgba(245,240,232,0.4); }
+.newsletter-form input:focus { border-color: var(--gold); }
+.newsletter-form button { padding: 14px 28px; background: var(--gold); color: var(--burgundy); border: none; border-radius: 4px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: background 0.3s; white-space: nowrap; }
+.newsletter-form button:hover { background: var(--gold-light); }
+
+/* FOOTER */
+footer { background: var(--charcoal); padding: 60px 0 0; }
+.footer-inner { max-width: 1340px; margin: 0 auto; padding: 0 40px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
+.footer-brand .logo-main { color: var(--cream); font-size: 1.3rem; }
+.footer-brand .logo-sub { color: var(--gold); }
+.footer-brand p { font-size: 0.82rem; color: rgba(245,240,232,0.45); line-height: 1.7; margin-top: 14px; }
+.footer-col h4 { font-family: 'Playfair Display', serif; font-size: 0.92rem; font-weight: 500; color: var(--cream); margin-bottom: 20px; letter-spacing: 0.02em; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col a { font-size: 0.8rem; color: rgba(245,240,232,0.45); text-decoration: none; transition: color 0.3s; }
+.footer-col a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid rgba(245,240,232,0.08); padding: 24px 0; display: flex; justify-content: space-between; align-items: center; }
+.footer-bottom span, .footer-bottom a { font-size: 0.75rem; color: rgba(245,240,232,0.3); text-decoration: none; }
+.footer-bottom a:hover { color: var(--gold); }
+
+/* RESPONSIVE */
+@media (max-width: 1100px) {
+  .featured-grid { grid-template-columns: repeat(2, 1fr); }
+  .directory-grid { grid-template-columns: repeat(2, 1fr); }
+  .list-inner { grid-template-columns: 1fr; gap: 48px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .featured-grid { grid-template-columns: 1fr; }
+  .directory-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .listing-type-options { grid-template-columns: 1fr; }
+  .newsletter-form { flex-direction: column; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .page-hero { height: 35vh; min-height: 280px; }
+  .section-wrap { padding: 0 20px; }
+  .filter-inner { padding: 16px 20px; }
+  .list-inner { padding: 0 20px; }
+}
+
+/* ============================================================
+   ACCESSIBILITY: LARGER TEXT FOR 55+ READERS
+   ============================================================ */
+html { font-size: 18px !important; scroll-behavior: smooth; }
+body { font-size: 1rem; line-height: 1.7; }
+p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
+.winery-desc, .exp-card p, .plan-card p, .journal-card p,
+.pen-desc, .section-desc, .footer-brand p,
+.article-body p, .article-body li { font-size: 1rem; line-height: 1.75; }
+.winery-type, .winery-detail, .winery-link, .pen-stat, .pen-link, .pen-label,
+.journal-card-cat, .journal-card-meta, .section-tag, .stat-label, .top-bar,
+.footer-col a, .footer-bottom, .plan-card-link, .quote-attr,
+.hero-tag, .hero-scroll span, .winery-badge, .winery-peninsula-tag { font-size: 0.875rem; line-height: 1.6; }
+.nav-links a, .nav-cta { font-size: 0.9rem !important; }
+.btn-primary, .btn-outline, .btn-outline-dark, .btn-burgundy { font-size: 0.9rem; }
+.winery-name { font-size: 1.25rem; }
+.newsletter-form input, .newsletter-form button { font-size: 1rem; padding: 16px 24px; }
+.hero-desc { line-height: 1.75; }
+.pen-card::after { background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 55%, transparent 75%) !important; }
+.hero-bg-photo { opacity: 0.18 !important; }
+.quote-text { color: var(--cream) !important; opacity: 1 !important; }
+.footer-brand p, .footer-col a { color: rgba(245,240,232,0.72) !important; }
+.footer-bottom { color: rgba(245,240,232,0.65) !important; }
+.section-desc { line-height: 1.75; font-size: 1.1rem; }
+.winery-detail { font-size: 0.9rem; line-height: 1.6; }
+
+</style>
+</head>
+<body>
+<div class="top-bar">Michigan's #1 Wine Destination &nbsp;·&nbsp; 40+ Wineries on Two Peninsulas &nbsp;·&nbsp; Start Planning Today</div>
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="logo.svg" alt="Traverse City Wine Guide" height="44" style="display:block;"></a>
+    <ul class="nav-links">
+      <li><a href="wineries/index.html">Wineries</a></li>
+      <li><a href="cideries/index.html">Cideries</a></li>
+      <li><a href="breweries/index.html">Breweries</a></li>
+      <li><a href="journal/index.html">Journal</a></li>
+      <li><a href="plan-your-day.html">Plan Your Day</a></li>
+      <li><a href="wine-tours.html" class="nav-cta">Book a Tour</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('vineyard.jpg');"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-tag">Accommodations</div>
+    <h1>Where to <em>Stay</em></h1>
+    <p class="page-hero-desc">From vineyard estates and lakeside inns to cozy Airbnbs minutes from the tasting rooms — find your perfect wine country home base.</p>
+  </div>
+</section>
+<div class="breadcrumbs"><a href="index.html">Home</a><span>›</span><span class="current">Where to Stay</span></div>
+
+<!-- FEATURED LISTINGS -->
+<section class="featured-section">
+  <div class="section-wrap">
+    <div class="section-head">
+      <span class="section-tag">Featured Partners</span>
+      <h2 class="section-title">Recommended <em>Wine Country Stays</em></h2>
+      <p class="section-desc">Hand-picked lodging chosen for their proximity to wineries, wine-friendly amenities, and exceptional guest experience.</p>
+    </div>
+    <div class="featured-grid">
+
+      <!-- Featured 1: Chateau Chantal B&B -->
+      <div class="featured-card">
+        <span class="featured-badge">Featured</span>
+        <span class="ad-badge">Sponsored</span>
+        <div class="featured-img">
+          <div class="featured-img-inner img-vineyard-inn"></div>
+        </div>
+        <div class="featured-body">
+          <div class="featured-type">Winery Inn · Old Mission Peninsula</div>
+          <div class="featured-name">Chateau Chantal Bed & Breakfast</div>
+          <p class="featured-desc">Sleep among the vines at this European-inspired estate perched atop Old Mission Peninsula. Panoramic bay views from every room, gourmet breakfast, and complimentary tastings at one of the region's top wineries — all on property.</p>
+          <div class="featured-wine-angle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3m8 0h3a2 2 0 002-2v-3"/></svg>
+            <p><strong>Wine perk:</strong> Complimentary morning tasting flight — wake up, walk downstairs, sip award-winning Riesling overlooking the bay.</p>
+          </div>
+          <div class="featured-tags">
+            <span class="featured-tag">🍷 On-site tasting room</span>
+            <span class="featured-tag">🌅 Bay views</span>
+            <span class="featured-tag">🍳 Gourmet breakfast</span>
+            <span class="featured-tag">🧖 Spa services</span>
+          </div>
+          <div class="featured-meta">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+            15711 Peninsula Dr, Old Mission
+            <span style="margin-left:auto;color:var(--gold);font-weight:600;">From $250/night</span>
+          </div>
+          <a href="chateau-chantal.html" class="featured-cta">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Featured 2: Black Star Farms -->
+      <div class="featured-card">
+        <span class="featured-badge">Featured</span>
+        <span class="ad-badge">Sponsored</span>
+        <div class="featured-img">
+          <div class="featured-img-inner img-farmhouse"></div>
+        </div>
+        <div class="featured-body">
+          <div class="featured-type">Farm Inn · Leelanau Peninsula</div>
+          <div class="featured-name">Black Star Farms Inn</div>
+          <p class="featured-desc">Luxury B&B on a working agricultural estate deep in Leelanau. Wake up to vineyard views, artisan breakfast with estate-grown ingredients, and easy access to Leelanau's best wine trail — all on 160 acres of pure northern Michigan countryside.</p>
+          <div class="featured-wine-angle">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3M3 16v3a2 2 0 002 2h3m8 0h3a2 2 0 002-2v-3"/></svg>
+            <p><strong>Wine perk:</strong> Stay-and-sip packages include guided cellar tours and private tastings not available to walk-in guests.</p>
+          </div>
+          <div class="featured-tags">
+            <span class="featured-tag">🍷 Estate winery</span>
+            <span class="featured-tag">🌿 Farm-to-table</span>
+            <span class="featured-tag">🐎 Equestrian trails</span>
+            <span class="featured-tag">🧀 Artisan creamery</span>
+          </div>
+          <div class="featured-meta">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+            10844 E Revold Rd, Suttons Bay
+            <span style="margin-left:auto;color:var(--gold);font-weight:600;">From $195/night</span>
+          </div>
+          <a href="black-star-farms.html" class="featured-cta">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+
+      <!-- Sponsor slot -->
+      <a href="#list-your-place" class="sponsor-slot">
+        <div class="sponsor-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path d="M9 22V12h6v10"/></svg>
+        </div>
+        <span class="sponsor-eyebrow">Premium Placement Available</span>
+        <div class="sponsor-title">Your Property Here</div>
+        <p class="sponsor-desc">Reach thousands of wine tourists actively planning their Traverse City trip — the highest-intent accommodation audience in the region.</p>
+        <div class="sponsor-stats">
+          <div class="sponsor-stat"><div class="sponsor-stat-val">8K+</div><div class="sponsor-stat-label">Monthly visitors</div></div>
+          <div class="sponsor-stat"><div class="sponsor-stat-val">3.2</div><div class="sponsor-stat-label">Pages per visit</div></div>
+        </div>
+        <div class="sponsor-btn">List Your Property →</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-section" id="directory">
+  <div class="filter-inner">
+    <span class="filter-label">Filter by:</span>
+    <button class="filter-btn active" onclick="filterStay('all',this)">All Types</button>
+    <button class="filter-btn" onclick="filterStay('hotel',this)">Hotels</button>
+    <button class="filter-btn" onclick="filterStay('inn',this)">Inns & B&Bs</button>
+    <button class="filter-btn" onclick="filterStay('vacation',this)">Vacation Rentals</button>
+    <button class="filter-btn" onclick="filterStay('resort',this)">Resorts</button>
+    <button class="filter-btn" onclick="filterStay('downtown',this)">Downtown TC</button>
+    <button class="filter-btn" onclick="filterStay('peninsula',this)">On the Peninsula</button>
+  </div>
+</div>
+
+<!-- DIRECTORY -->
+<section class="directory-section">
+  <div class="section-wrap">
+    <div class="section-head">
+      <span class="section-tag">Full Directory</span>
+      <h2 class="section-title">All <em>Lodging</em> Near the Wineries</h2>
+      <p class="section-desc">Every type of accommodation — from downtown hotels to peninsula cottages. Free listings for properties that serve wine country visitors.</p>
+    </div>
+    <div class="directory-grid" id="directoryGrid">
+
+      <a href="#" class="dir-card" data-type="resort downtown">
+        <div class="dir-icon">🏨</div>
+        <div class="dir-body">
+          <div class="dir-type">Luxury Resort</div>
+          <div class="dir-name">Grand Traverse Resort & Spa</div>
+          <div class="dir-location"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg> Acme Township · 8 min to wineries</div>
+          <p class="dir-desc">Full-service resort with golf, spa, multiple restaurants, and shuttle service to area wineries.</p>
+          <span class="dir-link">Visit Website <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a href="#" class="dir-card" data-type="hotel downtown">
+        <div class="dir-icon">🏩</div>
+        <div class="dir-body">
+          <div class="dir-type">Boutique Hotel · Downtown</div>
+          <div class="dir-name">Park Place Hotel</div>
+          <div class="dir-location"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg> Downtown Traverse City</div>
+          <p class="dir-desc">Historic landmark hotel steps from Front Street dining. Rooftop views and easy highway access to both peninsulas.</p>
+          <span class="dir-link">Visit Website <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a href="#" class="dir-card" data-type="hotel downtown">
+        <div class="dir-icon">🏨</div>
+        <div class="dir-body">
+          <div class="dir-type">Modern Hotel · Downtown</div>
+          <div class="dir-name">Cambria Hotel Traverse City</div>
+          <div class="dir-location"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg> Downtown Traverse City</div>
+          <p class="dir-desc">Contemporary hotel with rooftop bar, modern amenities, and a curated local wine menu in the restaurant.</p>
+          <span class="dir-link">Visit Website <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a href="#" class="dir-card" data-type="inn peninsula">
+        <div class="dir-icon">🛖</div>
+        <div class="dir-body">
+          <div class="dir-type">Inn · Old Mission Peninsula</div>
+          <div class="dir-name">Old Mission Tavern & Inn</div>
+          <div class="dir-location"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg> Old Mission Peninsula · Among the wineries</div>
+          <p class="dir-desc">Charming historic inn at the tip of the peninsula. Walk to several wineries, wake up to bay sunrise views.</p>
+          <span class="dir-link">Visit Website <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a href="#" class="dir-card" data-type="vacation peninsula">
+        <div class="dir-icon">🏡</div>
+        <div class="dir-body">
+          <div class="dir-type">Vacation Rental · Leelanau</div>
+          <div class="dir-name">Vineyard Cottage at Suttons Bay</div>
+          <div class="dir-location"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg> Suttons Bay · Leelanau Peninsula</div>
+          <p class="dir-desc">Private 3BR cottage on 5 acres surrounded by working vineyards. Sleeps 6, full kitchen, fire pit, and bikes included.</p>
+          <span class="dir-link">Visit Website <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a href="#" class="dir-card" data-type="hotel downtown">
+        <div class="dir-icon">🌊</div>
+        <div class="dir-body">
+          <div class="dir-type">Boutique Hotel · Waterfront</div>
+          <div class="dir-name">Cherry Tree Inn & Suites</div>
+          <div class="dir-location"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg> West Bay · Traverse City</div>
+          <p class="dir-desc">Bay-view rooms with private balconies overlooking Grand Traverse Bay. Wine-and-dine packages available seasonally.</p>
+          <span class="dir-link">Visit Website <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a href="#" class="dir-card" data-type="vacation peninsula">
+        <div class="dir-icon">🏕️</div>
+        <div class="dir-body">
+          <div class="dir-type">Glamping · Leelanau</div>
+          <div class="dir-name">Leelanau Glamping & Retreats</div>
+          <div class="dir-location"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg> Glen Arbor · Leelanau Peninsula</div>
+          <p class="dir-desc">Luxury tents and treehouses near Sleeping Bear Dunes and Leelanau wineries. Campfire, stargazing, and wine picnic baskets on request.</p>
+          <span class="dir-link">Visit Website <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <a href="#" class="dir-card" data-type="inn peninsula">
+        <div class="dir-icon">⛵</div>
+        <div class="dir-body">
+          <div class="dir-type">Historic Inn · Leelanau</div>
+          <div class="dir-name">Leelanau Country Inn</div>
+          <div class="dir-location"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg> Maple City · Leelanau Peninsula</div>
+          <p class="dir-desc">1891 farmhouse inn with award-winning restaurant and extensive local wine list. Mid-peninsula location puts you minutes from a dozen wineries.</p>
+          <span class="dir-link">Visit Website <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </div>
+      </a>
+
+      <!-- Add Your Property CTA card -->
+      <a href="#list-your-place" class="dir-card" style="border: 1.5px dashed rgba(201,169,110,0.35); background: rgba(201,169,110,0.02); align-items: center; justify-content: center; text-align: center; flex-direction: column; gap: 10px; padding: 28px;" data-type="all">
+        <div style="width:40px;height:40px;border-radius:50%;background:rgba(201,169,110,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+        </div>
+        <div>
+          <div style="font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;">Free Listing</div>
+          <div style="font-family:'Playfair Display',serif;font-size:0.95rem;color:var(--burgundy);font-weight:600;">List Your Property</div>
+          <div style="font-size:0.72rem;color:var(--text-light);margin-top:4px;">Hotel, B&B, Airbnb, cottage — all welcome</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- LIST YOUR PLACE -->
+<section class="list-section" id="list-your-place">
+  <div class="list-inner">
+
+    <!-- Left: pitch -->
+    <div class="list-left">
+      <span class="section-tag">Property Owners & Managers</span>
+      <h2 class="section-title">List Your <em>Place</em></h2>
+      <p class="section-desc" style="margin-top:14px;">Wine tourists are your ideal guests — they plan ahead, stay multiple nights, and spend freely. Put your property in front of them while they're actively researching their trip.</p>
+      <p class="section-desc" style="margin-top:10px;">Whether you're a boutique hotel, a B&B, or an Airbnb host with a cottage five minutes from a tasting room — there's a spot for you here.</p>
+
+      <div class="tier-cards">
+        <div class="tier-card featured-tier">
+          <div class="tier-badge-wrap"><div class="tier-badge gold">⭐</div></div>
+          <div class="tier-info">
+            <h4>Featured Listing</h4>
+            <div class="tier-price">Flat monthly rate by property type</div>
+            <ul class="tier-features">
+              <li>Photo, full description & wine-angle callout</li>
+              <li>Top placement above the directory</li>
+              <li>Highlighted "Featured" badge</li>
+              <li>Direct booking link or inquiry form</li>
+            </ul>
+            <!-- Pricing table -->
+            <div style="margin-top:14px;border:1px solid rgba(201,169,110,0.25);border-radius:8px;overflow:hidden;">
+              <div style="background:rgba(201,169,110,0.1);padding:8px 14px;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:700;">Monthly Pricing</div>
+              <div style="padding:4px 0;">
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 14px;border-bottom:1px solid rgba(74,14,27,0.05);">
+                  <span style="font-size:0.75rem;color:var(--text);">🏡 Vacation Rental / Airbnb</span>
+                  <span style="font-size:0.8rem;font-weight:700;color:var(--burgundy);">$75<span style="font-size:0.65rem;font-weight:400;color:var(--text-light);">/mo</span></span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 14px;border-bottom:1px solid rgba(74,14,27,0.05);">
+                  <span style="font-size:0.75rem;color:var(--text);">🛖 Inn / B&B</span>
+                  <span style="font-size:0.8rem;font-weight:700;color:var(--burgundy);">$100<span style="font-size:0.65rem;font-weight:400;color:var(--text-light);">/mo</span></span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 14px;border-bottom:1px solid rgba(74,14,27,0.05);">
+                  <span style="font-size:0.75rem;color:var(--text);">🏨 Hotel / Boutique Hotel</span>
+                  <span style="font-size:0.8rem;font-weight:700;color:var(--burgundy);">$125<span style="font-size:0.65rem;font-weight:400;color:var(--text-light);">/mo</span></span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 14px;">
+                  <span style="font-size:0.75rem;color:var(--text);">🌿 Resort / Spa</span>
+                  <span style="font-size:0.8rem;font-weight:700;color:var(--burgundy);">$150<span style="font-size:0.65rem;font-weight:400;color:var(--text-light);">/mo</span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tier-card">
+          <div class="tier-badge-wrap"><div class="tier-badge free">📋</div></div>
+          <div class="tier-info">
+            <h4>Basic Directory Listing</h4>
+            <div class="tier-price">Free — always</div>
+            <ul class="tier-features">
+              <li>Name, type, location & website link</li>
+              <li>Listed in the full directory</li>
+              <li>Filter by type (hotel, B&B, rental, etc.)</li>
+              <li>Upgrade to Featured anytime</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="list-form-wrap" id="listForm">
+      <h3>Get Listed</h3>
+      <p>Tell us about your property and we'll be in touch within 2 business days.</p>
+
+      <form onsubmit="submitListing(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name</label>
+            <input type="text" placeholder="Jane Smith" required>
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="jane@yourproperty.com" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Property Name</label>
+          <input type="text" placeholder="e.g. Lakeview Cottage at Suttons Bay" required>
+        </div>
+
+        <div class="form-group">
+          <label>Website or Booking Link</label>
+          <input type="url" placeholder="https://airbnb.com/rooms/... or your website">
+        </div>
+
+        <div class="listing-type-group">
+          <label>Property Type</label>
+          <div class="listing-type-options">
+            <div class="listing-type-option">
+              <input type="radio" name="propType" id="t-hotel" value="hotel">
+              <label for="t-hotel">🏨 Hotel / Motel</label>
+            </div>
+            <div class="listing-type-option">
+              <input type="radio" name="propType" id="t-bb" value="bb" checked>
+              <label for="t-bb">🛖 Inn / B&B</label>
+            </div>
+            <div class="listing-type-option">
+              <input type="radio" name="propType" id="t-vacation" value="vacation">
+              <label for="t-vacation">🏡 Vacation Rental</label>
+            </div>
+            <div class="listing-type-option">
+              <input type="radio" name="propType" id="t-resort" value="resort">
+              <label for="t-resort">🌿 Resort / Spa</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Location / Nearest Winery Area</label>
+          <select>
+            <option>Downtown Traverse City</option>
+            <option>Old Mission Peninsula</option>
+            <option>Leelanau Peninsula</option>
+            <option>Near Suttons Bay</option>
+            <option>Near Glen Arbor / Sleeping Bear</option>
+            <option>Other (specify in notes)</option>
+          </select>
+        </div>
+
+        <div class="tier-select-group">
+          <label>Listing Tier</label>
+          <div class="tier-options">
+            <div class="tier-option">
+              <input type="radio" name="tier" id="tier-featured" value="featured" checked>
+              <label for="tier-featured">
+                <div>
+                  <div class="tier-opt-name">⭐ Featured Listing</div>
+                  <div class="tier-opt-desc">Photo · full description · top placement</div>
+                </div>
+                <div class="tier-opt-price">$75–150/mo</div>
+              </label>
+            </div>
+            <div class="tier-option">
+              <input type="radio" name="tier" id="tier-free" value="free">
+              <label for="tier-free">
+                <div>
+                  <div class="tier-opt-name">📋 Basic Directory</div>
+                  <div class="tier-opt-desc">Name · type · location · link</div>
+                </div>
+                <div class="tier-opt-price">Free</div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Anything else? (wine packages, special perks, etc.)</label>
+          <textarea placeholder="Tell us what makes your property great for wine tourists — any special packages, proximity to specific wineries, group-friendly features..."></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          Submit My Property
+        </button>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <div class="fs-icon">🍷</div>
+        <h4>We Got It — Thank You!</h4>
+        <p>We'll review your submission and reach out within 2 business days to get your property listed. In the meantime, feel free to <a href="advertise.html" style="color:var(--burgundy);">learn more about advertising options</a>.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <h2>Stay Connected to Wine Country</h2>
+    <p>Weekly updates on new wines, events, seasonal guides, and exclusive offers from Traverse City's finest wineries.</p>
+    <form class="newsletter-form" onsubmit="return false;"><input type="email" placeholder="Enter your email address"><button type="submit">Subscribe</button></form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><span class="logo-main">Traverse City Wine</span><span class="logo-sub">Tours & Winery Guide</span></div>
+        <p>Your complete guide to exploring Michigan's premier wine region. Discover wineries, plan tours, and experience the best of Traverse City wine country.</p>
+      </div>
+      <div class="footer-col"><h4>Explore</h4><ul>
+        <li><a href="wineries/index.html">All Wineries</a></li>
+        <li><a href="old-mission-peninsula.html">Old Mission Peninsula</a></li>
+        <li><a href="leelanau-peninsula.html">Leelanau Peninsula</a></li>
+        <li><a href="journal/index.html">Wine Country Journal</a></li>
+        <li><a href="events.html">Events Calendar</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Plan Your Trip</h4><ul>
+        <li><a href="wine-tours.html">Wine Tours</a></li>
+        <li><a href="where-to-stay.html">Hotels & Lodging</a></li>
+        <li><a href="plan-your-visit.html">Visitor Guide</a></li>
+        <li><a href="plan-your-day.html">Plan Your Day</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Resources</h4><ul>
+        <li><a href="advertise.html">Advertise With Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 TraverseCityWineTours.com &middot; All Rights Reserved</span>
+      <div style="display:flex;gap:24px;"><a href="sitemap.html">Sitemap</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 10); });
+
+// Filter
+function filterStay(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.dir-card').forEach(card => {
+    if (type === 'all') {
+      card.style.display = '';
+    } else {
+      const types = card.dataset.type || '';
+      card.style.display = types.includes(type) || types === 'all' ? '' : 'none';
+    }
+  });
+}
+
+// Form submit
+function submitListing(e) {
+  e.preventDefault();
+  document.querySelector('#listForm form').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+
+// Scroll animations
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(x => {
+    if (x.isIntersecting) { x.target.style.opacity = '1'; x.target.style.transform = 'translateY(0)'; }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.featured-card, .dir-card, .tier-card').forEach(el => {
+  el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; el.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
+  obs.observe(el);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-374F6WS33Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-374F6WS33Y');
+</script>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://traversecitywinetour.com/plan-your-day">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Your Wine Day | Traverse City Wine Tours</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --burgundy: #4A0E1B; --wine: #722F37; --merlot: #8B3A3A;
+  --gold: #C9A96E; --gold-light: #D4BC8B;
+  --cream: #F5F0E8; --cream-dark: #EDE6D8;
+  --charcoal: #2C2420; --text: #3A3330; --text-light: #7A7068; --white: #FEFCF9;
+  --om: #8B3A3A; --ll: #2D5A3D;
+  --success: #3D7A4A; --warn: #B8860B;
+}
+body { font-family: 'Outfit', sans-serif; color: var(--text); background: var(--cream); overflow-x: hidden; }
+
+/* ── NAV ── */
+.top-bar { background: var(--burgundy); color: var(--gold-light); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 7px 0; text-align: center; }
+nav { position: sticky; top: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid rgba(74,14,27,0.08); box-shadow: 0 2px 20px rgba(74,14,27,0.05); }
+.nav-inner { max-width: 1340px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 80px; }
+.logo { display: flex; flex-direction: column; line-height: 1; text-decoration: none; }
+.logo-main { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; color: var(--burgundy); }
+.logo-sub { font-family: 'Outfit', sans-serif; font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-top: 2px; }
+.nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+.nav-links a { text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text); position: relative; padding: 4px 0; transition: color 0.3s; }
+.nav-links a { text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text); position: relative; padding: 4px 0; transition: color 0.3s; }
+.nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1.5px; background: var(--gold); transition: width 0.3s; }
+.nav-links a:hover { color: var(--burgundy); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta { background: var(--burgundy) !important; color: var(--cream) !important; padding: 10px 22px !important; border-radius: 4px; }
+.nav-cta:hover { background: var(--wine) !important; }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+
+/* ── MAIN LAYOUT ── */
+.planner { display: grid; grid-template-columns: 1fr 420px; height: calc(100vh - 72px - 31px); }
+
+/* ── MAP SIDE ── */
+.map-col { position: relative; }
+#map { width: 100%; height: 100%; }
+.map-instructions { position: absolute; top: 16px; left: 50%; transform: translateX(-50%); z-index: 500; background: var(--white); padding: 10px 24px; border-radius: 30px; box-shadow: 0 4px 24px rgba(74,14,27,0.1); font-size: 0.78rem; color: var(--text-light); display: flex; align-items: center; gap: 8px; pointer-events: none; transition: opacity 0.5s; }
+.map-instructions.hidden { opacity: 0; }
+.map-instructions svg { color: var(--gold); flex-shrink: 0; }
+
+/* Leaflet overrides */
+.leaflet-control-zoom { border: none !important; box-shadow: 0 2px 12px rgba(74,14,27,0.1) !important; border-radius: 8px !important; overflow: hidden; }
+.leaflet-control-zoom a { background: var(--white) !important; color: var(--burgundy) !important; font-family: 'Outfit', sans-serif !important; font-weight: 600 !important; width: 36px !important; height: 36px !important; line-height: 36px !important; font-size: 16px !important; border: none !important; border-bottom: 1px solid rgba(74,14,27,0.06) !important; }
+.leaflet-control-zoom a:hover { background: var(--burgundy) !important; color: var(--cream) !important; }
+.leaflet-control-attribution { font-size: 0.6rem !important; }
+
+/* Map pin styles */
+.winery-pin { cursor: pointer; transition: transform 0.2s; }
+.winery-pin:hover { transform: scale(1.3); z-index: 9999 !important; }
+.pin-dot { width: 24px; height: 24px; border-radius: 50%; border: 2.5px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.2); position: relative; display: flex; align-items: center; justify-content: center; font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700; color: #fff; }
+.pin-dot.om { background: var(--om); }
+.pin-dot.ll { background: var(--ll); }
+.pin-dot.selected { width: 30px; height: 30px; border: 3px solid var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,0.3), 0 2px 8px rgba(0,0,0,0.2); }
+.pin-dot .pin-num { position: absolute; top: -8px; right: -8px; width: 18px; height: 18px; border-radius: 50%; background: var(--gold); color: var(--burgundy); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; border: 2px solid #fff; }
+
+/* Map tooltip */
+.pin-tooltip { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 8px; background: var(--white); padding: 8px 14px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity 0.2s; font-size: 0.75rem; }
+.pin-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--white); }
+.winery-pin:hover .pin-tooltip { opacity: 1; }
+.pin-tooltip .tt-name { font-weight: 600; color: var(--burgundy); }
+.pin-tooltip .tt-sub { color: var(--text-light); font-size: 0.68rem; margin-top: 2px; }
+.pin-tooltip .tt-action { color: var(--gold); font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+
+/* ── PANEL SIDE ── */
+.panel { background: var(--white); border-left: 1px solid rgba(74,14,27,0.06); display: flex; flex-direction: column; overflow: hidden; }
+
+/* Panel header */
+.panel-head { padding: 24px 28px 20px; border-bottom: 1px solid rgba(74,14,27,0.06); }
+.panel-head h1 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--burgundy); line-height: 1.2; }
+.panel-head h1 em { font-style: italic; color: var(--gold); }
+.panel-head p { font-size: 0.8rem; color: var(--text-light); margin-top: 6px; }
+
+/* Curated routes */
+.curated { padding: 12px 20px; border-bottom: 1px solid rgba(74,14,27,0.06); transition: all 0.3s; }
+.curated.collapsed { padding: 0; border-bottom: none; }
+.curated-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; cursor: pointer; }
+.curated-label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light); font-weight: 600; }
+.curated-toggle { font-size: 0.68rem; color: var(--gold); font-weight: 600; cursor: pointer; background: none; border: none; font-family: 'Outfit', sans-serif; padding: 0; }
+.curated-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; overflow: hidden; transition: max-height 0.35s ease, opacity 0.25s ease; }
+.curated-cards.hidden { max-height: 0 !important; opacity: 0; pointer-events: none; }
+.curated-card { padding: 10px 14px; border: 1px solid rgba(74,14,27,0.1); border-radius: 10px; cursor: pointer; transition: all 0.25s; }
+.curated-card:hover { border-color: var(--gold); background: rgba(201,169,110,0.04); }
+.curated-card.active { border-color: var(--gold); background: rgba(201,169,110,0.08); }
+.curated-card .cc-icon { font-size: 1rem; margin-bottom: 3px; }
+.curated-card .cc-name { font-size: 0.76rem; font-weight: 600; color: var(--burgundy); }
+.curated-card .cc-desc { font-size: 0.63rem; color: var(--text-light); margin-top: 2px; line-height: 1.3; }
+.curated-card .cc-count { font-size: 0.6rem; color: var(--gold); font-weight: 600; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* Active route chip — shown when collapsed */
+.active-route-bar { display: none; align-items: center; gap: 10px; padding: 10px 20px; background: rgba(201,169,110,0.08); border-bottom: 1px solid rgba(201,169,110,0.2); cursor: pointer; transition: background 0.2s; }
+.active-route-bar:hover { background: rgba(201,169,110,0.14); }
+.active-route-bar.visible { display: flex; }
+.arb-icon { font-size: 1rem; }
+.arb-label { flex: 1; }
+.arb-name { font-size: 0.78rem; font-weight: 600; color: var(--burgundy); }
+.arb-hint { font-size: 0.62rem; color: var(--text-light); }
+.arb-change { font-size: 0.65rem; font-weight: 600; color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em; white-space: nowrap; }
+
+/* Itinerary list */
+.itin-wrap { flex: 1; overflow-y: auto; }
+.itin-empty { padding: 60px 28px; text-align: center; }
+.itin-empty .ie-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.3; }
+.itin-empty h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--burgundy); margin-bottom: 8px; }
+.itin-empty p { font-size: 0.8rem; color: var(--text-light); line-height: 1.5; }
+
+.itin-list { padding: 8px 0; }
+
+/* Alert banner */
+.itin-alert { margin: 12px 20px 4px; padding: 10px 14px; border-radius: 8px; font-size: 0.72rem; line-height: 1.4; display: flex; align-items: flex-start; gap: 8px; }
+.itin-alert svg { flex-shrink: 0; margin-top: 1px; }
+.itin-alert.warn { background: #FFF8E7; border: 1px solid #EED9A0; color: #8B6914; }
+.itin-alert.info { background: #F0F7F2; border: 1px solid #B8D4BE; color: var(--ll); }
+
+/* Itinerary item */
+.itin-item { padding: 12px 20px 12px 28px; display: flex; align-items: center; gap: 12px; position: relative; cursor: grab; transition: background 0.2s; user-select: none; }
+.itin-item:active { cursor: grabbing; }
+.itin-item:hover { background: rgba(201,169,110,0.03); }
+.itin-item.dragging { opacity: 0.4; background: var(--cream); }
+.itin-item.drag-over { border-top: 2px solid var(--gold); }
+
+.itin-num { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 700; flex-shrink: 0; color: #fff; }
+.itin-num.om { background: var(--om); }
+.itin-num.ll { background: var(--ll); }
+
+.itin-info { flex: 1; min-width: 0; }
+.itin-name { font-size: 0.82rem; font-weight: 600; color: var(--burgundy); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.itin-meta { font-size: 0.68rem; color: var(--text-light); margin-top: 2px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.itin-time-slot { font-size: 0.68rem; font-weight: 600; color: var(--gold); }
+.itin-hrs-warn { color: #B8860B; font-weight: 500; }
+
+.itin-grip { color: #ccc; cursor: grab; padding: 4px; }
+.itin-grip:hover { color: var(--text-light); }
+
+.itin-remove { background: none; border: none; color: #ccc; cursor: pointer; padding: 4px; border-radius: 4px; transition: all 0.2s; }
+.itin-remove:hover { color: #c44; background: rgba(200,60,60,0.06); }
+
+/* Drive segment between items */
+.drive-seg { padding: 2px 20px 2px 42px; display: flex; align-items: center; gap: 8px; font-size: 0.65rem; color: var(--text-light); }
+.drive-seg .ds-line { flex: 1; height: 1px; background: repeating-linear-gradient(90deg, rgba(74,14,27,0.1) 0, rgba(74,14,27,0.1) 4px, transparent 4px, transparent 8px); }
+.drive-seg .ds-time { white-space: nowrap; background: var(--cream); padding: 2px 8px; border-radius: 10px; font-weight: 500; }
+
+/* Panel footer */
+.panel-foot { padding: 16px 28px; border-top: 1px solid rgba(74,14,27,0.06); background: var(--white); }
+.trip-summary { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.trip-stats { display: flex; gap: 16px; }
+.trip-stat { text-align: center; }
+.trip-stat .ts-val { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--burgundy); }
+.trip-stat .ts-label { font-size: 0.6rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.1em; }
+.trip-time { text-align: right; }
+.trip-time .tt-range { font-size: 0.82rem; font-weight: 600; color: var(--burgundy); }
+.trip-time .tt-total { font-size: 0.65rem; color: var(--text-light); }
+
+.panel-actions { display: flex; gap: 8px; }
+.btn-share { flex: 1; padding: 12px 20px; background: var(--burgundy); color: var(--cream); border: none; border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.25s; }
+.btn-share:hover { background: var(--wine); }
+.btn-share:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-clear { padding: 12px 16px; background: transparent; border: 1px solid rgba(74,14,27,0.15); color: var(--text-light); border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 500; cursor: pointer; transition: all 0.25s; }
+.btn-clear:hover { border-color: #c44; color: #c44; }
+
+/* ── SHARE MODAL ── */
+.modal-overlay { position: fixed; inset: 0; background: rgba(44,36,32,0.6); backdrop-filter: blur(4px); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.modal-overlay.show { opacity: 1; pointer-events: auto; }
+.modal { background: var(--white); border-radius: 16px; box-shadow: 0 24px 80px rgba(74,14,27,0.2); max-width: 480px; width: 90%; max-height: 90vh; overflow: hidden; transform: translateY(20px); transition: transform 0.3s; }
+.modal-overlay.show .modal { transform: translateY(0); }
+.modal-top { padding: 24px 28px; border-bottom: 1px solid rgba(74,14,27,0.06); display: flex; justify-content: space-between; align-items: center; }
+.modal-top h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--burgundy); }
+.modal-close { background: none; border: none; cursor: pointer; color: var(--text-light); padding: 4px; }
+.modal-close:hover { color: var(--burgundy); }
+
+/* Share card preview */
+.share-card { margin: 20px 28px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(74,14,27,0.08); }
+.sc-header { background: linear-gradient(135deg, var(--burgundy), #3d1a1a); padding: 20px 24px; color: var(--cream); }
+.sc-tag { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 6px; }
+.sc-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 500; }
+.sc-subtitle { font-size: 0.72rem; color: rgba(245,240,232,0.6); margin-top: 4px; }
+.sc-stops { padding: 16px 24px; background: var(--white); }
+.sc-stop { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(74,14,27,0.04); }
+.sc-stop:last-child { border-bottom: none; }
+.sc-stop-num { width: 22px; height: 22px; border-radius: 50%; background: var(--cream); display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; color: var(--burgundy); flex-shrink: 0; }
+.sc-stop-name { font-size: 0.78rem; font-weight: 500; }
+.sc-stop-time { margin-left: auto; font-size: 0.68rem; color: var(--text-light); }
+.sc-footer { padding: 12px 24px; background: var(--cream); text-align: center; }
+.sc-footer span { font-size: 0.65rem; color: var(--text-light); }
+.sc-footer strong { color: var(--burgundy); }
+
+.modal-actions { padding: 16px 28px 24px; display: flex; gap: 8px; }
+.modal-actions button { flex: 1; padding: 12px; border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.25s; }
+.btn-copy-link { background: var(--burgundy); color: var(--cream); border: none; }
+.btn-copy-link:hover { background: var(--wine); }
+.btn-copy-link.copied { background: var(--success); }
+.btn-copy-card { background: transparent; border: 1px solid rgba(74,14,27,0.15); color: var(--text); }
+.btn-copy-card:hover { border-color: var(--burgundy); color: var(--burgundy); }
+
+/* Start time picker */
+.start-time { display: flex; align-items: center; gap: 8px; padding: 12px 28px; border-bottom: 1px solid rgba(74,14,27,0.06); background: var(--cream); }
+.start-time label { font-size: 0.72rem; font-weight: 500; color: var(--text-light); white-space: nowrap; }
+.start-time select { padding: 6px 12px; border: 1px solid rgba(74,14,27,0.15); border-radius: 6px; background: var(--white); font-family: 'Outfit', sans-serif; font-size: 0.78rem; color: var(--burgundy); font-weight: 600; cursor: pointer; }
+.start-time .st-hint { font-size: 0.65rem; color: var(--text-light); margin-left: auto; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .planner { grid-template-columns: 1fr; grid-template-rows: 50vh 1fr; height: auto; min-height: 100vh; }
+  .map-col { min-height: 50vh; }
+  .panel { max-height: none; }
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+}
+.breadcrumbs { max-width: 1440px; margin: 0 auto; padding: 10px 32px; background: var(--white); border-bottom: 1px solid rgba(74,14,27,0.05); }
+.breadcrumbs a { font-size: 0.75rem; color: var(--text-light); text-decoration: none; transition: color 0.3s; }
+.breadcrumbs a:hover { color: var(--burgundy); }
+.breadcrumbs span { font-size: 0.75rem; color: var(--text-light); margin: 0 6px; }
+.breadcrumbs .current { font-size: 0.75rem; color: var(--burgundy); font-weight: 500; }
+
+/* ============================================================
+   ACCESSIBILITY: LARGER TEXT FOR 55+ READERS
+   ============================================================ */
+html { font-size: 18px !important; scroll-behavior: smooth; }
+body { font-size: 1rem; line-height: 1.7; }
+p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
+.winery-desc, .exp-card p, .plan-card p, .journal-card p,
+.pen-desc, .section-desc, .footer-brand p,
+.article-body p, .article-body li { font-size: 1rem; line-height: 1.75; }
+.winery-type, .winery-detail, .winery-link, .pen-stat, .pen-link, .pen-label,
+.journal-card-cat, .journal-card-meta, .section-tag, .stat-label, .top-bar,
+.footer-col a, .footer-bottom, .plan-card-link, .quote-attr,
+.hero-tag, .hero-scroll span, .winery-badge, .winery-peninsula-tag { font-size: 0.875rem; line-height: 1.6; }
+.nav-links a, .nav-cta { font-size: 0.9rem !important; }
+.btn-primary, .btn-outline, .btn-outline-dark, .btn-burgundy { font-size: 0.9rem; }
+.winery-name { font-size: 1.25rem; }
+.newsletter-form input, .newsletter-form button { font-size: 1rem; padding: 16px 24px; }
+.hero-desc { line-height: 1.75; }
+.pen-card::after { background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 55%, transparent 75%) !important; }
+.hero-bg-photo { opacity: 0.18 !important; }
+.quote-text { color: var(--cream) !important; opacity: 1 !important; }
+.footer-brand p, .footer-col a { color: rgba(245,240,232,0.72) !important; }
+.footer-bottom { color: rgba(245,240,232,0.65) !important; }
+.section-desc { line-height: 1.75; font-size: 1.1rem; }
+.winery-detail { font-size: 0.9rem; line-height: 1.6; }
+
+</style>
+</head>
+<body>
+
+<div class="top-bar">Michigan's #1 Wine Destination &nbsp;·&nbsp; 40+ Wineries on Two Peninsulas &nbsp;·&nbsp; Start Planning Today</div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="logo.svg" alt="Traverse City Wine Guide" height="44" style="display:block;"></a>
+    <ul class="nav-links">
+      <li><a href="wineries/index.html">Wineries</a></li>
+      <li><a href="cideries/index.html">Cideries</a></li>
+      <li><a href="breweries/index.html">Breweries</a></li>
+      <li><a href="journal/index.html">Journal</a></li>
+      <li><a href="plan-your-day.html">Plan Your Day</a></li>
+      <li><a href="wine-tours.html" class="nav-cta">Book a Tour</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">
+      <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<div class="breadcrumbs"><a href="index.html">Home</a><span>›</span><span class="current">Plan Your Day</span></div>
+<div class="planner">
+  <!-- MAP -->
+  <div class="map-col">
+    <div id="map"></div>
+    <div class="map-instructions" id="mapInstr">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+      Click any winery pin to add it to your itinerary
+    </div>
+  </div>
+
+  <!-- PANEL -->
+  <div class="panel">
+    <div class="panel-head">
+      <h1>Plan Your <em>Wine Day</em></h1>
+      <p>Build your perfect itinerary — click pins on the map or start with a curated route below.</p>
+    </div>
+
+    <!-- ACTIVE ROUTE BAR (shown when routes collapsed) -->
+    <div class="active-route-bar" id="activeRouteBar" onclick="expandRoutes()">
+      <div class="arb-icon" id="arbIcon">🌟</div>
+      <div class="arb-label">
+        <div class="arb-name" id="arbName">Route selected</div>
+        <div class="arb-hint">Tap to change route</div>
+      </div>
+      <div class="arb-change">Change ›</div>
+    </div>
+
+    <!-- CURATED ROUTES -->
+    <div class="curated" id="curatedSection">
+      <div class="curated-header" onclick="toggleRoutes()">
+        <div class="curated-label">Quick-Start Routes</div>
+        <button class="curated-toggle" id="curatedToggleBtn">Hide ▲</button>
+      </div>
+      <div class="curated-cards" id="curatedCards"></div>
+    </div>
+
+    <!-- START TIME -->
+    <div class="start-time">
+      <label>Start at</label>
+      <select id="startTime">
+        <option value="10:00">10:00 AM</option>
+        <option value="10:30">10:30 AM</option>
+        <option value="11:00" selected>11:00 AM</option>
+        <option value="11:30">11:30 AM</option>
+        <option value="12:00">12:00 PM</option>
+        <option value="12:30">12:30 PM</option>
+        <option value="13:00">1:00 PM</option>
+        <option value="13:30">1:30 PM</option>
+        <option value="14:00">2:00 PM</option>
+      </select>
+      <span class="st-hint">~45 min per stop</span>
+    </div>
+
+    <!-- ITINERARY LIST -->
+    <div class="itin-wrap" id="itinWrap">
+      <div class="itin-empty" id="itinEmpty">
+        <div class="ie-icon">🍷</div>
+        <h3>Your Itinerary Is Empty</h3>
+        <p>Click winery pins on the map or choose a curated route above to start planning your perfect wine day.</p>
+      </div>
+      <div class="itin-list" id="itinList" style="display:none;"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="panel-foot" id="panelFoot" style="display:none;">
+      <div class="trip-summary">
+        <div class="trip-stats">
+          <div class="trip-stat"><div class="ts-val" id="statStops">0</div><div class="ts-label">Stops</div></div>
+          <div class="trip-stat"><div class="ts-val" id="statDrive">0m</div><div class="ts-label">Driving</div></div>
+          <div class="trip-stat"><div class="ts-val" id="statTaste">0h</div><div class="ts-label">Tasting</div></div>
+        </div>
+        <div class="trip-time">
+          <div class="tt-range" id="statRange">–</div>
+          <div class="tt-total" id="statTotal">Total trip time</div>
+        </div>
+      </div>
+      <div class="panel-actions">
+        <button class="btn-share" id="btnShare" disabled>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>
+          Share Itinerary
+        </button>
+        <button class="btn-clear" id="btnClear">Clear All</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SHARE MODAL -->
+<div class="modal-overlay" id="shareModal">
+  <div class="modal">
+    <div class="modal-top">
+      <h2>Share Your Wine Day</h2>
+      <button class="modal-close" onclick="closeModal()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="share-card" id="shareCard"></div>
+    <div class="modal-actions">
+      <button class="btn-copy-link" id="btnCopyLink" onclick="copyLink()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        Copy Link
+      </button>
+      <button class="btn-copy-card" onclick="copyText()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        Copy as Text
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════
+// WINERY DATA (Google Maps verified coords)
+// ═══════════════════════════════════════════
+var W = [
+  // OLD MISSION
+  { id:'cgt', n:"Chateau Grand Traverse", p:"old-mission", lat:44.8649, lng:-85.5198, hrs:"10am–6pm", close:18, open:10 },
+  { id:'cc',  n:"Chateau Chantal", p:"old-mission", lat:44.9195, lng:-85.5020, hrs:"11am–7pm", close:19, open:11 },
+  { id:'pc',  n:"Peninsula Cellars", p:"old-mission", lat:44.8540, lng:-85.5272, hrs:"10am–6pm", close:18, open:10 },
+  { id:'be',  n:"Brys Estate", p:"old-mission", lat:44.8867, lng:-85.5098, hrs:"11am–6pm", close:18, open:11 },
+  { id:'2l',  n:"2 Lads Winery", p:"old-mission", lat:44.9342, lng:-85.4960, hrs:"12–6pm", close:18, open:12 },
+  { id:'bh',  n:"Bowers Harbor Vineyards", p:"old-mission", lat:44.8410, lng:-85.5480, hrs:"10:30am–6pm", close:18, open:10.5 },
+  { id:'hv',  n:"Hawthorne Vineyards", p:"old-mission", lat:44.8264, lng:-85.5611, hrs:"11am–6pm", close:18, open:11 },
+  { id:'lfc', n:"Left Foot Charley", p:"old-mission", lat:44.7562, lng:-85.6452, hrs:"12–6pm", close:18, open:12 },
+  { id:'mv',  n:"Mari Vineyards", p:"old-mission", lat:44.8085, lng:-85.5656, hrs:"11am–6pm", close:18, open:11 },
+  { id:'bn',  n:"Bonobo Winery", p:"old-mission", lat:44.8605, lng:-85.5232, hrs:"11am–7pm", close:19, open:11 },
+  // LEELANAU
+  { id:'bsf', n:"Black Star Farms", p:"leelanau", lat:44.9780, lng:-85.6400, hrs:"10am–6pm", close:18, open:10 },
+  { id:'45n', n:"45 North Vineyard", p:"leelanau", lat:44.9350, lng:-85.7400, hrs:"11am–6pm", close:18, open:11 },
+  { id:'lm',  n:"L. Mawby", p:"leelanau", lat:44.9560, lng:-85.7100, hrs:"12–5pm", close:17, open:12 },
+  { id:'cic', n:"Ciccone Vineyard", p:"leelanau", lat:44.9480, lng:-85.7050, hrs:"12–5pm", close:17, open:12 },
+  { id:'gp',  n:"Gill's Pier Winery", p:"leelanau", lat:45.0600, lng:-85.6800, hrs:"12–5pm", close:17, open:12 },
+  { id:'lc',  n:"Leelanau Cellars", p:"leelanau", lat:45.0150, lng:-85.6050, hrs:"10am–6pm", close:18, open:10 },
+  { id:'bl',  n:"Bel Lago Vineyard", p:"leelanau", lat:44.8800, lng:-85.8500, hrs:"12–5pm", close:17, open:12 },
+  { id:'sl',  n:"Shady Lane Cellars", p:"leelanau", lat:44.9620, lng:-85.6950, hrs:"11am–6pm", close:18, open:11 },
+  { id:'vt',  n:"Verterra Winery", p:"leelanau", lat:45.0230, lng:-85.7600, hrs:"11am–6pm", close:18, open:11 },
+  { id:'bb',  n:"Brengman Brothers", p:"leelanau", lat:44.8200, lng:-85.6700, hrs:"11am–7pm", close:19, open:11 },
+  { id:'rv',  n:"Raftshol Vineyards", p:"leelanau", lat:44.9900, lng:-85.6200, hrs:"12–6pm", close:18, open:12 },
+  { id:'wv',  n:"Willow Vineyards", p:"leelanau", lat:44.9700, lng:-85.6800, hrs:"12–5pm", close:17, open:12 },
+  { id:'gh',  n:"Good Harbor Vineyards", p:"leelanau", lat:44.9100, lng:-85.8200, hrs:"11am–5pm", close:17, open:11 },
+];
+var WMap = {}; W.forEach(function(w){ WMap[w.id] = w; });
+
+// ═══════════════════════════════════════════
+// CURATED ROUTES
+// ═══════════════════════════════════════════
+var ROUTES = [
+  { name:"First Timer's Tour", icon:"🌟", desc:"Classic wineries, can't-miss views", ids:['cgt','be','cc','bh'], pen:"Old Mission" },
+  { name:"Reds & Views", icon:"🍷", desc:"Bold wines with stunning vistas", ids:['mv','be','2l','cc'], pen:"Old Mission" },
+  { name:"Sparkling Saturday", icon:"🥂", desc:"Bubbly, rosé & celebration wines", ids:['lm','cc','bn','sl'], pen:"Both" },
+  { name:"Leelanau Loop", icon:"🗺️", desc:"Explore the western peninsula", ids:['bsf','sl','45n','lm','gh'], pen:"Leelanau" },
+  { name:"Off the Beaten Path", icon:"🌿", desc:"Hidden gems & small producers", ids:['gp','wv','cic','bl'], pen:"Leelanau" },
+  { name:"Sunset Tour", icon:"🌅", desc:"West-facing views, perfect for late starts", ids:['cc','2l','bn'], pen:"Old Mission", defaultStart:"16:00" },
+  { name:"Bachelorette Binge", icon:"👑", desc:"Party patios, rosé & group vibes", ids:['bn','cc','sl','lm'], pen:"Both" },
+  { name:"Wine & Food Pairing", icon:"🧀", desc:"Tasting rooms near great food stops", ids:['lfc','pc','bh','mv'], pen:"Old Mission" },
+  { name:"Half-Day Quickie", icon:"⚡", desc:"3 stellar stops, back by 3pm", ids:['cgt','be','bn'], pen:"Old Mission" },
+  { name:"Best of Both", icon:"🏆", desc:"Top picks from each peninsula", ids:['cgt','cc','bsf','sl','45n'], pen:"Both" },
+];
+
+// ═══════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════
+var itinerary = []; // array of winery ids
+var markers = {};
+var routeLine = null;
+
+// ═══════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════
+
+// Real road drive times in minutes between wineries.
+// Cross-peninsula trips route through Traverse City (~30-40 min penalty).
+// Old Mission wineries: along a single peninsula road, sequential.
+// Leelanau wineries: county roads, slightly slower.
+// Key insight: any OM↔Leelanau trip must pass through TC downtown.
+var DRIVE_TABLE = {
+  // ── OLD MISSION internal (along Center Rd / peninsula) ──
+  'cgt-cc':14,  'cc-cgt':14,
+  'cgt-be':7,   'be-cgt':7,
+  'cgt-bn':4,   'bn-cgt':4,
+  'cgt-pc':6,   'pc-cgt':6,
+  'cgt-bh':14,  'bh-cgt':14,
+  'cgt-mv':18,  'mv-cgt':18,
+  'cgt-hv':20,  'hv-cgt':20,
+  'cgt-2l':18,  '2l-cgt':18,
+  'cgt-lfc':25, 'lfc-cgt':25,
+  'cc-be':8,    'be-cc':8,
+  'cc-bn':12,   'bn-cc':12,
+  'cc-pc':18,   'pc-cc':18,
+  'cc-2l':6,    '2l-cc':6,
+  'cc-bh':22,   'bh-cc':22,
+  'cc-mv':28,   'mv-cc':28,
+  'cc-hv':30,   'hv-cc':30,
+  'cc-lfc':35,  'lfc-cc':35,
+  'be-bn':5,    'bn-be':5,
+  'be-pc':11,   'pc-be':11,
+  'be-2l':13,   '2l-be':13,
+  'be-bh':17,   'bh-be':17,
+  'be-mv':22,   'mv-be':22,
+  'be-hv':25,   'hv-be':25,
+  'be-lfc':30,  'lfc-be':30,
+  'bn-pc':9,    'pc-bn':9,
+  'bn-2l':14,   '2l-bn':14,
+  'bn-bh':16,   'bh-bn':16,
+  'bn-mv':20,   'mv-bn':20,
+  'bn-hv':22,   'hv-bn':22,
+  'bn-lfc':28,  'lfc-bn':28,
+  'pc-bh':10,   'bh-pc':10,
+  'pc-mv':12,   'mv-pc':12,
+  'pc-hv':15,   'hv-pc':15,
+  'pc-2l':20,   '2l-pc':20,
+  'pc-lfc':20,  'lfc-pc':20,
+  'bh-mv':8,    'mv-bh':8,
+  'bh-hv':10,   'hv-bh':10,
+  'bh-2l':25,   '2l-bh':25,
+  'bh-lfc':18,  'lfc-bh':18,
+  'mv-hv':5,    'hv-mv':5,
+  'mv-lfc':12,  'lfc-mv':12,
+  'mv-2l':30,   '2l-mv':30,
+  'hv-lfc':14,  'lfc-hv':14,
+  'hv-2l':32,   '2l-hv':32,
+  'lfc-2l':38,  '2l-lfc':38,
+  // ── LEELANAU internal (county roads) ──
+  'bsf-lc':12,  'lc-bsf':12,
+  'bsf-rv':8,   'rv-bsf':8,
+  'bsf-gp':18,  'gp-bsf':18,
+  'bsf-sl':12,  'sl-bsf':12,
+  'bsf-cic':14, 'cic-bsf':14,
+  'bsf-lm':15,  'lm-bsf':15,
+  'bsf-45n':22, '45n-bsf':22,
+  'bsf-wv':14,  'wv-bsf':14,
+  'bsf-vt':16,  'vt-bsf':16,
+  'bsf-gh':28,  'gh-bsf':28,
+  'bsf-bl':38,  'bl-bsf':38,
+  'bsf-bb':35,  'bb-bsf':35,
+  'lc-rv':9,    'rv-lc':9,
+  'lc-gp':14,   'gp-lc':14,
+  'lc-sl':16,   'sl-lc':16,
+  'lc-cic':18,  'cic-lc':18,
+  'lc-lm':20,   'lm-lc':20,
+  'lc-45n':28,  '45n-lc':28,
+  'lc-wv':18,   'wv-lc':18,
+  'lc-vt':12,   'vt-lc':12,
+  'lc-gh':30,   'gh-lc':30,
+  'lc-bl':42,   'bl-lc':42,
+  'lc-bb':38,   'bb-lc':38,
+  'rv-gp':16,   'gp-rv':16,
+  'rv-sl':10,   'sl-rv':10,
+  'rv-cic':12,  'cic-rv':12,
+  'rv-lm':14,   'lm-rv':14,
+  'rv-wv':12,   'wv-rv':12,
+  'rv-vt':18,   'vt-rv':18,
+  'rv-45n':20,  '45n-rv':20,
+  'rv-gh':32,   'gh-rv':32,
+  'rv-bl':40,   'bl-rv':40,
+  'rv-bb':38,   'bb-rv':38,
+  'gp-sl':20,   'sl-gp':20,
+  'gp-cic':22,  'cic-gp':22,
+  'gp-lm':24,   'lm-gp':24,
+  'gp-wv':22,   'wv-gp':22,
+  'gp-vt':10,   'vt-gp':10,
+  'gp-45n':30,  '45n-gp':30,
+  'gp-gh':38,   'gh-gp':38,
+  'gp-bl':50,   'bl-gp':50,
+  'gp-bb':46,   'bb-gp':46,
+  'sl-cic':6,   'cic-sl':6,
+  'sl-lm':8,    'lm-sl':8,
+  'sl-wv':7,    'wv-sl':7,
+  'sl-45n':14,  '45n-sl':14,
+  'sl-vt':22,   'vt-sl':22,
+  'sl-gh':22,   'gh-sl':22,
+  'sl-bl':32,   'bl-sl':32,
+  'sl-bb':30,   'bb-sl':30,
+  'cic-lm':5,   'lm-cic':5,
+  'cic-wv':6,   'wv-cic':6,
+  'cic-45n':12, '45n-cic':12,
+  'cic-vt':24,  'vt-cic':24,
+  'cic-gh':20,  'gh-cic':20,
+  'cic-bl':30,  'bl-cic':30,
+  'cic-bb':28,  'bb-cic':28,
+  'lm-wv':6,    'wv-lm':6,
+  'lm-45n':10,  '45n-lm':10,
+  'lm-vt':26,   'vt-lm':26,
+  'lm-gh':22,   'gh-lm':22,
+  'lm-bl':32,   'bl-lm':32,
+  'lm-bb':30,   'bb-lm':30,
+  'wv-45n':10,  '45n-wv':10,
+  'wv-vt':24,   'vt-wv':24,
+  'wv-gh':22,   'gh-wv':22,
+  'wv-bl':30,   'bl-wv':30,
+  'wv-bb':28,   'bb-wv':28,
+  '45n-vt':32,  'vt-45n':32,
+  '45n-gh':28,  'gh-45n':28,
+  '45n-bl':22,  'bl-45n':22,
+  '45n-bb':24,  'bb-45n':24,
+  'vt-gh':36,   'gh-vt':36,
+  'vt-bl':46,   'bl-vt':46,
+  'vt-bb':42,   'bb-vt':42,
+  'gh-bl':18,   'bl-gh':18,
+  'gh-bb':22,   'bb-gh':22,
+  'bl-bb':14,   'bb-bl':14,
+};
+
+// Old Mission peninsula IDs
+var OM_IDS = ['cgt','cc','pc','be','2l','bh','hv','lfc','mv','bn'];
+// Leelanau peninsula IDs
+var LL_IDS = ['bsf','45n','lm','cic','gp','lc','bl','sl','vt','bb','rv','wv','gh'];
+
+function isOM(id) { return OM_IDS.indexOf(id) > -1; }
+function isLL(id) { return LL_IDS.indexOf(id) > -1; }
+
+// TC is the hub connecting the two peninsulas — drive through it takes 8 min from south OM, 15 from north Leelanau
+var TC_DRIVE_FROM_OM = { 'cgt':22,'cc':32,'pc':18,'be':26,'2l':36,'bh':16,'hv':14,'lfc':8,'mv':12,'bn':20 };
+var TC_DRIVE_FROM_LL = { 'bsf':32,'45n':40,'lm':36,'cic':34,'gp':45,'lc':38,'bl':48,'sl':36,'vt':44,'bb':22,'rv':35,'wv':37,'gh':46 };
+
+function driveMinutes(w1, w2) {
+  if (w1.id === w2.id) return 0;
+  // Look up in table first
+  var key = w1.id + '-' + w2.id;
+  if (DRIVE_TABLE[key] !== undefined) return DRIVE_TABLE[key];
+  // Cross-peninsula: must go through TC
+  if (isOM(w1.id) && isLL(w2.id)) {
+    return (TC_DRIVE_FROM_OM[w1.id] || 20) + (TC_DRIVE_FROM_LL[w2.id] || 35);
+  }
+  if (isLL(w1.id) && isOM(w2.id)) {
+    return (TC_DRIVE_FROM_LL[w1.id] || 35) + (TC_DRIVE_FROM_OM[w2.id] || 20);
+  }
+  // Fallback: shouldn't be needed but use generous estimate
+  return 25;
+}
+function fmtTime(hour24) {
+  var h = Math.floor(hour24); var m = Math.round((hour24 - h)*60);
+  var ampm = h >= 12 ? 'PM' : 'AM'; var h12 = h > 12 ? h-12 : (h===0?12:h);
+  return h12 + (m>0 ? ':' + String(m).padStart(2,'0') : ':00') + ' ' + ampm;
+}
+function getStartHour() {
+  var v = document.getElementById('startTime').value.split(':');
+  return parseInt(v[0]) + parseInt(v[1])/60;
+}
+function getPeninsulas() {
+  var pens = new Set();
+  itinerary.forEach(function(id){ pens.add(WMap[id].p); });
+  return pens;
+}
+
+// ═══════════════════════════════════════════
+// INIT MAP
+// ═══════════════════════════════════════════
+var map = L.map('map', { center: [44.93, -85.67], zoom: 10, minZoom: 9, maxZoom: 17, zoomControl: true });
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
+  subdomains: 'abcd', maxZoom: 19
+}).addTo(map);
+
+// Create markers
+W.forEach(function(w) {
+  var icon = L.divIcon({
+    className: '',
+    html: '<div class="winery-pin" data-id="'+w.id+'"><div class="pin-tooltip"><div class="tt-name">'+w.n+'</div><div class="tt-sub">'+w.hrs+'</div><div class="tt-action">Click to add</div></div><div class="pin-dot '+(w.p==='old-mission'?'om':'ll')+'"></div></div>',
+    iconSize: [24, 24], iconAnchor: [12, 12]
+  });
+  var marker = L.marker([w.lat, w.lng], { icon: icon }).addTo(map);
+  marker.on('click', function() { toggleWinery(w.id); });
+  markers[w.id] = marker;
+});
+
+// ═══════════════════════════════════════════
+// ITINERARY LOGIC
+// ═══════════════════════════════════════════
+function toggleWinery(id) {
+  var idx = itinerary.indexOf(id);
+  if (idx > -1) { itinerary.splice(idx, 1); }
+  else { if (itinerary.length >= 8) return; itinerary.push(id); }
+  update();
+}
+
+function setRoute(ids) {
+  itinerary = ids.slice();
+  update();
+  // Fit map to route
+  if (itinerary.length > 0) {
+    var bounds = L.latLngBounds(itinerary.map(function(id){ var w=WMap[id]; return [w.lat,w.lng]; }));
+    map.fitBounds(bounds, { padding: [60,60], maxZoom: 12 });
+  }
+}
+
+var DEFAULT_CENTER = [44.93, -85.67];
+var DEFAULT_ZOOM = 10;
+
+function clearAll() {
+  itinerary = [];
+  document.querySelectorAll('.curated-card').forEach(function(c){ c.classList.remove('active'); });
+  map.setView(DEFAULT_CENTER, DEFAULT_ZOOM);
+  expandRoutes();
+  update();
+}
+
+function update() {
+  updatePins();
+  updateList();
+  updateRoute();
+  updateSummary();
+  // Hide instructions after first add
+  if (itinerary.length > 0) document.getElementById('mapInstr').classList.add('hidden');
+}
+
+function updatePins() {
+  W.forEach(function(w) {
+    var idx = itinerary.indexOf(w.id);
+    var el = markers[w.id].getElement();
+    if (!el) return;
+    var dot = el.querySelector('.pin-dot');
+    var tooltip = el.querySelector('.pin-tooltip .tt-action');
+    if (idx > -1) {
+      dot.classList.add('selected');
+      dot.innerHTML = '<span class="pin-num">'+(idx+1)+'</span>';
+      if(tooltip) tooltip.textContent = 'Click to remove';
+    } else {
+      dot.classList.remove('selected');
+      dot.innerHTML = '';
+      if(tooltip) tooltip.textContent = 'Click to add';
+    }
+  });
+}
+
+function updateRoute() {
+  if (routeLine) {
+    if (Array.isArray(routeLine)) { routeLine.forEach(function(l){ map.removeLayer(l); }); }
+    else { map.removeLayer(routeLine); }
+    routeLine = null;
+  }
+  if (itinerary.length < 2) return;
+
+  // Build route segments, inserting TC waypoint for cross-peninsula legs
+  var TC = [44.7631, -85.6206]; // Traverse City center
+  var allLines = [];
+  for (var i = 0; i < itinerary.length - 1; i++) {
+    var a = WMap[itinerary[i]];
+    var b = WMap[itinerary[i+1]];
+    var pts;
+    if ((isOM(a.id) && isLL(b.id)) || (isLL(a.id) && isOM(b.id))) {
+      // Must route through TC
+      pts = [[a.lat, a.lng], TC, [b.lat, b.lng]];
+    } else {
+      pts = [[a.lat, a.lng], [b.lat, b.lng]];
+    }
+    allLines.push(L.polyline(pts, { color: '#C9A96E', weight: 3, dashArray: '8 6', opacity: 0.7 }).addTo(map));
+  }
+  routeLine = allLines;
+}
+
+function updateList() {
+  var empty = document.getElementById('itinEmpty');
+  var list = document.getElementById('itinList');
+  var foot = document.getElementById('panelFoot');
+
+  if (itinerary.length === 0) {
+    empty.style.display = ''; list.style.display = 'none'; foot.style.display = 'none';
+    return;
+  }
+  empty.style.display = 'none'; list.style.display = ''; foot.style.display = '';
+
+  var html = '';
+  var curTime = getStartHour();
+  var pens = getPeninsulas();
+
+  // Peninsula mix warning
+  if (pens.size > 1) {
+    html += '<div class="itin-alert warn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg><span>Your stops span both peninsulas — that\'s a 30–40 min drive between them. Consider grouping by peninsula for a smoother day!</span></div>';
+  }
+
+  itinerary.forEach(function(id, i) {
+    var w = WMap[id]; var isOM = w.p === 'old-mission';
+
+    // Drive segment
+    if (i > 0) {
+      var prev = WMap[itinerary[i-1]];
+      var mins = driveMinutes(prev, w);
+      curTime += mins / 60;
+      html += '<div class="drive-seg"><div class="ds-line"></div><div class="ds-time">🚗 '+mins+' min drive</div><div class="ds-line"></div></div>';
+    }
+
+    var arriveTime = curTime;
+    var leaveTime = curTime + 0.75; // 45 min per stop
+
+    // Check hours
+    var hrsWarn = '';
+    if (arriveTime < w.open) { hrsWarn = 'Opens at ' + fmtTime(w.open); }
+    else if (arriveTime >= w.close - 0.25) { hrsWarn = '⚠️ May be closed — closes ' + fmtTime(w.close); }
+
+    html += '<div class="itin-item" draggable="true" data-id="'+id+'">';
+    html += '<svg class="itin-grip" width="12" height="16" viewBox="0 0 12 16"><circle cx="3" cy="2" r="1.5" fill="currentColor"/><circle cx="9" cy="2" r="1.5" fill="currentColor"/><circle cx="3" cy="8" r="1.5" fill="currentColor"/><circle cx="9" cy="8" r="1.5" fill="currentColor"/><circle cx="3" cy="14" r="1.5" fill="currentColor"/><circle cx="9" cy="14" r="1.5" fill="currentColor"/></svg>';
+    html += '<div class="itin-num '+(isOM?'om':'ll')+'">'+(i+1)+'</div>';
+    html += '<div class="itin-info"><div class="itin-name">'+w.n+'</div>';
+    html += '<div class="itin-meta"><span class="itin-time-slot">'+fmtTime(arriveTime)+' – '+fmtTime(leaveTime)+'</span>';
+    html += '<span>'+w.hrs+'</span>';
+    if (hrsWarn) html += '<span class="itin-hrs-warn">'+hrsWarn+'</span>';
+    html += '</div></div>';
+    html += '<button class="itin-remove" onclick="toggleWinery(\''+id+'\')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>';
+    html += '</div>';
+
+    curTime = leaveTime;
+  });
+
+  list.innerHTML = html;
+  initDragAndDrop();
+}
+
+function updateSummary() {
+  if (itinerary.length === 0) return;
+  var totalDrive = 0;
+  for (var i = 1; i < itinerary.length; i++) {
+    totalDrive += driveMinutes(WMap[itinerary[i-1]], WMap[itinerary[i]]);
+  }
+  var tastingMins = itinerary.length * 45;
+  var totalMins = totalDrive + tastingMins;
+
+  document.getElementById('statStops').textContent = itinerary.length;
+  document.getElementById('statDrive').textContent = totalDrive + 'm';
+  var tastingH = (tastingMins/60); document.getElementById('statTaste').textContent = tastingH.toFixed(1)+'h';
+
+  var start = getStartHour();
+  var end = start + totalMins/60;
+  document.getElementById('statRange').textContent = fmtTime(start) + ' – ' + fmtTime(end);
+  var totalH = Math.floor(totalMins/60); var totalM = totalMins % 60;
+  document.getElementById('statTotal').textContent = totalH+'h '+totalM+'m total';
+
+  document.getElementById('btnShare').disabled = itinerary.length === 0;
+}
+
+// ═══════════════════════════════════════════
+// DRAG AND DROP REORDER
+// ═══════════════════════════════════════════
+function initDragAndDrop() {
+  var items = document.querySelectorAll('.itin-item');
+  var dragId = null;
+  items.forEach(function(item) {
+    item.addEventListener('dragstart', function(e) {
+      dragId = item.dataset.id;
+      item.classList.add('dragging');
+      e.dataTransfer.effectAllowed = 'move';
+    });
+    item.addEventListener('dragend', function() {
+      item.classList.remove('dragging');
+      document.querySelectorAll('.itin-item').forEach(function(el){ el.classList.remove('drag-over'); });
+    });
+    item.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'move';
+      document.querySelectorAll('.itin-item').forEach(function(el){ el.classList.remove('drag-over'); });
+      if (item.dataset.id !== dragId) item.classList.add('drag-over');
+    });
+    item.addEventListener('drop', function(e) {
+      e.preventDefault();
+      if (!dragId || item.dataset.id === dragId) return;
+      var fromIdx = itinerary.indexOf(dragId);
+      var toIdx = itinerary.indexOf(item.dataset.id);
+      itinerary.splice(fromIdx, 1);
+      itinerary.splice(toIdx, 0, dragId);
+      dragId = null;
+      update();
+    });
+  });
+}
+
+// ═══════════════════════════════════════════
+// CURATED ROUTE CARDS
+// ═══════════════════════════════════════════
+// CURATED ROUTE CARDS + COLLAPSE/EXPAND
+// ═══════════════════════════════════════════
+var routesExpanded = true;
+var activeRouteName = '';
+var activeRouteIcon = '';
+
+function collapseRoutes(routeName, routeIcon) {
+  activeRouteName = routeName;
+  activeRouteIcon = routeIcon;
+  document.getElementById('curatedSection').style.display = 'none';
+  var bar = document.getElementById('activeRouteBar');
+  bar.classList.add('visible');
+  document.getElementById('arbName').textContent = routeName;
+  document.getElementById('arbIcon').textContent = routeIcon;
+  routesExpanded = false;
+}
+
+function expandRoutes() {
+  document.getElementById('curatedSection').style.display = '';
+  document.getElementById('activeRouteBar').classList.remove('visible');
+  routesExpanded = true;
+}
+
+function toggleRoutes() {
+  var cards = document.getElementById('curatedCards');
+  var btn = document.getElementById('curatedToggleBtn');
+  if (cards.classList.contains('hidden')) {
+    cards.classList.remove('hidden');
+    btn.textContent = 'Hide ▲';
+  } else {
+    cards.classList.add('hidden');
+    btn.textContent = 'Show ▼';
+  }
+}
+
+// Calculate max-height for smooth animation
+(function() {
+  var container = document.getElementById('curatedCards');
+  ROUTES.forEach(function(r) {
+    var card = document.createElement('div');
+    card.className = 'curated-card';
+    card.innerHTML = '<div class="cc-icon">'+r.icon+'</div><div class="cc-name">'+r.name+'</div><div class="cc-desc">'+r.desc+'</div><div class="cc-count">'+r.ids.length+' stops · '+r.pen+'</div>';
+    card.addEventListener('click', function() {
+      document.querySelectorAll('.curated-card').forEach(function(c){ c.classList.remove('active'); });
+      card.classList.add('active');
+      // Apply default start time if route has one
+      if (r.defaultStart) {
+        document.getElementById('startTime').value = r.defaultStart;
+      }
+      setRoute(r.ids);
+      // Collapse routes after a short delay to let the user see their selection
+      setTimeout(function() { collapseRoutes(r.name, r.icon); }, 300);
+    });
+    container.appendChild(card);
+  });
+  // Set max-height for animation after render
+  setTimeout(function() {
+    container.style.maxHeight = container.scrollHeight + 'px';
+  }, 50);
+})();
+
+// ═══════════════════════════════════════════
+// START TIME CHANGE
+// ═══════════════════════════════════════════
+document.getElementById('startTime').addEventListener('change', function() { update(); });
+
+// ═══════════════════════════════════════════
+// SHARE FUNCTIONALITY
+// ═══════════════════════════════════════════
+document.getElementById('btnShare').addEventListener('click', openShareModal);
+document.getElementById('btnClear').addEventListener('click', clearAll);
+document.getElementById('shareModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+function openShareModal() {
+  if (itinerary.length === 0) return;
+  var card = document.getElementById('shareCard');
+  var totalDrive = 0;
+  for (var i = 1; i < itinerary.length; i++) totalDrive += driveMinutes(WMap[itinerary[i-1]], WMap[itinerary[i]]);
+  var pens = getPeninsulas();
+  var penLabel = pens.size > 1 ? 'Both Peninsulas' : (pens.has('old-mission') ? 'Old Mission Peninsula' : 'Leelanau Peninsula');
+
+  var curTime = getStartHour();
+  var stopsHtml = '';
+  itinerary.forEach(function(id, i) {
+    var w = WMap[id];
+    if (i > 0) curTime += driveMinutes(WMap[itinerary[i-1]], w) / 60;
+    stopsHtml += '<div class="sc-stop"><div class="sc-stop-num">'+(i+1)+'</div><div class="sc-stop-name">'+w.n+'</div><div class="sc-stop-time">'+fmtTime(curTime)+'</div></div>';
+    curTime += 0.75;
+  });
+
+  card.innerHTML = '<div class="sc-header"><div class="sc-tag">Wine Day Itinerary</div><div class="sc-title">'+itinerary.length+' Wineries · '+penLabel+'</div><div class="sc-subtitle">'+fmtTime(getStartHour())+' start · ~'+totalDrive+' min driving</div></div><div class="sc-stops">'+stopsHtml+'</div><div class="sc-footer"><span>Built with <strong>TraverseCityWineTours.com</strong></span></div>';
+
+  document.getElementById('shareModal').classList.add('show');
+}
+
+function closeModal() { document.getElementById('shareModal').classList.remove('show'); }
+
+function copyLink() {
+  var params = new URLSearchParams();
+  params.set('stops', itinerary.join(','));
+  params.set('start', document.getElementById('startTime').value);
+  var url = window.location.origin + window.location.pathname + '?' + params.toString();
+  navigator.clipboard.writeText(url).then(function() {
+    var btn = document.getElementById('btnCopyLink');
+    btn.classList.add('copied');
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Copied!';
+    setTimeout(function() {
+      btn.classList.remove('copied');
+      btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg> Copy Link';
+    }, 2000);
+  });
+}
+
+function copyText() {
+  var curTime = getStartHour();
+  var lines = ['🍷 My Traverse City Wine Day\n'];
+  itinerary.forEach(function(id, i) {
+    var w = WMap[id];
+    if (i > 0) curTime += driveMinutes(WMap[itinerary[i-1]], w) / 60;
+    lines.push((i+1) + '. ' + w.n + ' — ' + fmtTime(curTime));
+    curTime += 0.75;
+  });
+  lines.push('\nPlan yours: TraverseCityWineTours.com');
+  navigator.clipboard.writeText(lines.join('\n')).then(function() {
+    var btn = document.querySelector('.btn-copy-card');
+    var orig = btn.innerHTML;
+    btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Copied!';
+    setTimeout(function(){ btn.innerHTML = orig; }, 2000);
+  });
+}
+
+// ═══════════════════════════════════════════
+// LOAD FROM URL PARAMS
+// ═══════════════════════════════════════════
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  if (params.has('stops')) {
+    var ids = params.get('stops').split(',').filter(function(id){ return WMap[id]; });
+    if (ids.length > 0) {
+      itinerary = ids;
+      if (params.has('start')) {
+        var sel = document.getElementById('startTime');
+        var opts = Array.from(sel.options).map(function(o){ return o.value; });
+        if (opts.indexOf(params.get('start')) > -1) sel.value = params.get('start');
+      }
+      update();
+      var bounds = L.latLngBounds(itinerary.map(function(id){ var w=WMap[id]; return [w.lat,w.lng]; }));
+      map.fitBounds(bounds, { padding: [60,60], maxZoom: 12 });
+    }
+  }
+})();
+</script>
+</body>
+</html>

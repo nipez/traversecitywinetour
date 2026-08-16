@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-374F6WS33Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-374F6WS33Y');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leelanau Peninsula Wineries | Traverse City Wine Guide</title>
+<meta name="description" content="Explore all 24 wineries on Leelanau Peninsula near Traverse City, Michigan. Tasting rooms, hours, and visitor information.">
+<link rel="canonical" href="https://traversecitywinetour.com/leelanau-peninsula">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{--burgundy:#4A0E1B;--wine:#722F37;--merlot:#8B3A3A;--gold:#C9A96E;--gold-light:#D4BC8B;--cream:#F5F0E8;--cream-dark:#EDE6D8;--charcoal:#2C2420;--text:#3A3330;--text-light:#7A7068;--white:#FEFCF9;}
+html{scroll-behavior:smooth;}
+body{font-family:'Outfit',sans-serif;color:var(--text);background:var(--white);overflow-x:hidden;}
+svg{flex-shrink:0;}
+.top-bar{background:var(--burgundy);color:var(--gold-light);font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;padding:8px 0;text-align:center;}
+nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px solid rgba(74,14,27,0.08);transition:box-shadow 0.3s;}
+nav.scrolled{box-shadow:0 2px 30px rgba(74,14,27,0.08);}
+.nav-inner{max-width:1340px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between;height:80px;}
+.logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;}
+.logo-main{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:600;color:var(--burgundy);letter-spacing:-0.01em;}
+.logo-sub{font-family:'Outfit',sans-serif;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-top:2px;}
+.nav-links{display:flex;gap:36px;list-style:none;align-items:center;}
+.nav-links a{text-decoration:none;font-size:0.82rem;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;color:var(--text);position:relative;padding:4px 0;transition:color 0.3s;}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:1.5px;background:var(--gold);transition:width 0.3s;}
+.nav-links a:hover{color:var(--burgundy);}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{background:var(--burgundy)!important;color:var(--cream)!important;padding:10px 24px!important;border-radius:4px;font-size:0.78rem!important;letter-spacing:0.06em!important;transition:background 0.3s!important;}
+.nav-cta:hover{background:var(--wine)!important;}
+.nav-cta::after{display:none!important;}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+.page-hero{position:relative;height:45vh;min-height:360px;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;}
+.page-hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;}
+.page-hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(74,14,27,0.82) 0%,rgba(44,36,32,0.65) 50%,rgba(74,14,27,0.5) 100%);}
+.page-hero-content{position:relative;z-index:2;max-width:800px;padding:0 40px;}
+.page-hero-tag{display:inline-flex;align-items:center;gap:10px;font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold-light);margin-bottom:20px;}
+.page-hero-tag::before,.page-hero-tag::after{content:'';width:40px;height:1px;background:var(--gold);}
+.page-hero-content h1{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:600;color:var(--white);line-height:1.15;margin-bottom:16px;}
+.page-hero-content h1 em{font-style:italic;color:var(--gold-light);}
+.page-hero-desc{font-size:1.05rem;color:rgba(255,255,255,0.82);line-height:1.6;max-width:560px;margin:0 auto;}
+.breadcrumbs{max-width:1340px;margin:0 auto;padding:16px 40px;display:flex;gap:8px;align-items:center;font-size:0.78rem;color:var(--text-light);}
+.breadcrumbs a{color:var(--text-light);text-decoration:none;}
+.breadcrumbs a:hover{color:var(--burgundy);}
+.breadcrumbs span{color:var(--text-light);}
+.breadcrumbs .current{color:var(--burgundy);font-weight:500;}
+.winery-section{padding:60px 40px 120px;max-width:1340px;margin:0 auto;}
+.section-intro{max-width:800px;margin:0 auto 60px;text-align:center;font-family:'Cormorant Garamond',serif;font-size:1.2rem;line-height:1.7;color:var(--text-light);}
+.winery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+.winery-card{background:var(--white);border-radius:8px;overflow:hidden;transition:transform 0.3s,box-shadow 0.3s;border:1px solid rgba(74,14,27,0.06);text-decoration:none;color:inherit;display:block;}
+.winery-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(74,14,27,0.1);}
+.winery-img{height:220px;background:var(--cream-dark);position:relative;overflow:hidden;}
+.winery-img-inner{width:100%;height:100%;background-size:cover;background-position:center;transition:transform 0.5s;}
+.winery-card:hover .winery-img-inner{transform:scale(1.05);}
+.winery-badge{position:absolute;top:14px;left:14px;background:var(--burgundy);color:var(--gold-light);font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;padding:4px 10px;border-radius:3px;font-weight:600;}
+.winery-info{padding:28px;}
+.winery-name{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:var(--burgundy);margin-bottom:6px;}
+.winery-type{font-size:0.78rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.winery-details{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+.winery-detail{display:flex;align-items:center;gap:8px;font-size:0.83rem;color:var(--text-light);}
+.winery-link{display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--burgundy);}
+.newsletter{background:var(--burgundy);padding:80px 40px;text-align:center;}
+.newsletter-inner{max-width:560px;margin:0 auto;}
+.newsletter h2{font-family:'Playfair Display',serif;font-size:2rem;color:var(--white);margin-bottom:12px;}
+.newsletter p{color:rgba(255,255,255,0.7);margin-bottom:32px;line-height:1.6;}
+.newsletter-form{display:flex;gap:12px;max-width:420px;margin:0 auto;}
+.newsletter-form input{flex:1;padding:14px 18px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:var(--white);border-radius:4px;font-size:0.9rem;}
+.newsletter-form input::placeholder{color:rgba(255,255,255,0.5);}
+.newsletter-form button{padding:14px 24px;background:var(--gold);color:var(--burgundy);border:none;border-radius:4px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;font-size:0.8rem;cursor:pointer;white-space:nowrap;}
+footer{background:var(--charcoal);color:rgba(255,255,255,0.6);padding:60px 40px 30px;}
+.footer-inner{max-width:1340px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:50px;}
+.footer-brand .logo-main{color:var(--white);}
+.footer-brand .logo-sub{color:var(--gold);}
+.footer-brand p{margin-top:16px;font-size:0.85rem;line-height:1.7;}
+.footer-col h4{font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:600;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-col a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.88rem;transition:color 0.2s;}
+.footer-col a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:0.78rem;}
+.footer-bottom a{color:rgba(255,255,255,0.4);text-decoration:none;}
+@media(max-width:1024px){.winery-grid{grid-template-columns:repeat(2,1fr);}.footer-grid{grid-template-columns:1fr 1fr;gap:40px;}}
+@media(max-width:768px){.nav-links{display:none;}.nav-toggle{display:block;}.winery-grid{grid-template-columns:1fr;}.newsletter-form{flex-direction:column;}.footer-grid{grid-template-columns:1fr;gap:32px;}.footer-bottom{flex-direction:column;gap:12px;text-align:center;}.page-hero{height:35vh;min-height:280px;}}
+.nav-links.show{display:flex;flex-direction:column;position:absolute;top:80px;left:0;right:0;background:var(--white);padding:20px 40px;border-bottom:1px solid rgba(74,14,27,0.08);z-index:200;}
+
+/* ============================================================
+   ACCESSIBILITY: LARGER TEXT FOR 55+ READERS
+   ============================================================ */
+html { font-size: 18px !important; scroll-behavior: smooth; }
+body { font-size: 1rem; line-height: 1.7; }
+p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
+.winery-desc, .exp-card p, .plan-card p, .journal-card p,
+.pen-desc, .section-desc, .footer-brand p,
+.article-body p, .article-body li { font-size: 1rem; line-height: 1.75; }
+.winery-type, .winery-detail, .winery-link, .pen-stat, .pen-link, .pen-label,
+.journal-card-cat, .journal-card-meta, .section-tag, .stat-label, .top-bar,
+.footer-col a, .footer-bottom, .plan-card-link, .quote-attr,
+.hero-tag, .hero-scroll span, .winery-badge, .winery-peninsula-tag { font-size: 0.875rem; line-height: 1.6; }
+.nav-links a, .nav-cta { font-size: 0.9rem !important; }
+.btn-primary, .btn-outline, .btn-outline-dark, .btn-burgundy { font-size: 0.9rem; }
+.winery-name { font-size: 1.25rem; }
+.newsletter-form input, .newsletter-form button { font-size: 1rem; padding: 16px 24px; }
+.hero-desc { line-height: 1.75; }
+.pen-card::after { background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.25) 55%, transparent 75%) !important; }
+.hero-bg-photo { opacity: 0.18 !important; }
+.quote-text { color: var(--cream) !important; opacity: 1 !important; }
+.footer-brand p, .footer-col a { color: rgba(245,240,232,0.72) !important; }
+.footer-bottom { color: rgba(245,240,232,0.65) !important; }
+.section-desc { line-height: 1.75; font-size: 1.1rem; }
+.winery-detail { font-size: 0.9rem; line-height: 1.6; }
+
+</style>
+</head>
+<body>
+<div class="top-bar">Michigan's #1 Wine Destination &nbsp;·&nbsp; 40+ Wineries on Two Peninsulas &nbsp;·&nbsp; Start Planning Today</div>
+<nav id="mainNav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><img src="logo.svg" alt="Traverse City Wine Guide" height="44" style="display:block;"></a>
+    <ul class="nav-links">
+      <li><a href="wineries/index.html">Wineries</a></li>
+      <li><a href="cideries/index.html">Cideries</a></li>
+      <li><a href="breweries/index.html">Breweries</a></li>
+      <li><a href="journal/index.html">Journal</a></li>
+      <li><a href="plan-your-day.html">Plan Your Day</a></li>
+      <li><a href="wine-tours.html" class="nav-cta">Book a Tour</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+  </div>
+</nav>
+<section class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('wineglasses.jpg');"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-tag">24 Wineries</div>
+    <h1><em>Leelanau Peninsula</em> Wineries</h1>
+    <p class="page-hero-desc">The Leelanau Peninsula wine trail winds through rolling hills, cherry orchards, and charming villages on Michigan's west...</p>
+  </div>
+</section>
+<div class="breadcrumbs">
+  <a href="index.html">Home</a><span>›</span>
+  <a href="wineries/index.html">Wineries</a><span>›</span>
+  <span class="current">Leelanau Peninsula Peninsula</span>
+</div>
+<div class="winery-section">
+  <p class="section-intro">The Leelanau Peninsula wine trail winds through rolling hills, cherry orchards, and charming villages on Michigan's western coast. With diverse terroir influenced by Lake Michigan and inland lakes, the peninsula produces an impressive range of wines — from crisp whites and elegant sparklings to bold reds and celebrated ice wines.</p>
+  <div class="winery-grid">
+<a href="wineries/black-star-farms.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('vineyard.jpg'); background-size: cover; background-position: center"></div><span class="winery-badge">Featured</span></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Black Star Farms</h3>
+    <div class="winery-type">Winery, Inn & Farm Market</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 10844 E Revold Rd</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Daily 10am–6pm</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/l-mawby.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('wineglasses.jpg'); background-size: cover; background-position: center 30%"></div><span class="winery-badge">Featured</span></div>
+  <div class="winery-info">
+    <h3 class="winery-name">L. Mawby</h3>
+    <div class="winery-type">Sparkling Wine House</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 4519 S Elm Valley Rd</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Thu–Mon 12–5pm (Seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/ciccone-vineyard.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('grapes.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Ciccone Vineyard & Winery</h3>
+    <div class="winery-type">Family Estate Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 10343 E Hilltop Rd</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Mon–Sat 12–6pm · Sun 12–5pm</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/good-harbor-vineyards.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('cheers.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Good Harbor Vineyards</h3>
+    <div class="winery-type">Estate Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 34 S Manitou Trail</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Mon–Sat 11am–5pm · Sun 12–5pm</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/forty-five-north.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('winery-placeholder.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Forty-Five North Vineyard & Winery</h3>
+    <div class="winery-type">Vineyard & Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 8580 E Horn Rd</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Daily 11am–6pm (Seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/shady-lane-cellars.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('vineyard.jpg'); background-size: cover; background-position: center"></div><span class="winery-badge">Featured</span></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Shady Lane Cellars</h3>
+    <div class="winery-type">Winery in Historic Fieldstone Farm</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 9580 Shady Ln</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Daily 11am–6pm</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/leelanau-cellars.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('wineglasses.jpg'); background-size: cover; background-position: center 30%"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Leelanau Cellars</h3>
+    <div class="winery-type">Pioneer Estate Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 5019 N West Bay Shore Dr</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Mon–Sat 10am–6pm · Sun 12–5pm</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/brengman-brothers.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('grapes.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Brengman Brothers</h3>
+    <div class="winery-type">Winery & Tasting Room</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 9720 S Center Hwy</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Daily 11am–6pm</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/gills-pier.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('cheers.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Gill's Pier Vineyard & Winery</h3>
+    <div class="winery-type">Vineyard & Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 5620 N Manitou Trail</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Daily 12–5pm (Seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/bel-lago.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('winery-placeholder.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Bel Lago Vineyard & Winery</h3>
+    <div class="winery-type">Estate Vineyard & Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 6530 S Lake Shore Dr</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Mon–Sat 12–5pm · Sun 12–5pm</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/verterra-winery.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('vineyard.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Verterra Winery</h3>
+    <div class="winery-type">Artisan Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 103 E River St</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Daily 12–6pm (Seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/aurora-cellars.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('wineglasses.jpg'); background-size: cover; background-position: center 30%"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Aurora Cellars</h3>
+    <div class="winery-type">Boutique Winery & Tasting Room</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 5062 N. West Bay Shore Dr</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Daily 11am–6pm (seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/blustone-vineyards.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('grapes.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Blustone Vineyards</h3>
+    <div class="winery-type">Modern Boutique Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 780 N. Sylt Rd</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Daily 12–6pm (seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/boathouse-vineyards.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('cheers.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Boathouse Vineyards</h3>
+    <div class="winery-type">Waterfront Vineyard & Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 3808 S. Lake Leelanau Dr</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Daily 12–6pm (seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/rove-estate.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('winery-placeholder.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Rove Estate</h3>
+    <div class="winery-type">Estate Vineyard & Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 7007 E. Traverse Hwy</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Daily 12–7pm (seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/chateau-fontaine.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('vineyard.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Chateau Fontaine</h3>
+    <div class="winery-type">Estate Vineyard & Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 2290 S. French Rd</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Daily 11am–6pm (seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/raftshol-vineyards.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('wineglasses.jpg'); background-size: cover; background-position: center 30%"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Raftshol Vineyards</h3>
+    <div class="winery-type">Historic Family Estate Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 1865 N. West Bay Shore Dr</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Thu–Sun 12–5pm (seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/willow-vineyard.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('grapes.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Willow Vineyard</h3>
+    <div class="winery-type">Boutique Hillside Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 10702 E. Hilltop Rd</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Fri–Sun 12–5pm (seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/silver-leaf-vineyard.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('cheers.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Silver Leaf Vineyard & Winery</h3>
+    <div class="winery-type">Small-Batch Estate Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 9065 E. Horn Rd</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Fri–Sun 11am–5pm (seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/chateau-de-leelanau.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('winery-placeholder.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Chateau de Leelanau</h3>
+    <div class="winery-type">Sparkling & Estate Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 5048 S. West Bay Shore Dr</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Daily 11am–6pm (seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/good-neighbor-organic.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('vineyard.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Good Neighbor Organic Winery</h3>
+    <div class="winery-type">Certified Organic Vineyard & Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 3560 N. Setterbo Rd</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Sat–Sun 12–5pm (seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/longview-winery.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('wineglasses.jpg'); background-size: cover; background-position: center 30%"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Longview Winery</h3>
+    <div class="winery-type">Boutique Estate Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 5975 N. West Bay Shore Dr</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Fri–Sun 12–5pm (seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/laurentide-winery.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('grapes.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Laurentide Winery</h3>
+    <div class="winery-type">Modern Boutique Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 135 E. Harbor Hwy</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Daily 12–6pm (seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+<a href="wineries/tandem-ciders.html" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('cheers.jpg'); background-size: cover; background-position: center"></div></div>
+  <div class="winery-info">
+    <h3 class="winery-name">Tandem Ciders</h3>
+    <div class="winery-type">Artisan Cidery & Winery</div>
+    <div class="winery-details">
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> 2055 N. Setterbo Rd</div>
+      <div class="winery-detail"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> Daily 12–6pm (seasonal)</div>
+    </div>
+    <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+  </div>
+</a>
+  </div>
+</div>
+<section class="newsletter">
+  <div class="newsletter-inner">
+    <h2>Stay Connected to Wine Country</h2>
+    <p>Weekly updates on new wines, events, seasonal guides, and exclusive offers from Traverse City's finest wineries.</p>
+    <form class="newsletter-form" onsubmit="return false;"><input type="email" placeholder="Enter your email address"><button type="submit">Subscribe</button></form>
+  </div>
+</section>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo"><span class="logo-main">Traverse City Wine</span><span class="logo-sub">Tours & Winery Guide</span></div>
+        <p>Your complete guide to exploring Michigan's premier wine region. Discover wineries, plan tours, and experience the best of Traverse City wine country.</p>
+      </div>
+      <div class="footer-col"><h4>Explore</h4><ul>
+        <li><a href="wineries/index.html">All Wineries</a></li>
+        <li><a href="old-mission-peninsula.html">Old Mission Peninsula</a></li>
+        <li><a href="leelanau-peninsula.html">Leelanau Peninsula</a></li>
+        <li><a href="journal/index.html">Wine Country Journal</a></li>
+        <li><a href="events.html">Events Calendar</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Plan Your Trip</h4><ul>
+        <li><a href="wine-tours.html">Wine Tours</a></li>
+        <li><a href="where-to-stay.html">Hotels & Lodging</a></li>
+        <li><a href="plan-your-day.html">Plan Your Day</a></li>
+      <li><a href="plan-your-visit.html">Visitor Guide</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Resources</h4><ul>
+        <li><a href="advertise.html">Advertise With Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 TraverseCityWineTours.com &middot; All Rights Reserved</span>
+      <a href="sitemap.html">Sitemap</a>
+    </div>
+  </div>
+</footer>
+<script>
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>10);});
+</script>
+</body>
+</html>

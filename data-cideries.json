@@ -1,0 +1,158 @@
+[
+  {
+    "name": "Tandem Ciders",
+    "slug": "tandem-ciders",
+    "area": "Leelanau Peninsula",
+    "type": "Cidery",
+    "address": "2055 N Setterbo Rd, Suttons Bay, MI 49682",
+    "phone": "(231) 271-0050",
+    "website": "https://www.tandemciders.com",
+    "hours": "Thu\u2013Sun 12\u20136pm (seasonal hours vary)",
+    "description": "One of Michigan's most acclaimed cideries, Tandem uses locally sourced Leelanau and Old Mission Peninsula apples to craft small-batch, terroir-driven ciders. Their rustic barn tasting room is a must-visit.",
+    "known_for": [
+      "Farmhouse Cider",
+      "Smackintosh",
+      "Scrumpy Little Woody",
+      "Dry Heritage Ciders"
+    ],
+    "amenities": [
+      "Tasting Room",
+      "Barn Setting",
+      "Cheese Plates",
+      "Dog Friendly"
+    ],
+    "photo": "vineyard.jpg",
+    "lat": 44.9542,
+    "lng": -85.6387
+  },
+  {
+    "name": "Suttons Bay Ciders",
+    "slug": "suttons-bay-ciders",
+    "area": "Leelanau Peninsula",
+    "type": "Cidery",
+    "address": "715 S Maple St, Suttons Bay, MI 49682",
+    "phone": "(231) 271-4545",
+    "website": "https://www.suttonsbayciders.com",
+    "hours": "Daily 12\u20138pm (seasonal hours vary)",
+    "description": "Family-friendly cidery with panoramic views of West Grand Traverse Bay. Known for creative fruit-forward ciders using local apples, cherries, berries, and lavender sourced from Leelanau Peninsula farms.",
+    "known_for": [
+      "Smackintosh",
+      "Power Island Tart Cherry",
+      "Lavender Cider",
+      "Seasonal Fruit Ciders"
+    ],
+    "amenities": [
+      "Tasting Room",
+      "Bay Views",
+      "Outdoor Seating",
+      "Family Friendly",
+      "Food Menu"
+    ],
+    "photo": "wineglasses.jpg",
+    "lat": 44.9701,
+    "lng": -85.6452
+  },
+  {
+    "name": "Taproot Cider House",
+    "slug": "taproot-cider-house",
+    "area": "Downtown Traverse City",
+    "type": "Cidery",
+    "address": "215 E Front St, Traverse City, MI 49686",
+    "phone": "(231) 943-0043",
+    "website": "http://www.taproottc.com",
+    "hours": "Mon\u2013Thu 3\u201310pm \u00b7 Fri 12\u201311pm \u00b7 Sat 11am\u201311pm \u00b7 Sun 11am\u20139pm",
+    "description": "Downtown Traverse City's premier cider destination, featuring house-crafted hard ciders, spirits, and a farm-to-table food menu. Live music, outdoor patio, and a welcoming atmosphere make this a TC favorite.",
+    "known_for": [
+      "House Craft Ciders",
+      "Spirits",
+      "Farm-to-Table Menu",
+      "Live Music"
+    ],
+    "amenities": [
+      "Tasting Room",
+      "Full Kitchen",
+      "Live Music",
+      "Outdoor Patio",
+      "Spirits"
+    ],
+    "photo": "grapes.jpg",
+    "lat": 44.764,
+    "lng": -85.6206
+  },
+  {
+    "name": "Northern Natural Cider House",
+    "slug": "northern-natural-cider-house",
+    "area": "Downtown Traverse City",
+    "type": "Cidery",
+    "address": "324 E Front St, Traverse City, MI 49686",
+    "phone": "(231) 943-1078",
+    "website": "https://www.northernnaturalwinery.com",
+    "hours": "Mon\u2013Sat 12\u20138pm \u00b7 Sun 12\u20136pm",
+    "description": "A downtown TC gem focusing on natural, low-intervention ciders and wines made from Michigan fruit. The relaxed tasting room environment and commitment to organic practices make it a standout among local producers.",
+    "known_for": [
+      "Natural Ciders",
+      "Michigan Fruit Wines",
+      "Low-Intervention Production"
+    ],
+    "amenities": [
+      "Tasting Room",
+      "Downtown Location",
+      "Natural & Organic"
+    ],
+    "photo": "vineyard.jpg",
+    "lat": 44.7645,
+    "lng": -85.6198
+  },
+  {
+    "name": "Bel Lago Winery & Cidery",
+    "slug": "bel-lago-cidery",
+    "area": "Leelanau Peninsula",
+    "type": "Cidery",
+    "address": "6530 S Lake Shore Dr, Cedar, MI 49621",
+    "phone": "(231) 228-4800",
+    "website": "https://www.bellago.com",
+    "hours": "Daily 11am\u20136pm (seasonal hours vary)",
+    "description": "Estate winery and cidery set on a stunning Lake Leelanau property. Bel Lago crafts both award-winning wines and heritage-style hard ciders using estate-grown and locally sourced fruit in a beautiful lakeside setting.",
+    "known_for": [
+      "Heritage Hard Cider",
+      "Estate Wines",
+      "Lake Leelanau Views",
+      "Pinot Grigio"
+    ],
+    "amenities": [
+      "Tasting Room",
+      "Lake Views",
+      "Estate Grown",
+      "Wine & Cider"
+    ],
+    "photo": "wineglasses.jpg",
+    "lat": 44.8621,
+    "lng": -85.7849
+  },
+  {
+    "name": "Left Foot Charley Cider",
+    "slug": "left-foot-charley-cider",
+    "area": "Downtown Traverse City",
+    "type": "Cidery",
+    "address": "806 Red Dr #100, Traverse City, MI 49684",
+    "phone": "(231) 995-0500",
+    "website": "https://www.leftfootcharley.com",
+    "hours": "Mon\u2013Thu 12\u20137pm \u00b7 Fri\u2013Sat 12\u20138pm \u00b7 Sun 12\u20136pm",
+    "description": "Bryan Ulbrich's celebrated natural winery also produces some of Michigan's finest artisan hard ciders. Using the same minimal-intervention philosophy applied to his wines, Left Foot Charley ciders are complex, dry, and unlike anything else in the region.",
+    "known_for": [
+      "Cinnamon Girl Cider",
+      "Henry's Pippin",
+      "Dry Artisan Ciders",
+      "P\u00e9tillant Naturel"
+    ],
+    "amenities": [
+      "Tasting Room",
+      "Grand Traverse Commons",
+      "Natural Production",
+      "Wine & Cider"
+    ],
+    "photo": "grapes.jpg",
+    "lat": 44.7558,
+    "lng": -85.6089
+  }
+]
