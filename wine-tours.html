@@ -163,6 +163,7 @@ footer { background: var(--charcoal); padding: 80px 40px 40px; color: rgba(245,2
 .tour-card p { font-size: 0.92rem; color: var(--text-light); line-height: 1.65; margin-bottom: 20px; }
 .tour-features { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
 .tour-feature { padding: 6px 14px; background: var(--cream); border-radius: 16px; font-size: 0.78rem; color: var(--text); }
+.tour-card-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .tour-inquiry-form {
   max-width: 720px;
   margin: 0 auto;
@@ -300,32 +301,44 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
 </div>
 <section style="padding: 60px 40px 40px; max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
   <div class="tour-card">
-    <h3>Traverse City Wine Tours Co.</h3>
-    <div class="tour-type">Premium Tour Service</div>
-    <p>Full-service guided wine tours covering both Old Mission and Leelanau Peninsulas. Luxury vehicles, knowledgeable guides, and customizable itineraries.</p>
-    <div class="tour-features"><span class="tour-feature">Private Tours</span><span class="tour-feature">Group Tours</span><span class="tour-feature">Custom Routes</span><span class="tour-feature">Luxury Vehicles</span></div>
-    <a href="#tour-inquiry" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;" data-operator="Traverse City Wine Tours Co.">Request this tour <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <h3>Traverse City Wine &amp; Beer Tours</h3>
+    <div class="tour-type">Group &amp; Custom Tours</div>
+    <p>Full-service wine and beer tours with vans and buses, hotel pickup, and custom itineraries covering Old Mission and Leelanau.</p>
+    <div class="tour-features"><span class="tour-feature">Custom Itineraries</span><span class="tour-feature">Group Tours</span><span class="tour-feature">Hotel Pickup</span><span class="tour-feature">Vans &amp; Buses</span></div>
+    <div class="tour-card-actions">
+      <a href="https://wineandbeertours.com/" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;" target="_blank" rel="noopener">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#tour-inquiry" class="btn-outline-dark" style="font-size:0.75rem;padding:12px 24px;" data-operator="Traverse City Wine &amp; Beer Tours">Request this tour</a>
+    </div>
   </div>
   <div class="tour-card">
-    <h3>TC Wine Bus</h3>
-    <div class="tour-type">Shuttle Service</div>
-    <p>Hop-on, hop-off wine trail shuttle service operating daily routes along both peninsulas. Perfect for visitors who want flexibility.</p>
-    <div class="tour-features"><span class="tour-feature">Daily Routes</span><span class="tour-feature">Hop-On Hop-Off</span><span class="tour-feature">Affordable</span><span class="tour-feature">Both Peninsulas</span></div>
-    <a href="#tour-inquiry" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;" data-operator="TC Wine Bus">Request this tour <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <h3>Grand Traverse Tours</h3>
+    <div class="tour-type">Public &amp; Private Tours</div>
+    <p>Winery, brewery, and distillery tours on both peninsulas, with join-in public seats and private group charters.</p>
+    <div class="tour-features"><span class="tour-feature">Join-In Tours</span><span class="tour-feature">Private Groups</span><span class="tour-feature">Winery &amp; Brewery</span><span class="tour-feature">Limo Service</span></div>
+    <div class="tour-card-actions">
+      <a href="https://www.grandtraversetours.com/" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;" target="_blank" rel="noopener">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#tour-inquiry" class="btn-outline-dark" style="font-size:0.75rem;padding:12px 24px;" data-operator="Grand Traverse Tours">Request this tour</a>
+    </div>
   </div>
   <div class="tour-card">
-    <h3>Northern Michigan Wine Tours</h3>
-    <div class="tour-type">Guided Experiences</div>
-    <p>Boutique wine tour company specializing in small-group experiences with sommelier-led tastings and behind-the-scenes winery access.</p>
-    <div class="tour-features"><span class="tour-feature">Small Groups</span><span class="tour-feature">Sommelier Guides</span><span class="tour-feature">VIP Access</span><span class="tour-feature">Food Pairings</span></div>
-    <a href="#tour-inquiry" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;" data-operator="Northern Michigan Wine Tours">Request this tour <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <h3>TC Wine Girl</h3>
+    <div class="tour-type">Private Chauffeur</div>
+    <p>Private wine-country transportation for couples and small groups, custom-planned for Old Mission or Leelanau.</p>
+    <div class="tour-features"><span class="tour-feature">Private Driver</span><span class="tour-feature">Couples &amp; Small Groups</span><span class="tour-feature">Custom Routes</span><span class="tour-feature">Year-Round</span></div>
+    <div class="tour-card-actions">
+      <a href="https://www.tcwinegirl.com/" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;" target="_blank" rel="noopener">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#tour-inquiry" class="btn-outline-dark" style="font-size:0.75rem;padding:12px 24px;" data-operator="TC Wine Girl">Request this tour</a>
+    </div>
   </div>
   <div class="tour-card">
-    <h3>Grand Traverse Limo</h3>
+    <h3>TASTE TC</h3>
     <div class="tour-type">Luxury Private Tours</div>
-    <p>Private limousine and luxury SUV wine tours for couples, bridal parties, and special occasions. White-glove service.</p>
-    <div class="tour-features"><span class="tour-feature">Private Limo</span><span class="tour-feature">Special Occasions</span><span class="tour-feature">Bridal Parties</span><span class="tour-feature">Champagne Service</span></div>
-    <a href="#tour-inquiry" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;" data-operator="Grand Traverse Limo">Request this tour <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <p>Personalized private tours of Traverse City, Old Mission, and Leelanau with luxury vehicles and local guides.</p>
+    <div class="tour-features"><span class="tour-feature">Private Tours</span><span class="tour-feature">Luxury Vehicles</span><span class="tour-feature">Custom Itineraries</span><span class="tour-feature">Local Guides</span></div>
+    <div class="tour-card-actions">
+      <a href="https://tastetc.com/" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;" target="_blank" rel="noopener">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="#tour-inquiry" class="btn-outline-dark" style="font-size:0.75rem;padding:12px 24px;" data-operator="TASTE TC">Request this tour</a>
+    </div>
   </div>
 </section>
 <section id="tour-inquiry" style="padding: 20px 40px 80px; max-width: 1000px; margin: 0 auto;">
@@ -350,10 +363,10 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         <label for="tour-operator">Tour operator</label>
         <select id="tour-operator" name="operator" required>
           <option value="">Select a tour</option>
-          <option value="Traverse City Wine Tours Co.">Traverse City Wine Tours Co.</option>
-          <option value="TC Wine Bus">TC Wine Bus</option>
-          <option value="Northern Michigan Wine Tours">Northern Michigan Wine Tours</option>
-          <option value="Grand Traverse Limo">Grand Traverse Limo</option>
+          <option value="Traverse City Wine &amp; Beer Tours">Traverse City Wine &amp; Beer Tours</option>
+          <option value="Grand Traverse Tours">Grand Traverse Tours</option>
+          <option value="TC Wine Girl">TC Wine Girl</option>
+          <option value="TASTE TC">TASTE TC</option>
         </select>
       </div>
       <div class="form-group">
