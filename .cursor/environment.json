@@ -1,0 +1,11 @@
+{
+  "name": "Traverse City Wine Tour",
+  "install": "npx --yes serve --version",
+  "start": "if ! curl -sf http://127.0.0.1:3000/ >/dev/null; then nohup npx --yes serve -l 3000 --no-clipboard --no-port-switching . > /tmp/tcwine-serve.log 2>&1 & fi\nfor i in $(seq 1 30); do curl -sf http://127.0.0.1:3000/ >/dev/null && exit 0; sleep 1; done\necho 'static site failed to start' >&2\nexit 1",
+  "ports": [
+    {
+      "name": "Static site",
+      "port": 3000
+    }
+  ]
+}
