@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lead inbox | Traverse City Wine Tour</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<style>
+  :root { --burgundy:#4A0E1B; --gold:#C9A96E; --cream:#F5F0E8; --text:#3A3330; --muted:#7A7068; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: Outfit, system-ui, sans-serif; color: var(--text); background: #f7f3ec; }
+  header { background: var(--burgundy); color: var(--cream); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  h1 { margin: 0; font-size: 1.1rem; font-weight: 600; }
+  main { max-width: 1200px; margin: 0 auto; padding: 24px; }
+  .card { background: #fff; border: 1px solid rgba(74,14,27,0.08); border-radius: 8px; padding: 20px; }
+  label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 6px; }
+  input, select, button { font: inherit; }
+  input, select { width: 100%; padding: 10px 12px; border: 1px solid #d8cfc3; border-radius: 4px; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: end; }
+  .row > * { flex: 1; min-width: 160px; }
+  button { background: var(--burgundy); color: var(--cream); border: 0; border-radius: 4px; padding: 10px 16px; cursor: pointer; }
+  button.secondary { background: transparent; color: var(--burgundy); border: 1px solid var(--burgundy); }
+  .status { margin: 12px 0 0; font-size: 0.9rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid #eee; vertical-align: top; }
+  th { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .muted { color: var(--muted); }
+  .payload { white-space: pre-wrap; font-size: 0.78rem; color: var(--muted); max-width: 320px; }
+  #gate, #app { display: none; }
+  #gate.show, #app.show { display: block; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Traverse City Wine Tour · Lead inbox</h1>
+  <button class="secondary" id="signOut" type="button">Sign out</button>
+</header>
+<main>
+  <section id="gate" class="card">
+    <p>Enter the admin token from <code>wrangler pages secret put ADMIN_TOKEN</code> (or <code>.dev.vars</code> locally).</p>
+    <form id="authForm">
+      <label for="token">Admin token</label>
+      <input id="token" name="token" type="password" autocomplete="current-password" required>
+      <div class="row" style="margin-top:12px;">
+        <button type="submit">Open inbox</button>
+      </div>
+    </form>
+    <p class="status" id="authStatus"></p>
+  </section>
+
+  <section id="app">
+    <div class="card" style="margin-bottom:16px;">
+      <form id="filterForm" class="row">
+        <div>
+          <label for="type">Type</label>
+          <select id="type" name="type">
+            <option value="">All</option>
+            <option value="newsletter">Newsletter</option>
+            <option value="lodging">Lodging</option>
+            <option value="bach_kit">Bach kit</option>
+            <option value="advertise">Advertise</option>
+            <option value="contact">Contact</option>
+            <option value="tour">Tour</option>
+          </select>
+        </div>
+        <button type="submit">Refresh</button>
+      </form>
+      <p class="status" id="listStatus"></p>
+    </div>
+    <div class="card">
+      <table>
+        <thead>
+          <tr>
+            <th>When</th>
+            <th>Type</th>
+            <th>Email / name</th>
+            <th>Details</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+<script>
+const TOKEN_KEY = "tcwt_admin_token";
+const gate = document.getElementById("gate");
+const app = document.getElementById("app");
+const rows = document.getElementById("rows");
+
+function token() {
+  return sessionStorage.getItem(TOKEN_KEY) || "";
+}
+
+function showGate(message) {
+  gate.classList.add("show");
+  app.classList.remove("show");
+  document.getElementById("authStatus").textContent = message || "";
+}
+
+function showApp() {
+  gate.classList.remove("show");
+  app.classList.add("show");
+}
+
+async function loadLeads() {
+  const type = document.getElementById("type").value;
+  const url = "/api/admin/leads?limit=100" + (type ? "&type=" + encodeURIComponent(type) : "");
+  const response = await fetch(url, {
+    headers: { Authorization: "Bearer " + token() },
+  });
+  if (response.status === 401) {
+    sessionStorage.removeItem(TOKEN_KEY);
+    showGate("That token was rejected.");
+    return;
+  }
+  const body = await response.json();
+  if (!response.ok) throw new Error(body.error || "Could not load leads");
+  document.getElementById("listStatus").textContent = body.total + " lead" + (body.total === 1 ? "" : "s");
+  rows.innerHTML = (body.leads || []).map((lead) => {
+    const details = Object.entries(lead.payload || {})
+      .map(([k, v]) => k + ": " + v)
+      .join("\n");
+    return "<tr>" +
+      "<td>" + escapeHtml(lead.created_at || "") + "</td>" +
+      "<td>" + escapeHtml(lead.type || "") + "</td>" +
+      "<td>" + escapeHtml(lead.email || "") + "<div class='muted'>" + escapeHtml(lead.name || "") + "</div></td>" +
+      "<td class='payload'>" + escapeHtml(details) + "</td>" +
+      "<td class='muted'>" + escapeHtml(lead.source_page || "") + "</td>" +
+      "</tr>";
+  }).join("") || "<tr><td colspan='5' class='muted'>No leads yet.</td></tr>";
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+document.getElementById("authForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  sessionStorage.setItem(TOKEN_KEY, document.getElementById("token").value);
+  showApp();
+  try {
+    await loadLeads();
+  } catch (error) {
+    showGate(error.message);
+  }
+});
+
+document.getElementById("filterForm").addEventListener("submit", async (event) => {
+  event.preventDefault();
+  try {
+    await loadLeads();
+  } catch (error) {
+    document.getElementById("listStatus").textContent = error.message;
+  }
+});
+
+document.getElementById("signOut").addEventListener("click", () => {
+  sessionStorage.removeItem(TOKEN_KEY);
+  showGate("");
+});
+
+if (token()) {
+  showApp();
+  loadLeads().catch((error) => showGate(error.message));
+} else {
+  showGate("");
+}
+</script>
+</body>
+</html>

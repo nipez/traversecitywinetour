@@ -238,7 +238,7 @@ def newsletter_section():
   <div class="newsletter-inner">
     <h2>Stay Connected to Wine Country</h2>
     <p>Weekly updates on new wines, events, seasonal guides, and exclusive offers from Traverse City's finest wineries.</p>
-    <form class="newsletter-form" onsubmit="return false;"><input type="email" placeholder="Enter your email address"><button type="submit">Subscribe</button></form>
+    <form class="newsletter-form"><input type="email" name="email" placeholder="Enter your email address" required><button type="submit">Subscribe</button></form>
   </div>
 </section>'''
 
@@ -266,25 +266,28 @@ def footer_section(prefix=""):
       <div class="footer-col"><h4>Resources</h4><ul>
         <li><a href="{prefix}advertise.html">Advertise With Us</a></li>
         <li><a href="{prefix}contact.html">Contact</a></li>
+        <li><a href="{prefix}privacy.html">Privacy Policy</a></li>
         <li><a href="{prefix}sitemap.html">Sitemap</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 TraverseCityWineTours.com &middot; All Rights Reserved</span>
       <div style="display: flex; gap: 24px;">
+        <a href="{prefix}privacy.html">Privacy</a>
         <a href="{prefix}sitemap.html">Sitemap</a>
       </div>
     </div>
   </div>
 </footer>'''
 
-def scripts():
-    return '''<script>
+def scripts(prefix=""):
+    return f'''<script>
 const nav=document.getElementById('mainNav');
-window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>10);});
-const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)';}});},{threshold:0.1});
-document.querySelectorAll('.winery-card,.article-card,.plan-card,.tour-card,.stay-card,.pricing-card,.fade-in,.journal-card,.pen-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity 0.6s ease, transform 0.6s ease';obs.observe(el);});
-</script>'''
+window.addEventListener('scroll',()=>{{nav.classList.toggle('scrolled',window.scrollY>10);}});
+const obs=new IntersectionObserver(e=>{{e.forEach(x=>{{if(x.isIntersecting){{x.target.style.opacity='1';x.target.style.transform='translateY(0)';}}}});}},{{threshold:0.1}});
+document.querySelectorAll('.winery-card,.article-card,.plan-card,.tour-card,.stay-card,.pricing-card,.fade-in,.journal-card,.pen-card').forEach(el=>{{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity 0.6s ease, transform 0.6s ease';obs.observe(el);}});
+</script>
+<script src="{prefix}js/leads.js" defer></script>'''
 
 def close():
     return '</body></html>'
@@ -445,7 +448,7 @@ directory = f"""{head("All Wineries | Traverse City Wine Tours", "Complete direc
   </div>
   <div class="winery-grid">{all_cards}</div>
 </section>
-{newsletter_section()}{footer_section("../")}{scripts()}
+{newsletter_section()}{footer_section("../")}{scripts("../")}
 <script>function filterW(p,btn){{document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.winery-card').forEach(c=>{{c.style.display=(p==='all'||c.dataset.peninsula===p)?'':'none';}});}}</script>
 {close()}"""
 
@@ -543,7 +546,7 @@ for w in wineries:
   </div>
 </div>
 <section class="related-wineries"><div class="related-inner"><div class="section-header"><div class="section-tag">More on {w['peninsula']} Peninsula</div><h2 class="section-title">Nearby Wineries</h2><div class="section-divider"></div></div><div class="winery-grid">{related_cards}</div></div></section>
-{newsletter_section()}{footer_section("../")}{scripts()}{close()}"""
+{newsletter_section()}{footer_section("../")}{scripts("../")}{close()}"""
 
     with open(f'{OUTPUT_DIR}/wineries/{w["slug"]}.html', 'w') as f: f.write(page)
     print(f'  ✓ wineries/{w["slug"]}.html')
@@ -660,7 +663,7 @@ with open(f'{OUTPUT_DIR}/journal/index.html', 'w') as f:
 <section class="page-hero"><div class="page-hero-bg" style="background-image: url('../wineglasses.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Stories & Guides</div><h1>Wine Country <em>Journal</em></h1><p class="page-hero-desc">Winery spotlights, seasonal guides, varietal deep-dives, and the latest from Traverse City wine country.</p></div></section>
 <div class="breadcrumbs"><a href="../index.html">Home</a><span>›</span><span class="current">Journal</span></div>
 <section style="padding: 60px 40px 80px; max-width: 1340px; margin: 0 auto;"><div class="journal-list">{acards}</div></section>
-{newsletter_section()}{footer_section("../")}{scripts()}{close()}""")
+{newsletter_section()}{footer_section("../")}{scripts("../")}{close()}""")
 print("✓ journal/index.html")
 
 

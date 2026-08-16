@@ -29,6 +29,7 @@ PAGE_TITLES = {
     "old-mission-peninsula.html": "Old Mission Peninsula Wineries | Traverse City",
     "leelanau-peninsula.html": "Leelanau Peninsula Wineries | Traverse City",
     "about.html": "About | Traverse City Wine Tour",
+    "privacy.html": "Privacy Policy | Traverse City Wine Tour",
     "contact.html": "Contact | Traverse City Wine Tour",
     "events.html": "Wine Events | Traverse City Festivals & Tastings",
     "advertise.html": "Advertise | Traverse City Wine Tour",
@@ -61,6 +62,7 @@ PAGE_DESCS = {
     "old-mission-peninsula.html": "Visit Old Mission Peninsula wineries near Traverse City. Tasting rooms, hours, and a compact bay-to-bay wine trail you can drive in a day.",
     "leelanau-peninsula.html": "Explore Leelanau Peninsula wineries near Traverse City. Tasting rooms from Suttons Bay to Northport, plus hours and visitor tips.",
     "about.html": "Traverse City Wine Tour is an independent guide to wineries, cideries, and breweries on Old Mission and Leelanau Peninsulas.",
+    "privacy.html": "How Traverse City Wine Tour collects, stores, and uses emails and form submissions for newsletters, lodging listings, and planning kits.",
     "contact.html": "Contact Traverse City Wine Tour for listing updates, advertising, and visitor questions about Michigan wine country.",
     "events.html": "Find Traverse City wine events, harvest festivals, and tasting-room happenings across Old Mission and Leelanau Peninsulas.",
     "advertise.html": "Advertise on Traverse City Wine Tour. Reach visitors planning Michigan wine-country trips with enhanced listings and sponsored profiles.",
@@ -102,7 +104,15 @@ CIDERIES = {c["slug"]: c for c in load_json("data-cideries.json")}
 
 
 def html_pages() -> list[Path]:
-    return sorted(p for p in ROOT.rglob("*.html") if ".git" not in p.parts and "scripts" not in p.parts)
+    return sorted(
+        p
+        for p in ROOT.rglob("*.html")
+        if ".git" not in p.parts
+        and "scripts" not in p.parts
+        and "admin" not in p.parts
+        and "node_modules" not in p.parts
+        and "functions" not in p.parts
+    )
 
 
 def rel_of(path: Path) -> str:
@@ -693,6 +703,7 @@ def fix_sitewide_links(html: str, path: Path) -> str:
             "journal/index.html",
             "advertise.html",
             "contact.html",
+            "privacy.html",
             "sitemap.html",
         ]:
             html = html.replace(f'href="{target}"', f'href="../{target}"')
@@ -712,7 +723,7 @@ def fix_sitewide_links(html: str, path: Path) -> str:
 
 def process_page(path: Path) -> None:
     rel = rel_of(path)
-    if rel in {"wineries/45-north.html", "404.html"}:
+    if rel in {"wineries/45-north.html", "404.html", "admin/leads.html"}:
         return
     html = path.read_text(errors="replace")
     html = fix_cloudflare_emails(html)
@@ -733,6 +744,7 @@ def write_robots() -> None:
     (ROOT / "robots.txt").write_text(
         f"""User-agent: *
 Allow: /
+Disallow: /admin/
 
 Sitemap: {SITE}/sitemap.xml
 """
@@ -750,7 +762,7 @@ def write_redirects() -> None:
 
 
 def write_sitemap() -> None:
-    skip = {"wineries/45-north.html", "wineries/tandem-ciders.html", "404.html"}
+    skip = {"wineries/45-north.html", "wineries/tandem-ciders.html", "404.html", "admin/leads.html"}
     urls = []
     for path in html_pages():
         rel = rel_of(path)
@@ -772,7 +784,7 @@ def write_sitemap() -> None:
             pri, freq = "0.8", "monthly"
         elif rel.startswith(("wineries/", "breweries/", "cideries/")):
             pri, freq = "0.7", "monthly"
-        elif rel in {"about.html", "contact.html", "advertise.html", "sitemap.html"}:
+        elif rel in {"about.html", "contact.html", "advertise.html", "sitemap.html", "privacy.html"}:
             pri, freq = "0.4", "yearly"
         else:
             pri, freq = "0.6", "monthly"

@@ -6,11 +6,30 @@ This is a **static site**, recovered from the live Cloudflare Pages direct-uploa
 
 ## Run locally
 
+Static pages only:
+
 ```bash
 npx serve .
 ```
 
-Then open the URL `serve` prints (usually http://localhost:3000).
+Then open the URL `serve` prints (usually http://localhost:3000). Newsletter and lead forms need the Pages Function below.
+
+Lead capture (newsletter, lodging “Get listed”, bachelorette planning kit):
+
+```bash
+npm install
+cp .dev.vars.example .dev.vars
+npm run db:migrate:local
+npm run dev
+```
+
+`wrangler pages dev` serves the site and `/api/leads`. Open the printed URL, then review submissions at `/admin/leads` with the token from `.dev.vars`.
+
+The production D1 database is `tcwinetour-leads`. After connecting this repo to the `tcwinetours` Pages project, bind that database as `DB` and set:
+
+```bash
+npx wrangler pages secret put ADMIN_TOKEN
+```
 
 ## Layout
 
@@ -24,6 +43,10 @@ Then open the URL `serve` prints (usually http://localhost:3000).
 - `data-wineries.json`, `data-breweries.json`, `data-cideries.json` — listing data
 - `generate.py` — static site generator (inline CSS, sized SVGs) that originally built the HTML from winery JSON
 - `sitemap.xml`, `sitemap.html`
+- `privacy.html` — privacy policy for form submissions
+- `js/leads.js` — shared form client
+- `functions/api/leads.js` — Pages Function that writes leads to D1
+- `admin/leads.html` — token-gated inbox (not in the sitemap)
 
 ## generate.py
 

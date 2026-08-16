@@ -276,12 +276,14 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       <div class="footer-col"><h4>Resources</h4><ul>
         <li><a href="advertise.html">Advertise With Us</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
         <li><a href="sitemap.html">Sitemap</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 TraverseCityWineTours.com &middot; All Rights Reserved</span>
       <div style="display: flex; gap: 24px;">
+        <a href="privacy.html">Privacy</a>
         <a href="sitemap.html">Sitemap</a>
       </div>
     </div>
@@ -293,5 +295,6 @@ if(nav){window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',wi
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)';}});},{threshold:0.1});
 document.querySelectorAll('.winery-card,.article-card,.plan-card,.tour-card,.stay-card,.pricing-card,.fade-in,.journal-card,.pen-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity 0.6s ease, transform 0.6s ease';obs.observe(el);});
 </script>
+<script src="js/leads.js" defer></script>
 </body>
 </html>

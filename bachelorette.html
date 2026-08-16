@@ -974,26 +974,26 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <div class="moh-form-card">
       <h3>Free Bach Weekend Planning Kit</h3>
       <p>Tell us a little about your group and we'll customize your kit with the best recommendations for your dates and party size.</p>
-      <form onsubmit="return false;">
+      <form data-lead-form="bach_kit" data-success="bachFormSuccess">
         <div class="form-row">
           <div class="form-group">
-            <label>Your Name (MOH)</label>
-            <input type="text" placeholder="Your first name">
+            <label for="bach-name">Your Name (MOH)</label>
+            <input id="bach-name" type="text" name="name" placeholder="Your first name" required autocomplete="name">
           </div>
           <div class="form-group">
-            <label>Bride's Name</label>
-            <input type="text" placeholder="The bride-to-be">
+            <label for="bach-bride">Bride's Name</label>
+            <input id="bach-bride" type="text" name="bride_name" placeholder="The bride-to-be">
           </div>
         </div>
         <div class="form-group">
-          <label>Your Email Address</label>
-          <input type="email" placeholder="we'll send the kit here">
+          <label for="bach-email">Your Email Address</label>
+          <input id="bach-email" type="email" name="email" placeholder="we'll send the kit here" required autocomplete="email">
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label>Approximate Weekend</label>
-            <select>
-              <option>Select a month...</option>
+            <label for="bach-weekend">Approximate Weekend</label>
+            <select id="bach-weekend" name="weekend">
+              <option value="">Select a month...</option>
               <option>May 2026</option>
               <option>June 2026</option>
               <option>July 2026</option>
@@ -1004,9 +1004,9 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
             </select>
           </div>
           <div class="form-group">
-            <label>Group Size</label>
-            <select>
-              <option>Select group size...</option>
+            <label for="bach-size">Group Size</label>
+            <select id="bach-size" name="group_size">
+              <option value="">Select group size...</option>
               <option>4–6 people</option>
               <option>7–10 people</option>
               <option>11–15 people</option>
@@ -1015,9 +1015,9 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           </div>
         </div>
         <div class="form-group">
-          <label>Vibe (pick one)</label>
-          <select>
-            <option>What's your group's style?</option>
+          <label for="bach-vibe">Vibe (pick one)</label>
+          <select id="bach-vibe" name="vibe">
+            <option value="">What's your group's style?</option>
             <option>Wine lovers — we take this seriously</option>
             <option>Party first, wine second</option>
             <option>Mix of both — classy but fun</option>
@@ -1027,6 +1027,10 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         <button type="submit" class="form-submit">Send My Planning Kit <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-left:4px;"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
         <p class="form-note">Free, no spam ever. Just the info you need to plan an incredible weekend.</p>
       </form>
+      <div class="form-success" id="bachFormSuccess" style="display:none;text-align:center;padding:24px 8px;">
+        <h4 style="font-family:'Playfair Display',serif;color:var(--burgundy);margin-bottom:8px;">Kit request received</h4>
+        <p>We'll email your Traverse City bachelorette planning kit shortly. If you don't see it, check spam or write us at <a href="mailto:hello@traversecitywinetour.com" style="color:var(--burgundy);">hello@traversecitywinetour.com</a>.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1142,13 +1146,14 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       <div class="footer-col"><h4>Resources</h4><ul>
         <li><a href="advertise.html">Advertise With Us</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
         <li><a href="sitemap.html">Sitemap</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 TraverseCityWineTours.com &middot; All Rights Reserved</span>
       <div style="display:flex;gap:24px;">
-        <a href="sitemap.html">Sitemap</a>
+        <a href="privacy.html">Privacy</a> · <a href="sitemap.html">Sitemap</a>
       </div>
     </div>
   </div>
@@ -1196,5 +1201,6 @@ document.querySelectorAll('.jump-nav a, .bach-hero-buttons a').forEach(a => {
 });
 </script>
 
+<script src="js/leads.js" defer></script>
 </body>
 </html>

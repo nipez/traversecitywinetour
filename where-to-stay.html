@@ -653,53 +653,53 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       <h3>Get Listed</h3>
       <p>Tell us about your property and we'll be in touch within 2 business days.</p>
 
-      <form onsubmit="submitListing(event)">
+      <form data-lead-form="lodging" data-success="formSuccess">
         <div class="form-row">
           <div class="form-group">
-            <label>Your Name</label>
-            <input type="text" placeholder="Jane Smith" required>
+            <label for="lodging-name">Your Name</label>
+            <input id="lodging-name" type="text" name="name" placeholder="Jane Smith" required autocomplete="name">
           </div>
           <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" placeholder="jane@yourproperty.com" required>
+            <label for="lodging-email">Email Address</label>
+            <input id="lodging-email" type="email" name="email" placeholder="jane@yourproperty.com" required autocomplete="email">
           </div>
         </div>
 
         <div class="form-group">
-          <label>Property Name</label>
-          <input type="text" placeholder="e.g. Lakeview Cottage at Suttons Bay" required>
+          <label for="lodging-property">Property Name</label>
+          <input id="lodging-property" type="text" name="property_name" placeholder="e.g. Lakeview Cottage at Suttons Bay" required>
         </div>
 
         <div class="form-group">
-          <label>Website or Booking Link</label>
-          <input type="url" placeholder="https://airbnb.com/rooms/... or your website">
+          <label for="lodging-website">Website or Booking Link</label>
+          <input id="lodging-website" type="url" name="website" placeholder="https://airbnb.com/rooms/... or your website">
         </div>
 
         <div class="listing-type-group">
           <label>Property Type</label>
           <div class="listing-type-options">
             <div class="listing-type-option">
-              <input type="radio" name="propType" id="t-hotel" value="hotel">
+              <input type="radio" name="property_type" id="t-hotel" value="hotel">
               <label for="t-hotel">🏨 Hotel / Motel</label>
             </div>
             <div class="listing-type-option">
-              <input type="radio" name="propType" id="t-bb" value="bb" checked>
+              <input type="radio" name="property_type" id="t-bb" value="bb" checked>
               <label for="t-bb">🛖 Inn / B&B</label>
             </div>
             <div class="listing-type-option">
-              <input type="radio" name="propType" id="t-vacation" value="vacation">
+              <input type="radio" name="property_type" id="t-vacation" value="vacation">
               <label for="t-vacation">🏡 Vacation Rental</label>
             </div>
             <div class="listing-type-option">
-              <input type="radio" name="propType" id="t-resort" value="resort">
+              <input type="radio" name="property_type" id="t-resort" value="resort">
               <label for="t-resort">🌿 Resort / Spa</label>
             </div>
           </div>
         </div>
 
         <div class="form-group">
-          <label>Location / Nearest Winery Area</label>
-          <select>
+          <label for="lodging-location">Location / Nearest Winery Area</label>
+          <select id="lodging-location" name="location">
             <option>Downtown Traverse City</option>
             <option>Old Mission Peninsula</option>
             <option>Leelanau Peninsula</option>
@@ -736,8 +736,8 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         </div>
 
         <div class="form-group">
-          <label>Anything else? (wine packages, special perks, etc.)</label>
-          <textarea placeholder="Tell us what makes your property great for wine tourists — any special packages, proximity to specific wineries, group-friendly features..."></textarea>
+          <label for="lodging-notes">Anything else? (wine packages, special perks, etc.)</label>
+          <textarea id="lodging-notes" name="notes" placeholder="Tell us what makes your property great for wine tourists — any special packages, proximity to specific wineries, group-friendly features..."></textarea>
         </div>
 
         <button type="submit" class="form-submit">
@@ -788,12 +788,14 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       <div class="footer-col"><h4>Resources</h4><ul>
         <li><a href="advertise.html">Advertise With Us</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
         <li><a href="sitemap.html">Sitemap</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 TraverseCityWineTours.com &middot; All Rights Reserved</span>
-      <div style="display:flex;gap:24px;"><a href="sitemap.html">Sitemap</a></div>
+      <div style="display:flex;gap:24px;"><a href="privacy.html">Privacy</a>
+        <a href="sitemap.html">Sitemap</a></div>
     </div>
   </div>
 </footer>
@@ -817,13 +819,6 @@ function filterStay(type, btn) {
   });
 }
 
-// Form submit
-function submitListing(e) {
-  e.preventDefault();
-  document.querySelector('#listForm form').style.display = 'none';
-  document.getElementById('formSuccess').style.display = 'block';
-}
-
 // Scroll animations
 const obs = new IntersectionObserver(entries => {
   entries.forEach(x => {
@@ -835,5 +830,6 @@ document.querySelectorAll('.featured-card, .dir-card, .tier-card').forEach(el =>
   obs.observe(el);
 });
 </script>
+<script src="js/leads.js" defer></script>
 </body>
 </html>

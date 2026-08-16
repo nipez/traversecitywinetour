@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tcwinetours",
+  "compatibility_date": "2026-08-16",
+  "pages_build_output_dir": ".",
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 1
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "tcwinetour-leads",
+      "database_id": "ee0362d1-ec29-411e-a627-ed1fd0f8237c",
+      "preview_database_id": "DB",
+      "migrations_dir": "migrations"
+    }
+  ]
+}
