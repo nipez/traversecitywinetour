@@ -4,7 +4,7 @@ Traverse City Wine Tours - Static Site Generator v2
 Fixes: inline CSS, sized SVGs, no ad spots, wedding industry ads
 """
 
-import json, os, shutil
+import json, os, re, shutil
 
 with open('/home/claude/site/data/wineries.json', 'r') as f:
     data = json.load(f)
@@ -162,7 +162,32 @@ footer { background: var(--charcoal); padding: 80px 40px 40px; color: rgba(245,2
 
 # ─── TEMPLATES ───
 
+def _meta_desc(text, max_len=155):
+    text = " ".join((text or "").split())
+    if len(text) <= max_len:
+        return text
+    parts = text.replace("...", "").split(". ")
+    out = ""
+    for part in parts:
+        cand = f"{out} {part}.".strip() if out else (part if part.endswith(".") else part + ".")
+        if len(cand) <= max_len:
+            out = cand.rstrip(".") + ("." if not cand.endswith(".") else "")
+        else:
+            break
+    if len(out) >= 90:
+        return out
+    chunk = text[:max_len]
+    for sep in (" — ", "; ", ", "):
+        idx = chunk.rfind(sep)
+        if idx >= 90:
+            return chunk[:idx].rstrip(" ,;:") + "."
+    return chunk.rsplit(" ", 1)[0].rstrip(" ,;:") + "."
+
+
 def head(title, desc, canonical_path="", extra_css=""):
+    desc = _meta_desc(desc)
+    canon = "https://traversecitywinetour.com" + canonical_path.replace(".html", "")
+    prefix = "../" if canonical_path.startswith("/wineries/") else ""
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -170,7 +195,16 @@ def head(title, desc, canonical_path="", extra_css=""):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<link rel="canonical" href="https://traversecitywinetours.com{canonical_path}">
+<link rel="canonical" href="{canon}">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="{prefix}logo.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Traverse City Wine Tour">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="{canon}">
+<meta property="og:image" content="https://traversecitywinetour.com/vineyard.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -259,7 +293,7 @@ def winery_card_html(w, show_peninsula=True, img_prefix=""):
     badges = ""
     if w.get('featured'): badges += '<span class="winery-badge">Featured</span>'
     if show_peninsula: badges += f'<span class="winery-peninsula-tag">{w["peninsula"]}</span>'
-    img = "vineyard.jpg" if w['peninsula'] == 'Old Mission' else "wine-glasses.jpg"
+    img = "vineyard.jpg" if w['peninsula'] == 'Old Mission' else "wineglasses.jpg"
     filt = f' filter: {w.get("photo_filter","")};' if w.get("photo_filter") else ''
     return f'''<a href="{img_prefix}wineries/{w["slug"]}.html" class="winery-card">
   <div class="winery-img"><div class="winery-img-inner" style="background-image: url('{img_prefix}{img}');{filt}"></div>{badges}</div>
@@ -281,7 +315,7 @@ def winery_card_html(w, show_peninsula=True, img_prefix=""):
 # ── 1. HOMEPAGE ──
 home_css = """
 .hero { position: relative; height: 92vh; min-height: 650px; display: flex; align-items: center; overflow: hidden; }
-.hero-bg { position: absolute; inset: 0; background: url('wine-glasses.jpg') center/cover no-repeat; }
+.hero-bg { position: absolute; inset: 0; background: url('wineglasses.jpg') center/cover no-repeat; }
 .hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(74,14,27,0.82) 0%, rgba(44,36,32,0.65) 50%, rgba(74,14,27,0.45) 100%); }
 .hero-content { position: relative; z-index: 2; max-width: 1340px; margin: 0 auto; padding: 0 40px; width: 100%; }
 .hero-tag { display: inline-flex; align-items: center; gap: 10px; font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 28px; opacity:0; animation: fadeUp 0.8s 0.3s forwards; }
@@ -340,7 +374,7 @@ home_css = """
 featured_cards = "\n".join([winery_card_html(w) for w in featured[:6]])
 
 def article_card_home(a, is_featured=False):
-    img = "vineyard.jpg" if a["photo"]=="vineyard" else "wine-glasses.jpg"
+    img = "vineyard.jpg" if a["photo"]=="vineyard" else "wineglasses.jpg"
     filt = f' filter: {a["filter"]};' if a["filter"] else ''
     if is_featured:
         return f'<a href="journal/{a["slug"]}.html" class="journal-card featured"><div class="journal-img"><div class="journal-img-inner" style="background-image: url(\'{img}\');{filt}"></div><div class="journal-overlay"><div class="journal-cat">{a["category"]}</div><h3>{a["title"]}</h3><p>{a["excerpt"]}</p></div></div></a>'
@@ -368,7 +402,7 @@ homepage = f"""{head("Traverse City Wine Tours | Explore Michigan's Premier Wine
   <div class="section-header"><div class="section-tag">Two World-Class Wine Regions</div><h2 class="section-title">Explore the Peninsulas</h2><div class="section-divider"></div></div>
   <div class="pen-grid">
     <a href="old-mission-peninsula.html" class="pen-card"><div class="pen-card-bg" style="background-image: url('vineyard.jpg')"></div><div class="pen-card-content"><h3>Old Mission Peninsula</h3><p>Nestled along the 45th parallel, this narrow peninsula stretches 18 miles into Grand Traverse Bay with stunning water views and world-class wines.</p><div class="pen-winery-count">{len(old_mission)} Wineries →</div></div></a>
-    <a href="leelanau-peninsula.html" class="pen-card"><div class="pen-card-bg" style="background-image: url('wine-glasses.jpg')"></div><div class="pen-card-content"><h3>Leelanau Peninsula</h3><p>Rolling hills, cherry orchards, and over 25 vineyards make this peninsula a wine lover's paradise with diverse varietals and breathtaking scenery.</p><div class="pen-winery-count">{len(leelanau)} Wineries →</div></div></a>
+    <a href="leelanau-peninsula.html" class="pen-card"><div class="pen-card-bg" style="background-image: url('wineglasses.jpg')"></div><div class="pen-card-content"><h3>Leelanau Peninsula</h3><p>Rolling hills, cherry orchards, and over 25 vineyards make this peninsula a wine lover's paradise with diverse varietals and breathtaking scenery.</p><div class="pen-winery-count">{len(leelanau)} Wineries →</div></div></a>
   </div>
 </section>
 <section style="background: var(--cream); padding: 120px 40px;">
@@ -454,7 +488,7 @@ winery_css = """
 """
 
 for w in wineries:
-    img = "vineyard.jpg" if w['peninsula'] == 'Old Mission' else "wine-glasses.jpg"
+    img = "vineyard.jpg" if w['peninsula'] == 'Old Mission' else "wineglasses.jpg"
     filt = f' filter: {w.get("photo_filter","")};' if w.get("photo_filter") else ''
     wine_tags = "".join([f'<span class="wine-tag">{v}</span>' for v in w.get('known_for', [])])
     amenities = "".join([f'<div class="amenity-item">{ICON_CHECK} {a}</div>' for a in w.get('amenities', [])])
@@ -464,10 +498,22 @@ for w in wineries:
     related_cards = "\n".join([winery_card_html(x, show_peninsula=False, img_prefix="../") for x in same_pen])
     pen_link = "../old-mission-peninsula.html" if w['peninsula'] == 'Old Mission' else "../leelanau-peninsula.html"
 
+    addr_parts = [p.strip() for p in w['address'].split(',')]
+    postal = ""
+    locality = addr_parts[1] if len(addr_parts) > 1 else "Traverse City"
+    if len(addr_parts) > 2:
+        zm = re.search(r"([A-Z]{2})\s+(\d{5})", addr_parts[-1])
+        region, postal = (zm.group(1), zm.group(2)) if zm else ("MI", "")
+    else:
+        region = "MI"
+    desc_full = w.get('description', '').replace('"', '\\"')
+    schema_addr = f'"streetAddress":"{addr_parts[0]}","addressLocality":"{locality}","addressRegion":"{region}","addressCountry":"US"'
+    if postal:
+        schema_addr += f',"postalCode":"{postal}"'
     schema = f'''<script type="application/ld+json">
-{{"@context":"https://schema.org","@type":"Winery","name":"{w['name']}","description":"{w['description'][:200].replace('"','')}","address":{{"@type":"PostalAddress","streetAddress":"{w['address'].split(',')[0]}","addressLocality":"Traverse City","addressRegion":"MI","addressCountry":"US"}},"telephone":"{w['phone']}","url":"{w['website']}"}}</script>'''
+{{"@context":"https://schema.org","@type":"Winery","name":"{w['name']}","description":"{desc_full}","address":{{"@type":"PostalAddress",{schema_addr}}},"telephone":"{w['phone']}","url":"https://traversecitywinetour.com/wineries/{w['slug']}","sameAs":["{w['website']}"]}}</script>'''
 
-    page = f"""{head(f"{w['name']} | Traverse City Winery Guide", w['description'][:155], f"/wineries/{w['slug']}.html", winery_css)}
+    page = f"""{head(f"{w['name']} | Traverse City Winery Guide", w.get('description', w['name']), f"/wineries/{w['slug']}", winery_css)}
 {schema}
 {topbar()}{navbar("../")}
 <section class="winery-hero"><div class="winery-hero-bg" style="background-image: url('../{img}');{filt}"></div>
@@ -525,7 +571,7 @@ print("✓ old-mission-peninsula.html")
 
 with open(f'{OUTPUT_DIR}/leelanau-peninsula.html', 'w') as f:
     f.write(peninsula_page("Leelanau Peninsula", "leelanau-peninsula", leelanau,
-        "The Leelanau Peninsula wine trail winds through rolling hills, cherry orchards, and charming villages on Michigan's western coast. With diverse terroir influenced by Lake Michigan and inland lakes, the peninsula produces an impressive range of wines — from crisp whites and elegant sparklings to bold reds and celebrated ice wines.", "wine-glasses.jpg"))
+        "The Leelanau Peninsula wine trail winds through rolling hills, cherry orchards, and charming villages on Michigan's western coast. With diverse terroir influenced by Lake Michigan and inland lakes, the peninsula produces an impressive range of wines — from crisp whites and elegant sparklings to bold reds and celebrated ice wines.", "wineglasses.jpg"))
 print("✓ leelanau-peninsula.html")
 
 
@@ -553,7 +599,7 @@ for t in tours:
 with open(f'{OUTPUT_DIR}/wine-tours.html', 'w') as f:
     f.write(f"""{head("Wine Tours | Traverse City Wine Tours", "Book a guided wine tour in Traverse City. Luxury private tours, group shuttles, and custom wine trail experiences.", "/wine-tours.html", tours_css)}
 {topbar()}{navbar()}
-<section class="page-hero"><div class="page-hero-bg" style="background-image: url('wine-glasses.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Guided Experiences</div><h1>Traverse City <em>Wine Tours</em></h1><p class="page-hero-desc">Sit back, relax, and let someone else drive. Explore both peninsulas with our trusted tour partners.</p></div></section>
+<section class="page-hero"><div class="page-hero-bg" style="background-image: url('wineglasses.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Guided Experiences</div><h1>Traverse City <em>Wine Tours</em></h1><p class="page-hero-desc">Sit back, relax, and let someone else drive. Explore both peninsulas with our trusted tour partners.</p></div></section>
 <div class="breadcrumbs"><a href="index.html">Home</a><span>›</span><span class="current">Wine Tours</span></div>
 <section style="padding: 60px 40px 80px; max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">{tc}</section>
 {newsletter_section()}{footer_section()}{scripts()}{close()}""")
@@ -604,14 +650,14 @@ jcss = """
 """
 acards = ""
 for a in articles:
-    img = "vineyard.jpg" if a["photo"]=="vineyard" else "wine-glasses.jpg"
+    img = "vineyard.jpg" if a["photo"]=="vineyard" else "wineglasses.jpg"
     filt = f' filter: {a["filter"]};' if a["filter"] else ''
     acards += f'<a href="{a["slug"]}.html" class="article-card"><div class="article-img"><div class="article-img-inner" style="background-image: url(\'../{img}\');{filt}"></div></div><div class="article-text"><div class="article-cat">{a["category"]}</div><h3>{a["title"]}</h3><p>{a["excerpt"]}</p></div></a>\n'
 
 with open(f'{OUTPUT_DIR}/journal/index.html', 'w') as f:
     f.write(f"""{head("Wine Country Journal | Traverse City Wine Tours", "Stories, guides, and insights from Traverse City wine country.", "/journal/", jcss)}
 {topbar()}{navbar("../")}
-<section class="page-hero"><div class="page-hero-bg" style="background-image: url('../wine-glasses.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Stories & Guides</div><h1>Wine Country <em>Journal</em></h1><p class="page-hero-desc">Winery spotlights, seasonal guides, varietal deep-dives, and the latest from Traverse City wine country.</p></div></section>
+<section class="page-hero"><div class="page-hero-bg" style="background-image: url('../wineglasses.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Stories & Guides</div><h1>Wine Country <em>Journal</em></h1><p class="page-hero-desc">Winery spotlights, seasonal guides, varietal deep-dives, and the latest from Traverse City wine country.</p></div></section>
 <div class="breadcrumbs"><a href="../index.html">Home</a><span>›</span><span class="current">Journal</span></div>
 <section style="padding: 60px 40px 80px; max-width: 1340px; margin: 0 auto;"><div class="journal-list">{acards}</div></section>
 {newsletter_section()}{footer_section("../")}{scripts()}{close()}""")
@@ -650,7 +696,7 @@ with open(f'{OUTPUT_DIR}/events.html', 'w') as f:
     ev = "".join([f'<div style="padding: 24px; background: var(--cream); border-radius: 8px; border-left: 3px solid var(--gold);"><div style="font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px;">{e[0]}</div><h4 style="font-family: \'Playfair Display\', serif; font-size: 1.1rem; color: var(--burgundy); margin-bottom: 4px;">{e[1]}</h4><p style="font-size: 0.88rem; color: var(--text-light);">{e[2]}</p></div>' for e in events_list])
     f.write(f"""{head("Events Calendar | Traverse City Wine Tours", "Upcoming wine events, festivals, and tastings in Traverse City.", "/events.html")}
 {topbar()}{navbar()}
-<section class="page-hero"><div class="page-hero-bg" style="background-image: url('wine-glasses.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">What's Happening</div><h1>Events <em>Calendar</em></h1></div></section>
+<section class="page-hero"><div class="page-hero-bg" style="background-image: url('wineglasses.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">What's Happening</div><h1>Events <em>Calendar</em></h1></div></section>
 <div class="breadcrumbs"><a href="index.html">Home</a><span>›</span><span class="current">Events</span></div>
 <section style="padding: 60px 40px 80px; max-width: 900px; margin: 0 auto;">
   <div style="padding: 60px; background: var(--cream); border-radius: 12px; text-align: center; margin-bottom: 60px;"><h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--burgundy); margin-bottom: 12px;">Events Coming Soon</h3><p style="font-size: 0.95rem; color: var(--text-light); line-height: 1.6; margin-bottom: 24px;">We're building a comprehensive events calendar. Subscribe to our newsletter to be the first to know.</p><a href="#" class="btn-primary">Subscribe for Updates {ICON_ARROW}</a></div>
@@ -695,7 +741,7 @@ adv_css = """
 with open(f'{OUTPUT_DIR}/advertise.html', 'w') as f:
     f.write(f"""{head("Advertise With Us | Traverse City Wine Tours", "Reach wine enthusiasts planning their Traverse City visits. Advertising for tour companies, hotels, restaurants, wedding planners, and local businesses.", "/advertise.html", adv_css)}
 {topbar()}{navbar()}
-<section class="page-hero" style="height: 35vh; min-height: 280px;"><div class="page-hero-bg" style="background-image: url('wine-glasses.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Partner With Us</div><h1>Advertise on <em>TC Wine Tours</em></h1></div></section>
+<section class="page-hero" style="height: 35vh; min-height: 280px;"><div class="page-hero-bg" style="background-image: url('wineglasses.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Partner With Us</div><h1>Advertise on <em>TC Wine Tours</em></h1></div></section>
 <div class="breadcrumbs"><a href="index.html">Home</a><span>›</span><span class="current">Advertise</span></div>
 <section style="padding: 60px 40px 100px; max-width: 1100px; margin: 0 auto;">
   <div style="max-width: 700px; margin: 0 auto 48px; text-align: center;">
@@ -799,7 +845,7 @@ with open(f'{OUTPUT_DIR}/sitemap.html', 'w') as f:
 print("✓ sitemap.html")
 
 # Copy images
-shutil.copy('/home/claude/wine-glasses.jpg', f'{OUTPUT_DIR}/wine-glasses.jpg')
+shutil.copy('/home/claude/wineglasses.jpg', f'{OUTPUT_DIR}/wineglasses.jpg')
 shutil.copy('/home/claude/vineyard.jpg', f'{OUTPUT_DIR}/vineyard.jpg')
 
 total = sum(1 for r,d,fs in os.walk(OUTPUT_DIR) for f in fs if f.endswith('.html'))

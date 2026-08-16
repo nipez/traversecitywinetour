@@ -11,9 +11,24 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About | Traverse City Wine Tours</title>
-<meta name="description" content="About TraverseCityWineTours.com — your comprehensive guide to Traverse City wine country.">
+<title>About | Traverse City Wine Tour</title>
+<meta name="description" content="Traverse City Wine Tour is an independent guide to wineries, cideries, and breweries on Old Mission and Leelanau Peninsulas.">
 <link rel="canonical" href="https://traversecitywinetour.com/about">
+<meta name="robots" content="index, follow">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="logo.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Traverse City Wine Tour">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="About | Traverse City Wine Tour">
+<meta property="og:description" content="Traverse City Wine Tour is an independent guide to wineries, cideries, and breweries on Old Mission and Leelanau Peninsulas.">
+<meta property="og:url" content="https://traversecitywinetour.com/about">
+<meta property="og:image" content="https://traversecitywinetour.com/vineyard.jpg">
+<meta property="og:image:alt" content="Vineyards in Traverse City wine country, Michigan">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About | Traverse City Wine Tour">
+<meta name="twitter:description" content="Traverse City Wine Tour is an independent guide to wineries, cideries, and breweries on Old Mission and Leelanau Peninsulas.">
+<meta name="twitter:image" content="https://traversecitywinetour.com/vineyard.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -171,6 +186,42 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
 </style>
 </head>
 <body>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://traversecitywinetour.com/about",
+      "url": "https://traversecitywinetour.com/about",
+      "name": "About | Traverse City Wine Tour",
+      "description": "Traverse City Wine Tour is an independent guide to wineries, cideries, and breweries on Old Mission and Leelanau Peninsulas.",
+      "isPartOf": {
+        "@id": "https://traversecitywinetour.com/#website"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://traversecitywinetour.com/about#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://traversecitywinetour.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://traversecitywinetour.com/about"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
 <div class="top-bar">Michigan's #1 Wine Destination &nbsp;·&nbsp; 40+ Wineries on Two Peninsulas &nbsp;·&nbsp; Start Planning Today</div><nav id="mainNav">
   <div class="nav-inner">
     <a href="index.html" class="logo"><img src="logo.svg" alt="Traverse City Wine Guide" height="44" style="display:block;"></a>
@@ -192,7 +243,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
   <p style="font-size: 1rem; line-height: 1.8; color: var(--text); margin-bottom: 20px;">TraverseCityWineTours.com is the most comprehensive online guide to the wineries, vineyards, and wine experiences of Traverse City, Michigan. We're passionate about this region and dedicated to helping visitors and locals alike discover everything wine country has to offer.</p>
   <p style="font-size: 1rem; line-height: 1.8; color: var(--text); margin-bottom: 20px;">Our directory features every winery across both Old Mission and Leelanau Peninsulas, with detailed information including hours, contact details, wine specialties, and what makes each estate unique.</p>
   <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 500; color: var(--burgundy); margin: 48px 0 20px;">Get in Touch</h3>
-  <p style="font-size: 1rem; line-height: 1.8; color: var(--text);">Email: <a href="/cdn-cgi/l/email-protection#0b636e6767644b7f796a7d6e79786e68627f727c62656e7f647e797825686466" style="color: var(--burgundy); font-weight: 500;"><span class="__cf_email__" data-cfemail="9cf4f9f0f0f3dce8eefdeaf9eeeff9fff5e8e5ebf5f2f9e8f3e9eeefb2fff3f1">[email&#160;protected]</span></a></p>
+  <p style="font-size: 1rem; line-height: 1.8; color: var(--text);">Email: <a href="mailto:hello@traversecitywinetour.com" style="color: var(--burgundy); font-weight: 500;">hello@traversecitywinetour.com</a></p>
   <p style="font-size: 1rem; line-height: 1.8; color: var(--text);">Advertising: <a href="advertise.html" style="color: var(--burgundy); font-weight: 500;">Learn about advertising opportunities</a></p>
 </section>
 <section class="newsletter">
@@ -235,8 +286,12 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       </div>
     </div>
   </div>
-</footer><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+</footer>
+<script>
 const nav=document.getElementById('mainNav');
-window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>10);});
+if(nav){window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>10);});}
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)';}});},{threshold:0.1});
-document.querySelectorAll('.winery-card,.arti
+document.querySelectorAll('.winery-card,.article-card,.plan-card,.tour-card,.stay-card,.pricing-card,.fade-in,.journal-card,.pen-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity 0.6s ease, transform 0.6s ease';obs.observe(el);});
+</script>
+</body>
+</html>
