@@ -37,7 +37,7 @@ npx wrangler pages secret put ADMIN_TOKEN
 - `wineries/` — 37 winery pages (plus index)
 - `breweries/` — 16 brewery pages (plus index)
 - `cideries/` — 7 cidery pages (plus index)
-- `journal/` — 11 wine-country guides (plus index)
+- `journal/` — 12 wine-country guides (plus index)
 - `wine-tours.html`, `plan-your-day.html`, `winery-map.html` — key planning pages
 - `logo.svg`, hero/placeholder JPEGs
 - `data-wineries.json`, `data-breweries.json`, `data-cideries.json` — listing data
