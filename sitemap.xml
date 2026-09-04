@@ -176,13 +176,19 @@
   </url>
   <url>
     <loc>https://traversecitywinetour.com/journal/</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://traversecitywinetour.com/journal/best-lake-view-wineries-traverse-city</loc>
     <lastmod>2026-08-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://traversecitywinetour.com/journal/best-pinot-noir-traverse-city</loc>
+    <lastmod>2026-09-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
