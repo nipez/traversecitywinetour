@@ -176,8 +176,14 @@
   </url>
   <url>
     <loc>https://traversecitywinetour.com/journal/</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-12</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://traversecitywinetour.com/journal/michigan-winery-bachelorette-party</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
