@@ -77,6 +77,7 @@
             <th>Email / name</th>
             <th>Details</th>
             <th>Source</th>
+            <th>Notified</th>
           </tr>
         </thead>
         <tbody id="rows"></tbody>
@@ -123,14 +124,19 @@ async function loadLeads() {
     const details = Object.entries(lead.payload || {})
       .map(([k, v]) => k + ": " + v)
       .join("\n");
+    const notifyLabel = lead.notify_status
+      ? escapeHtml(lead.notify_status) +
+        (lead.notified_at ? "<div class='muted'>" + escapeHtml(lead.notified_at) + "</div>" : "")
+      : "<span class='muted'>—</span>";
     return "<tr>" +
       "<td>" + escapeHtml(lead.created_at || "") + "</td>" +
       "<td>" + escapeHtml(lead.type || "") + "</td>" +
       "<td>" + escapeHtml(lead.email || "") + "<div class='muted'>" + escapeHtml(lead.name || "") + "</div></td>" +
       "<td class='payload'>" + escapeHtml(details) + "</td>" +
       "<td class='muted'>" + escapeHtml(lead.source_page || "") + "</td>" +
+      "<td>" + notifyLabel + "</td>" +
       "</tr>";
-  }).join("") || "<tr><td colspan='5' class='muted'>No leads yet.</td></tr>";
+  }).join("") || "<tr><td colspan='6' class='muted'>No leads yet.</td></tr>";
 }
 
 function escapeHtml(value) {

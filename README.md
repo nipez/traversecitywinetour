@@ -29,8 +29,26 @@ The production D1 database is `tcwinetour-leads`. After connecting this repo to 
 
 ```bash
 npx wrangler pages secret put ADMIN_TOKEN
+npx wrangler pages secret put RESEND_API_KEY
 ```
 
+Also set (Pages dashboard env vars, or secrets if you prefer):
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `ADMIN_TOKEN` | yes | Bearer token for `/admin/leads` and `/api/admin/leads` |
+| `RESEND_API_KEY` | yes (for email) | Resend API key — operator email on each new lead insert |
+| `NOTIFY_EMAIL` | no | Defaults to `nickperez@gmail.com` |
+| `NOTIFY_FROM_EMAIL` | no | Defaults to `Traverse City Wine Tour <onboarding@resend.dev>` |
+| `NOTIFY_WEBHOOK_URL` | no | Optional POST webhook fallback if email is unavailable |
+
+Apply the D1 migration (adds `notified_at` / `notify_status`) after deploy:
+
+```bash
+npm run db:migrate
+```
+
+Notify is best-effort: a failed email never blocks a successful form submission. Honeypot hits and newsletter `already_subscribed` responses do **not** send mail.
 ## Layout
 
 - `index.html` — homepage
@@ -45,7 +63,8 @@ npx wrangler pages secret put ADMIN_TOKEN
 - `sitemap.xml`, `sitemap.html`
 - `privacy.html` — privacy policy for form submissions
 - `js/leads.js` — shared form client
-- `functions/api/leads.js` — Pages Function that writes leads to D1
+- `functions/api/leads.js` — Pages Function that writes leads to D1 and best-effort emails Nick
+- `functions/_shared/notify.js` — Resend + optional webhook operator notify
 - `admin/leads.html` — token-gated inbox (not in the sitemap)
 
 ## generate.py

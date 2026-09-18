@@ -6,6 +6,7 @@ import {
   parseLeadBody,
   clientIp,
 } from "../_shared/leads.js";
+import { formatLeadNotify, notifyOperator } from "../_shared/notify.js";
 
 export async function onRequestOptions(context) {
   if (!isAllowedOrigin(context.request)) {
@@ -71,11 +72,15 @@ export async function onRequestPost(context) {
   } catch (error) {
     const message = String(error?.message || error);
     if (lead.type === "newsletter" && /UNIQUE|constraint/i.test(message)) {
+      // Already subscribed — no operator email (intentional short-circuit).
       return jsonResponse({ ok: true, already_subscribed: true }, 200, corsHeaders(request));
     }
     console.error("lead insert failed", message);
     return jsonResponse({ error: "Could not save your request" }, 500, corsHeaders(request));
   }
+
+  // Best-effort notify after a successful insert. Never fail the form caller.
+  await notifyLeadBestEffort(env, request, { id, ...lead });
 
   return jsonResponse({ ok: true, id }, 201, corsHeaders(request));
 }
@@ -84,6 +89,38 @@ export async function onRequest(context) {
   if (context.request.method === "POST") return onRequestPost(context);
   if (context.request.method === "OPTIONS") return onRequestOptions(context);
   return jsonResponse({ error: "Method not allowed" }, 405, corsHeaders(context.request));
+}
+
+async function notifyLeadBestEffort(env, request, lead) {
+  try {
+    const origin = new URL(request.url).origin;
+    const adminUrl = `${origin}/admin/leads`;
+    const result = await notifyOperator(env, formatLeadNotify(lead, adminUrl));
+    const notifiedAt =
+      result.emailed || result.webhooked
+        ? new Date().toISOString()
+        : null;
+    try {
+      await env.DB.prepare(
+        `UPDATE leads SET notified_at = ?, notify_status = ? WHERE id = ?`
+      )
+        .bind(notifiedAt, result.status, lead.id)
+        .run();
+    } catch (err) {
+      console.error("lead notify status update failed", err);
+    }
+  } catch (err) {
+    console.error("lead notify failed", err);
+    try {
+      await env.DB.prepare(
+        `UPDATE leads SET notify_status = ? WHERE id = ?`
+      )
+        .bind("error", lead.id)
+        .run();
+    } catch (updateErr) {
+      console.error("lead notify status update failed", updateErr);
+    }
+  }
 }
 
 function corsHeaders(request) {
