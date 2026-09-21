@@ -38,7 +38,7 @@ export async function onRequestGet(context) {
     env.DB.prepare(`SELECT COUNT(*) AS total FROM leads ${where}`).bind(...binds),
     env.DB.prepare(
       `SELECT id, type, email, name, payload, source_page, utm_source, utm_medium,
-              utm_campaign, created_at, status, notes
+              utm_campaign, created_at, status, notes, notified_at, notify_status
        FROM leads ${where}
        ORDER BY created_at DESC
        LIMIT ? OFFSET ?`

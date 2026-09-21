@@ -1,3 +1,19 @@
 # Copy to .dev.vars for local `npm run dev`.
-# In production: npx wrangler pages secret put ADMIN_TOKEN
+# In production (Cloudflare Pages → tcwinetours → Settings → Environment variables / Secrets):
+#   npx wrangler pages secret put ADMIN_TOKEN
+#   npx wrangler pages secret put RESEND_API_KEY
+# Plain vars can also be set in the Pages dashboard: NOTIFY_EMAIL, NOTIFY_FROM_EMAIL, NOTIFY_WEBHOOK_URL
+
 ADMIN_TOKEN=change-me-in-production
+
+# Resend API key (required for operator email on new leads)
+RESEND_API_KEY=
+
+# Operator inbox (defaults to nickperez@gmail.com if unset)
+NOTIFY_EMAIL=nickperez@gmail.com
+
+# From address — Resend onboarding domain works until a verified sender exists
+NOTIFY_FROM_EMAIL=Traverse City Wine Tour <onboarding@resend.dev>
+
+# Optional webhook fallback (Slack/Make/etc.) if you also want a non-email ping
+# NOTIFY_WEBHOOK_URL=
