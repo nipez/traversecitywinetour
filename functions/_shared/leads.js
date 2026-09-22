@@ -119,7 +119,14 @@ export function parseLeadBody(text) {
   }
 
   const name = cleanText(raw.name, MAX_NAME);
-  if ((type === "lodging" || type === "bach_kit" || type === "contact" || type === "tour") && !name) {
+  if (
+    (type === "lodging" ||
+      type === "bach_kit" ||
+      type === "advertise" ||
+      type === "contact" ||
+      type === "tour") &&
+    !name
+  ) {
     return { error: "Name is required", status: 400 };
   }
 
