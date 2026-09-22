@@ -65,6 +65,25 @@ assert.equal(tour.lead.payload.party_size, "8");
 
 expectError({ type: "tour", email: "a@b.com", consent: true }, "Name is required");
 
+expectError({ type: "advertise", email: "a@b.com", consent: true }, "Name is required");
+
+const advertise = parseLeadBody(JSON.stringify({
+  type: "advertise",
+  email: "ops@winery.example",
+  name: "Jordan Lee",
+  consent: true,
+  payload: {
+    company: "Bayview Cellars",
+    budget: "Sponsored Profile (~$150/month)",
+    message: "Interested in Old Mission placement for harvest season.",
+  },
+}));
+assert.equal(advertise.lead.type, "advertise");
+assert.equal(advertise.lead.name, "Jordan Lee");
+assert.equal(advertise.lead.payload.company, "Bayview Cellars");
+assert.equal(advertise.lead.payload.budget, "Sponsored Profile (~$150/month)");
+assert.equal(advertise.lead.payload.message, "Interested in Old Mission placement for harvest season.");
+
 // --- notify formatting ---
 const notify = formatLeadNotify(
   {

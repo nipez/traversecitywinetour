@@ -101,12 +101,29 @@ nav.scrolled{box-shadow:0 2px 30px rgba(74,14,27,0.08);}
 .who-icon{font-size:1.8rem;flex-shrink:0;}
 .who-card h4{font-family:'Playfair Display',serif;font-size:1rem;color:var(--burgundy);margin-bottom:6px;}
 .who-card p{font-size:0.85rem;color:var(--text-light);line-height:1.6;}
-.contact-block{background:linear-gradient(135deg,var(--burgundy),#2C2420);border-radius:12px;padding:56px 48px;text-align:center;}
+.contact-block{background:linear-gradient(135deg,var(--burgundy),#2C2420);border-radius:12px;padding:56px 48px;text-align:center;scroll-margin-top:100px;}
 .contact-block h2{font-family:'Playfair Display',serif;font-size:2rem;color:var(--cream);margin-bottom:16px;}
-.contact-block p{font-size:1rem;color:rgba(245,240,232,0.75);margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;}
-.contact-email{display:inline-block;font-size:1.1rem;font-weight:600;color:var(--gold-light);text-decoration:none;border-bottom:1px solid rgba(201,169,110,0.4);padding-bottom:2px;}
+.contact-block > p{font-size:1rem;color:rgba(245,240,232,0.75);margin-bottom:32px;max-width:540px;margin-left:auto;margin-right:auto;}
+.contact-email{display:inline;font-size:inherit;font-weight:600;color:var(--gold-light);text-decoration:none;border-bottom:1px solid rgba(201,169,110,0.4);padding-bottom:1px;}
 .contact-email:hover{color:var(--gold);}
-.contact-note{font-size:0.78rem;color:rgba(245,240,232,0.4);margin-top:20px;}
+.contact-note{font-size:0.78rem;color:rgba(245,240,232,0.45);margin-top:24px;}
+.inquiry-form-card{background:var(--cream);border-radius:12px;padding:36px 32px;text-align:left;max-width:640px;margin:0 auto;box-shadow:0 12px 40px rgba(0,0,0,0.18);}
+.inquiry-form-card .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.inquiry-form-card .form-group{margin-bottom:16px;}
+.inquiry-form-card .form-group label{display:block;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-light);margin-bottom:6px;}
+.inquiry-form-card .form-group input,.inquiry-form-card .form-group select,.inquiry-form-card .form-group textarea{width:100%;padding:12px 14px;border:1px solid rgba(74,14,27,0.15);border-radius:6px;background:var(--white);font-family:'Outfit',sans-serif;font-size:0.88rem;color:var(--text);outline:none;transition:border-color 0.25s,box-shadow 0.25s;}
+.inquiry-form-card .form-group input:focus,.inquiry-form-card .form-group select:focus,.inquiry-form-card .form-group textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,169,110,0.15);}
+.inquiry-form-card .form-group textarea{resize:vertical;min-height:110px;}
+.inquiry-form-card .form-group select{cursor:pointer;}
+.inquiry-form-card .form-submit{width:100%;padding:14px;background:var(--burgundy);color:var(--cream);border:none;border-radius:6px;font-family:'Outfit',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background 0.25s;margin-top:4px;}
+.inquiry-form-card .form-submit:hover{background:var(--wine);}
+.inquiry-form-card .form-submit:disabled{opacity:0.7;cursor:wait;}
+.inquiry-form-card .form-note{font-size:0.75rem;color:var(--text-light);text-align:center;margin-top:12px;}
+.inquiry-form-card .lead-consent{color:var(--text-light);}
+.inquiry-form-card .form-success{display:none;text-align:center;padding:28px 12px;}
+.inquiry-form-card .form-success h4{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--burgundy);margin-bottom:10px;}
+.inquiry-form-card .form-success p{font-size:0.92rem;color:var(--text-light);line-height:1.65;margin:0;}
+.inquiry-form-card .form-success a{color:var(--burgundy);font-weight:500;}
 .newsletter{background:var(--cream-dark);padding:72px 40px;text-align:center;}
 .newsletter h2{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--burgundy);margin-bottom:12px;}
 .newsletter p{font-size:0.95rem;color:var(--text-light);margin-bottom:28px;}
@@ -125,7 +142,7 @@ footer{background:var(--charcoal);padding:64px 40px 36px;}
 .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:28px;display:flex;justify-content:space-between;font-size:0.78rem;color:rgba(245,240,232,0.65);}
 .footer-bottom a{color:rgba(245,240,232,0.65);text-decoration:none;}
 @media(max-width:1024px){.pricing-grid{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto;}.audience-grid{grid-template-columns:1fr 1fr;}.stats-inner{grid-template-columns:repeat(2,1fr);}.footer-grid{grid-template-columns:1fr 1fr;gap:40px;}}
-@media(max-width:768px){.nav-links{display:none;}.main{padding:48px 20px 80px;}.stats-bar{padding:32px 20px;}.stats-inner{grid-template-columns:1fr 1fr;}.audience-grid,.who-grid{grid-template-columns:1fr;}.contact-block{padding:40px 24px;}.newsletter-form{flex-direction:column;}.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;gap:12px;}}
+@media(max-width:768px){.nav-links{display:none;}.main{padding:48px 20px 80px;}.stats-bar{padding:32px 20px;}.stats-inner{grid-template-columns:1fr 1fr;}.audience-grid,.who-grid{grid-template-columns:1fr;}.contact-block{padding:40px 24px;}.inquiry-form-card{padding:28px 20px;}.inquiry-form-card .form-row{grid-template-columns:1fr;}.newsletter-form{flex-direction:column;}.footer-grid{grid-template-columns:1fr;}.footer-bottom{flex-direction:column;gap:12px;}}
 </style>
 </head>
 <body>
@@ -275,7 +292,7 @@ footer{background:var(--charcoal);padding:64px 40px 36px;}
         <li>Phone, hours & address prominently displayed</li>
         <li class="note">Best for: Wineries, cideries, breweries wanting more directory visibility</li>
       </ul>
-      <a href="mailto:hello@traversecitywinetour.com?subject=Enhanced Listing Inquiry" class="cta-btn outline">Get Started</a>
+      <a href="#advertise-inquiry" class="cta-btn outline" data-interest="Enhanced Listing (~$300/year)">Get Started</a>
     </div>
 
     <div class="pricing-card featured">
@@ -297,7 +314,7 @@ footer{background:var(--charcoal);padding:64px 40px 36px;}
         <li>Inclusion in relevant journal article CTAs</li>
         <li class="note">Best for: Wineries, tour companies, inns wanting a flagship presence</li>
       </ul>
-      <a href="mailto:hello@traversecitywinetour.com?subject=Sponsored Profile Inquiry" class="cta-btn gold">Get Started</a>
+      <a href="#advertise-inquiry" class="cta-btn gold" data-interest="Sponsored Profile (~$150/month)">Get Started</a>
     </div>
 
     <div class="pricing-card">
@@ -318,7 +335,7 @@ footer{background:var(--charcoal);padding:64px 40px 36px;}
         <li>Category exclusivity option available</li>
         <li class="note">Best for: Tour companies, hotels, restaurants, event venues</li>
       </ul>
-      <a href="mailto:hello@traversecitywinetour.com?subject=Content Partnership Inquiry" class="cta-btn primary">Get Started</a>
+      <a href="#advertise-inquiry" class="cta-btn primary" data-interest="Content Partnership (~$400/month)">Get Started</a>
     </div>
 
   </div>
@@ -378,11 +395,50 @@ footer{background:var(--charcoal);padding:64px 40px 36px;}
     </div>
   </div>
 
-  <div class="contact-block">
+  <div class="contact-block" id="advertise-inquiry">
     <h2>Let's Talk</h2>
-    <p>Questions about which option fits your business? Want to see examples of existing sponsored profiles? Reach out directly — no sales funnel, no contact form. Just a conversation.</p>
-    <a href="mailto:hello@traversecitywinetour.com" class="contact-email">hello@traversecitywinetour.com</a>
-    <p class="contact-note">We typically respond within one business day.</p>
+    <p>Questions about which option fits your business? Want examples of existing sponsored profiles? Send a short inquiry and we'll follow up with next steps — usually within one business day.</p>
+    <div class="inquiry-form-card">
+      <form data-lead-form="advertise" data-success="advertiseFormSuccess">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="adv-name">Your Name</label>
+            <input id="adv-name" type="text" name="name" placeholder="First and last name" required autocomplete="name">
+          </div>
+          <div class="form-group">
+            <label for="adv-email">Work Email</label>
+            <input id="adv-email" type="email" name="email" placeholder="you@yourbusiness.com" required autocomplete="email">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="adv-company">Business / Brand</label>
+            <input id="adv-company" type="text" name="company" placeholder="Winery, tour company, hotel…" autocomplete="organization">
+          </div>
+          <div class="form-group">
+            <label for="adv-budget">Package Interest</label>
+            <select id="adv-budget" name="budget">
+              <option value="">Select an option…</option>
+              <option>Enhanced Listing (~$300/year)</option>
+              <option>Sponsored Profile (~$150/month)</option>
+              <option>Content Partnership (~$400/month)</option>
+              <option>Not sure yet — want to discuss</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="adv-message">Tell Us a Bit More</label>
+          <textarea id="adv-message" name="message" placeholder="Goals, timing, audience fit, or questions about placement…"></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send Inquiry</button>
+        <p class="form-note">We'll reply from hello@traversecitywinetour.com. No spam, no automated drip.</p>
+      </form>
+      <div class="form-success" id="advertiseFormSuccess">
+        <h4>Inquiry received</h4>
+        <p>Thanks — we'll review your note and follow up shortly. Prefer to add anything? Email <a href="mailto:hello@traversecitywinetour.com">hello@traversecitywinetour.com</a>.</p>
+      </div>
+    </div>
+    <p class="contact-note">Prefer email? Write us at <a href="mailto:hello@traversecitywinetour.com" class="contact-email">hello@traversecitywinetour.com</a>.</p>
   </div>
 
 </div>
@@ -438,6 +494,16 @@ const nav=document.getElementById('mainNav');
 if(nav){window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>10);});}
 const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.style.opacity='1';x.target.style.transform='translateY(0)';}});},{threshold:0.1});
 document.querySelectorAll('.winery-card,.article-card,.plan-card,.tour-card,.stay-card,.pricing-card,.fade-in,.journal-card,.pen-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity 0.6s ease, transform 0.6s ease';obs.observe(el);});
+document.querySelectorAll('a[href="#advertise-inquiry"][data-interest]').forEach((link)=>{
+  link.addEventListener('click',()=>{
+    const budget=document.getElementById('adv-budget');
+    const interest=link.getAttribute('data-interest');
+    if(budget&&interest){
+      const match=[...budget.options].find((opt)=>opt.value===interest||opt.textContent===interest);
+      if(match) budget.value=match.value||match.textContent;
+    }
+  });
+});
 </script>
 <script src="js/leads.js" defer></script>
 </body>
