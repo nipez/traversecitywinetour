@@ -516,7 +516,9 @@ for w in wineries:
     schema = f'''<script type="application/ld+json">
 {{"@context":"https://schema.org","@type":"Winery","name":"{w['name']}","description":"{desc_full}","address":{{"@type":"PostalAddress",{schema_addr}}},"telephone":"{w['phone']}","url":"https://traversecitywinetour.com/wineries/{w['slug']}","sameAs":["{w['website']}"]}}</script>'''
 
-    page = f"""{head(f"{w['name']} | Traverse City Winery Guide", w.get('description', w['name']), f"/wineries/{w['slug']}", winery_css)}
+    seo_title = (w.get("seo_title") or "").strip() or f"{w['name']} | Traverse City Winery Guide"
+    seo_desc = (w.get("seo_description") or "").strip() or w.get("description", w["name"])
+    page = f"""{head(seo_title, seo_desc, f"/wineries/{w['slug']}", winery_css)}
 {schema}
 {topbar()}{navbar("../")}
 <section class="winery-hero"><div class="winery-hero-bg" style="background-image: url('../{img}');{filt}"></div>
