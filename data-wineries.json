@@ -715,6 +715,8 @@
       "phone": "(231) 947-8865",
       "website": "https://www.shadylanecellars.com",
       "hours": "Daily 11am–6pm",
+      "seo_title": "Shady Lane Cellars | Riesling in an 1800s Fieldstone Coop",
+      "seo_description": "Visit Shady Lane Cellars for Riesling and Pinot Noir in a restored 1800s fieldstone chicken coop—a calm Leelanau tasting stop with hours and wine tips.",
       "description": "Set in a beautifully restored 1800s fieldstone chicken coop, Shady Lane Cellars produces elegant, cool-climate wines with a focus on Riesling and Pinot Noir.",
       "long_description": "Shady Lane Cellars is one of Leelanau Peninsula's most charming wineries, housed in a beautifully restored 1800s fieldstone building that was originally a chicken coop. The rustic-elegant setting perfectly matches the winery's approach to winemaking: respectful of tradition, attentive to detail, and full of character.\n\nThe winery has built an excellent reputation for cool-climate varietals, with particular strength in Riesling and Pinot Noir. Their Rieslings span the sweetness spectrum from bone-dry to late harvest, all showing the minerality and acidity that distinguish great Riesling. The Pinot Noir is elegant and expressive, reflecting careful vineyard management and gentle winemaking.\n\nShady Lane also produces notable Cabernet Franc, Grüner Veltliner, and a popular Rosé that sells out quickly each vintage. The winemaking team takes a minimal-intervention approach, letting the fruit and terroir express themselves with clarity.\n\nThe peaceful, tree-lined setting on a quiet back road feels a world away from the bustle of tourist season, making Shady Lane an ideal stop for visitors seeking a more contemplative wine-tasting experience.",
       "known_for": [
@@ -1030,6 +1032,8 @@
       "featured": false,
       "lat": 44.9512,
       "lng": -85.4645,
+      "seo_title": "Tabone Vineyards | 30+ Years on Old Mission Peninsula",
+      "seo_description": "Tabone Vineyards is a small-batch Old Mission estate with 30+ years of family roots—taste Riesling, Pinot Blanc, and red blends before you go.",
       "description": "Tabone Vineyards is a small-batch estate winery with roots stretching back more than 30 years on Old Mission Peninsula, making it one of the longer-tenured family operations on the wine trail."
     },
     {
@@ -1191,6 +1195,8 @@
       "featured": false,
       "lat": 44.9923,
       "lng": -85.7512,
+      "seo_title": "Willow Vineyard | Hillside Tasting Above Suttons Bay",
+      "seo_description": "Willow Vineyard pours estate Pinot Noir, Chardonnay, and sparkling from a wind-swept Suttons Bay hillside with West Bay views. Hours and visitor tips.",
       "description": "Willow Vineyard occupies a spectacular wind-swept hillside above Suttons Bay, established in 1992 by John and Jo Crampton as a labor of love that has grown into one of Leelanau Peninsula's most distinctive boutique operations."
     },
     {

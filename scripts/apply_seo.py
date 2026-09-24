@@ -74,8 +74,6 @@ PAGE_DESCS = {
     "events.html": "A seasonal guide to Traverse City wine country: blossom trail, cherry festival, harvest tastings, and winter wine rooms on Old Mission and Leelanau.",
     "advertise.html": "Advertise on Traverse City Wine Tour. Reach visitors planning Michigan wine-country trips with enhanced listings and sponsored profiles.",
     "bachelorette.html": "Plan a Traverse City bachelorette wine tour. Private drivers, tasting-room etiquette, and itineraries for Old Mission and Leelanau.",
-    "wineries/willow-vineyard.html": "Willow Vineyard sits on a wind-swept Suttons Bay hillside with West Bay views, estate Pinot Noir, Chardonnay, and seasonal tastings.",
-    "wineries/shady-lane-cellars.html": "Taste Riesling and Pinot Noir at Shady Lane Cellars, a Leelanau winery in a restored 1800s fieldstone chicken coop.",
     "wineries/left-foot-charley.html": "Left Foot Charley is an urban Traverse City winery in the Commons, known for natural Rieslings and a lively tasting room.",
     "wineries/forty-five-north.html": "Forty-Five North sits on the 45th parallel above Lake Leelanau, with bold reds, hilltop views, and a modern tasting room.",
     "wineries/ciccone-vineyard.html": "Ciccone Vineyard is a family estate on Leelanau Peninsula making Italian-inspired wines, from Dolcetto to Gewürztraminer.",
@@ -290,14 +288,23 @@ def choose_title(path: Path, html: str) -> str:
     rel = rel_of(path)
     if rel in PAGE_TITLES:
         return PAGE_TITLES[rel]
+    venue = venue_for(path)
+    if venue and venue[0]:
+        seo_title = (venue[0].get("seo_title") or "").strip()
+        if seo_title:
+            return fit_title(seo_title)
     return fit_title(existing_title(html) or path.stem.replace("-", " ").title())
 
 
 def choose_desc(path: Path, html: str) -> str:
     rel = rel_of(path)
+    venue = venue_for(path)
+    if venue and venue[0]:
+        seo_desc = (venue[0].get("seo_description") or "").strip()
+        if seo_desc:
+            return meta_desc(seo_desc)
     if rel in PAGE_DESCS:
         return PAGE_DESCS[rel]
-    venue = venue_for(path)
     if venue and venue[0]:
         rec = venue[0]
         raw = rec.get("description") or rec.get("long_description") or ""
