@@ -271,7 +271,7 @@ def footer_section(prefix=""):
       </ul></div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 TraverseCityWineTours.com &middot; All Rights Reserved</span>
+      <span>&copy; 2026 TraverseCityWineTours.com &middot; All Rights Reserved &middot; Built by <a href="https://solutionstud.io/" target="_blank" rel="noopener">Solution Studio</a></span>
       <div style="display: flex; gap: 24px;">
         <a href="{prefix}privacy.html">Privacy</a>
         <a href="{prefix}sitemap.html">Sitemap</a>
