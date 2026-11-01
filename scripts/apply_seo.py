@@ -644,7 +644,7 @@ FOOTER_CLOSE = """        <li><a href="sitemap.html">Sitemap</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 TraverseCityWineTour.com &middot; All Rights Reserved</span>
+      <span>&copy; 2026 TraverseCityWineTour.com &middot; All Rights Reserved &middot; Built by <a href="https://solutionstud.io/" target="_blank" rel="noopener">Solution Studio</a></span>
       <div style="display: flex; gap: 24px;">
         <a href="sitemap.html">Sitemap</a>
       </div>
