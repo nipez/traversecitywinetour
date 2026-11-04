@@ -15,8 +15,8 @@
 <meta name="description" content="Visit Old Mission Peninsula wineries near Traverse City. Tasting rooms, hours, and a compact bay-to-bay wine trail you can drive in a day.">
 <link rel="canonical" href="https://traversecitywinetour.com/old-mission-peninsula">
 <meta name="robots" content="index, follow">
-<link rel="icon" href="logo.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="logo.svg">
+<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/logo.svg">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Traverse City Wine Tour">
 <meta property="og:locale" content="en_US">
@@ -132,6 +132,19 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
 .section-desc { line-height: 1.75; font-size: 1.1rem; }
 .winery-detail { font-size: 0.9rem; line-height: 1.6; }
 
+
+.omp-guide{max-width:860px;margin:0 auto 56px;text-align:left;}
+.omp-guide h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--burgundy);margin:40px 0 14px;text-align:left;}
+.omp-guide p{font-family:'Outfit',sans-serif;font-size:1rem;line-height:1.8;color:var(--text);margin-bottom:18px;text-align:left;}
+.omp-guide ul{margin:0 0 22px 1.2rem;text-align:left;}
+.omp-guide li{font-family:'Outfit',sans-serif;font-size:1rem;line-height:1.75;color:var(--text);margin-bottom:10px;}
+.omp-guide a.body-link{color:var(--burgundy);font-weight:600;text-decoration:none;}
+.omp-guide a.body-link:hover{text-decoration:underline;}
+.faq-item{border-bottom:1px solid rgba(74,14,27,0.08);padding:22px 0;}
+.faq-item:last-child{border-bottom:none;}
+.faq-item h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--burgundy);margin:0 0 10px;}
+.faq-item p{font-size:0.95rem;line-height:1.75;color:var(--text);margin:0;}
+
 </style>
 </head>
 <body>
@@ -239,6 +252,44 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           "item": "https://traversecitywinetour.com/old-mission-peninsula"
         }
       ]
+    },
+    {
+          "@type": "FAQPage",
+          "@id": "https://traversecitywinetour.com/old-mission-peninsula#faq",
+          "mainEntity": [
+                {
+                      "@type": "Question",
+                      "name": "How many wineries are on Old Mission Peninsula?",
+                      "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "This guide lists eleven Old Mission\u2013area producers on the map below, from estate pioneers like Chateau Grand Traverse to boutique rooms such as Bonobo and seasonal estates like Tabone and Hawthorne. Always confirm open hours before you drive."
+                      }
+                },
+                {
+                      "@type": "Question",
+                      "name": "Is Old Mission better than Leelanau for a first visit?",
+                      "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Old Mission is usually the easier first peninsula: shorter drives from downtown Traverse City and tasting rooms clustered along Center Road and Peninsula Drive. Leelanau rewards a longer scenic day \u2014 compare both peninsula pages before you choose."
+                      }
+                },
+                {
+                      "@type": "Question",
+                      "name": "Do I need a wine tour on Old Mission?",
+                      "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Not required, but a private driver helps when your group wants to taste freely. Compare operators on wine tour guides and Old Mission\u2013specific guide pages, then book through wine tours."
+                      }
+                },
+                {
+                      "@type": "Question",
+                      "name": "Where can I eat or drink beer on Old Mission?",
+                      "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Jolly Pumpkin Restaurant & Brewery on Peninsula Drive is a full-service dining and artisan beer stop among the vineyards. Downtown Traverse City adds more brewery and cidery options after you leave the peninsula."
+                      }
+                }
+          ]
     }
   ]
 }
@@ -247,20 +298,20 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
 <div class="top-bar">Michigan's #1 Wine Destination &nbsp;·&nbsp; 40+ Wineries on Two Peninsulas &nbsp;·&nbsp; Start Planning Today</div>
 <nav id="mainNav">
   <div class="nav-inner">
-    <a href="index.html" class="logo"><img src="logo.svg" alt="Traverse City Wine Guide" height="44" style="display:block;"></a>
+    <a href="/" class="logo"><img src="/logo.svg" alt="Traverse City Wine Guide" height="44" style="display:block;"></a>
     <ul class="nav-links">
-      <li><a href="wineries/index.html">Wineries</a></li>
-      <li><a href="cideries/index.html">Cideries</a></li>
-      <li><a href="breweries/index.html">Breweries</a></li>
-      <li><a href="journal/index.html">Journal</a></li>
-      <li><a href="plan-your-day.html">Plan Your Day</a></li>
-      <li><a href="wine-tours.html" class="nav-cta">Book a Tour</a></li>
+      <li><a href="/wineries/">Wineries</a></li>
+      <li><a href="/cideries/">Cideries</a></li>
+      <li><a href="/breweries/">Breweries</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="/plan-your-day">Plan Your Day</a></li>
+      <li><a href="/wine-tours" class="nav-cta">Book a Tour</a></li>
     </ul>
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
   </div>
 </nav>
 <section class="page-hero">
-  <div class="page-hero-bg" style="background-image: url('vineyard.jpg');"></div>
+  <div class="page-hero-bg" style="background-image: url('/vineyard.jpg');"></div>
   <div class="page-hero-content">
     <div class="page-hero-tag">11 Wineries</div>
     <h1><em>Old Mission Peninsula</em> Wineries</h1>
@@ -268,15 +319,49 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
   </div>
 </section>
 <div class="breadcrumbs">
-  <a href="index.html">Home</a><span>›</span>
-  <a href="wineries/index.html">Wineries</a><span>›</span>
+  <a href="/">Home</a><span>›</span>
+  <a href="/wineries/">Wineries</a><span>›</span>
   <span class="current">Old Mission Peninsula Peninsula</span>
 </div>
 <div class="winery-section">
-  <p class="section-intro">Stretching 18 miles into Grand Traverse Bay along the 45th parallel, Old Mission Peninsula is home to some of Michigan's finest wineries. The narrow peninsula's unique microclimate — moderated by water on both sides — produces exceptional Riesling, Pinot Noir, and Chardonnay.</p>
-  <div class="winery-grid">
-<a href="wineries/chateau-grand-traverse.html" class="winery-card">
-  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('vineyard.jpg'); background-size: cover; background-position: center"></div><span class="winery-badge">Featured</span></div>
+  <p class="section-intro">Stretching 18 miles into Grand Traverse Bay along the 45th parallel, Old Mission Peninsula is home to some of Michigan's finest wineries. The narrow peninsula's unique microclimate — moderated by water on both sides — produces exceptional Riesling, Pinot Noir, and Chardonnay. Use the guide below, then browse each estate card.</p>
+
+  <div class="omp-guide">
+    <h2>Why Old Mission Peninsula Anchors Traverse City Wine Country</h2>
+    <p>Old Mission Peninsula stretches roughly 18 miles into Grand Traverse Bay along the 45th parallel — the same latitude band often cited alongside classic cool-climate wine regions. Water on both sides moderates the vineyards, which is why Riesling, Pinot Noir, Chardonnay, sparkling wine, and orchard-adjacent specialties thrive here. For many first-time visitors, this peninsula is the clearest one-day introduction to Michigan wine: shorter hops between tasting rooms than <a class="body-link" href="/leelanau-peninsula">Leelanau</a>, and an easy return to downtown lodging.</p>
+    <p>Use this page as the planning spine. The cards below link to each winery detail page. For chauffeured itineraries, compare operators on <a class="body-link" href="/wine-tours">wine tours</a> and the deeper operator notes in <a class="body-link" href="/wine-tour-guides/">wine tour guides</a>, including the focused <a class="body-link" href="/wine-tour-guides/old-mission-peninsula">Old Mission Peninsula tour guides</a> page. Self-builders can mix stops in <a class="body-link" href="/plan-your-day">Plan Your Day</a> alongside <a class="body-link" href="/cideries/">cideries</a> and <a class="body-link" href="/breweries/">breweries</a> when the group wants more than grape wine.</p>
+
+    <h2>How to Route Center Road and Peninsula Drive</h2>
+    <p>Most Old Mission days run north from Traverse City along Center Road (M-37), with optional dips to Peninsula Drive for bay-side addresses. Start earlier than you think: several rooms open mid-morning on weekdays, while Sunday hours often start at noon. Build two to four confirmed stops rather than racing eleven doors — quality conversations beat a blur of stickers.</p>
+    <ul>
+      <li><strong>Pioneer and panoramic estates:</strong> <a class="body-link" href="/wineries/chateau-grand-traverse">Chateau Grand Traverse</a> (founded 1974; Riesling, ice wine, late-harvest Riesling) and ridge-top <a class="body-link" href="/wineries/chateau-chantal">Chateau Chantal</a> (sparkling wine, Cerise cherry sparkling, Chardonnay, Pinot Noir) set the classic OMP tone.</li>
+      <li><strong>Modern glass and bay views:</strong> <a class="body-link" href="/wineries/brys-estate">Brys Estate</a> brings a contemporary tasting room, signature reds, Naked Chardonnay, and craft spirits context; <a class="body-link" href="/wineries/2-lads-winery">2 Lads</a> near the tip emphasizes Cabernet Franc, Pinot Noir, and Grüner with dramatic bay vistas.</li>
+      <li><strong>Approachable and creative:</strong> <a class="body-link" href="/wineries/bowers-harbor-vineyards">Bowers Harbor Vineyards</a> is known for Langley Chardonnay, rosés, and a welcoming local favorite vibe; <a class="body-link" href="/wineries/peninsula-cellars">Peninsula Cellars</a> pours in an 1896 schoolhouse with Gewürztraminer, Pinot Grigio, cherry wine, and Riesling.</li>
+      <li><strong>Italian hillside and boutique rooms:</strong> <a class="body-link" href="/wineries/mari-vineyards">Mari Vineyards</a> features a large underground cellar and Sangiovese-minded blends; <a class="body-link" href="/wineries/bonobo-winery">Bonobo Winery</a> keeps a small-batch, intimate pace with Pinot Noir, Chardonnay, and Pinot Meunier.</li>
+      <li><strong>Seasonal and ridge estates:</strong> <a class="body-link" href="/wineries/hawthorne-vineyards">Hawthorne Vineyards</a> lists daily 12–6pm seasonal hours with Riesling and Pinot family wines; <a class="body-link" href="/wineries/tabone-vineyards">Tabone Vineyards</a> is a small-batch estate often open Thu–Sun 12–5pm seasonally — call before you go.</li>
+      <li><strong>Urban OMP producer in town:</strong> <a class="body-link" href="/wineries/left-foot-charley">Left Foot Charley</a> sits at Grand Traverse Commons rather than on Center Road, with Riesling, Blaufränkisch, pét-nat, and cider — a strong downtown coda after peninsula driving.</li>
+    </ul>
+
+    <h2>What the Peninsula Actually Pours</h2>
+    <p>Cool-climate whites lead many flights: Riesling in dry through late-harvest and ice-wine expressions at estates such as Chateau Grand Traverse; Pinot Grigio and Gewürztraminer at Peninsula Cellars and Brys; Chardonnay styles from oak-kissed to “naked” at Brys and Bowers Harbor. Sparkling wine is a Chateau Chantal signature (including Cerise). Reds reward patience in warmer vintages — Pinot Noir at Chantal, Bonobo, and 2 Lads; Cabernet Franc at 2 Lads; Italian-leaning blends at Mari. Fruit wines and cherry specialties still appear because this is cherry country as much as grape country.</p>
+    <p>Fees and flight menus change. Our winery data records hours and house strengths, not a live price sheet — ask each tasting room for current tasting fees, waive policies, and reservation rules. Peak summer Saturdays book out; shoulder-season weekdays often feel more conversational.</p>
+
+    <h2>Food, Beer, and Non-Wine Stops on the Same Map</h2>
+    <p><a class="body-link" href="/breweries/jolly-pumpkin">Jolly Pumpkin Restaurant &amp; Brewery</a> on Peninsula Drive is the peninsula's full-service restaurant and artisan brewery — wild-fermented and oak-aged ales plus a real dining room when your group needs lunch between vineyards. After you return to town, <a class="body-link" href="/cideries/taproot-cider-house">Taproot Cider House</a>, <a class="body-link" href="/cideries/left-foot-charley-cider">Left Foot Charley cider</a>, and downtown brewpubs extend the craft day without another peninsula loop.</p>
+    <p>If cider is a priority, keep Leelanau orchard stops (<a class="body-link" href="/cideries/tandem-ciders">Tandem</a>, <a class="body-link" href="/cideries/suttons-bay-ciders">Suttons Bay Ciders</a>, <a class="body-link" href="/cideries/bel-lago-cidery">Bel Lago</a>) for a second day so Old Mission stays focused. The <a class="body-link" href="/cideries/">cideries hub</a> and <a class="body-link" href="/breweries/">breweries directory</a> help you split the itinerary cleanly.</p>
+
+    <h2>Sample Day Structures (Adjust to Open Hours)</h2>
+    <p><strong>First-timer compact day:</strong> Late-morning flight at <a class="body-link" href="/wineries/chateau-grand-traverse">Chateau Grand Traverse</a>, lunch or beer at <a class="body-link" href="/breweries/jolly-pumpkin">Jolly Pumpkin</a>, afternoon views at <a class="body-link" href="/wineries/chateau-chantal">Chateau Chantal</a> or <a class="body-link" href="/wineries/brys-estate">Brys Estate</a>, then downtown dinner. Book a driver via <a class="body-link" href="/wine-tours">wine tours</a> if everyone wants to taste.</p>
+    <p><strong>Design-and-view day:</strong> <a class="body-link" href="/wineries/2-lads-winery">2 Lads</a> near the tip, <a class="body-link" href="/wineries/mari-vineyards">Mari</a> for the underground cellar story, <a class="body-link" href="/wineries/bowers-harbor-vineyards">Bowers Harbor</a> for a lighter social stop, optional boutique pour at <a class="body-link" href="/wineries/bonobo-winery">Bonobo</a>. Confirm tip-of-peninsula drive time and closing hours — several rooms wind down at 5–6pm.</p>
+    <p><strong>Schoolhouse and seasonal estates:</strong> <a class="body-link" href="/wineries/peninsula-cellars">Peninsula Cellars</a>, then call ahead for <a class="body-link" href="/wineries/hawthorne-vineyards">Hawthorne</a> and <a class="body-link" href="/wineries/tabone-vineyards">Tabone</a> before committing the miles. Finish at <a class="body-link" href="/wineries/left-foot-charley">Left Foot Charley</a> in the Commons if you want urban natural wine and cider without more Center Road driving.</p>
+
+    <h2>Tour Guides Versus Self-Drive</h2>
+    <p>Self-drive works when one adult stays sober, parking is available, and you keep the stop count modest. Guided options shine for celebrations, multi-couple groups, and winter roads. Read <a class="body-link" href="/wine-tour-guides/how-to-choose">how to choose a wine tour guide</a>, skim vehicle fits on <a class="body-link" href="/wine-tour-guides/limo-bus-tours">limo and bus tours</a> and <a class="body-link" href="/wine-tour-guides/private-group-tours">private group tours</a>, then shortlist OMP-savvy operators through <a class="body-link" href="/wine-tour-guides/old-mission-peninsula">Old Mission guides</a> and the <a class="body-link" href="/wine-tour-guides/">guides hub</a>. Deposit, cancellation, and tasting-fee policies belong to each operator — get them in writing.</p>
+    <p>Weather and season change the peninsula's personality. Summer brings full hours and crowds; fall harvest energy; winter shorter daylight and leaner schedules — pair this page with seasonal journal guidance and always re-check hours on the winery sites or phones listed on each detail page. Lodging and broader trip logistics sit under <a class="body-link" href="/plan-your-visit">visitor guide</a> and <a class="body-link" href="/where-to-stay">where to stay</a>.</p>
+  </div>
+<div class="winery-grid">
+<a href="/wineries/chateau-grand-traverse" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('/vineyard.jpg'); background-size: cover; background-position: center"></div><span class="winery-badge">Featured</span></div>
   <div class="winery-info">
     <h3 class="winery-name">Chateau Grand Traverse</h3>
     <div class="winery-type">Estate Winery & Tasting Room</div>
@@ -287,8 +372,8 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </div>
 </a>
-<a href="wineries/peninsula-cellars.html" class="winery-card">
-  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('wineglasses.jpg'); background-size: cover; background-position: center 30%"></div></div>
+<a href="/wineries/peninsula-cellars" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('/wineglasses.jpg'); background-size: cover; background-position: center 30%"></div></div>
   <div class="winery-info">
     <h3 class="winery-name">Peninsula Cellars</h3>
     <div class="winery-type">Family Owned Winery</div>
@@ -299,8 +384,8 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </div>
 </a>
-<a href="wineries/chateau-chantal.html" class="winery-card">
-  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('grapes.jpg'); background-size: cover; background-position: center"></div><span class="winery-badge">Featured</span></div>
+<a href="/wineries/chateau-chantal" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('/grapes.jpg'); background-size: cover; background-position: center"></div><span class="winery-badge">Featured</span></div>
   <div class="winery-info">
     <h3 class="winery-name">Chateau Chantal</h3>
     <div class="winery-type">Winery & B&B Inn</div>
@@ -311,8 +396,8 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </div>
 </a>
-<a href="wineries/brys-estate.html" class="winery-card">
-  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('cheers.jpg'); background-size: cover; background-position: center"></div><span class="winery-badge">Featured</span></div>
+<a href="/wineries/brys-estate" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('/cheers.jpg'); background-size: cover; background-position: center"></div><span class="winery-badge">Featured</span></div>
   <div class="winery-info">
     <h3 class="winery-name">Brys Estate Vineyard & Winery</h3>
     <div class="winery-type">Estate Vineyard & Winery</div>
@@ -323,8 +408,8 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </div>
 </a>
-<a href="wineries/bowers-harbor-vineyards.html" class="winery-card">
-  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('winery-placeholder.jpg'); background-size: cover; background-position: center"></div></div>
+<a href="/wineries/bowers-harbor-vineyards" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('/winery-placeholder.jpg'); background-size: cover; background-position: center"></div></div>
   <div class="winery-info">
     <h3 class="winery-name">Bowers Harbor Vineyards</h3>
     <div class="winery-type">Vineyard & Tasting Room</div>
@@ -335,8 +420,8 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </div>
 </a>
-<a href="wineries/2-lads-winery.html" class="winery-card">
-  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('vineyard.jpg'); background-size: cover; background-position: center"></div></div>
+<a href="/wineries/2-lads-winery" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('/vineyard.jpg'); background-size: cover; background-position: center"></div></div>
   <div class="winery-info">
     <h3 class="winery-name">2 Lads Winery</h3>
     <div class="winery-type">Modern Estate Winery</div>
@@ -347,8 +432,8 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </div>
 </a>
-<a href="wineries/mari-vineyards.html" class="winery-card">
-  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('wineglasses.jpg'); background-size: cover; background-position: center 30%"></div></div>
+<a href="/wineries/mari-vineyards" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('/wineglasses.jpg'); background-size: cover; background-position: center 30%"></div></div>
   <div class="winery-info">
     <h3 class="winery-name">Mari Vineyards</h3>
     <div class="winery-type">Estate Winery & Underground Cellar</div>
@@ -359,8 +444,8 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </div>
 </a>
-<a href="wineries/bonobo-winery.html" class="winery-card">
-  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('grapes.jpg'); background-size: cover; background-position: center"></div></div>
+<a href="/wineries/bonobo-winery" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('/grapes.jpg'); background-size: cover; background-position: center"></div></div>
   <div class="winery-info">
     <h3 class="winery-name">Bonobo Winery</h3>
     <div class="winery-type">Boutique Winery</div>
@@ -371,8 +456,8 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </div>
 </a>
-<a href="wineries/left-foot-charley.html" class="winery-card">
-  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('cheers.jpg'); background-size: cover; background-position: center"></div></div>
+<a href="/wineries/left-foot-charley" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('/cheers.jpg'); background-size: cover; background-position: center"></div></div>
   <div class="winery-info">
     <h3 class="winery-name">Left Foot Charley</h3>
     <div class="winery-type">Urban Winery</div>
@@ -383,8 +468,8 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </div>
 </a>
-<a href="wineries/hawthorne-vineyards.html" class="winery-card">
-  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('winery-placeholder.jpg'); background-size: cover; background-position: center"></div></div>
+<a href="/wineries/hawthorne-vineyards" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('/winery-placeholder.jpg'); background-size: cover; background-position: center"></div></div>
   <div class="winery-info">
     <h3 class="winery-name">Hawthorne Vineyards</h3>
     <div class="winery-type">Estate Vineyard & Winery</div>
@@ -395,8 +480,8 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </div>
 </a>
-<a href="wineries/tabone-vineyards.html" class="winery-card">
-  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('vineyard.jpg'); background-size: cover; background-position: center"></div></div>
+<a href="/wineries/tabone-vineyards" class="winery-card">
+  <div class="winery-img"><div class="winery-img-inner" style="background-image: url('/vineyard.jpg'); background-size: cover; background-position: center"></div></div>
   <div class="winery-info">
     <h3 class="winery-name">Tabone Vineyards</h3>
     <div class="winery-type">Small-Batch Estate Winery</div>
@@ -407,6 +492,18 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <span class="winery-link">View Details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
   </div>
 </a>
+  </div>
+
+  <div class="omp-guide">
+    <h2>After the Cards: Lock the Details</h2>
+    <p>Each card above opens a dedicated winery page with address, listed hours, amenities, and deeper notes grounded in our winery data. Cross-check against <a class="body-link" href="/wineries/">the full wineries directory</a> if you are also browsing Leelanau estates the same week. When your group wants a single booking conversation instead of six phone calls, start with <a class="body-link" href="/wine-tours">Traverse City wine tours</a> and the comparison articles in <a class="body-link" href="/wine-tour-guides/">wine tour guides</a>.</p>
+    <p>Old Mission is compact enough to feel complete in one focused day and rich enough to reward a second visit for the rooms you skipped. Keep the hero of day one on bay views and Riesling; save Commons natural wine at Left Foot Charley, seasonal ridge estates, or a Jolly Pumpkin dinner for the version of the trip that matches your season and stamina.</p>
+
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item"><h3>How many wineries are on Old Mission Peninsula?</h3><p>This guide lists eleven Old Mission–area producers on the map below, from estate pioneers like Chateau Grand Traverse to boutique rooms such as Bonobo and seasonal estates like Tabone and Hawthorne. Always confirm open hours before you drive.</p></div>
+    <div class="faq-item"><h3>Is Old Mission better than Leelanau for a first visit?</h3><p>Old Mission is usually the easier first peninsula: shorter drives from downtown Traverse City and tasting rooms clustered along Center Road and Peninsula Drive. Leelanau rewards a longer scenic day — compare both peninsula pages before you choose.</p></div>
+    <div class="faq-item"><h3>Do I need a wine tour on Old Mission?</h3><p>Not required, but a private driver helps when your group wants to taste freely. Compare operators on <a class="body-link" href="/wine-tour-guides/">wine tour guides</a> and <a class="body-link" href="/wine-tour-guides/old-mission-peninsula">Old Mission–specific guide pages</a>, then book through <a class="body-link" href="/wine-tours">wine tours</a>.</p></div>
+    <div class="faq-item"><h3>Where can I eat or drink beer on Old Mission?</h3><p><a class="body-link" href="/breweries/jolly-pumpkin">Jolly Pumpkin Restaurant &amp; Brewery</a> on Peninsula Drive is a full-service dining and artisan beer stop among the vineyards. Downtown Traverse City adds more brewery and cidery options after you leave the peninsula.</p></div>
   </div>
 </div>
 <section class="newsletter">
@@ -424,29 +521,29 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         <p>Your complete guide to exploring Michigan's premier wine region. Discover wineries, plan tours, and experience the best of Traverse City wine country.</p>
       </div>
       <div class="footer-col"><h4>Explore</h4><ul>
-        <li><a href="wineries/index.html">All Wineries</a></li>
-        <li><a href="old-mission-peninsula.html">Old Mission Peninsula</a></li>
-        <li><a href="leelanau-peninsula.html">Leelanau Peninsula</a></li>
-        <li><a href="journal/index.html">Wine Country Journal</a></li>
-        <li><a href="events.html">Events Calendar</a></li>
+        <li><a href="/wineries/">All Wineries</a></li>
+        <li><a href="/old-mission-peninsula">Old Mission Peninsula</a></li>
+        <li><a href="/leelanau-peninsula">Leelanau Peninsula</a></li>
+        <li><a href="/journal/">Wine Country Journal</a></li>
+        <li><a href="/events">Events Calendar</a></li>
       </ul></div>
       <div class="footer-col"><h4>Plan Your Trip</h4><ul>
-        <li><a href="wine-tours.html">Wine Tours</a></li>
-        <li><a href="where-to-stay.html">Hotels & Lodging</a></li>
-        <li><a href="plan-your-day.html">Plan Your Day</a></li>
-      <li><a href="plan-your-visit.html">Visitor Guide</a></li>
-        <li><a href="about.html">About Us</a></li>
+        <li><a href="/wine-tours">Wine Tours</a></li>
+        <li><a href="/where-to-stay">Hotels & Lodging</a></li>
+        <li><a href="/plan-your-day">Plan Your Day</a></li>
+      <li><a href="/plan-your-visit">Visitor Guide</a></li>
+        <li><a href="/about">About Us</a></li>
       </ul></div>
       <div class="footer-col"><h4>Resources</h4><ul>
-        <li><a href="advertise.html">Advertise With Us</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="sitemap.html">Sitemap</a></li>
+        <li><a href="/advertise">Advertise With Us</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/sitemap">Sitemap</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 TraverseCityWineTours.com &middot; All Rights Reserved</span>
-      <a href="privacy.html">Privacy</a> · <a href="sitemap.html">Sitemap</a>
+      <a href="/privacy">Privacy</a> · <a href="/sitemap">Sitemap</a>
     </div>
   </div>
 </footer>
@@ -454,6 +551,6 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
 const nav=document.getElementById('mainNav');
 window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>10);});
 </script>
-<script src="js/leads.js" defer></script>
+<script src="/js/leads.js" defer></script>
 </body>
 </html>

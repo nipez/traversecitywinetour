@@ -2,9 +2,7 @@
   const API = "/api/leads";
 
   function privacyHref() {
-    const depth = window.location.pathname.replace(/\/+$/, "").split("/").filter(Boolean).length;
-    const nested = depth > 1 || /\/(wineries|breweries|cideries|journal|admin)\//.test(window.location.pathname);
-    return nested ? "../privacy.html" : "privacy.html";
+    return "/privacy";
   }
 
   function utm() {
