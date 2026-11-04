@@ -15,8 +15,8 @@
 <meta name="description" content="Plan a Traverse City wine trip. Explore 40+ wineries on Old Mission and Leelanau Peninsulas, plus cideries, breweries, maps, and tasting itineraries.">
 <link rel="canonical" href="https://traversecitywinetour.com/">
 <meta name="robots" content="index, follow">
-<link rel="icon" href="logo.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="logo.svg">
+<link rel="icon" href="/logo.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/logo.svg">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Traverse City Wine Tour">
 <meta property="og:locale" content="en_US">
@@ -67,7 +67,7 @@ nav.scrolled { box-shadow: 0 2px 30px rgba(74,14,27,0.08); }
 .hero { position: relative; height: calc(100dvh - 116px); min-height: 560px; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
 .hero::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 140px; background: linear-gradient(to top, rgba(26,8,12,0.72) 0%, rgba(26,8,12,0.2) 55%, transparent 100%); pointer-events: none; z-index: 1; }
 .hero-bg { position: absolute; inset: 0; background: linear-gradient(160deg, #2a0a10 0%, #4A0E1B 30%, #3d1a1a 60%, #2C2420 100%); }
-.hero-bg-photo { position: absolute; inset: 0; background-image: url('wineglasses.jpg'); background-size: cover; background-position: center 40%; opacity: 0.22; mix-blend-mode: luminosity; }
+.hero-bg-photo { position: absolute; inset: 0; background-image: url('/wineglasses.jpg'); background-size: cover; background-position: center 40%; opacity: 0.22; mix-blend-mode: luminosity; }
 .hero-bg::before {
   content: ''; position: absolute; inset: 0;
   background: 
@@ -128,7 +128,7 @@ nav.scrolled { box-shadow: 0 2px 30px rgba(74,14,27,0.08); }
 .pen-card-bg { position: absolute; inset: 0; transition: transform 0.6s; }
 .pen-card:hover .pen-card-bg { transform: scale(1.04); }
 .pen-card-bg.old-mission {
-  background-image: url('wineglasses.jpg');
+  background-image: url('/wineglasses.jpg');
   background-size: cover; background-position: center 35%;
 }
 .pen-card-bg.old-mission::after {
@@ -140,7 +140,7 @@ nav.scrolled { box-shadow: 0 2px 30px rgba(74,14,27,0.08); }
   background: radial-gradient(ellipse at 30% 30%, rgba(201,169,110,0.08) 0%, transparent 60%);
 }
 .pen-card-bg.leelanau {
-  background-image: url('grapes.jpg');
+  background-image: url('/grapes.jpg');
   background-size: cover; background-position: center 50%;
 }
 .pen-card-bg.leelanau::after {
@@ -389,14 +389,14 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
 
 <nav id="mainNav">
   <div class="nav-inner">
-    <a href="index.html" class="logo"><img src="logo.svg" alt="Traverse City Wine Guide" height="44" style="display:block;"></a>
+    <a href="/" class="logo"><img src="/logo.svg" alt="Traverse City Wine Guide" height="44" style="display:block;"></a>
     <ul class="nav-links">
-      <li><a href="wineries/index.html">Wineries</a></li>
-      <li><a href="cideries/index.html">Cideries</a></li>
-      <li><a href="breweries/index.html">Breweries</a></li>
-      <li><a href="journal/index.html">Journal</a></li>
-      <li><a href="plan-your-day.html">Plan Your Day</a></li>
-      <li><a href="wine-tours.html" class="nav-cta">Book a Tour</a></li>
+      <li><a href="/wineries/">Wineries</a></li>
+      <li><a href="/cideries/">Cideries</a></li>
+      <li><a href="/breweries/">Breweries</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="/plan-your-day">Plan Your Day</a></li>
+      <li><a href="/wine-tours" class="nav-cta">Book a Tour</a></li>
     </ul>
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
@@ -413,11 +413,11 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <h1>Discover the Heart of<br><em>Michigan Wine Country</em></h1>
     <p class="hero-desc">Explore over 40 wineries across the Old Mission and Leelanau Peninsulas. From world-class Rieslings to stunning bay views, your perfect wine country escape starts here.</p>
     <div class="hero-buttons">
-      <a href="wineries/index.html" class="btn-primary">
+      <a href="/wineries/" class="btn-primary">
         Explore Wineries
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="wine-tours.html" class="btn-outline">Book a Wine Tour</a>
+      <a href="/wine-tours" class="btn-outline">Book a Wine Tour</a>
     </div>
   </div>
   <a href="#discover" class="hero-scroll">
@@ -459,7 +459,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     </div>
   </div>
   <div class="pen-grid" style="max-width: 1340px; margin: 0 auto;">
-    <a href="old-mission-peninsula.html" class="pen-card">
+    <a href="/old-mission-peninsula" class="pen-card">
       <div class="pen-card-bg old-mission"></div>
       <div class="pen-content">
         <div class="pen-label">Wine Trail</div>
@@ -472,7 +472,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         <span class="pen-link">Explore Old Mission <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </div>
     </a>
-    <a href="leelanau-peninsula.html" class="pen-card">
+    <a href="/leelanau-peninsula" class="pen-card">
       <div class="pen-card-bg leelanau"></div>
       <div class="pen-content">
         <div class="pen-label">Wine Trail</div>
@@ -498,9 +498,9 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     </div>
     <div class="winery-grid">
 
-      <a href="wineries/chateau-grand-traverse.html" class="winery-card">
+      <a href="/wineries/chateau-grand-traverse" class="winery-card">
         <div class="winery-img">
-          <div class="winery-img-inner" style="background-image:url('wineglasses.jpg');background-size:cover;background-position:center; "></div>
+          <div class="winery-img-inner" style="background-image:url('/wineglasses.jpg');background-size:cover;background-position:center; "></div>
           <span class="winery-badge">Pioneer</span>
           <span class="winery-peninsula-tag">Old Mission</span>
         </div>
@@ -515,9 +515,9 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         </div>
       </a>
 
-      <a href="wineries/chateau-chantal.html" class="winery-card">
+      <a href="/wineries/chateau-chantal" class="winery-card">
         <div class="winery-img">
-          <div class="winery-img-inner" style="background-image:url('wineglasses.jpg');background-size:cover;background-position:center;"></div>
+          <div class="winery-img-inner" style="background-image:url('/wineglasses.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-badge">Featured</span>
           <span class="winery-peninsula-tag">Old Mission</span>
         </div>
@@ -532,9 +532,9 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         </div>
       </a>
 
-      <a href="wineries/peninsula-cellars.html" class="winery-card">
+      <a href="/wineries/peninsula-cellars" class="winery-card">
         <div class="winery-img">
-          <div class="winery-img-inner" style="background-image:url('wineglasses.jpg');background-size:cover;background-position:center;"></div>
+          <div class="winery-img-inner" style="background-image:url('/wineglasses.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-badge">Featured</span>
           <span class="winery-peninsula-tag">Old Mission</span>
         </div>
@@ -549,9 +549,9 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         </div>
       </a>
 
-      <a href="wineries/brys-estate.html" class="winery-card">
+      <a href="/wineries/brys-estate" class="winery-card">
         <div class="winery-img">
-          <div class="winery-img-inner" style="background-image:url('wineglasses.jpg');background-size:cover;background-position:center;"></div>
+          <div class="winery-img-inner" style="background-image:url('/wineglasses.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-peninsula-tag">Old Mission</span>
         </div>
         <div class="winery-info">
@@ -565,9 +565,9 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         </div>
       </a>
 
-      <a href="wineries/black-star-farms.html" class="winery-card">
+      <a href="/wineries/black-star-farms" class="winery-card">
         <div class="winery-img">
-          <div class="winery-img-inner" style="background-image:url('wineglasses.jpg');background-size:cover;background-position:center;"></div>
+          <div class="winery-img-inner" style="background-image:url('/wineglasses.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-badge">Must Visit</span>
           <span class="winery-peninsula-tag">Leelanau</span>
         </div>
@@ -582,9 +582,9 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         </div>
       </a>
 
-      <a href="wineries/forty-five-north.html" class="winery-card">
+      <a href="/wineries/forty-five-north" class="winery-card">
         <div class="winery-img">
-          <div class="winery-img-inner" style="background-image:url('wineglasses.jpg');background-size:cover;background-position:center;"></div>
+          <div class="winery-img-inner" style="background-image:url('/wineglasses.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-peninsula-tag">Leelanau</span>
         </div>
         <div class="winery-info">
@@ -600,7 +600,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
 
     </div>
     <div class="winery-grid-cta">
-      <a href="wineries/index.html" class="btn-primary">View All 40+ Wineries <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/wineries/" class="btn-primary">View All 40+ Wineries <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
   </div>
 </section>
@@ -665,7 +665,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         <p>Compare verified local guides for Old Mission and Leelanau — private, group, limo, and bus options.</p>
         <span class="plan-card-link">Compare Guides <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
-      <a href="where-to-stay.html" class="plan-card">
+      <a href="/where-to-stay" class="plan-card">
         <div class="plan-card-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21V7l9-4 9 4v14"/><path d="M9 21V11h6v10"/></svg>
         </div>
@@ -673,7 +673,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         <p>From charming B&Bs at the wineries to downtown boutique hotels. Find your perfect home base.</p>
         <span class="plan-card-link">Find Lodging <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
-      <a href="plan-your-visit.html" class="plan-card">
+      <a href="/plan-your-visit" class="plan-card">
         <div class="plan-card-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
         </div>
@@ -681,7 +681,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         <p>Seasonal tips, tasting etiquette, driving directions, and everything first-timers need to know.</p>
         <span class="plan-card-link">Read the Guide <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
-      <a href="events.html" class="plan-card">
+      <a href="/events" class="plan-card">
         <div class="plan-card-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z"/></svg>
         </div>
@@ -689,7 +689,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         <p>Wine dinners, harvest festivals, live music, and seasonal celebrations happening across the region.</p>
         <span class="plan-card-link">See Events <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
-    </div>      <a href="plan-your-day.html" class="plan-card">
+    </div>      <a href="/plan-your-day" class="plan-card">
         <div class="plan-card-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/><path d="M2 20l4-8 4 4 4-6 4 8"/></svg>
         </div>
@@ -699,7 +699,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       </a>
     </div>
     <!-- BACHELORETTE CALLOUT BANNER -->
-    <a href="bachelorette.html" style="display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:28px;background:linear-gradient(135deg,#4A0E1B 0%,#6B1A2A 50%,#722F37 100%);border-radius:8px;padding:36px 48px;text-decoration:none;transition:transform 0.3s,box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(74,14,27,0.25)';" onmouseout="this.style.transform='';this.style.boxShadow='';">
+    <a href="/bachelorette" style="display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:28px;background:linear-gradient(135deg,#4A0E1B 0%,#6B1A2A 50%,#722F37 100%);border-radius:8px;padding:36px 48px;text-decoration:none;transition:transform 0.3s,box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(74,14,27,0.25)';" onmouseout="this.style.transform='';this.style.boxShadow='';">
       <div>
         <div style="font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:#C9A96E;margin-bottom:10px;">Michigan's #1 Bachelorette Destination</div>
         <h3 style="font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:500;color:#F5F0E8;margin-bottom:8px;">Planning a Bachelorette Party in Traverse City?</h3>
@@ -721,9 +721,9 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       <div class="section-divider"></div>
     </div>
     <div class="journal-grid">
-      <a href="journal/best-pinot-noir-traverse-city.html" class="journal-card">
+      <a href="/journal/best-pinot-noir-traverse-city" class="journal-card">
         <div class="journal-card-img">
-          <div class="journal-card-img-inner" style="background-image:url('grapes.jpg');background-size:cover;background-position:center;"></div>
+          <div class="journal-card-img-inner" style="background-image:url('/grapes.jpg');background-size:cover;background-position:center;"></div>
         </div>
         <div class="journal-card-body">
           <div class="journal-card-cat">Tasting Notes</div>
@@ -732,9 +732,9 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <div class="journal-card-meta"><span>8 min read</span> · <span>September 2026</span></div>
         </div>
       </a>
-      <a href="journal/best-lake-view-wineries-traverse-city.html" class="journal-card">
+      <a href="/journal/best-lake-view-wineries-traverse-city" class="journal-card">
         <div class="journal-card-img">
-          <div class="journal-card-img-inner" style="background-image:url('vineyard.jpg');background-size:cover;background-position:center;"></div>
+          <div class="journal-card-img-inner" style="background-image:url('/vineyard.jpg');background-size:cover;background-position:center;"></div>
         </div>
         <div class="journal-card-body">
           <div class="journal-card-cat">Tasting Guide</div>
@@ -743,9 +743,9 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <div class="journal-card-meta"><span>9 min read</span> · <span>August 2026</span></div>
         </div>
       </a>
-      <a href="journal/best-rieslings-traverse-city.html" class="journal-card">
+      <a href="/journal/best-rieslings-traverse-city" class="journal-card">
         <div class="journal-card-img">
-          <div class="journal-card-img-inner" style="background-image:url('wineglasses.jpg');background-size:cover;background-position:center;"></div>
+          <div class="journal-card-img-inner" style="background-image:url('/wineglasses.jpg');background-size:cover;background-position:center;"></div>
         </div>
         <div class="journal-card-body">
           <div class="journal-card-cat">Tasting Notes</div>
@@ -756,7 +756,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       </a>
     </div>
     <div class="journal-cta">
-      <a href="journal/index.html" class="btn-outline-dark">Read the Journal <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/journal/" class="btn-outline-dark">Read the Journal <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
   </div>
 </section>
@@ -782,33 +782,33 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         <p>Your complete guide to exploring Michigan's premier wine region. Discover wineries, plan tours, and experience the best of Traverse City wine country.</p>
       </div>
       <div class="footer-col"><h4>Explore</h4><ul>
-        <li><a href="wineries/index.html">All Wineries</a></li>
-        <li><a href="old-mission-peninsula.html">Old Mission Peninsula</a></li>
-        <li><a href="leelanau-peninsula.html">Leelanau Peninsula</a></li>
-        <li><a href="journal/index.html">Wine Country Journal</a></li>
-        <li><a href="events.html">Events Calendar</a></li>
-        <li><a href="plan-your-day.html">Plan Your Day</a></li>
+        <li><a href="/wineries/">All Wineries</a></li>
+        <li><a href="/old-mission-peninsula">Old Mission Peninsula</a></li>
+        <li><a href="/leelanau-peninsula">Leelanau Peninsula</a></li>
+        <li><a href="/journal/">Wine Country Journal</a></li>
+        <li><a href="/events">Events Calendar</a></li>
+        <li><a href="/plan-your-day">Plan Your Day</a></li>
       </ul></div>
       <div class="footer-col"><h4>Plan Your Trip</h4><ul>
-        <li><a href="wine-tours.html">Wine Tours</a></li>
+        <li><a href="/wine-tours">Wine Tours</a></li>
         <li><a href="/wine-tour-guides/">Wine Tour Guides</a></li>
-        <li><a href="bachelorette.html">Bachelorette Parties</a></li>
-        <li><a href="where-to-stay.html">Hotels & Lodging</a></li>
-        <li><a href="plan-your-visit.html">Visitor Guide</a></li>
-        <li><a href="about.html">About Us</a></li>
+        <li><a href="/bachelorette">Bachelorette Parties</a></li>
+        <li><a href="/where-to-stay">Hotels & Lodging</a></li>
+        <li><a href="/plan-your-visit">Visitor Guide</a></li>
+        <li><a href="/about">About Us</a></li>
       </ul></div>
       <div class="footer-col"><h4>Resources</h4><ul>
-        <li><a href="advertise.html">Advertise With Us</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="sitemap.html">Sitemap</a></li>
+        <li><a href="/advertise">Advertise With Us</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+        <li><a href="/sitemap">Sitemap</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 TraverseCityWineTours.com &middot; All Rights Reserved</span>
       <div style="display: flex; gap: 24px;">
-        <a href="privacy.html">Privacy</a>
-        <a href="sitemap.html">Sitemap</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/sitemap">Sitemap</a>
       </div>
     </div>
   </div>
@@ -841,6 +841,6 @@ document.querySelectorAll('.stat-item').forEach((el, i) => {
 });
 </script>
 
-<script src="js/leads.js" defer></script>
+<script src="/js/leads.js" defer></script>
 </body>
 </html>
