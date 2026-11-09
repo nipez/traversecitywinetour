@@ -79,6 +79,10 @@ Notify is best-effort: a failed email never blocks a successful form submission.
 
 Direct Upload originally (not Git-connected). Re-deploy from this repo after connecting the project to GitHub if you want Git-based deploys.
 
+## IndexNow
+
+Search engines are notified of new/updated pages via [IndexNow](https://www.indexnow.org/). The key file lives at the site root as `<key>.txt` (served as a static asset by Cloudflare Pages). On every push to `main`, `.github/workflows/indexnow.yml` waits for production to serve the new commit, maps changed `.html` paths to extensionless canonical URLs (journal posts included), and POSTs them to `https://api.indexnow.org/indexnow` (batches capped at 10,000). Use **Actions → IndexNow → Run workflow** with mode `all` to submit every URL in `sitemap.xml` once. The job always exits successfully so a notify failure never blocks deploy.
+
 ## Search Console & Google Business Profile
 
 These steps cannot be completed from the repo. After a production deploy:

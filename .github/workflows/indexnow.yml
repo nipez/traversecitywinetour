@@ -1,0 +1,56 @@
+# Notify search engines via IndexNow after production picks up a main deploy.
+# Never fails the job: the script always exits 0.
+name: IndexNow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Submit changed URLs from the push, or every URL in sitemap.xml"
+        required: true
+        default: all
+        type: choice
+        options:
+          - all
+          - changed
+
+permissions:
+  contents: read
+
+jobs:
+  indexnow:
+    name: Submit URLs to IndexNow
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve mode and commit range
+        id: meta
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            MODE="${{ inputs.mode }}"
+          else
+            MODE="changed"
+          fi
+          echo "mode=${MODE}" >> "$GITHUB_OUTPUT"
+          echo "before=${{ github.event.before }}" >> "$GITHUB_OUTPUT"
+          echo "after=${{ github.sha }}" >> "$GITHUB_OUTPUT"
+
+      - name: Submit to IndexNow
+        shell: bash
+        run: |
+          set +e
+          python3 scripts/indexnow.py \
+            --mode "${{ steps.meta.outputs.mode }}" \
+            --before "${{ steps.meta.outputs.before }}" \
+            --after "${{ steps.meta.outputs.after }}"
+          status=$?
+          echo "indexnow.py exited with ${status} (forcing success)"
+          exit 0
