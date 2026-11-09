@@ -114,9 +114,19 @@ export async function notifyOperator(env, payload) {
 export function formatLeadNotify(lead, adminUrl) {
   const label = TYPE_LABELS[lead.type] || lead.type;
   const payload = lead.payload && typeof lead.payload === "object" ? lead.payload : {};
-  const payloadLines = Object.entries(payload)
-    .filter(([, v]) => v != null && String(v).trim() !== "")
-    .map(([k, v]) => `${k}: ${v}`);
+  // Prefer topic, then message, so contact leads are scannable in the inbox.
+  const orderedKeys = ["topic", "message", "business_name", "website", "subject"];
+  const seen = new Set();
+  const payloadLines = [];
+  for (const key of orderedKeys) {
+    if (payload[key] == null || String(payload[key]).trim() === "") continue;
+    payloadLines.push(`${key}: ${payload[key]}`);
+    seen.add(key);
+  }
+  for (const [k, v] of Object.entries(payload)) {
+    if (seen.has(k) || v == null || String(v).trim() === "") continue;
+    payloadLines.push(`${k}: ${v}`);
+  }
 
   const lines = [
     `New ${label}`,
@@ -136,9 +146,15 @@ export function formatLeadNotify(lead, adminUrl) {
     adminUrl ? `Review: ${adminUrl}` : "Review: /admin/leads",
   ].filter((line) => line != null);
 
+  const topic = payload.topic ? String(payload.topic).trim() : "";
+  const subject =
+    lead.type === "contact" && topic
+      ? `${label} (${topic}): ${lead.email}`
+      : `${label}: ${lead.email}`;
+
   return {
     kind: "lead",
-    subject: `${label}: ${lead.email}`,
+    subject,
     text: lines.join("\n"),
   };
 }
