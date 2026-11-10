@@ -12,9 +12,18 @@ export const PAYLOAD_FIELDS = {
   lodging: ["property_name", "website", "property_type", "location", "tier", "notes"],
   bach_kit: ["bride_name", "weekend", "group_size", "vibe"],
   advertise: ["company", "budget", "message"],
-  contact: ["subject", "message"],
+  // topic + message required; business_name/website for listing requests;
+  // subject kept for backward compatibility with older clients.
+  contact: ["topic", "subject", "message", "business_name", "website"],
   tour: ["operator", "party_size", "preferred_date", "message"],
 };
+
+export const CONTACT_TOPICS = new Set([
+  "General question",
+  "Winery / brewery / cidery listing",
+  "Advertising / partnership",
+  "Site correction / feedback",
+]);
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_BODY = 12_288;
@@ -142,6 +151,15 @@ export function parseLeadBody(text) {
 
   if (type === "lodging" && !payload.property_name) {
     return { error: "Property name is required", status: 400 };
+  }
+
+  if (type === "contact") {
+    if (!payload.topic || !CONTACT_TOPICS.has(payload.topic)) {
+      return { error: "Please choose a topic", status: 400 };
+    }
+    if (!payload.message) {
+      return { error: "A message is required", status: 400 };
+    }
   }
 
   return {

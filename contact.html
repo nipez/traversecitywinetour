@@ -148,12 +148,61 @@ footer { background: var(--charcoal); padding: 80px 40px 40px; color: rgba(245,2
 .filter-btn { padding: 10px 24px; border: 1px solid var(--burgundy); background: transparent; color: var(--burgundy); font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 4px; cursor: pointer; transition: all 0.3s; }
 .filter-btn.active, .filter-btn:hover { background: var(--burgundy); color: var(--cream); }
 
+/* CONTACT PAGE */
+.contact-page { padding: 60px 40px 100px; max-width: 860px; margin: 0 auto; }
+.contact-intro { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--text-light); text-align: center; line-height: 1.7; margin-bottom: 48px; }
+.contact-form-card { background: var(--cream); border-radius: 8px; padding: 36px 32px; margin-bottom: 40px; border: 1px solid rgba(74,14,27,0.06); scroll-margin-top: 100px; }
+.contact-form-card h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--burgundy); margin-bottom: 8px; font-weight: 500; }
+.contact-form-card > .form-lede { font-size: 0.95rem; color: var(--text-light); line-height: 1.65; margin-bottom: 28px; }
+.contact-form-card .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.contact-form-card .form-group { margin-bottom: 16px; }
+.contact-form-card .form-group.full { grid-column: 1 / -1; }
+.contact-form-card label { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-light); margin-bottom: 6px; }
+.contact-form-card input,
+.contact-form-card select,
+.contact-form-card textarea { width: 100%; padding: 12px 14px; border: 1px solid rgba(74,14,27,0.15); border-radius: 6px; background: var(--white); font-family: 'Outfit', sans-serif; font-size: 0.95rem; color: var(--text); outline: none; transition: border-color 0.25s, box-shadow 0.25s; }
+.contact-form-card input:focus,
+.contact-form-card select:focus,
+.contact-form-card textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,110,0.15); }
+.contact-form-card textarea { resize: vertical; min-height: 130px; }
+.contact-form-card select { cursor: pointer; }
+.contact-form-card .form-hint { font-size: 0.78rem; color: var(--text-light); margin-top: 6px; line-height: 1.5; }
+.contact-form-card .form-hint a { color: var(--burgundy); }
+.contact-form-card .listing-fields[hidden] { display: none !important; }
+.contact-form-card .form-submit { width: 100%; padding: 14px; background: var(--burgundy); color: var(--cream); border: none; border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: background 0.25s; margin-top: 4px; }
+.contact-form-card .form-submit:hover { background: var(--wine); }
+.contact-form-card .form-submit:disabled { opacity: 0.7; cursor: wait; }
+.contact-form-card .form-note { font-size: 0.75rem; color: var(--text-light); text-align: center; margin-top: 12px; }
+.contact-form-card .lead-consent { color: var(--text-light); }
+.contact-form-card .form-success { display: none; text-align: center; padding: 28px 12px; }
+.contact-form-card .form-success h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--burgundy); margin-bottom: 10px; font-weight: 500; }
+.contact-form-card .form-success p { font-size: 0.95rem; color: var(--text-light); line-height: 1.65; margin: 0; }
+.contact-form-card .form-success a { color: var(--burgundy); font-weight: 500; }
+.contact-channels { display: flex; flex-direction: column; gap: 16px; }
+.contact-channel { padding: 28px; background: var(--cream); border-radius: 8px; border: 1px solid rgba(74,14,27,0.06); }
+.contact-channel h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--burgundy); margin-bottom: 8px; font-weight: 500; }
+.contact-channel p { font-size: 0.95rem; color: var(--text); line-height: 1.6; }
+.contact-channel a { color: var(--burgundy); font-weight: 500; }
+.contact-channel .channel-note { font-size: 0.88rem; color: var(--text-light); margin-top: 8px; }
+.contact-fallback-label { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin: 8px 0 16px; text-align: center; }
+
 /* ANIMATIONS */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) { .winery-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; } }
-@media (max-width: 768px) { .nav-links { display: none; } .nav-toggle { display: block; } .winery-grid { grid-template-columns: 1fr; } .newsletter-form { flex-direction: column; } .footer-grid { grid-template-columns: 1fr; gap: 32px; } .footer-bottom { flex-direction: column; gap: 12px; text-align: center; } .page-hero { height: 35vh; min-height: 280px; } }
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-toggle { display: block; }
+  .winery-grid { grid-template-columns: 1fr; }
+  .newsletter-form { flex-direction: column; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .page-hero { height: 35vh; min-height: 280px; }
+  .contact-page { padding: 48px 20px 80px; }
+  .contact-form-card { padding: 28px 20px; }
+  .contact-form-card .form-row { grid-template-columns: 1fr; }
+}
 
 
 
@@ -238,12 +287,73 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
 </nav>
 <section class="page-hero" style="height: 35vh; min-height: 280px;"><div class="page-hero-bg" style="background-image: url('/vineyard.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Get in Touch</div><h1><em>Contact</em> Us</h1></div></section>
 <div class="breadcrumbs"><a href="/">Home</a><span>›</span><span class="current">Contact</span></div>
-<section style="padding: 60px 40px 100px; max-width: 700px; margin: 0 auto;">
-  <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--text-light); text-align: center; line-height: 1.7; margin-bottom: 48px;">We'd love to hear from you. Whether you have a question, want to suggest an update, or are interested in advertising, drop us a line.</p>
-  <div style="display: flex; flex-direction: column; gap: 24px;">
-    <div style="padding: 32px; background: var(--cream); border-radius: 8px;"><h3 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--burgundy); margin-bottom: 8px;">General Inquiries</h3><p style="font-size: 0.95rem; color: var(--text);">Email: <a href="mailto:hello@traversecitywinetour.com" style="color: var(--burgundy); font-weight: 500;">hello@traversecitywinetour.com</a></p></div>
-    <div style="padding: 32px; background: var(--cream); border-radius: 8px;"><h3 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--burgundy); margin-bottom: 8px;">Advertising & Partnerships</h3><p style="font-size: 0.95rem; color: var(--text);">Email: <a href="mailto:advertise@traversecitywinetour.com" style="color: var(--burgundy); font-weight: 500;">advertise@traversecitywinetour.com</a></p><p style="font-size: 0.88rem; color: var(--text-light); margin-top: 8px;"><a href="/advertise" style="color: var(--burgundy);">View advertising options →</a></p></div>
-    <div style="padding: 32px; background: var(--cream); border-radius: 8px;"><h3 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--burgundy); margin-bottom: 8px;">Winery Updates</h3><p style="font-size: 0.95rem; color: var(--text);">Own or manage a winery? <a href="mailto:listings@traversecitywinetour.com" style="color: var(--burgundy); font-weight: 500;">listings@traversecitywinetour.com</a></p></div>
+<section class="contact-page">
+  <p class="contact-intro">We'd love to hear from you. Ask a question, request a listing update, or share feedback — the form below lands in our inbox with a record we can follow up on.</p>
+
+  <div class="contact-form-card" id="contact-form">
+    <h2>Send a message</h2>
+    <p class="form-lede">Choose a topic so we can route your note. Listing requests can include your business name and website.</p>
+    <form data-lead-form="contact" data-success="contactFormSuccess" id="contactLeadForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="contact-name">Your Name</label>
+          <input id="contact-name" type="text" name="name" placeholder="First and last name" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="contact-email">Email</label>
+          <input id="contact-email" type="email" name="email" placeholder="you@example.com" required autocomplete="email">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="contact-topic">Topic</label>
+        <select id="contact-topic" name="topic" required>
+          <option value="">Select a topic…</option>
+          <option value="General question">General question</option>
+          <option value="Winery / brewery / cidery listing">Winery / brewery / cidery listing (add, claim, or correct)</option>
+          <option value="Advertising / partnership">Advertising / partnership</option>
+          <option value="Site correction / feedback">Site correction / feedback</option>
+        </select>
+        <p class="form-hint" id="advertiseHint" hidden>Looking at packages? See <a href="/advertise">advertising options</a> or send a note here — either works.</p>
+      </div>
+      <div class="form-row listing-fields" id="listingFields" hidden>
+        <div class="form-group">
+          <label for="contact-business">Business Name <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label>
+          <input id="contact-business" type="text" name="business_name" placeholder="Winery, brewery, or cidery name" autocomplete="organization">
+        </div>
+        <div class="form-group">
+          <label for="contact-website">Website <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label>
+          <input id="contact-website" type="url" name="website" placeholder="https://…" autocomplete="url">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" required placeholder="How can we help? For listing updates, include what's wrong or what should change."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send message</button>
+      <p class="form-note">We'll reply from hello@traversecitywinetour.com. No spam, no automated drip.</p>
+    </form>
+    <div class="form-success" id="contactFormSuccess">
+      <h3>Message received</h3>
+      <p>Thanks — we got your note and will follow up shortly. Prefer email? Write <a href="mailto:hello@traversecitywinetour.com">hello@traversecitywinetour.com</a>.</p>
+    </div>
+  </div>
+
+  <p class="contact-fallback-label">Or email us directly</p>
+  <div class="contact-channels">
+    <div class="contact-channel">
+      <h3>General Inquiries</h3>
+      <p>Email: <a href="mailto:hello@traversecitywinetour.com">hello@traversecitywinetour.com</a></p>
+    </div>
+    <div class="contact-channel">
+      <h3>Advertising &amp; Partnerships</h3>
+      <p>Email: <a href="mailto:advertise@traversecitywinetour.com">advertise@traversecitywinetour.com</a></p>
+      <p class="channel-note"><a href="/advertise">View advertising options →</a></p>
+    </div>
+    <div class="contact-channel">
+      <h3>Winery, Brewery &amp; Cidery Listings</h3>
+      <p>Own or manage a listing? Use the form above with the listing topic, or email <a href="mailto:listings@traversecitywinetour.com">listings@traversecitywinetour.com</a>.</p>
+      <p class="channel-note"><a href="#contact-form" id="listingTopicLink">Open listing request form →</a></p>
+    </div>
   </div>
 </section>
 <section class="newsletter">
@@ -292,6 +402,45 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
 <script>
 const nav=document.getElementById('mainNav');
 if(nav){window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>10);});}
+
+(function () {
+  const topic = document.getElementById('contact-topic');
+  const listingFields = document.getElementById('listingFields');
+  const advertiseHint = document.getElementById('advertiseHint');
+  const listingTopic = 'Winery / brewery / cidery listing';
+  const advertisingTopic = 'Advertising / partnership';
+
+  function syncTopicUI() {
+    if (!topic) return;
+    const value = topic.value;
+    if (listingFields) listingFields.hidden = value !== listingTopic;
+    if (advertiseHint) advertiseHint.hidden = value !== advertisingTopic;
+  }
+
+  function setTopic(value) {
+    if (!topic || !value) return;
+    const match = Array.from(topic.options).find((opt) => opt.value === value);
+    if (!match) return;
+    topic.value = value;
+    syncTopicUI();
+  }
+
+  if (topic) {
+    topic.addEventListener('change', syncTopicUI);
+    const params = new URLSearchParams(window.location.search);
+    const requested = params.get('topic');
+    if (requested === 'listing') setTopic(listingTopic);
+    else if (requested === 'advertise' || requested === 'advertising') setTopic(advertisingTopic);
+    else if (requested === 'feedback' || requested === 'correction') setTopic('Site correction / feedback');
+    else if (requested === 'general') setTopic('General question');
+    else syncTopicUI();
+  }
+
+  const listingLink = document.getElementById('listingTopicLink');
+  if (listingLink) {
+    listingLink.addEventListener('click', () => setTopic(listingTopic));
+  }
+})();
 </script>
 <script src="/js/leads.js" defer></script>
 </body>
