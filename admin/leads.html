@@ -121,22 +121,39 @@ async function loadLeads() {
   if (!response.ok) throw new Error(body.error || "Could not load leads");
   document.getElementById("listStatus").textContent = body.total + " lead" + (body.total === 1 ? "" : "s");
   rows.innerHTML = (body.leads || []).map((lead) => {
-    const details = Object.entries(lead.payload || {})
-      .map(([k, v]) => k + ": " + v)
-      .join("\n");
+    const details = formatPayload(lead.payload || {});
+    const typeLabel = lead.type === "contact" && lead.payload && lead.payload.topic
+      ? escapeHtml(lead.type) + "<div class='muted'>" + escapeHtml(lead.payload.topic) + "</div>"
+      : escapeHtml(lead.type || "");
     const notifyLabel = lead.notify_status
       ? escapeHtml(lead.notify_status) +
         (lead.notified_at ? "<div class='muted'>" + escapeHtml(lead.notified_at) + "</div>" : "")
       : "<span class='muted'>—</span>";
     return "<tr>" +
       "<td>" + escapeHtml(lead.created_at || "") + "</td>" +
-      "<td>" + escapeHtml(lead.type || "") + "</td>" +
+      "<td>" + typeLabel + "</td>" +
       "<td>" + escapeHtml(lead.email || "") + "<div class='muted'>" + escapeHtml(lead.name || "") + "</div></td>" +
       "<td class='payload'>" + escapeHtml(details) + "</td>" +
       "<td class='muted'>" + escapeHtml(lead.source_page || "") + "</td>" +
       "<td>" + notifyLabel + "</td>" +
       "</tr>";
   }).join("") || "<tr><td colspan='6' class='muted'>No leads yet.</td></tr>";
+}
+
+function formatPayload(payload) {
+  const preferred = ["topic", "message", "business_name", "website", "subject"];
+  const seen = new Set();
+  const lines = [];
+  for (const key of preferred) {
+    if (payload[key] == null || String(payload[key]).trim() === "") continue;
+    lines.push(key + ": " + payload[key]);
+    seen.add(key);
+  }
+  for (const [k, v] of Object.entries(payload)) {
+    if (seen.has(k) || v == null || String(v).trim() === "") continue;
+    lines.push(k + ": " + v);
+  }
+  return lines.join("\n");
 }
 
 function escapeHtml(value) {

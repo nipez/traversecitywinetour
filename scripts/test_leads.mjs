@@ -84,6 +84,42 @@ assert.equal(advertise.lead.payload.company, "Bayview Cellars");
 assert.equal(advertise.lead.payload.budget, "Sponsored Profile (~$150/month)");
 assert.equal(advertise.lead.payload.message, "Interested in Old Mission placement for harvest season.");
 
+expectError({ type: "contact", email: "a@b.com", consent: true, name: "Pat" }, "Please choose a topic");
+expectError({
+  type: "contact",
+  email: "a@b.com",
+  consent: true,
+  name: "Pat",
+  topic: "General question",
+}, "A message is required");
+expectError({
+  type: "contact",
+  email: "a@b.com",
+  consent: true,
+  name: "Pat",
+  topic: "Not a real topic",
+  message: "Hello",
+}, "Please choose a topic");
+
+const contact = parseLeadBody(JSON.stringify({
+  type: "contact",
+  email: "owner@cellars.example",
+  name: "Pat Rivera",
+  consent: true,
+  topic: "Winery / brewery / cidery listing",
+  business_name: "Bayview Cellars",
+  website: "https://bayview.example",
+  message: "Please correct our winter hours.",
+  ignore_me: "nope",
+}));
+assert.equal(contact.lead.type, "contact");
+assert.equal(contact.lead.name, "Pat Rivera");
+assert.equal(contact.lead.payload.topic, "Winery / brewery / cidery listing");
+assert.equal(contact.lead.payload.business_name, "Bayview Cellars");
+assert.equal(contact.lead.payload.website, "https://bayview.example");
+assert.equal(contact.lead.payload.message, "Please correct our winter hours.");
+assert.equal(contact.lead.payload.ignore_me, undefined);
+
 // --- notify formatting ---
 const notify = formatLeadNotify(
   {
@@ -106,6 +142,32 @@ assert.match(notify.text, /ID: lead-123/);
 assert.match(notify.text, /bride_name: Sam/);
 assert.match(notify.text, /utm_source: ig/);
 assert.match(notify.text, /https:\/\/traversecitywinetour.com\/admin\/leads/);
+
+const contactNotify = formatLeadNotify(
+  {
+    id: "lead-contact-1",
+    type: "contact",
+    email: "owner@cellars.example",
+    name: "Pat Rivera",
+    source_page: "/contact",
+    payload: {
+      topic: "Winery / brewery / cidery listing",
+      business_name: "Bayview Cellars",
+      website: "https://bayview.example",
+      message: "Please correct our winter hours.",
+    },
+  },
+  "https://traversecitywinetour.com/admin/leads"
+);
+assert.match(contactNotify.subject, /Contact message \(Winery \/ brewery \/ cidery listing\)/);
+assert.match(contactNotify.subject, /owner@cellars.example/);
+assert.match(contactNotify.text, /topic: Winery \/ brewery \/ cidery listing/);
+assert.match(contactNotify.text, /message: Please correct our winter hours/);
+assert.match(contactNotify.text, /business_name: Bayview Cellars/);
+assert.ok(
+  contactNotify.text.indexOf("topic:") < contactNotify.text.indexOf("message:"),
+  "topic should appear before message in notify body"
+);
 
 assert.equal(escapeHtml("<script>"), "&lt;script&gt;");
 
