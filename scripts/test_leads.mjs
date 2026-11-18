@@ -63,6 +63,34 @@ assert.equal(tour.lead.type, "tour");
 assert.equal(tour.lead.payload.operator, "Grand Traverse Limo");
 assert.equal(tour.lead.payload.party_size, "8");
 
+const plannerTour = parseLeadBody(JSON.stringify({
+  type: "tour",
+  email: "planner@example.com",
+  name: "Casey",
+  consent: true,
+  payload: {
+    operator: "Driver for planned itinerary",
+    party_size: "4",
+    preferred_date: "2026-10-03",
+    phone: "231-555-0100",
+    start_time: "11:00 (11:00 AM)",
+    itinerary: "1. Chateau Grand Traverse · 2. Brys Estate · 3. Bonobo Winery",
+    planner_url: "https://traversecitywinetour.com/plan-your-day?stops=cgt,be,bn&start=11:00",
+    message: "Hotel pickup at Park Place",
+    ignore_me: "nope",
+  },
+}));
+assert.equal(plannerTour.lead.type, "tour");
+assert.equal(plannerTour.lead.payload.operator, "Driver for planned itinerary");
+assert.equal(plannerTour.lead.payload.itinerary, "1. Chateau Grand Traverse · 2. Brys Estate · 3. Bonobo Winery");
+assert.equal(
+  plannerTour.lead.payload.planner_url,
+  "https://traversecitywinetour.com/plan-your-day?stops=cgt,be,bn&start=11:00"
+);
+assert.equal(plannerTour.lead.payload.start_time, "11:00 (11:00 AM)");
+assert.equal(plannerTour.lead.payload.phone, "231-555-0100");
+assert.equal(plannerTour.lead.payload.ignore_me, undefined);
+
 expectError({ type: "tour", email: "a@b.com", consent: true }, "Name is required");
 
 expectError({ type: "advertise", email: "a@b.com", consent: true }, "Name is required");
@@ -167,6 +195,34 @@ assert.match(contactNotify.text, /business_name: Bayview Cellars/);
 assert.ok(
   contactNotify.text.indexOf("topic:") < contactNotify.text.indexOf("message:"),
   "topic should appear before message in notify body"
+);
+
+const tourNotify = formatLeadNotify(
+  {
+    id: "lead-tour-1",
+    type: "tour",
+    email: "planner@example.com",
+    name: "Casey",
+    source_page: "/plan-your-day",
+    payload: {
+      operator: "Driver for planned itinerary",
+      party_size: "4",
+      preferred_date: "2026-10-03",
+      start_time: "11:00 (11:00 AM)",
+      itinerary: "1. Chateau Grand Traverse · 2. Brys Estate · 3. Bonobo Winery",
+      planner_url: "https://traversecitywinetour.com/plan-your-day?stops=cgt,be,bn&start=11:00",
+      message: "Hotel pickup",
+    },
+  },
+  "https://traversecitywinetour.com/admin/leads"
+);
+assert.match(tourNotify.subject, /Tour inquiry/);
+assert.match(tourNotify.text, /itinerary: 1\. Chateau Grand Traverse/);
+assert.match(tourNotify.text, /planner_url: https:\/\/traversecitywinetour.com\/plan-your-day/);
+assert.match(tourNotify.text, /start_time: 11:00/);
+assert.ok(
+  tourNotify.text.indexOf("itinerary:") < tourNotify.text.indexOf("planner_url:"),
+  "itinerary should appear before planner_url in notify body"
 );
 
 assert.equal(escapeHtml("<script>"), "&lt;script&gt;");

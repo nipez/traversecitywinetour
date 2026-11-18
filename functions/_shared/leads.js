@@ -15,7 +15,19 @@ export const PAYLOAD_FIELDS = {
   // topic + message required; business_name/website for listing requests;
   // subject kept for backward compatibility with older clients.
   contact: ["topic", "subject", "message", "business_name", "website"],
-  tour: ["operator", "party_size", "preferred_date", "message"],
+  // itinerary / start_time / planner_url / phone are used by the
+  // plan-your-day "Get a driver" quote form; operator/message remain
+  // the wine-tours inquiry fields.
+  tour: [
+    "operator",
+    "party_size",
+    "preferred_date",
+    "phone",
+    "start_time",
+    "itinerary",
+    "planner_url",
+    "message",
+  ],
 };
 
 export const CONTACT_TOPICS = new Set([
