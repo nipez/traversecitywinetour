@@ -184,12 +184,17 @@ nav { position: sticky; top: 0; z-index: 1000; background: var(--white); border-
 .trip-time .tt-range { font-size: 0.82rem; font-weight: 600; color: var(--burgundy); }
 .trip-time .tt-total { font-size: 0.65rem; color: var(--text-light); }
 
-.panel-actions { display: flex; gap: 8px; }
+.panel-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn-driver { width: 100%; padding: 12px 20px; background: var(--gold); color: var(--burgundy); border: none; border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.25s, opacity 0.25s; }
+.btn-driver:hover { background: var(--gold-light); }
+.btn-driver:disabled { opacity: 0.4; cursor: not-allowed; }
 .btn-share { flex: 1; padding: 12px 20px; background: var(--burgundy); color: var(--cream); border: none; border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; transition: background 0.25s; }
 .btn-share:hover { background: var(--wine); }
 .btn-share:disabled { opacity: 0.4; cursor: not-allowed; }
 .btn-clear { padding: 12px 16px; background: transparent; border: 1px solid rgba(74,14,27,0.15); color: var(--text-light); border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 500; cursor: pointer; transition: all 0.25s; }
 .btn-clear:hover { border-color: #c44; color: #c44; }
+.btn-driver-share { width: 100%; margin-top: 8px; padding: 12px; background: var(--gold); color: var(--burgundy); border: none; border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 6px; transition: background 0.25s; }
+.btn-driver-share:hover { background: var(--gold-light); }
 
 /* ── SHARE MODAL ── */
 .modal-overlay { position: fixed; inset: 0; background: rgba(44,36,32,0.6); backdrop-filter: blur(4px); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
@@ -224,6 +229,35 @@ nav { position: sticky; top: 0; z-index: 1000; background: var(--white); border-
 .btn-copy-link.copied { background: var(--success); }
 .btn-copy-card { background: transparent; border: 1px solid rgba(74,14,27,0.15); color: var(--text); }
 .btn-copy-card:hover { border-color: var(--burgundy); color: var(--burgundy); }
+
+/* Driver quote modal */
+.modal.driver-modal { max-width: 520px; overflow-y: auto; }
+.driver-summary { margin: 16px 28px 0; padding: 14px 16px; background: var(--cream); border-radius: 8px; border: 1px solid rgba(74,14,27,0.06); }
+.driver-summary-label { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-light); margin-bottom: 6px; }
+.driver-summary-stops { font-size: 0.82rem; color: var(--burgundy); font-weight: 500; line-height: 1.45; }
+.driver-summary-meta { font-size: 0.72rem; color: var(--text-light); margin-top: 6px; }
+.driver-quote-form { padding: 16px 28px 8px; }
+.driver-quote-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.driver-quote-form .form-group { margin-bottom: 12px; }
+.driver-quote-form .form-group.full { grid-column: 1 / -1; }
+.driver-quote-form label { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 5px; color: var(--text); }
+.driver-quote-form input,
+.driver-quote-form select,
+.driver-quote-form textarea { width: 100%; padding: 10px 12px; border: 1px solid rgba(74,14,27,0.15); border-radius: 6px; font-family: inherit; font-size: 0.9rem; background: var(--white); color: var(--text); }
+.driver-quote-form textarea { min-height: 72px; resize: vertical; }
+.driver-quote-form .form-submit { width: 100%; margin-top: 4px; padding: 12px 20px; background: var(--burgundy); color: var(--cream); border: none; border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; }
+.driver-quote-form .form-submit:hover { background: var(--wine); }
+.driver-quote-form .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.driver-quote-form .form-note { margin: 10px 0 8px; font-size: 0.72rem; color: var(--text-light); line-height: 1.5; }
+.driver-quote-form .form-note a { color: var(--burgundy); }
+.driver-success { display: none; padding: 28px; text-align: center; }
+.driver-success h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--burgundy); margin-bottom: 8px; }
+.driver-success p { font-size: 0.88rem; color: var(--text-light); line-height: 1.55; margin-bottom: 20px; }
+.driver-success button { padding: 10px 20px; background: var(--burgundy); color: var(--cream); border: none; border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600; cursor: pointer; }
+@media (max-width: 640px) {
+  .driver-quote-form .form-row { grid-template-columns: 1fr; }
+  .modal.driver-modal { width: 94%; max-height: 92vh; }
+}
 
 /* Start time picker */
 .start-time { display: flex; align-items: center; gap: 8px; padding: 12px 28px; border-bottom: 1px solid rgba(74,14,27,0.06); background: var(--cream); }
@@ -407,11 +441,15 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         </div>
       </div>
       <div class="panel-actions">
-        <button class="btn-share" id="btnShare" disabled>
+        <button class="btn-driver" id="btnDriver" disabled type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 17h14M5 17a2 2 0 01-2-2V9a2 2 0 012-2h1l2-3h8l2 3h1a2 2 0 012 2v6a2 2 0 01-2 2M5 17l-1 3h2M19 17l1 3h-2"/><circle cx="7.5" cy="14.5" r="1.5"/><circle cx="16.5" cy="14.5" r="1.5"/></svg>
+          Get a Driver for This Day
+        </button>
+        <button class="btn-share" id="btnShare" disabled type="button">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>
           Share Itinerary
         </button>
-        <button class="btn-clear" id="btnClear">Clear All</button>
+        <button class="btn-clear" id="btnClear" type="button">Clear All</button>
       </div>
     </div>
   </div>
@@ -422,18 +460,79 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
   <div class="modal">
     <div class="modal-top">
       <h2>Share Your Wine Day</h2>
-      <button class="modal-close" onclick="closeModal()"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      <button class="modal-close" onclick="closeModal()" type="button" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
     </div>
     <div class="share-card" id="shareCard"></div>
-    <div class="modal-actions">
-      <button class="btn-copy-link" id="btnCopyLink" onclick="copyLink()">
+    <div class="modal-actions" style="flex-wrap:wrap;">
+      <button class="btn-copy-link" id="btnCopyLink" onclick="copyLink()" type="button">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
         Copy Link
       </button>
-      <button class="btn-copy-card" onclick="copyText()">
+      <button class="btn-copy-card" onclick="copyText()" type="button">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
         Copy as Text
       </button>
+      <button class="btn-driver-share" id="btnDriverFromShare" type="button">
+        Get a Driver for This Day
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- DRIVER QUOTE MODAL -->
+<div class="modal-overlay" id="driverModal">
+  <div class="modal driver-modal" role="dialog" aria-modal="true" aria-labelledby="driverModalTitle">
+    <div class="modal-top">
+      <h2 id="driverModalTitle">Request a Driver Quote</h2>
+      <button class="modal-close" onclick="closeDriverModal()" type="button" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="driver-summary" id="driverSummary">
+      <div class="driver-summary-label">Your planned day</div>
+      <div class="driver-summary-stops" id="driverSummaryStops"></div>
+      <div class="driver-summary-meta" id="driverSummaryMeta"></div>
+    </div>
+    <form class="driver-quote-form" id="driverQuoteForm" data-lead-form="tour" data-success="driverQuoteSuccess">
+      <input type="hidden" name="operator" value="Driver for planned itinerary">
+      <input type="hidden" name="itinerary" id="driverItinerary" value="">
+      <input type="hidden" name="start_time" id="driverStartTime" value="">
+      <input type="hidden" name="planner_url" id="driverPlannerUrl" value="">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="driver-name">Name</label>
+          <input type="text" id="driver-name" name="name" required autocomplete="name">
+        </div>
+        <div class="form-group">
+          <label for="driver-email">Email</label>
+          <input type="email" id="driver-email" name="email" required autocomplete="email">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="driver-date">Preferred date</label>
+          <input type="date" id="driver-date" name="preferred_date" required>
+        </div>
+        <div class="form-group">
+          <label for="driver-party">Party size</label>
+          <input type="number" id="driver-party" name="party_size" min="1" max="50" placeholder="e.g. 6" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="driver-phone">Phone <span style="font-weight:400;color:var(--text-light);">(optional)</span></label>
+          <input type="tel" id="driver-phone" name="phone" autocomplete="tel">
+        </div>
+        <div class="form-group">
+          <label for="driver-message">Notes <span style="font-weight:400;color:var(--text-light);">(optional)</span></label>
+          <input type="text" id="driver-message" name="message" placeholder="Hotel pickup, occasion, etc.">
+        </div>
+      </div>
+      <button type="submit" class="form-submit">Request driver quote</button>
+      <p class="form-note">We pass this itinerary to a tour partner who will follow up with availability and pricing. See our <a href="/privacy">privacy policy</a>.</p>
+    </form>
+    <div class="driver-success" id="driverQuoteSuccess">
+      <h3>Request sent</h3>
+      <p>Thanks — we received your itinerary and will follow up shortly with driver options.</p>
+      <button type="button" onclick="closeDriverModal()">Back to planner</button>
     </div>
   </div>
 </div>
@@ -856,6 +955,7 @@ function updateSummary() {
   document.getElementById('statTotal').textContent = totalH+'h '+totalM+'m total';
 
   document.getElementById('btnShare').disabled = itinerary.length === 0;
+  document.getElementById('btnDriver').disabled = itinerary.length === 0;
 }
 
 // ═══════════════════════════════════════════
@@ -967,9 +1067,30 @@ document.getElementById('startTime').addEventListener('change', function() { upd
 // ═══════════════════════════════════════════
 document.getElementById('btnShare').addEventListener('click', openShareModal);
 document.getElementById('btnClear').addEventListener('click', clearAll);
+document.getElementById('btnDriver').addEventListener('click', openDriverModal);
+document.getElementById('btnDriverFromShare').addEventListener('click', function() {
+  closeModal();
+  openDriverModal();
+});
 document.getElementById('shareModal').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
+document.getElementById('driverModal').addEventListener('click', function(e) {
+  if (e.target === this) closeDriverModal();
+});
+
+function buildPlannerUrl() {
+  var params = new URLSearchParams();
+  params.set('stops', itinerary.join(','));
+  params.set('start', document.getElementById('startTime').value);
+  return window.location.origin + '/plan-your-day?' + params.toString();
+}
+
+function itineraryLabel() {
+  return itinerary.map(function(id, i) {
+    return (i + 1) + '. ' + WMap[id].n;
+  }).join(' · ');
+}
 
 function openShareModal() {
   if (itinerary.length === 0) return;
@@ -995,11 +1116,41 @@ function openShareModal() {
 
 function closeModal() { document.getElementById('shareModal').classList.remove('show'); }
 
+function openDriverModal() {
+  if (itinerary.length === 0) return;
+  var startVal = document.getElementById('startTime').value;
+  var startLabel = fmtTime(getStartHour());
+  document.getElementById('driverSummaryStops').textContent = itineraryLabel();
+  document.getElementById('driverSummaryMeta').textContent =
+    itinerary.length + ' stop' + (itinerary.length === 1 ? '' : 's') +
+    ' · start ' + startLabel;
+  document.getElementById('driverItinerary').value = itineraryLabel();
+  document.getElementById('driverStartTime').value = startVal + ' (' + startLabel + ')';
+  document.getElementById('driverPlannerUrl').value = buildPlannerUrl();
+
+  var form = document.getElementById('driverQuoteForm');
+  var success = document.getElementById('driverQuoteSuccess');
+  form.style.display = '';
+  success.style.display = 'none';
+  form.reset();
+  // Hidden fields are cleared by reset — restore them.
+  document.getElementById('driverItinerary').value = itineraryLabel();
+  document.getElementById('driverStartTime').value = startVal + ' (' + startLabel + ')';
+  document.getElementById('driverPlannerUrl').value = buildPlannerUrl();
+  form.querySelector('[name="operator"]').value = 'Driver for planned itinerary';
+
+  var status = form.querySelector('.lead-status');
+  if (status) status.textContent = '';
+
+  document.getElementById('driverModal').classList.add('show');
+}
+
+function closeDriverModal() {
+  document.getElementById('driverModal').classList.remove('show');
+}
+
 function copyLink() {
-  var params = new URLSearchParams();
-  params.set('stops', itinerary.join(','));
-  params.set('start', document.getElementById('startTime').value);
-  var url = window.location.origin + window.location.pathname + '?' + params.toString();
+  var url = buildPlannerUrl();
   navigator.clipboard.writeText(url).then(function() {
     var btn = document.getElementById('btnCopyLink');
     btn.classList.add('copied');

@@ -141,7 +141,20 @@ async function loadLeads() {
 }
 
 function formatPayload(payload) {
-  const preferred = ["topic", "message", "business_name", "website", "subject"];
+  const preferred = [
+    "topic",
+    "message",
+    "business_name",
+    "website",
+    "subject",
+    "operator",
+    "party_size",
+    "preferred_date",
+    "phone",
+    "start_time",
+    "itinerary",
+    "planner_url",
+  ];
   const seen = new Set();
   const lines = [];
   for (const key of preferred) {

@@ -114,8 +114,21 @@ export async function notifyOperator(env, payload) {
 export function formatLeadNotify(lead, adminUrl) {
   const label = TYPE_LABELS[lead.type] || lead.type;
   const payload = lead.payload && typeof lead.payload === "object" ? lead.payload : {};
-  // Prefer topic, then message, so contact leads are scannable in the inbox.
-  const orderedKeys = ["topic", "message", "business_name", "website", "subject"];
+  // Prefer human-readable order for contact + tour/itinerary leads.
+  const orderedKeys = [
+    "topic",
+    "message",
+    "business_name",
+    "website",
+    "subject",
+    "operator",
+    "party_size",
+    "preferred_date",
+    "phone",
+    "start_time",
+    "itinerary",
+    "planner_url",
+  ];
   const seen = new Set();
   const payloadLines = [];
   for (const key of orderedKeys) {
