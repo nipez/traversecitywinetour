@@ -91,6 +91,31 @@ assert.equal(plannerTour.lead.payload.start_time, "11:00 (11:00 AM)");
 assert.equal(plannerTour.lead.payload.phone, "231-555-0100");
 assert.equal(plannerTour.lead.payload.ignore_me, undefined);
 
+const wineryTour = parseLeadBody(JSON.stringify({
+  type: "tour",
+  email: "guest@example.com",
+  name: "Morgan",
+  consent: true,
+  source_page: "/wineries/willow-vineyard",
+  payload: {
+    operator: "Tour including Willow Vineyard",
+    winery: "Willow Vineyard",
+    winery_slug: "willow-vineyard",
+    party_size: "6",
+    preferred_date: "2026-08-15",
+    phone: "231-555-0199",
+    message: "Include nearby Shady Lane if possible",
+    ignore_me: "nope",
+  },
+}));
+assert.equal(wineryTour.lead.type, "tour");
+assert.equal(wineryTour.lead.payload.winery, "Willow Vineyard");
+assert.equal(wineryTour.lead.payload.winery_slug, "willow-vineyard");
+assert.equal(wineryTour.lead.payload.operator, "Tour including Willow Vineyard");
+assert.equal(wineryTour.lead.payload.party_size, "6");
+assert.equal(wineryTour.lead.payload.ignore_me, undefined);
+assert.equal(wineryTour.lead.source_page, "/wineries/willow-vineyard");
+
 expectError({ type: "tour", email: "a@b.com", consent: true }, "Name is required");
 
 expectError({ type: "advertise", email: "a@b.com", consent: true }, "Name is required");
@@ -223,6 +248,33 @@ assert.match(tourNotify.text, /start_time: 11:00/);
 assert.ok(
   tourNotify.text.indexOf("itinerary:") < tourNotify.text.indexOf("planner_url:"),
   "itinerary should appear before planner_url in notify body"
+);
+
+const wineryTourNotify = formatLeadNotify(
+  {
+    id: "lead-winery-tour-1",
+    type: "tour",
+    email: "guest@example.com",
+    name: "Morgan",
+    source_page: "/wineries/willow-vineyard",
+    payload: {
+      operator: "Tour including Willow Vineyard",
+      winery: "Willow Vineyard",
+      winery_slug: "willow-vineyard",
+      party_size: "6",
+      preferred_date: "2026-08-15",
+      message: "Include nearby Shady Lane if possible",
+    },
+  },
+  "https://traversecitywinetour.com/admin/leads"
+);
+assert.match(wineryTourNotify.subject, /Tour inquiry/);
+assert.match(wineryTourNotify.text, /winery: Willow Vineyard/);
+assert.match(wineryTourNotify.text, /winery_slug: willow-vineyard/);
+assert.match(wineryTourNotify.text, /Source page: \/wineries\/willow-vineyard/);
+assert.ok(
+  wineryTourNotify.text.indexOf("winery:") < wineryTourNotify.text.indexOf("winery_slug:"),
+  "winery should appear before winery_slug in notify body"
 );
 
 assert.equal(escapeHtml("<script>"), "&lt;script&gt;");

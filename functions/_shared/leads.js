@@ -16,8 +16,9 @@ export const PAYLOAD_FIELDS = {
   // subject kept for backward compatibility with older clients.
   contact: ["topic", "subject", "message", "business_name", "website"],
   // itinerary / start_time / planner_url / phone are used by the
-  // plan-your-day "Get a driver" quote form; operator/message remain
-  // the wine-tours inquiry fields.
+  // plan-your-day "Get a driver" quote form; winery / winery_slug are
+  // used by winery-page tour quote CTAs; operator/message remain the
+  // wine-tours inquiry fields.
   tour: [
     "operator",
     "party_size",
@@ -26,6 +27,8 @@ export const PAYLOAD_FIELDS = {
     "start_time",
     "itinerary",
     "planner_url",
+    "winery",
+    "winery_slug",
     "message",
   ],
 };
