@@ -329,7 +329,8 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <div class="sidebar-card">
       <h3>Visitor Guide</h3>
       <p style="font-size:0.88rem;color:var(--text-light);line-height:1.6;margin-bottom:16px;">Need a ride? Browse our partner wine tour companies for guided visits to Silver Leaf Vineyard & Winery and nearby wineries.</p>
-      <a href="/wine-tours" class="sidebar-cta" style="background:var(--gold);color:var(--burgundy);">Browse Wine Tours</a>
+      <button type="button" class="winery-tour-cta" data-tour-quote data-winery-name="Silver Leaf Vineyard &amp; Winery" data-winery-slug="silver-leaf-vineyard">Visit Silver Leaf Vineyard &amp; Winery on a guided wine tour</button>
+      <a href="/wine-tours" class="winery-tour-secondary">Browse wine tour operators</a>
     </div>
   </div>
 </div>
@@ -381,11 +382,21 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
 </a></div>
   </div>
 </section>
+
+<section class="winery-tour-cta-band" aria-label="Request a guided tour">
+  <div class="winery-tour-cta-band-inner">
+    <div class="winery-tour-cta-copy">
+      <h2>Visit Silver Leaf Vineyard &amp; Winery on a guided wine tour</h2>
+      <p>Tell us your date and group size — we’ll follow up with local driver options that can include Silver Leaf Vineyard &amp; Winery.</p>
+    </div>
+    <button type="button" class="winery-tour-cta" data-tour-quote data-winery-name="Silver Leaf Vineyard &amp; Winery" data-winery-slug="silver-leaf-vineyard">Visit Silver Leaf Vineyard &amp; Winery on a guided wine tour</button>
+  </div>
+</section>
 <section class="newsletter">
   <div class="newsletter-inner">
     <h2>Stay Connected to Wine Country</h2>
     <p>Weekly updates on new wines, events, seasonal guides, and exclusive offers from Traverse City's finest wineries.</p>
-    <form class="newsletter-form" onsubmit="return false;"><input type="email" placeholder="Enter your email address"><button type="submit">Subscribe</button></form>
+    <form class="newsletter-form"><input type="email" name="email" placeholder="Enter your email address" required autocomplete="email"><button type="submit">Subscribe</button></form>
   </div>
 </section>
 <footer>

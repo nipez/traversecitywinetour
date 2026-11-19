@@ -174,18 +174,186 @@
       .newsletter-form input[type="email"] { flex:1 1 180px; min-width:0; }
       .newsletter-form button { flex:0 0 auto; }
       .lead-status { margin-top:12px; font-size:0.88rem; line-height:1.5; }
+      .newsletter-form .lead-status { flex:1 1 100%; width:100%; }
       .lead-status[data-kind="ok"] { color:#2f6b3a; }
       .newsletter .lead-status[data-kind="ok"] { color:#D4BC8B; }
       .lead-status[data-kind="error"] { color:#9b2c2c; }
       .newsletter .lead-status[data-kind="error"] { color:#f3c1c1; }
+
+      .winery-tour-cta-band { max-width:1340px; margin:0 auto 8px; padding:0 40px 48px; }
+      .winery-tour-cta-band-inner { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px; padding:28px 32px; background:linear-gradient(135deg, rgba(74,14,27,0.06), rgba(201,169,110,0.12)); border:1px solid rgba(74,14,27,0.08); border-radius:8px; }
+      .winery-tour-cta-copy { flex:1 1 240px; min-width:0; }
+      .winery-tour-cta-copy h2 { font-family:'Playfair Display',serif; font-size:1.45rem; font-weight:500; color:#4A0E1B; margin:0 0 8px; }
+      .winery-tour-cta-copy p { margin:0; font-size:0.95rem; line-height:1.6; color:#7A7068; }
+      .winery-tour-cta { display:inline-flex; align-items:center; justify-content:center; gap:8px; width:auto; min-height:48px; padding:14px 22px; border:none; border-radius:4px; background:#C9A96E; color:#4A0E1B; font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; cursor:pointer; transition:background 0.3s; }
+      .winery-tour-cta:hover { background:#D4BC8B; }
+      .sidebar-card .winery-tour-cta { width:100%; margin-top:16px; }
+      .sidebar-card .winery-tour-secondary { display:block; width:100%; text-align:center; margin-top:12px; padding:12px; border:1px solid rgba(74,14,27,0.15); border-radius:4px; color:#4A0E1B; font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:500; letter-spacing:0.04em; text-decoration:none; transition:border-color 0.3s,color 0.3s; }
+      .sidebar-card .winery-tour-secondary:hover { border-color:#4A0E1B; }
+
+      .tour-quote-overlay { position:fixed; inset:0; z-index:3000; display:flex; align-items:center; justify-content:center; padding:16px; background:rgba(44,36,32,0.6); backdrop-filter:blur(4px); opacity:0; pointer-events:none; transition:opacity 0.25s; }
+      .tour-quote-overlay.show { opacity:1; pointer-events:auto; }
+      .tour-quote-modal { width:100%; max-width:520px; max-height:92vh; overflow:auto; background:#fff; border-radius:16px; box-shadow:0 24px 80px rgba(74,14,27,0.2); transform:translateY(16px); transition:transform 0.25s; }
+      .tour-quote-overlay.show .tour-quote-modal { transform:translateY(0); }
+      .tour-quote-top { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:24px 28px; border-bottom:1px solid rgba(74,14,27,0.06); }
+      .tour-quote-top h2 { margin:0; font-family:'Playfair Display',serif; font-size:1.2rem; color:#4A0E1B; }
+      .tour-quote-close { background:none; border:none; color:#7A7068; cursor:pointer; padding:4px; }
+      .tour-quote-close:hover { color:#4A0E1B; }
+      .tour-quote-summary { margin:16px 28px 0; padding:14px 16px; background:#F5F0E8; border-radius:8px; border:1px solid rgba(74,14,27,0.06); }
+      .tour-quote-summary-label { font-size:0.65rem; letter-spacing:0.12em; text-transform:uppercase; color:#7A7068; margin-bottom:6px; }
+      .tour-quote-summary-name { font-size:0.92rem; color:#4A0E1B; font-weight:500; line-height:1.4; }
+      .tour-quote-form { padding:16px 28px 24px; }
+      .tour-quote-form .form-row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+      .tour-quote-form .form-group { margin-bottom:12px; }
+      .tour-quote-form .form-group.full { grid-column:1 / -1; }
+      .tour-quote-form label { display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.04em; margin-bottom:5px; color:#3A3330; }
+      .tour-quote-form input,
+      .tour-quote-form textarea { width:100%; padding:10px 12px; border:1px solid rgba(74,14,27,0.15); border-radius:6px; font:inherit; font-size:0.9rem; background:#fff; color:#3A3330; }
+      .tour-quote-form textarea { min-height:72px; resize:vertical; }
+      .tour-quote-form .form-submit { width:100%; margin-top:4px; padding:12px 20px; background:#4A0E1B; color:#F5F0E8; border:none; border-radius:6px; font-family:'Outfit',sans-serif; font-size:0.82rem; font-weight:600; letter-spacing:0.04em; cursor:pointer; }
+      .tour-quote-form .form-submit:hover { background:#6B1A2A; }
+      .tour-quote-form .form-submit:disabled { opacity:0.6; cursor:not-allowed; }
+      .tour-quote-form .form-note { margin:10px 0 8px; font-size:0.72rem; color:#7A7068; line-height:1.5; }
+      .tour-quote-form .form-note a { color:#4A0E1B; }
+      .tour-quote-success { display:none; padding:28px; text-align:center; }
+      .tour-quote-success h3 { font-family:'Playfair Display',serif; font-size:1.2rem; color:#4A0E1B; margin:0 0 8px; }
+      .tour-quote-success p { font-size:0.88rem; color:#7A7068; line-height:1.55; margin:0 0 20px; }
+      .tour-quote-success button { padding:10px 20px; background:#4A0E1B; color:#F5F0E8; border:none; border-radius:6px; font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:600; cursor:pointer; }
+      @media (max-width:640px) {
+        .winery-tour-cta-band { padding:0 20px 36px; }
+        .winery-tour-cta-band-inner { padding:22px 20px; }
+        .tour-quote-form .form-row { grid-template-columns:1fr; }
+      }
     `;
     document.head.appendChild(style);
+  }
+
+  function ensureTourQuoteModal() {
+    let overlay = document.getElementById("tourQuoteOverlay");
+    if (overlay) return overlay;
+
+    overlay = document.createElement("div");
+    overlay.id = "tourQuoteOverlay";
+    overlay.className = "tour-quote-overlay";
+    overlay.setAttribute("role", "presentation");
+    overlay.innerHTML = `
+      <div class="tour-quote-modal" role="dialog" aria-modal="true" aria-labelledby="tourQuoteTitle">
+        <div class="tour-quote-top">
+          <h2 id="tourQuoteTitle">Request a tour quote</h2>
+          <button type="button" class="tour-quote-close" aria-label="Close quote form">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <div class="tour-quote-summary">
+          <div class="tour-quote-summary-label">Guided visit including</div>
+          <div class="tour-quote-summary-name" id="tourQuoteWineryLabel"></div>
+        </div>
+        <form class="tour-quote-form" id="tourQuoteForm" data-lead-form="tour" data-success="tourQuoteSuccess">
+          <input type="hidden" name="winery" id="tourQuoteWinery" value="">
+          <input type="hidden" name="winery_slug" id="tourQuoteWinerySlug" value="">
+          <input type="hidden" name="operator" id="tourQuoteOperator" value="">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tour-quote-name">Name</label>
+              <input type="text" id="tour-quote-name" name="name" required autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="tour-quote-email">Email</label>
+              <input type="email" id="tour-quote-email" name="email" required autocomplete="email">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tour-quote-date">Preferred date</label>
+              <input type="date" id="tour-quote-date" name="preferred_date" required>
+            </div>
+            <div class="form-group">
+              <label for="tour-quote-party">Group size</label>
+              <input type="number" id="tour-quote-party" name="party_size" min="1" max="50" placeholder="e.g. 6" required>
+            </div>
+          </div>
+          <div class="form-group full">
+            <label for="tour-quote-phone">Phone <span style="font-weight:400;color:#7A7068;">(optional)</span></label>
+            <input type="tel" id="tour-quote-phone" name="phone" autocomplete="tel">
+          </div>
+          <div class="form-group full">
+            <label for="tour-quote-message">Notes <span style="font-weight:400;color:#7A7068;">(optional)</span></label>
+            <textarea id="tour-quote-message" name="message" placeholder="Hotel pickup, occasion, other stops…"></textarea>
+          </div>
+          <p class="form-note">We’ll match you with a local wine-tour operator. No payment is collected here.</p>
+          <button type="submit" class="form-submit">Request tour quote</button>
+        </form>
+        <div class="tour-quote-success" id="tourQuoteSuccess">
+          <h3>Request received</h3>
+          <p>Thanks — we received your tour request and will follow up shortly with options.</p>
+          <button type="button" id="tourQuoteSuccessClose">Close</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+
+    const form = overlay.querySelector("#tourQuoteForm");
+    wireLeadForm(form);
+
+    const close = () => closeTourQuoteModal();
+    overlay.querySelector(".tour-quote-close").addEventListener("click", close);
+    overlay.querySelector("#tourQuoteSuccessClose").addEventListener("click", close);
+    overlay.addEventListener("click", (event) => {
+      if (event.target === overlay) close();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && overlay.classList.contains("show")) close();
+    });
+
+    return overlay;
+  }
+
+  function openTourQuoteModal(wineryName, winerySlug) {
+    const overlay = ensureTourQuoteModal();
+    const form = overlay.querySelector("#tourQuoteForm");
+    const success = overlay.querySelector("#tourQuoteSuccess");
+    form.style.display = "";
+    success.style.display = "none";
+    form.reset();
+    setStatus(form, "", "");
+
+    overlay.querySelector("#tourQuoteWineryLabel").textContent = wineryName;
+    overlay.querySelector("#tourQuoteWinery").value = wineryName;
+    overlay.querySelector("#tourQuoteWinerySlug").value = winerySlug || "";
+    overlay.querySelector("#tourQuoteOperator").value = "Tour including " + wineryName;
+
+    overlay.classList.add("show");
+    document.body.style.overflow = "hidden";
+    const first = overlay.querySelector("#tour-quote-name");
+    if (first) first.focus();
+  }
+
+  function closeTourQuoteModal() {
+    const overlay = document.getElementById("tourQuoteOverlay");
+    if (!overlay) return;
+    overlay.classList.remove("show");
+    document.body.style.overflow = "";
+  }
+
+  function wireTourQuoteTriggers() {
+    const triggers = document.querySelectorAll("[data-tour-quote]");
+    if (!triggers.length) return;
+    ensureTourQuoteModal();
+    triggers.forEach((el) => {
+      el.addEventListener("click", (event) => {
+        event.preventDefault();
+        const name = el.getAttribute("data-winery-name") || "this winery";
+        const slug = el.getAttribute("data-winery-slug") || "";
+        openTourQuoteModal(name, slug);
+      });
+    });
   }
 
   function init() {
     injectStyles();
     document.querySelectorAll("form.newsletter-form").forEach(wireNewsletter);
     document.querySelectorAll("form[data-lead-form]").forEach(wireLeadForm);
+    wireTourQuoteTriggers();
   }
 
   if (document.readyState === "loading") {

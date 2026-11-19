@@ -122,6 +122,8 @@ export function formatLeadNotify(lead, adminUrl) {
     "website",
     "subject",
     "operator",
+    "winery",
+    "winery_slug",
     "party_size",
     "preferred_date",
     "phone",

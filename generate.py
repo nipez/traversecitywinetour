@@ -238,7 +238,7 @@ def newsletter_section():
   <div class="newsletter-inner">
     <h2>Stay Connected to Wine Country</h2>
     <p>Weekly updates on new wines, events, seasonal guides, and exclusive offers from Traverse City's finest wineries.</p>
-    <form class="newsletter-form"><input type="email" name="email" placeholder="Enter your email address" required><button type="submit">Subscribe</button></form>
+    <form class="newsletter-form"><input type="email" name="email" placeholder="Enter your email address" required autocomplete="email"><button type="submit">Subscribe</button></form>
   </div>
 </section>'''
 
@@ -542,12 +542,22 @@ for w in wineries:
     </div>
     <div class="sidebar-card">
       <h3>Plan Your Visit</h3>
-      <p style="font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 16px;">Need a ride? Browse our partner wine tour companies for guided visits to {w['name']} and nearby wineries.</p>
-      <a href="../wine-tours.html" class="sidebar-cta" style="background: var(--gold); color: var(--burgundy);">Browse Wine Tours</a>
+      <p style="font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 16px;">Need a ride? Request a short tour quote for guided visits to {w['name']} and nearby wineries — we’ll match you with a local operator.</p>
+      <button type="button" class="winery-tour-cta" data-tour-quote data-winery-name="{w['name']}" data-winery-slug="{w['slug']}">Visit {w['name']} on a guided wine tour</button>
+      <a href="../wine-tours.html" class="winery-tour-secondary">Browse wine tour operators</a>
     </div>
   </div>
 </div>
 <section class="related-wineries"><div class="related-inner"><div class="section-header"><div class="section-tag">More on {w['peninsula']} Peninsula</div><h2 class="section-title">Nearby Wineries</h2><div class="section-divider"></div></div><div class="winery-grid">{related_cards}</div></div></section>
+<section class="winery-tour-cta-band" aria-label="Request a guided tour">
+  <div class="winery-tour-cta-band-inner">
+    <div class="winery-tour-cta-copy">
+      <h2>Visit {w['name']} on a guided wine tour</h2>
+      <p>Tell us your date and group size — we’ll follow up with local driver options that can include {w['name']}.</p>
+    </div>
+    <button type="button" class="winery-tour-cta" data-tour-quote data-winery-name="{w['name']}" data-winery-slug="{w['slug']}">Visit {w['name']} on a guided wine tour</button>
+  </div>
+</section>
 {newsletter_section()}{footer_section("../")}{scripts("../")}{close()}"""
 
     with open(f'{OUTPUT_DIR}/wineries/{w["slug"]}.html', 'w') as f: f.write(page)
