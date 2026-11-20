@@ -187,9 +187,12 @@
       .winery-tour-cta-copy p { margin:0; font-size:0.95rem; line-height:1.6; color:#7A7068; }
       .winery-tour-cta { display:inline-flex; align-items:center; justify-content:center; gap:8px; width:auto; min-height:48px; padding:14px 22px; border:none; border-radius:4px; background:#C9A96E; color:#4A0E1B; font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; cursor:pointer; transition:background 0.3s; }
       .winery-tour-cta:hover { background:#D4BC8B; }
-      .sidebar-card .winery-tour-cta { width:100%; margin-top:16px; }
-      .sidebar-card .winery-tour-secondary { display:block; width:100%; text-align:center; margin-top:12px; padding:12px; border:1px solid rgba(74,14,27,0.15); border-radius:4px; color:#4A0E1B; font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:500; letter-spacing:0.04em; text-decoration:none; transition:border-color 0.3s,color 0.3s; }
-      .sidebar-card .winery-tour-secondary:hover { border-color:#4A0E1B; }
+      .sidebar-card .winery-tour-cta,
+      .info-card .winery-tour-cta { width:100%; margin-top:16px; }
+      .sidebar-card .winery-tour-secondary,
+      .info-card .winery-tour-secondary { display:block; width:100%; text-align:center; margin-top:12px; padding:12px; border:1px solid rgba(74,14,27,0.15); border-radius:4px; color:#4A0E1B; font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:500; letter-spacing:0.04em; text-decoration:none; transition:border-color 0.3s,color 0.3s; }
+      .sidebar-card .winery-tour-secondary:hover,
+      .info-card .winery-tour-secondary:hover { border-color:#4A0E1B; }
 
       .tour-quote-overlay { position:fixed; inset:0; z-index:3000; display:flex; align-items:center; justify-content:center; padding:16px; background:rgba(44,36,32,0.6); backdrop-filter:blur(4px); opacity:0; pointer-events:none; transition:opacity 0.25s; }
       .tour-quote-overlay.show { opacity:1; pointer-events:auto; }
@@ -245,12 +248,16 @@
           </button>
         </div>
         <div class="tour-quote-summary">
-          <div class="tour-quote-summary-label">Guided visit including</div>
+          <div class="tour-quote-summary-label" id="tourQuoteSummaryLabel">Guided visit including</div>
           <div class="tour-quote-summary-name" id="tourQuoteWineryLabel"></div>
         </div>
         <form class="tour-quote-form" id="tourQuoteForm" data-lead-form="tour" data-success="tourQuoteSuccess">
           <input type="hidden" name="winery" id="tourQuoteWinery" value="">
           <input type="hidden" name="winery_slug" id="tourQuoteWinerySlug" value="">
+          <input type="hidden" name="venue" id="tourQuoteVenue" value="">
+          <input type="hidden" name="venue_slug" id="tourQuoteVenueSlug" value="">
+          <input type="hidden" name="venue_type" id="tourQuoteVenueType" value="">
+          <input type="hidden" name="interest" id="tourQuoteInterest" value="">
           <input type="hidden" name="operator" id="tourQuoteOperator" value="">
           <div class="form-row">
             <div class="form-group">
@@ -308,7 +315,12 @@
     return overlay;
   }
 
-  function openTourQuoteModal(wineryName, winerySlug) {
+  function openTourQuoteModal(opts) {
+    if (typeof opts === "string") {
+      opts = { winery: opts, winerySlug: arguments[1] || "" };
+    }
+    opts = opts || {};
+
     const overlay = ensureTourQuoteModal();
     const form = overlay.querySelector("#tourQuoteForm");
     const success = overlay.querySelector("#tourQuoteSuccess");
@@ -317,10 +329,40 @@
     form.reset();
     setStatus(form, "", "");
 
-    overlay.querySelector("#tourQuoteWineryLabel").textContent = wineryName;
-    overlay.querySelector("#tourQuoteWinery").value = wineryName;
-    overlay.querySelector("#tourQuoteWinerySlug").value = winerySlug || "";
-    overlay.querySelector("#tourQuoteOperator").value = "Tour including " + wineryName;
+    const winery = opts.winery || "";
+    const winerySlug = opts.winerySlug || "";
+    const venue = opts.venue || "";
+    const venueSlug = opts.venueSlug || "";
+    const venueType = opts.venueType || "";
+    const interest = opts.interest || "";
+    const label =
+      opts.label ||
+      winery ||
+      venue ||
+      interest ||
+      "a guided Traverse City wine tour";
+    const operator =
+      opts.operator ||
+      (winery
+        ? "Tour including " + winery
+        : venue
+          ? "Tour including " + venue
+          : interest
+            ? interest + " quote"
+            : "Guided wine tour quote");
+    const summaryLabel = interest && !winery && !venue
+      ? "Tour interest"
+      : "Guided visit including";
+
+    overlay.querySelector("#tourQuoteSummaryLabel").textContent = summaryLabel;
+    overlay.querySelector("#tourQuoteWineryLabel").textContent = label;
+    overlay.querySelector("#tourQuoteWinery").value = winery;
+    overlay.querySelector("#tourQuoteWinerySlug").value = winerySlug;
+    overlay.querySelector("#tourQuoteVenue").value = venue;
+    overlay.querySelector("#tourQuoteVenueSlug").value = venueSlug;
+    overlay.querySelector("#tourQuoteVenueType").value = venueType;
+    overlay.querySelector("#tourQuoteInterest").value = interest;
+    overlay.querySelector("#tourQuoteOperator").value = operator;
 
     overlay.classList.add("show");
     document.body.style.overflow = "hidden";
@@ -342,9 +384,16 @@
     triggers.forEach((el) => {
       el.addEventListener("click", (event) => {
         event.preventDefault();
-        const name = el.getAttribute("data-winery-name") || "this winery";
-        const slug = el.getAttribute("data-winery-slug") || "";
-        openTourQuoteModal(name, slug);
+        openTourQuoteModal({
+          winery: el.getAttribute("data-winery-name") || "",
+          winerySlug: el.getAttribute("data-winery-slug") || "",
+          venue: el.getAttribute("data-venue-name") || "",
+          venueSlug: el.getAttribute("data-venue-slug") || "",
+          venueType: el.getAttribute("data-venue-type") || "",
+          interest: el.getAttribute("data-tour-interest") || "",
+          operator: el.getAttribute("data-operator") || "",
+          label: el.getAttribute("data-tour-label") || "",
+        });
       });
     });
   }

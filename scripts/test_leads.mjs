@@ -116,6 +116,70 @@ assert.equal(wineryTour.lead.payload.party_size, "6");
 assert.equal(wineryTour.lead.payload.ignore_me, undefined);
 assert.equal(wineryTour.lead.source_page, "/wineries/willow-vineyard");
 
+const breweryTour = parseLeadBody(JSON.stringify({
+  type: "tour",
+  email: "guest@example.com",
+  name: "Jordan",
+  consent: true,
+  source_page: "/breweries/hop-lot-brewing",
+  payload: {
+    operator: "Tour including Hop Lot Brewing",
+    venue: "Hop Lot Brewing",
+    venue_slug: "hop-lot-brewing",
+    venue_type: "brewery",
+    party_size: "8",
+    preferred_date: "2026-09-05",
+    message: "Add nearby Tandem Ciders if possible",
+    ignore_me: "nope",
+  },
+}));
+assert.equal(breweryTour.lead.type, "tour");
+assert.equal(breweryTour.lead.payload.venue, "Hop Lot Brewing");
+assert.equal(breweryTour.lead.payload.venue_slug, "hop-lot-brewing");
+assert.equal(breweryTour.lead.payload.venue_type, "brewery");
+assert.equal(breweryTour.lead.payload.operator, "Tour including Hop Lot Brewing");
+assert.equal(breweryTour.lead.payload.ignore_me, undefined);
+assert.equal(breweryTour.lead.source_page, "/breweries/hop-lot-brewing");
+
+const cideryTour = parseLeadBody(JSON.stringify({
+  type: "tour",
+  email: "guest@example.com",
+  name: "Sam",
+  consent: true,
+  source_page: "/cideries/tandem-ciders",
+  payload: {
+    operator: "Tour including Tandem Ciders",
+    venue: "Tandem Ciders",
+    venue_slug: "tandem-ciders",
+    venue_type: "cidery",
+    party_size: "4",
+    preferred_date: "2026-07-18",
+  },
+}));
+assert.equal(cideryTour.lead.payload.venue_type, "cidery");
+assert.equal(cideryTour.lead.payload.venue_slug, "tandem-ciders");
+
+const guideTour = parseLeadBody(JSON.stringify({
+  type: "tour",
+  email: "guest@example.com",
+  name: "Taylor",
+  consent: true,
+  source_page: "/wine-tour-guides/private-group-tours",
+  payload: {
+    operator: "Private / group tour quote",
+    interest: "Private or group wine tour",
+    party_size: "10",
+    preferred_date: "2026-08-22",
+    phone: "231-555-0144",
+    ignore_me: "nope",
+  },
+}));
+assert.equal(guideTour.lead.type, "tour");
+assert.equal(guideTour.lead.payload.interest, "Private or group wine tour");
+assert.equal(guideTour.lead.payload.operator, "Private / group tour quote");
+assert.equal(guideTour.lead.payload.ignore_me, undefined);
+assert.equal(guideTour.lead.source_page, "/wine-tour-guides/private-group-tours");
+
 expectError({ type: "tour", email: "a@b.com", consent: true }, "Name is required");
 
 expectError({ type: "advertise", email: "a@b.com", consent: true }, "Name is required");
@@ -275,6 +339,58 @@ assert.match(wineryTourNotify.text, /Source page: \/wineries\/willow-vineyard/);
 assert.ok(
   wineryTourNotify.text.indexOf("winery:") < wineryTourNotify.text.indexOf("winery_slug:"),
   "winery should appear before winery_slug in notify body"
+);
+
+const breweryTourNotify = formatLeadNotify(
+  {
+    id: "lead-brewery-tour-1",
+    type: "tour",
+    email: "guest@example.com",
+    name: "Jordan",
+    source_page: "/breweries/hop-lot-brewing",
+    payload: {
+      operator: "Tour including Hop Lot Brewing",
+      venue: "Hop Lot Brewing",
+      venue_slug: "hop-lot-brewing",
+      venue_type: "brewery",
+      party_size: "8",
+      preferred_date: "2026-09-05",
+      message: "Add nearby Tandem Ciders if possible",
+    },
+  },
+  "https://traversecitywinetour.com/admin/leads"
+);
+assert.match(breweryTourNotify.subject, /Tour inquiry/);
+assert.match(breweryTourNotify.text, /venue: Hop Lot Brewing/);
+assert.match(breweryTourNotify.text, /venue_slug: hop-lot-brewing/);
+assert.match(breweryTourNotify.text, /venue_type: brewery/);
+assert.match(breweryTourNotify.text, /Source page: \/breweries\/hop-lot-brewing/);
+assert.ok(
+  breweryTourNotify.text.indexOf("venue:") < breweryTourNotify.text.indexOf("venue_slug:"),
+  "venue should appear before venue_slug in notify body"
+);
+
+const guideTourNotify = formatLeadNotify(
+  {
+    id: "lead-guide-tour-1",
+    type: "tour",
+    email: "guest@example.com",
+    name: "Taylor",
+    source_page: "/wine-tour-guides/private-group-tours",
+    payload: {
+      operator: "Private / group tour quote",
+      interest: "Private or group wine tour",
+      party_size: "10",
+      preferred_date: "2026-08-22",
+    },
+  },
+  "https://traversecitywinetour.com/admin/leads"
+);
+assert.match(guideTourNotify.text, /interest: Private or group wine tour/);
+assert.match(guideTourNotify.text, /Source page: \/wine-tour-guides\/private-group-tours/);
+assert.ok(
+  guideTourNotify.text.indexOf("interest:") < guideTourNotify.text.indexOf("party_size:"),
+  "interest should appear before party_size in notify body"
 );
 
 assert.equal(escapeHtml("<script>"), "&lt;script&gt;");
