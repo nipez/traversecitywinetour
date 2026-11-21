@@ -184,6 +184,24 @@ def _meta_desc(text, max_len=155):
     return chunk.rsplit(" ", 1)[0].rstrip(" ,;:") + "."
 
 
+def _winery_seo_title(name: str) -> str:
+    full = f"{name} | Hours, Map & Wine-Tour Stop in Traverse City"
+    if len(full) <= 60:
+        return full
+    short = f"{name} | Hours, Map & Wine-Tour Stop"
+    if len(short) <= 60:
+        return short
+    return f"{name} | Hours, Map & Tour Stop"
+
+
+def _winery_seo_desc(name: str, peninsula: str) -> str:
+    pen = f"{peninsula} Peninsula" if not str(peninsula).endswith("Peninsula") else peninsula
+    return (
+        f"Planning a visit to {name} on {pen}? Tasting highlights, hours, "
+        "and how to add it to a private wine tour."
+    )
+
+
 def head(title, desc, canonical_path="", extra_css=""):
     desc = _meta_desc(desc)
     canon = "https://traversecitywinetour.com" + canonical_path.replace(".html", "")
@@ -218,16 +236,17 @@ def topbar():
     return '<div class="top-bar">Michigan\'s #1 Wine Destination &nbsp;·&nbsp; 40+ Wineries on Two Peninsulas &nbsp;·&nbsp; Plan Your Visit Today</div>'
 
 def navbar(prefix=""):
+    # prefix kept for back-compat; live pages use root-absolute clean URLs
     return f'''<nav id="mainNav">
   <div class="nav-inner">
-    <a href="{prefix}index.html" class="logo"><span class="logo-main">Traverse City Wine</span><span class="logo-sub">Tours & Winery Guide</span></a>
+    <a href="/" class="logo"><span class="logo-main">Traverse City Wine</span><span class="logo-sub">Tours & Winery Guide</span></a>
     <ul class="nav-links">
-      <li><a href="{prefix}wineries/index.html">Wineries</a></li>
-      <li><a href="{prefix}old-mission-peninsula.html">Old Mission</a></li>
-      <li><a href="{prefix}leelanau-peninsula.html">Leelanau</a></li>
-      <li><a href="{prefix}journal/index.html">Journal</a></li>
-      <li><a href="{prefix}plan-your-visit.html">Plan a Visit</a></li>
-      <li><a href="{prefix}wine-tours.html" class="nav-cta">Book a Tour</a></li>
+      <li><a href="/wineries/">Wineries</a></li>
+      <li><a href="/cideries/">Cideries</a></li>
+      <li><a href="/breweries/">Breweries</a></li>
+      <li><a href="/journal/">Journal</a></li>
+      <li><a href="/plan-your-day">Plan Your Day</a></li>
+      <li><a href="/wine-tours" class="nav-cta">Book a Tour</a></li>
     </ul>
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">{ICON_MENU}</button>
   </div>
@@ -251,30 +270,30 @@ def footer_section(prefix=""):
         <p>Your complete guide to exploring Michigan's premier wine region. Discover wineries, plan tours, and experience the best of Traverse City wine country.</p>
       </div>
       <div class="footer-col"><h4>Explore</h4><ul>
-        <li><a href="{prefix}wineries/index.html">All Wineries</a></li>
-        <li><a href="{prefix}old-mission-peninsula.html">Old Mission Peninsula</a></li>
-        <li><a href="{prefix}leelanau-peninsula.html">Leelanau Peninsula</a></li>
-        <li><a href="{prefix}journal/index.html">Wine Country Journal</a></li>
-        <li><a href="{prefix}events.html">Events Calendar</a></li>
+        <li><a href="{prefix}wineries/">All Wineries</a></li>
+        <li><a href="{prefix}old-mission-peninsula">Old Mission Peninsula</a></li>
+        <li><a href="{prefix}leelanau-peninsula">Leelanau Peninsula</a></li>
+        <li><a href="{prefix}journal/">Wine Country Journal</a></li>
+        <li><a href="{prefix}events">Events Calendar</a></li>
       </ul></div>
       <div class="footer-col"><h4>Plan Your Trip</h4><ul>
-        <li><a href="{prefix}wine-tours.html">Wine Tours</a></li>
-        <li><a href="{prefix}where-to-stay.html">Hotels & Lodging</a></li>
-        <li><a href="{prefix}plan-your-visit.html">Visitor Guide</a></li>
-        <li><a href="{prefix}about.html">About Us</a></li>
+        <li><a href="{prefix}wine-tours">Wine Tours</a></li>
+        <li><a href="{prefix}where-to-stay">Hotels & Lodging</a></li>
+        <li><a href="{prefix}plan-your-visit">Visitor Guide</a></li>
+        <li><a href="{prefix}about">About Us</a></li>
       </ul></div>
       <div class="footer-col"><h4>Resources</h4><ul>
-        <li><a href="{prefix}advertise.html">Advertise With Us</a></li>
-        <li><a href="{prefix}contact.html">Contact</a></li>
-        <li><a href="{prefix}privacy.html">Privacy Policy</a></li>
-        <li><a href="{prefix}sitemap.html">Sitemap</a></li>
+        <li><a href="{prefix}advertise">Advertise With Us</a></li>
+        <li><a href="{prefix}contact">Contact</a></li>
+        <li><a href="{prefix}privacy">Privacy Policy</a></li>
+        <li><a href="{prefix}sitemap">Sitemap</a></li>
       </ul></div>
     </div>
     <div class="footer-bottom">
       <span>&copy; 2026 TraverseCityWineTours.com &middot; All Rights Reserved &middot; Built by <a href="https://solutionstud.io/" target="_blank" rel="noopener">Solution Studio</a></span>
       <div style="display: flex; gap: 24px;">
-        <a href="{prefix}privacy.html">Privacy</a>
-        <a href="{prefix}sitemap.html">Sitemap</a>
+        <a href="{prefix}privacy">Privacy</a>
+        <a href="{prefix}sitemap">Sitemap</a>
       </div>
     </div>
   </div>
@@ -298,7 +317,7 @@ def winery_card_html(w, show_peninsula=True, img_prefix=""):
     if show_peninsula: badges += f'<span class="winery-peninsula-tag">{w["peninsula"]}</span>'
     img = "vineyard.jpg" if w['peninsula'] == 'Old Mission' else "wineglasses.jpg"
     filt = f' filter: {w.get("photo_filter","")};' if w.get("photo_filter") else ''
-    return f'''<a href="{img_prefix}wineries/{w["slug"]}.html" class="winery-card">
+    return f'''<a href="/wineries/{w["slug"]}" class="winery-card">
   <div class="winery-img"><div class="winery-img-inner" style="background-image: url('{img_prefix}{img}');{filt}"></div>{badges}</div>
   <div class="winery-info">
     <h3 class="winery-name">{w["name"]}</h3>
@@ -380,8 +399,8 @@ def article_card_home(a, is_featured=False):
     img = "vineyard.jpg" if a["photo"]=="vineyard" else "wineglasses.jpg"
     filt = f' filter: {a["filter"]};' if a["filter"] else ''
     if is_featured:
-        return f'<a href="journal/{a["slug"]}.html" class="journal-card featured"><div class="journal-img"><div class="journal-img-inner" style="background-image: url(\'{img}\');{filt}"></div><div class="journal-overlay"><div class="journal-cat">{a["category"]}</div><h3>{a["title"]}</h3><p>{a["excerpt"]}</p></div></div></a>'
-    return f'<a href="journal/{a["slug"]}.html" class="journal-card"><div class="journal-img"><div class="journal-img-inner" style="background-image: url(\'{img}\');{filt}"></div></div><div class="journal-text"><div class="journal-cat">{a["category"]}</div><h3>{a["title"]}</h3><p>{a["excerpt"]}</p></div></a>'
+        return f'<a href="/journal/{a["slug"]}" class="journal-card featured"><div class="journal-img"><div class="journal-img-inner" style="background-image: url(\'{img}\');{filt}"></div><div class="journal-overlay"><div class="journal-cat">{a["category"]}</div><h3>{a["title"]}</h3><p>{a["excerpt"]}</p></div></div></a>'
+    return f'<a href="/journal/{a["slug"]}" class="journal-card"><div class="journal-img"><div class="journal-img-inner" style="background-image: url(\'{img}\');{filt}"></div></div><div class="journal-text"><div class="journal-cat">{a["category"]}</div><h3>{a["title"]}</h3><p>{a["excerpt"]}</p></div></a>'
 
 article_cards_home = article_card_home(articles[0], True) + "\n".join([article_card_home(a) for a in articles[1:4]])
 
@@ -393,7 +412,7 @@ homepage = f"""{head("Traverse City Wine Tours | Explore Michigan's Premier Wine
     <div class="hero-tag">Traverse City, Michigan</div>
     <h1>Discover the Heart of <em>Michigan Wine Country</em></h1>
     <p class="hero-desc">Your complete guide to every winery, vineyard, and tasting room across Old Mission and Leelanau Peninsulas.</p>
-    <div class="hero-actions"><a href="wineries/index.html" class="btn-primary">Explore Wineries {ICON_ARROW}</a><a href="wine-tours.html" class="btn-outline">Wine Tours</a></div>
+    <div class="hero-actions"><a href="wineries/" class="btn-primary">Explore Wineries {ICON_ARROW}</a><a href="wine-tours" class="btn-outline">Wine Tours</a></div>
   </div>
   <div class="hero-stats">
     <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Wineries</div></div>
@@ -404,27 +423,27 @@ homepage = f"""{head("Traverse City Wine Tours | Explore Michigan's Premier Wine
 <section style="padding: 120px 40px;">
   <div class="section-header"><div class="section-tag">Two World-Class Wine Regions</div><h2 class="section-title">Explore the Peninsulas</h2><div class="section-divider"></div></div>
   <div class="pen-grid">
-    <a href="old-mission-peninsula.html" class="pen-card"><div class="pen-card-bg" style="background-image: url('vineyard.jpg')"></div><div class="pen-card-content"><h3>Old Mission Peninsula</h3><p>Nestled along the 45th parallel, this narrow peninsula stretches 18 miles into Grand Traverse Bay with stunning water views and world-class wines.</p><div class="pen-winery-count">{len(old_mission)} Wineries →</div></div></a>
-    <a href="leelanau-peninsula.html" class="pen-card"><div class="pen-card-bg" style="background-image: url('wineglasses.jpg')"></div><div class="pen-card-content"><h3>Leelanau Peninsula</h3><p>Rolling hills, cherry orchards, and over 25 vineyards make this peninsula a wine lover's paradise with diverse varietals and breathtaking scenery.</p><div class="pen-winery-count">{len(leelanau)} Wineries →</div></div></a>
+    <a href="old-mission-peninsula" class="pen-card"><div class="pen-card-bg" style="background-image: url('vineyard.jpg')"></div><div class="pen-card-content"><h3>Old Mission Peninsula</h3><p>Nestled along the 45th parallel, this narrow peninsula stretches 18 miles into Grand Traverse Bay with stunning water views and world-class wines.</p><div class="pen-winery-count">{len(old_mission)} Wineries →</div></div></a>
+    <a href="leelanau-peninsula" class="pen-card"><div class="pen-card-bg" style="background-image: url('wineglasses.jpg')"></div><div class="pen-card-content"><h3>Leelanau Peninsula</h3><p>Rolling hills, cherry orchards, and over 25 vineyards make this peninsula a wine lover's paradise with diverse varietals and breathtaking scenery.</p><div class="pen-winery-count">{len(leelanau)} Wineries →</div></div></a>
   </div>
 </section>
 <section style="background: var(--cream); padding: 120px 40px;">
   <div style="max-width: 1340px; margin: 0 auto;"><div class="section-header"><div class="section-tag">Winery Directory</div><h2 class="section-title">Featured Wineries</h2><div class="section-divider"></div></div>
   <div class="winery-grid">{featured_cards}</div>
-  <div style="text-align: center; margin-top: 56px;"><a href="wineries/index.html" class="btn-burgundy">View All {len(wineries)} Wineries {ICON_ARROW}</a></div></div>
+  <div style="text-align: center; margin-top: 56px;"><a href="wineries/" class="btn-burgundy">View All {len(wineries)} Wineries {ICON_ARROW}</a></div></div>
 </section>
-<section class="vineyard-banner"><div class="vineyard-banner-bg"></div><div class="vineyard-banner-content"><h2>Experience the Vineyards with a <em>Guided Wine Tour</em></h2><p>Sit back and enjoy the scenery while our partner tour companies take you on an unforgettable journey through Traverse City wine country.</p><a href="wine-tours.html" class="btn-primary">Browse Wine Tours {ICON_ARROW}</a></div></section>
+<section class="vineyard-banner"><div class="vineyard-banner-bg"></div><div class="vineyard-banner-content"><h2>Experience the Vineyards with a <em>Guided Wine Tour</em></h2><p>Sit back and enjoy the scenery while our partner tour companies take you on an unforgettable journey through Traverse City wine country.</p><a href="wine-tours" class="btn-primary">Browse Wine Tours {ICON_ARROW}</a></div></section>
 <section style="padding: 120px 40px; max-width: 1340px; margin: 0 auto;">
   <div class="section-header"><div class="section-tag">Wine Country Journal</div><h2 class="section-title">Stories from the Vine</h2><div class="section-divider"></div></div>
   <div class="journal-grid">{article_cards_home}</div>
-  <div style="text-align: center; margin-top: 48px;"><a href="journal/index.html" class="btn-outline-dark">Read More Articles {ICON_ARROW}</a></div>
+  <div style="text-align: center; margin-top: 48px;"><a href="journal/" class="btn-outline-dark">Read More Articles {ICON_ARROW}</a></div>
 </section>
 <section style="background: var(--cream); padding: 100px 40px;">
   <div style="max-width: 1340px; margin: 0 auto;"><div class="section-header"><div class="section-tag">Plan Your Visit</div><h2 class="section-title">Everything You Need</h2><div class="section-divider"></div></div>
   <div class="plan-grid">
-    <div class="plan-card"><div class="plan-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M2 9h20M9 21V9"/></svg></div><h3>Wine Tours</h3><p>Guided tours with professional drivers covering both peninsulas. Group, private, and custom options.</p><a href="wine-tours.html">Browse Tour Companies →</a></div>
-    <div class="plan-card"><div class="plan-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V7l8-4 8 4v14"/><path d="M9 21v-4h4v4"/></svg></div><h3>Where to Stay</h3><p>From luxury resorts to charming B&Bs, find the perfect home base for your wine country getaway.</p><a href="where-to-stay.html">View Accommodations →</a></div>
-    <div class="plan-card"><div class="plan-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div><h3>Events Calendar</h3><p>Wine festivals, harvest celebrations, live music at the vineyards, and seasonal tastings year-round.</p><a href="events.html">See Upcoming Events →</a></div>
+    <div class="plan-card"><div class="plan-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><path d="M2 9h20M9 21V9"/></svg></div><h3>Wine Tours</h3><p>Guided tours with professional drivers covering both peninsulas. Group, private, and custom options.</p><a href="wine-tours">Browse Tour Companies →</a></div>
+    <div class="plan-card"><div class="plan-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M5 21V7l8-4 8 4v14"/><path d="M9 21v-4h4v4"/></svg></div><h3>Where to Stay</h3><p>From luxury resorts to charming B&Bs, find the perfect home base for your wine country getaway.</p><a href="where-to-stay">View Accommodations →</a></div>
+    <div class="plan-card"><div class="plan-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div><h3>Events Calendar</h3><p>Wine festivals, harvest celebrations, live music at the vineyards, and seasonal tastings year-round.</p><a href="events">See Upcoming Events →</a></div>
   </div></div>
 </section>
 {newsletter_section()}{footer_section()}{scripts()}{close()}"""
@@ -439,7 +458,7 @@ all_cards = "\n".join([winery_card_html(w, img_prefix="../").replace('class="win
 directory = f"""{head("All Wineries | Traverse City Wine Tours", "Complete directory of every winery in Traverse City. Find addresses, hours, phone numbers for all wineries on Old Mission and Leelanau Peninsulas.", "/wineries/")}
 {topbar()}{navbar("../")}
 <section class="page-hero"><div class="page-hero-bg" style="background-image: url('../vineyard.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">{len(wineries)} Wineries</div><h1>Traverse City <em>Wineries</em></h1><p class="page-hero-desc">Explore every winery, vineyard, and tasting room across both peninsulas.</p></div></section>
-<div class="breadcrumbs"><a href="../index.html">Home</a><span>›</span><span class="current">All Wineries</span></div>
+<div class="breadcrumbs"><a href="/">Home</a><span>›</span><span class="current">All Wineries</span></div>
 <section style="padding: 60px 40px 120px; max-width: 1340px; margin: 0 auto;">
   <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 48px; flex-wrap: wrap;">
     <button class="filter-btn active" onclick="filterW('all',this)">All ({len(wineries)})</button>
@@ -499,7 +518,7 @@ for w in wineries:
     paragraphs = "".join([f'<p>{p.strip()}</p>' for p in long_desc.split('\n') if p.strip()])
     same_pen = [x for x in wineries if x['peninsula'] == w['peninsula'] and x['slug'] != w['slug']][:3]
     related_cards = "\n".join([winery_card_html(x, show_peninsula=False, img_prefix="../") for x in same_pen])
-    pen_link = "../old-mission-peninsula.html" if w['peninsula'] == 'Old Mission' else "../leelanau-peninsula.html"
+    pen_link = "../old-mission-peninsula" if w['peninsula'] == 'Old Mission' else "../leelanau-peninsula"
 
     addr_parts = [p.strip() for p in w['address'].split(',')]
     postal = ""
@@ -516,15 +535,15 @@ for w in wineries:
     schema = f'''<script type="application/ld+json">
 {{"@context":"https://schema.org","@type":"Winery","name":"{w['name']}","description":"{desc_full}","address":{{"@type":"PostalAddress",{schema_addr}}},"telephone":"{w['phone']}","url":"https://traversecitywinetour.com/wineries/{w['slug']}","sameAs":["{w['website']}"]}}</script>'''
 
-    seo_title = (w.get("seo_title") or "").strip() or f"{w['name']} | Traverse City Winery Guide"
-    seo_desc = (w.get("seo_description") or "").strip() or w.get("description", w["name"])
+    seo_title = (w.get("seo_title") or "").strip() or _winery_seo_title(w["name"])
+    seo_desc = (w.get("seo_description") or "").strip() or _winery_seo_desc(w["name"], w["peninsula"])
     page = f"""{head(seo_title, seo_desc, f"/wineries/{w['slug']}", winery_css)}
 {schema}
 {topbar()}{navbar("../")}
 <section class="winery-hero"><div class="winery-hero-bg" style="background-image: url('../{img}');{filt}"></div>
   <div class="winery-hero-content"><div class="winery-peninsula-label">{ICON_PIN} {w['peninsula']} Peninsula</div><h1>{w['name']}</h1><div class="winery-hero-type">{w['type']}</div></div>
 </section>
-<div class="breadcrumbs"><a href="../index.html">Home</a><span>›</span><a href="index.html">Wineries</a><span>›</span><a href="{pen_link}">{w['peninsula']}</a><span>›</span><span class="current">{w['name']}</span></div>
+<div class="breadcrumbs"><a href="/">Home</a><span>›</span><a href="/">Wineries</a><span>›</span><a href="{pen_link}">{w['peninsula']}</a><span>›</span><span class="current">{w['name']}</span></div>
 <div class="winery-body">
   <div class="winery-main">
     <h2>About {w['name']}</h2>{paragraphs}
@@ -544,7 +563,7 @@ for w in wineries:
       <h3>Plan Your Visit</h3>
       <p style="font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 16px;">Need a ride? Request a short tour quote for guided visits to {w['name']} and nearby wineries — we’ll match you with a local operator.</p>
       <button type="button" class="winery-tour-cta" data-tour-quote data-winery-name="{w['name']}" data-winery-slug="{w['slug']}">Visit {w['name']} on a guided wine tour</button>
-      <a href="../wine-tours.html" class="winery-tour-secondary">Browse wine tour operators</a>
+      <a href="../wine-tours" class="winery-tour-secondary">Browse wine tour operators</a>
     </div>
   </div>
 </div>
@@ -572,7 +591,7 @@ def peninsula_page(name, slug, wlist, desc, hero_img):
     return f"""{head(f"{name} Wineries | Traverse City Wine Tours", f"Explore all {len(wlist)} wineries on {name}. Complete guide with addresses, hours, and tasting room details.", f"/{slug}.html")}
 {topbar()}{navbar()}
 <section class="page-hero"><div class="page-hero-bg" style="background-image: url('{hero_img}');"></div><div class="page-hero-content"><div class="page-hero-tag">{len(wlist)} Wineries</div><h1><em>{name}</em> Wineries</h1><p class="page-hero-desc">{desc[:120]}...</p></div></section>
-<div class="breadcrumbs"><a href="index.html">Home</a><span>›</span><a href="wineries/index.html">Wineries</a><span>›</span><span class="current">{name}</span></div>
+<div class="breadcrumbs"><a href="/">Home</a><span>›</span><a href="wineries/">Wineries</a><span>›</span><span class="current">{name}</span></div>
 <section style="padding: 60px 40px 120px; max-width: 1340px; margin: 0 auto;">
   <div style="max-width: 800px; margin: 0 auto 60px; text-align: center;"><p style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; line-height: 1.7; color: var(--text-light);">{desc}</p></div>
   <div class="winery-grid">{cards}</div>
@@ -582,12 +601,12 @@ def peninsula_page(name, slug, wlist, desc, hero_img):
 with open(f'{OUTPUT_DIR}/old-mission-peninsula.html', 'w') as f:
     f.write(peninsula_page("Old Mission Peninsula", "old-mission-peninsula", old_mission,
         "Stretching 18 miles into Grand Traverse Bay along the 45th parallel, Old Mission Peninsula is home to some of Michigan's most celebrated wineries. The narrow landmass benefits from the moderating influence of the surrounding water, creating a microclimate ideal for cool-climate grape varieties like Riesling, Pinot Grigio, and Chardonnay.", "vineyard.jpg"))
-print("✓ old-mission-peninsula.html")
+print("✓ old-mission-peninsula")
 
 with open(f'{OUTPUT_DIR}/leelanau-peninsula.html', 'w') as f:
     f.write(peninsula_page("Leelanau Peninsula", "leelanau-peninsula", leelanau,
         "The Leelanau Peninsula wine trail winds through rolling hills, cherry orchards, and charming villages on Michigan's western coast. With diverse terroir influenced by Lake Michigan and inland lakes, the peninsula produces an impressive range of wines — from crisp whites and elegant sparklings to bold reds and celebrated ice wines.", "wineglasses.jpg"))
-print("✓ leelanau-peninsula.html")
+print("✓ leelanau-peninsula")
 
 
 # ── 5. WINE TOURS ──
@@ -612,13 +631,13 @@ for t in tours:
     tc += f'<div class="tour-card"><h3>{t[0]}</h3><div class="tour-type">{t[1]}</div><p>{t[2]}</p><div class="tour-features">{feats}</div><a href="#" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;">Learn More {ICON_ARROW}</a></div>\n'
 
 with open(f'{OUTPUT_DIR}/wine-tours.html', 'w') as f:
-    f.write(f"""{head("Wine Tours | Traverse City Wine Tours", "Book a guided wine tour in Traverse City. Luxury private tours, group shuttles, and custom wine trail experiences.", "/wine-tours.html", tours_css)}
+    f.write(f"""{head("Wine Tours | Traverse City Wine Tours", "Book a guided wine tour in Traverse City. Luxury private tours, group shuttles, and custom wine trail experiences.", "/wine-tours", tours_css)}
 {topbar()}{navbar()}
 <section class="page-hero"><div class="page-hero-bg" style="background-image: url('wineglasses.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Guided Experiences</div><h1>Traverse City <em>Wine Tours</em></h1><p class="page-hero-desc">Sit back, relax, and let someone else drive. Explore both peninsulas with our trusted tour partners.</p></div></section>
-<div class="breadcrumbs"><a href="index.html">Home</a><span>›</span><span class="current">Wine Tours</span></div>
+<div class="breadcrumbs"><a href="/">Home</a><span>›</span><span class="current">Wine Tours</span></div>
 <section style="padding: 60px 40px 80px; max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">{tc}</section>
 {newsletter_section()}{footer_section()}{scripts()}{close()}""")
-print("✓ wine-tours.html")
+print("✓ wine-tours")
 
 
 # ── 6. WHERE TO STAY ──
@@ -639,13 +658,13 @@ accom = [("Grand Traverse Resort and Spa","Luxury Resort","Full-service resort w
 sc = "".join([f'<div class="stay-card"><div class="stay-img"><span>Photo</span></div><div class="stay-info"><h3>{s[0]}</h3><div class="stay-type">{s[1]}</div><p>{s[2]}</p><span class="winery-link">View Details {ICON_ARROW}</span></div></div>' for s in accom])
 
 with open(f'{OUTPUT_DIR}/where-to-stay.html', 'w') as f:
-    f.write(f"""{head("Where to Stay | Traverse City Wine Tours", "Find the best hotels, inns, and B&Bs for your Traverse City wine country getaway.", "/where-to-stay.html", stay_css)}
+    f.write(f"""{head("Where to Stay | Traverse City Wine Tours", "Find the best hotels, inns, and B&Bs for your Traverse City wine country getaway.", "/where-to-stay", stay_css)}
 {topbar()}{navbar()}
 <section class="page-hero"><div class="page-hero-bg" style="background-image: url('vineyard.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Accommodations</div><h1>Where to <em>Stay</em></h1><p class="page-hero-desc">From luxury resorts to charming B&Bs in the vineyards — find your perfect wine country home base.</p></div></section>
-<div class="breadcrumbs"><a href="index.html">Home</a><span>›</span><span class="current">Where to Stay</span></div>
+<div class="breadcrumbs"><a href="/">Home</a><span>›</span><span class="current">Where to Stay</span></div>
 <section style="padding: 60px 40px 80px; max-width: 1340px; margin: 0 auto;"><div class="stay-grid">{sc}</div></section>
 {newsletter_section()}{footer_section()}{scripts()}{close()}""")
-print("✓ where-to-stay.html")
+print("✓ where-to-stay")
 
 
 # ── 7. JOURNAL INDEX ──
@@ -667,25 +686,25 @@ acards = ""
 for a in articles:
     img = "vineyard.jpg" if a["photo"]=="vineyard" else "wineglasses.jpg"
     filt = f' filter: {a["filter"]};' if a["filter"] else ''
-    acards += f'<a href="{a["slug"]}.html" class="article-card"><div class="article-img"><div class="article-img-inner" style="background-image: url(\'../{img}\');{filt}"></div></div><div class="article-text"><div class="article-cat">{a["category"]}</div><h3>{a["title"]}</h3><p>{a["excerpt"]}</p></div></a>\n'
+    acards += f'<a href="/journal/{a["slug"]}" class="article-card"><div class="article-img"><div class="article-img-inner" style="background-image: url(\'../{img}\');{filt}"></div></div><div class="article-text"><div class="article-cat">{a["category"]}</div><h3>{a["title"]}</h3><p>{a["excerpt"]}</p></div></a>\n'
 
 with open(f'{OUTPUT_DIR}/journal/index.html', 'w') as f:
     f.write(f"""{head("Wine Country Journal | Traverse City Wine Tours", "Stories, guides, and insights from Traverse City wine country.", "/journal/", jcss)}
 {topbar()}{navbar("../")}
 <section class="page-hero"><div class="page-hero-bg" style="background-image: url('../wineglasses.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Stories & Guides</div><h1>Wine Country <em>Journal</em></h1><p class="page-hero-desc">Winery spotlights, seasonal guides, varietal deep-dives, and the latest from Traverse City wine country.</p></div></section>
-<div class="breadcrumbs"><a href="../index.html">Home</a><span>›</span><span class="current">Journal</span></div>
+<div class="breadcrumbs"><a href="/">Home</a><span>›</span><span class="current">Journal</span></div>
 <section style="padding: 60px 40px 80px; max-width: 1340px; margin: 0 auto;"><div class="journal-list">{acards}</div></section>
 {newsletter_section()}{footer_section("../")}{scripts("../")}{close()}""")
-print("✓ journal/index.html")
+print("✓ journal/")
 
 
 # ── 8. REMAINING PAGES ──
 # Plan Your Visit
 with open(f'{OUTPUT_DIR}/plan-your-visit.html', 'w') as f:
-    f.write(f"""{head("Plan Your Visit | Traverse City Wine Tours", "Everything you need to plan your Traverse City wine country trip.", "/plan-your-visit.html")}
+    f.write(f"""{head("Plan Your Visit | Traverse City Wine Tours", "Everything you need to plan your Traverse City wine country trip.", "/plan-your-visit")}
 {topbar()}{navbar()}
 <section class="page-hero"><div class="page-hero-bg" style="background-image: url('vineyard.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Visitor Guide</div><h1>Plan Your <em>Wine Country Visit</em></h1></div></section>
-<div class="breadcrumbs"><a href="index.html">Home</a><span>›</span><span class="current">Plan Your Visit</span></div>
+<div class="breadcrumbs"><a href="/">Home</a><span>›</span><span class="current">Plan Your Visit</span></div>
 <section style="padding: 80px 40px; max-width: 900px; margin: 0 auto;">
   <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 500; color: var(--burgundy); margin-bottom: 24px;">Welcome to Traverse City Wine Country</h2>
   <p style="font-size: 1rem; line-height: 1.8; color: var(--text); margin-bottom: 20px;">Traverse City sits on the 45th parallel — the same latitude as Bordeaux, Burgundy, and the Willamette Valley — making it one of the premier wine regions in the United States. With over 40 wineries spread across two stunning peninsulas, there's a wine experience here for every palate.</p>
@@ -696,47 +715,47 @@ with open(f'{OUTPUT_DIR}/plan-your-visit.html', 'w') as f:
   <p style="font-size: 1rem; line-height: 1.8; color: var(--text); margin-bottom: 20px;">Wine tasting is a year-round activity. Summer (June–August) offers the best weather and most events. Fall (September–October) brings harvest season, stunning foliage, and fewer crowds.</p>
   <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 500; color: var(--burgundy); margin: 48px 0 20px;">Quick Links</h3>
   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px;">
-    <a href="wineries/index.html" style="display: flex; align-items: center; gap: 12px; padding: 20px; background: var(--cream); border-radius: 8px; text-decoration: none; color: var(--burgundy); font-weight: 500;">{ICON_WINE} All Wineries</a>
-    <a href="wine-tours.html" style="display: flex; align-items: center; gap: 12px; padding: 20px; background: var(--cream); border-radius: 8px; text-decoration: none; color: var(--burgundy); font-weight: 500;">{ICON_PIN} Wine Tours</a>
-    <a href="where-to-stay.html" style="display: flex; align-items: center; gap: 12px; padding: 20px; background: var(--cream); border-radius: 8px; text-decoration: none; color: var(--burgundy); font-weight: 500;">{ICON_STAR} Where to Stay</a>
-    <a href="events.html" style="display: flex; align-items: center; gap: 12px; padding: 20px; background: var(--cream); border-radius: 8px; text-decoration: none; color: var(--burgundy); font-weight: 500;">{ICON_CLOCK} Events Calendar</a>
+    <a href="wineries/" style="display: flex; align-items: center; gap: 12px; padding: 20px; background: var(--cream); border-radius: 8px; text-decoration: none; color: var(--burgundy); font-weight: 500;">{ICON_WINE} All Wineries</a>
+    <a href="wine-tours" style="display: flex; align-items: center; gap: 12px; padding: 20px; background: var(--cream); border-radius: 8px; text-decoration: none; color: var(--burgundy); font-weight: 500;">{ICON_PIN} Wine Tours</a>
+    <a href="where-to-stay" style="display: flex; align-items: center; gap: 12px; padding: 20px; background: var(--cream); border-radius: 8px; text-decoration: none; color: var(--burgundy); font-weight: 500;">{ICON_STAR} Where to Stay</a>
+    <a href="events" style="display: flex; align-items: center; gap: 12px; padding: 20px; background: var(--cream); border-radius: 8px; text-decoration: none; color: var(--burgundy); font-weight: 500;">{ICON_CLOCK} Events Calendar</a>
   </div>
 </section>
 {newsletter_section()}{footer_section()}{scripts()}{close()}""")
-print("✓ plan-your-visit.html")
+print("✓ plan-your-visit")
 
 # Events
 with open(f'{OUTPUT_DIR}/events.html', 'w') as f:
     events_list = [("May","Blossom Days Wine Trail","Celebrate spring with special tastings and vineyard tours as cherry blossoms bloom."),("July","Traverse City Cherry Festival","The region's biggest annual celebration features cherry-inspired wines, food, and festivities."),("September–October","Harvest Season","Watch the grapes come in, join harvest celebrations, and taste the year's first wines."),("November","Wine & Food Festival","Indulge in food and wine pairings featuring the region's best chefs and winemakers.")]
     ev = "".join([f'<div style="padding: 24px; background: var(--cream); border-radius: 8px; border-left: 3px solid var(--gold);"><div style="font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px;">{e[0]}</div><h4 style="font-family: \'Playfair Display\', serif; font-size: 1.1rem; color: var(--burgundy); margin-bottom: 4px;">{e[1]}</h4><p style="font-size: 0.88rem; color: var(--text-light);">{e[2]}</p></div>' for e in events_list])
-    f.write(f"""{head("Events Calendar | Traverse City Wine Tours", "Upcoming wine events, festivals, and tastings in Traverse City.", "/events.html")}
+    f.write(f"""{head("Events Calendar | Traverse City Wine Tours", "Upcoming wine events, festivals, and tastings in Traverse City.", "/events")}
 {topbar()}{navbar()}
 <section class="page-hero"><div class="page-hero-bg" style="background-image: url('wineglasses.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">What's Happening</div><h1>Events <em>Calendar</em></h1></div></section>
-<div class="breadcrumbs"><a href="index.html">Home</a><span>›</span><span class="current">Events</span></div>
+<div class="breadcrumbs"><a href="/">Home</a><span>›</span><span class="current">Events</span></div>
 <section style="padding: 60px 40px 80px; max-width: 900px; margin: 0 auto;">
   <div style="padding: 60px; background: var(--cream); border-radius: 12px; text-align: center; margin-bottom: 60px;"><h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--burgundy); margin-bottom: 12px;">Events Coming Soon</h3><p style="font-size: 0.95rem; color: var(--text-light); line-height: 1.6; margin-bottom: 24px;">We're building a comprehensive events calendar. Subscribe to our newsletter to be the first to know.</p><a href="#" class="btn-primary">Subscribe for Updates {ICON_ARROW}</a></div>
   <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--burgundy); margin-bottom: 24px;">Annual Highlights</h3>
   <div style="display: flex; flex-direction: column; gap: 16px;">{ev}</div>
 </section>
 {newsletter_section()}{footer_section()}{scripts()}{close()}""")
-print("✓ events.html")
+print("✓ events")
 
 # About
 with open(f'{OUTPUT_DIR}/about.html', 'w') as f:
-    f.write(f"""{head("About | Traverse City Wine Tours", "About TraverseCityWineTours.com — your comprehensive guide to Traverse City wine country.", "/about.html")}
+    f.write(f"""{head("About | Traverse City Wine Tours", "About TraverseCityWineTours.com — your comprehensive guide to Traverse City wine country.", "/about")}
 {topbar()}{navbar()}
 <section class="page-hero" style="height: 35vh; min-height: 280px;"><div class="page-hero-bg" style="background-image: url('vineyard.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Our Story</div><h1>About <em>Us</em></h1></div></section>
-<div class="breadcrumbs"><a href="index.html">Home</a><span>›</span><span class="current">About</span></div>
+<div class="breadcrumbs"><a href="/">Home</a><span>›</span><span class="current">About</span></div>
 <section style="padding: 60px 40px 100px; max-width: 800px; margin: 0 auto;">
   <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 500; color: var(--burgundy); margin-bottom: 24px;">Your Guide to Traverse City Wine Country</h2>
   <p style="font-size: 1rem; line-height: 1.8; color: var(--text); margin-bottom: 20px;">TraverseCityWineTours.com is the most comprehensive online guide to the wineries, vineyards, and wine experiences of Traverse City, Michigan. We're passionate about this region and dedicated to helping visitors and locals alike discover everything wine country has to offer.</p>
   <p style="font-size: 1rem; line-height: 1.8; color: var(--text); margin-bottom: 20px;">Our directory features every winery across both Old Mission and Leelanau Peninsulas, with detailed information including hours, contact details, wine specialties, and what makes each estate unique.</p>
   <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 500; color: var(--burgundy); margin: 48px 0 20px;">Get in Touch</h3>
   <p style="font-size: 1rem; line-height: 1.8; color: var(--text);">Email: <a href="mailto:hello@traversecitywinetours.com" style="color: var(--burgundy); font-weight: 500;">hello@traversecitywinetours.com</a></p>
-  <p style="font-size: 1rem; line-height: 1.8; color: var(--text);">Advertising: <a href="advertise.html" style="color: var(--burgundy); font-weight: 500;">Learn about advertising opportunities</a></p>
+  <p style="font-size: 1rem; line-height: 1.8; color: var(--text);">Advertising: <a href="advertise" style="color: var(--burgundy); font-weight: 500;">Learn about advertising opportunities</a></p>
 </section>
 {newsletter_section()}{footer_section()}{scripts()}{close()}""")
-print("✓ about.html")
+print("✓ about")
 
 # ADVERTISE — with wedding planners + event industry
 adv_css = """
@@ -754,10 +773,10 @@ adv_css = """
 """
 
 with open(f'{OUTPUT_DIR}/advertise.html', 'w') as f:
-    f.write(f"""{head("Advertise With Us | Traverse City Wine Tours", "Reach wine enthusiasts planning their Traverse City visits. Advertising for tour companies, hotels, restaurants, wedding planners, and local businesses.", "/advertise.html", adv_css)}
+    f.write(f"""{head("Advertise With Us | Traverse City Wine Tours", "Reach wine enthusiasts planning their Traverse City visits. Advertising for tour companies, hotels, restaurants, wedding planners, and local businesses.", "/advertise", adv_css)}
 {topbar()}{navbar()}
 <section class="page-hero" style="height: 35vh; min-height: 280px;"><div class="page-hero-bg" style="background-image: url('wineglasses.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Partner With Us</div><h1>Advertise on <em>TC Wine Tours</em></h1></div></section>
-<div class="breadcrumbs"><a href="index.html">Home</a><span>›</span><span class="current">Advertise</span></div>
+<div class="breadcrumbs"><a href="/">Home</a><span>›</span><span class="current">Advertise</span></div>
 <section style="padding: 60px 40px 100px; max-width: 1100px; margin: 0 auto;">
   <div style="max-width: 700px; margin: 0 auto 48px; text-align: center;">
     <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 500; color: var(--burgundy); margin-bottom: 16px;">Reach Wine Country Visitors</h2>
@@ -811,53 +830,53 @@ with open(f'{OUTPUT_DIR}/advertise.html', 'w') as f:
   </div>
 </section>
 {newsletter_section()}{footer_section()}{scripts()}{close()}""")
-print("✓ advertise.html")
+print("✓ advertise")
 
 # Contact
 with open(f'{OUTPUT_DIR}/contact.html', 'w') as f:
-    f.write(f"""{head("Contact Us | Traverse City Wine Tours", "Get in touch with TraverseCityWineTours.com.", "/contact.html")}
+    f.write(f"""{head("Contact Us | Traverse City Wine Tours", "Get in touch with TraverseCityWineTours.com.", "/contact")}
 {topbar()}{navbar()}
 <section class="page-hero" style="height: 35vh; min-height: 280px;"><div class="page-hero-bg" style="background-image: url('vineyard.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Get in Touch</div><h1><em>Contact</em> Us</h1></div></section>
-<div class="breadcrumbs"><a href="index.html">Home</a><span>›</span><span class="current">Contact</span></div>
+<div class="breadcrumbs"><a href="/">Home</a><span>›</span><span class="current">Contact</span></div>
 <section style="padding: 60px 40px 100px; max-width: 700px; margin: 0 auto;">
   <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: var(--text-light); text-align: center; line-height: 1.7; margin-bottom: 48px;">We'd love to hear from you. Whether you have a question, want to suggest an update, or are interested in advertising, drop us a line.</p>
   <div style="display: flex; flex-direction: column; gap: 24px;">
     <div style="padding: 32px; background: var(--cream); border-radius: 8px;"><h3 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--burgundy); margin-bottom: 8px;">General Inquiries</h3><p style="font-size: 0.95rem; color: var(--text);">Email: <a href="mailto:hello@traversecitywinetours.com" style="color: var(--burgundy); font-weight: 500;">hello@traversecitywinetours.com</a></p></div>
-    <div style="padding: 32px; background: var(--cream); border-radius: 8px;"><h3 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--burgundy); margin-bottom: 8px;">Advertising & Partnerships</h3><p style="font-size: 0.95rem; color: var(--text);">Email: <a href="mailto:advertise@traversecitywinetours.com" style="color: var(--burgundy); font-weight: 500;">advertise@traversecitywinetours.com</a></p><p style="font-size: 0.88rem; color: var(--text-light); margin-top: 8px;"><a href="advertise.html" style="color: var(--burgundy);">View advertising options →</a></p></div>
+    <div style="padding: 32px; background: var(--cream); border-radius: 8px;"><h3 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--burgundy); margin-bottom: 8px;">Advertising & Partnerships</h3><p style="font-size: 0.95rem; color: var(--text);">Email: <a href="mailto:advertise@traversecitywinetours.com" style="color: var(--burgundy); font-weight: 500;">advertise@traversecitywinetours.com</a></p><p style="font-size: 0.88rem; color: var(--text-light); margin-top: 8px;"><a href="advertise" style="color: var(--burgundy);">View advertising options →</a></p></div>
     <div style="padding: 32px; background: var(--cream); border-radius: 8px;"><h3 style="font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--burgundy); margin-bottom: 8px;">Winery Updates</h3><p style="font-size: 0.95rem; color: var(--text);">Own or manage a winery? <a href="mailto:listings@traversecitywinetours.com" style="color: var(--burgundy); font-weight: 500;">listings@traversecitywinetours.com</a></p></div>
   </div>
 </section>
 {newsletter_section()}{footer_section()}{scripts()}{close()}""")
-print("✓ contact.html")
+print("✓ contact")
 
 # Sitemap
-wsl = "".join([f'<li style="margin-bottom: 8px;"><a href="wineries/{w["slug"]}.html" style="color: var(--burgundy); text-decoration: none; font-size: 0.95rem;">{w["name"]}</a> <span style="color: var(--text-light); font-size: 0.82rem;">— {w["peninsula"]} Peninsula</span></li>' for w in wineries])
+wsl = "".join([f'<li style="margin-bottom: 8px;"><a href="/wineries/{w["slug"]}" style="color: var(--burgundy); text-decoration: none; font-size: 0.95rem;">{w["name"]}</a> <span style="color: var(--text-light); font-size: 0.82rem;">— {w["peninsula"]} Peninsula</span></li>' for w in wineries])
 with open(f'{OUTPUT_DIR}/sitemap.html', 'w') as f:
-    f.write(f"""{head("Sitemap | Traverse City Wine Tours", "Complete sitemap for TraverseCityWineTours.com.", "/sitemap.html")}
+    f.write(f"""{head("Sitemap | Traverse City Wine Tours", "Complete sitemap for TraverseCityWineTours.com.", "/sitemap")}
 {topbar()}{navbar()}
-<div class="breadcrumbs"><a href="index.html">Home</a><span>›</span><span class="current">Sitemap</span></div>
+<div class="breadcrumbs"><a href="/">Home</a><span>›</span><span class="current">Sitemap</span></div>
 <section style="padding: 60px 40px 100px; max-width: 900px; margin: 0 auto;">
   <h1 style="font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 500; color: var(--burgundy); margin-bottom: 48px;">Sitemap</h1>
   <h2 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--burgundy); margin-bottom: 16px;">Main Pages</h2>
   <ul style="list-style: none; margin-bottom: 40px; display: flex; flex-direction: column; gap: 8px;">
-    <li><a href="index.html" style="color: var(--burgundy); text-decoration: none;">Home</a></li>
-    <li><a href="wineries/index.html" style="color: var(--burgundy); text-decoration: none;">All Wineries</a></li>
-    <li><a href="old-mission-peninsula.html" style="color: var(--burgundy); text-decoration: none;">Old Mission Peninsula</a></li>
-    <li><a href="leelanau-peninsula.html" style="color: var(--burgundy); text-decoration: none;">Leelanau Peninsula</a></li>
-    <li><a href="wine-tours.html" style="color: var(--burgundy); text-decoration: none;">Wine Tours</a></li>
-    <li><a href="where-to-stay.html" style="color: var(--burgundy); text-decoration: none;">Where to Stay</a></li>
-    <li><a href="plan-your-visit.html" style="color: var(--burgundy); text-decoration: none;">Plan Your Visit</a></li>
-    <li><a href="events.html" style="color: var(--burgundy); text-decoration: none;">Events Calendar</a></li>
-    <li><a href="journal/index.html" style="color: var(--burgundy); text-decoration: none;">Wine Country Journal</a></li>
-    <li><a href="about.html" style="color: var(--burgundy); text-decoration: none;">About</a></li>
-    <li><a href="advertise.html" style="color: var(--burgundy); text-decoration: none;">Advertise</a></li>
-    <li><a href="contact.html" style="color: var(--burgundy); text-decoration: none;">Contact</a></li>
+    <li><a href="/" style="color: var(--burgundy); text-decoration: none;">Home</a></li>
+    <li><a href="wineries/" style="color: var(--burgundy); text-decoration: none;">All Wineries</a></li>
+    <li><a href="old-mission-peninsula" style="color: var(--burgundy); text-decoration: none;">Old Mission Peninsula</a></li>
+    <li><a href="leelanau-peninsula" style="color: var(--burgundy); text-decoration: none;">Leelanau Peninsula</a></li>
+    <li><a href="wine-tours" style="color: var(--burgundy); text-decoration: none;">Wine Tours</a></li>
+    <li><a href="where-to-stay" style="color: var(--burgundy); text-decoration: none;">Where to Stay</a></li>
+    <li><a href="plan-your-visit" style="color: var(--burgundy); text-decoration: none;">Plan Your Visit</a></li>
+    <li><a href="events" style="color: var(--burgundy); text-decoration: none;">Events Calendar</a></li>
+    <li><a href="journal/" style="color: var(--burgundy); text-decoration: none;">Wine Country Journal</a></li>
+    <li><a href="about" style="color: var(--burgundy); text-decoration: none;">About</a></li>
+    <li><a href="advertise" style="color: var(--burgundy); text-decoration: none;">Advertise</a></li>
+    <li><a href="contact" style="color: var(--burgundy); text-decoration: none;">Contact</a></li>
   </ul>
   <h2 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--burgundy); margin-bottom: 16px;">All Wineries ({len(wineries)})</h2>
   <ul style="list-style: none;">{wsl}</ul>
 </section>
 {footer_section()}{scripts()}{close()}""")
-print("✓ sitemap.html")
+print("✓ sitemap")
 
 # Copy images
 shutil.copy('/home/claude/wineglasses.jpg', f'{OUTPUT_DIR}/wineglasses.jpg')

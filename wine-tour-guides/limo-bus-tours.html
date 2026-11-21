@@ -138,24 +138,127 @@ footer{background:var(--charcoal);padding:64px 40px 32px;}
 {
   "@context": "https://schema.org",
   "@graph": [
-    {"@type": "WebPage", "@id": "https://traversecitywinetour.com/wine-tour-guides/limo-bus-tours#webpage", "url": "https://traversecitywinetour.com/wine-tour-guides/limo-bus-tours", "name": "Compare Limo and Bus Wine Tour Operators", "description": "Compare Traverse City limo, Sprinter, shuttle, and bus wine tour operators — vehicles, booking links, and sourced rates where published.", "isPartOf": {"@id": "https://traversecitywinetour.com/wine-tour-guides/#webpage"}},
-    {"@type": "ItemList", "@id": "https://traversecitywinetour.com/wine-tour-guides/limo-bus-tours#operators", "name": "Limo and bus wine tour operators", "itemListElement": [
-      {"@type": "ListItem", "position": 1, "item": {"@type": "LocalBusiness", "name": "Grand Traverse Tours", "url": "https://www.grandtraversetours.com/", "telephone": "+1-231-947-7433"}},
-      {"@type": "ListItem", "position": 2, "item": {"@type": "LocalBusiness", "name": "TASTE TC", "url": "https://tastetc.com/"}},
-      {"@type": "ListItem", "position": 3, "item": {"@type": "LocalBusiness", "name": "Traverse City Wine & Beer Tours", "url": "https://wineandbeertours.com/", "telephone": "+1-231-499-2656"}},
-      {"@type": "ListItem", "position": 4, "item": {"@type": "LocalBusiness", "name": "Grand Traverse Rides", "url": "https://www.grandtraverserides.com/winetours", "telephone": "+1-231-620-4815"}}
-    ]},
-    {"@type": "BreadcrumbList", "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://traversecitywinetour.com/"},
-      {"@type": "ListItem", "position": 2, "name": "Wine Tour Guides", "item": "https://traversecitywinetour.com/wine-tour-guides/"},
-      {"@type": "ListItem", "position": 3, "name": "Limo & Bus Tours", "item": "https://traversecitywinetour.com/wine-tour-guides/limo-bus-tours"}
-    ]},
-    {"@type": "FAQPage", "@id": "https://traversecitywinetour.com/wine-tour-guides/limo-bus-tours#faq", "mainEntity": [
-      {"@type": "Question", "name": "Which operators offer limo, Sprinter, or bus wine tours in Traverse City?", "acceptedAnswer": {"@type": "Answer", "text": "Grand Traverse Tours publishes Mercedes shuttles and limousine fleet options; TASTE TC lists a Mercedes Sprinter for about 4–12 guests; Traverse City Wine & Beer Tours markets vans and buses; Grand Traverse Rides lists a Chevy Suburban LT for up to 7. Compare vehicles in the table on this page and confirm capacity for your date."}},
-      {"@type": "Question", "name": "What vehicle sizes are available for Traverse City wine tours?", "acceptedAnswer": {"@type": "Answer", "text": "Published fleets include SUVs for small parties, Mercedes Sprinters and high-top shuttles for roughly 10–14 guests, limousine-style vehicles, and vans or buses for larger groups. Always confirm passenger capacity for your date."}},
-      {"@type": "Question", "name": "Do limo wine tours include tasting fees?", "acceptedAnswer": {"@type": "Answer", "text": "Typically no. Operator sites that discuss pricing usually list tasting fees as separate winery charges. Confirm inclusions in writing before you deposit."}},
-      {"@type": "Question", "name": "Can a bus tour do both Old Mission and Leelanau in one day?", "acceptedAnswer": {"@type": "Answer", "text": "Possible but rushed. Most comfortable guided days stay on one peninsula. If you want both, consider two shorter bookings or a very long private charter with fewer stops."}}
-    ]}
+    {
+      "@type": "WebPage",
+      "@id": "https://traversecitywinetour.com/wine-tour-guides/limo-bus-tours#webpage",
+      "url": "https://traversecitywinetour.com/wine-tour-guides/limo-bus-tours",
+      "name": "Compare Limo and Bus Wine Tour Operators",
+      "description": "Compare Traverse City limo, Sprinter, shuttle, and bus wine tour operators \u2014 vehicles, booking links, and sourced rates where published.",
+      "isPartOf": {
+        "@id": "https://traversecitywinetour.com/wine-tour-guides/#webpage"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://traversecitywinetour.com/wine-tour-guides/limo-bus-tours#operators",
+      "name": "Limo and bus wine tour operators",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "Grand Traverse Tours",
+            "url": "https://www.grandtraversetours.com/",
+            "telephone": "+1-231-947-7433"
+          },
+          "name": "Grand Traverse Tours"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "TASTE TC",
+            "url": "https://tastetc.com/"
+          },
+          "name": "TASTE TC"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "Traverse City Wine & Beer Tours",
+            "url": "https://wineandbeertours.com/",
+            "telephone": "+1-231-499-2656"
+          },
+          "name": "Traverse City Wine & Beer Tours"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "Grand Traverse Rides",
+            "url": "https://www.grandtraverserides.com/winetours",
+            "telephone": "+1-231-620-4815"
+          },
+          "name": "Grand Traverse Rides"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://traversecitywinetour.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Wine Tour Guides",
+          "item": "https://traversecitywinetour.com/wine-tour-guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Limo & Bus Tours",
+          "item": "https://traversecitywinetour.com/wine-tour-guides/limo-bus-tours"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://traversecitywinetour.com/wine-tour-guides/limo-bus-tours#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which operators offer limo, Sprinter, or bus wine tours in Traverse City?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Grand Traverse Tours publishes Mercedes shuttles and limousine fleet options; TASTE TC lists a Mercedes Sprinter for about 4\u201312 guests; Traverse City Wine & Beer Tours markets vans and buses; Grand Traverse Rides lists a Chevy Suburban LT for up to 7. Compare vehicles in the table on this page and confirm capacity for your date."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What vehicle sizes are available for Traverse City wine tours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Published fleets include SUVs for small parties, Mercedes Sprinters and high-top shuttles for roughly 10\u201314 guests, limousine-style vehicles, and vans or buses for larger groups. Always confirm passenger capacity for your date."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do limo wine tours include tasting fees?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Typically no. Operator sites that discuss pricing usually list tasting fees as separate winery charges. Confirm inclusions in writing before you deposit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a bus tour do both Old Mission and Leelanau in one day?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Possible but rushed. Most comfortable guided days stay on one peninsula. If you want both, consider two shorter bookings or a very long private charter with fewer stops."
+          }
+        }
+      ]
+    }
   ]
 }
 </script>
