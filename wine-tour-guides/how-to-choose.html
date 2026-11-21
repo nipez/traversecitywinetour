@@ -138,26 +138,148 @@ footer{background:var(--charcoal);padding:64px 40px 32px;}
 {
   "@context": "https://schema.org",
   "@graph": [
-    {"@type": "WebPage", "@id": "https://traversecitywinetour.com/wine-tour-guides/how-to-choose#webpage", "url": "https://traversecitywinetour.com/wine-tour-guides/how-to-choose", "name": "How to Choose a Traverse City Wine Tour Operator", "description": "Compare Traverse City wine tour operators: private vs join-in, vehicles, booking paths, deposits, and tipping — with a side-by-side table.", "isPartOf": {"@id": "https://traversecitywinetour.com/wine-tour-guides/#webpage"}},
-    {"@type": "ItemList", "@id": "https://traversecitywinetour.com/wine-tour-guides/how-to-choose#operators", "name": "Operators to evaluate when choosing a wine tour guide", "itemListElement": [
-      {"@type": "ListItem", "position": 1, "item": {"@type": "LocalBusiness", "name": "TC Wine Girl", "url": "https://www.tcwinegirl.com/", "telephone": "+1-231-492-0048"}},
-      {"@type": "ListItem", "position": 2, "item": {"@type": "LocalBusiness", "name": "Grand Traverse Tours", "url": "https://www.grandtraversetours.com/", "telephone": "+1-231-947-7433"}},
-      {"@type": "ListItem", "position": 3, "item": {"@type": "LocalBusiness", "name": "Grand Traverse Rides", "url": "https://www.grandtraverserides.com/winetours", "telephone": "+1-231-620-4815"}},
-      {"@type": "ListItem", "position": 4, "item": {"@type": "LocalBusiness", "name": "TASTE TC", "url": "https://tastetc.com/"}},
-      {"@type": "ListItem", "position": 5, "item": {"@type": "LocalBusiness", "name": "Traverse City Wine & Beer Tours", "url": "https://wineandbeertours.com/", "telephone": "+1-231-499-2656"}},
-      {"@type": "ListItem", "position": 6, "item": {"@type": "LocalBusiness", "name": "Wonderland Tours", "url": "https://wonderlandtourstraversecity.com/wine-tours/"}}
-    ]},
-    {"@type": "BreadcrumbList", "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://traversecitywinetour.com/"},
-      {"@type": "ListItem", "position": 2, "name": "Wine Tour Guides", "item": "https://traversecitywinetour.com/wine-tour-guides/"},
-      {"@type": "ListItem", "position": 3, "name": "How to Choose", "item": "https://traversecitywinetour.com/wine-tour-guides/how-to-choose"}
-    ]},
-    {"@type": "FAQPage", "@id": "https://traversecitywinetour.com/wine-tour-guides/how-to-choose#faq", "mainEntity": [
-      {"@type": "Question", "name": "What should I ask before booking a Traverse City wine tour guide?", "acceptedAnswer": {"@type": "Answer", "text": "Ask whether the vehicle is private, what passenger capacity is guaranteed, whether tasting fees and gratuity are included, who makes winery reservations, pickup radius, overtime rates, and the deposit or cancellation policy."}},
-      {"@type": "Question", "name": "How do I compare Traverse City wine tour operators quickly?", "acceptedAnswer": {"@type": "Answer", "text": "Start with style and vehicle: private-only chauffeurs (TC Wine Girl, Grand Traverse Rides, TASTE TC), dual private/join-in (Grand Traverse Tours), custom flexible lengths (Wonderland Tours), or vans and buses for larger parties (Traverse City Wine & Beer Tours). Then open each site to confirm rates and availability."}},
-      {"@type": "Question", "name": "How do I pick Old Mission vs Leelanau with a guide?", "acceptedAnswer": {"@type": "Answer", "text": "Choose Old Mission for shorter drives and closer downtown logistics. Choose Leelanau when you want a longer scenic day. Tell the guide your must-try styles — sparkling, Pinot, cider — so they can map the right peninsula."}},
-      {"@type": "Question", "name": "Should I tip the wine tour driver?", "acceptedAnswer": {"@type": "Answer", "text": "Most operators treat gratuity as separate. Some publish tip guidance (for example, an industry-standard percentage or hourly range). Follow the operator’s stated guidance and tip tasting-room staff separately when service warrants it."}}
-    ]}
+    {
+      "@type": "WebPage",
+      "@id": "https://traversecitywinetour.com/wine-tour-guides/how-to-choose#webpage",
+      "url": "https://traversecitywinetour.com/wine-tour-guides/how-to-choose",
+      "name": "How to Choose a Traverse City Wine Tour Operator",
+      "description": "Compare Traverse City wine tour operators: private vs join-in, vehicles, booking paths, deposits, and tipping \u2014 with a side-by-side table.",
+      "isPartOf": {
+        "@id": "https://traversecitywinetour.com/wine-tour-guides/#webpage"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://traversecitywinetour.com/wine-tour-guides/how-to-choose#operators",
+      "name": "Operators to evaluate when choosing a wine tour guide",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "TC Wine Girl",
+            "url": "https://www.tcwinegirl.com/",
+            "telephone": "+1-231-492-0048"
+          },
+          "name": "TC Wine Girl"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "Grand Traverse Tours",
+            "url": "https://www.grandtraversetours.com/",
+            "telephone": "+1-231-947-7433"
+          },
+          "name": "Grand Traverse Tours"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "Grand Traverse Rides",
+            "url": "https://www.grandtraverserides.com/winetours",
+            "telephone": "+1-231-620-4815"
+          },
+          "name": "Grand Traverse Rides"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "TASTE TC",
+            "url": "https://tastetc.com/"
+          },
+          "name": "TASTE TC"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "Traverse City Wine & Beer Tours",
+            "url": "https://wineandbeertours.com/",
+            "telephone": "+1-231-499-2656"
+          },
+          "name": "Traverse City Wine & Beer Tours"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "item": {
+            "@type": "LocalBusiness",
+            "name": "Wonderland Tours",
+            "url": "https://wonderlandtourstraversecity.com/wine-tours/"
+          },
+          "name": "Wonderland Tours"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://traversecitywinetour.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Wine Tour Guides",
+          "item": "https://traversecitywinetour.com/wine-tour-guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How to Choose",
+          "item": "https://traversecitywinetour.com/wine-tour-guides/how-to-choose"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://traversecitywinetour.com/wine-tour-guides/how-to-choose#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What should I ask before booking a Traverse City wine tour guide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ask whether the vehicle is private, what passenger capacity is guaranteed, whether tasting fees and gratuity are included, who makes winery reservations, pickup radius, overtime rates, and the deposit or cancellation policy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I compare Traverse City wine tour operators quickly?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start with style and vehicle: private-only chauffeurs (TC Wine Girl, Grand Traverse Rides, TASTE TC), dual private/join-in (Grand Traverse Tours), custom flexible lengths (Wonderland Tours), or vans and buses for larger parties (Traverse City Wine & Beer Tours). Then open each site to confirm rates and availability."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I pick Old Mission vs Leelanau with a guide?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Choose Old Mission for shorter drives and closer downtown logistics. Choose Leelanau when you want a longer scenic day. Tell the guide your must-try styles \u2014 sparkling, Pinot, cider \u2014 so they can map the right peninsula."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I tip the wine tour driver?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most operators treat gratuity as separate. Some publish tip guidance (for example, an industry-standard percentage or hourly range). Follow the operator\u2019s stated guidance and tip tasting-room staff separately when service warrants it."
+          }
+        }
+      ]
+    }
   ]
 }
 </script>
