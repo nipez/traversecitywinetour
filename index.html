@@ -38,6 +38,7 @@
   --gold: #C9A96E; --gold-light: #D4BC8B;
   --cream: #F5F0E8; --cream-dark: #EDE6D8;
   --charcoal: #2C2420; --text: #3A3330; --text-light: #7A7068; --white: #FEFCF9;
+  --om: #8B3A3A; --ll: #2D5A3D;
 }
 html { scroll-behavior: smooth; }
 body { font-family: 'Outfit', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
@@ -112,7 +113,7 @@ nav.scrolled { box-shadow: 0 2px 30px rgba(74,14,27,0.08); }
 .diff-banner { text-align: center; max-width: 720px; margin: 0 auto 48px; }
 .diff-banner p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; line-height: 1.65; color: var(--text); }
 .diff-banner a { color: var(--burgundy); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--gold); }
-.picker-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: start; margin-bottom: 40px; }
+.picker-grid { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: start; margin-bottom: 40px; }
 .picker-panel { background: var(--white); border: 1px solid rgba(74,14,27,0.08); border-radius: 10px; padding: 28px 28px 24px; }
 .picker-q { margin: 0 0 22px; padding: 0; border: 0; min-inline-size: 0; }
 .picker-q:last-child { margin-bottom: 0; }
@@ -126,17 +127,33 @@ nav.scrolled { box-shadow: 0 2px 30px rgba(74,14,27,0.08); }
 .pen-map-wrap { background: var(--white); border: 1px solid rgba(74,14,27,0.08); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; min-height: 0; }
 .pen-map-wrap h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--burgundy); margin-bottom: 6px; }
 .pen-map-wrap p { font-size: 0.88rem; color: var(--text-light); margin-bottom: 12px; line-height: 1.55; }
-.home-map { width: 100%; height: 320px; border-radius: 8px; overflow: hidden; background: var(--cream-dark); position: relative; }
-.home-map .leaflet-container { width: 100%; height: 100%; font-family: 'Outfit', sans-serif; }
-.home-map-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 0.82rem; }
+.home-map { width: 100%; height: 480px; border-radius: 8px; overflow: hidden; background: var(--cream-dark); position: relative; }
+.home-map .leaflet-container { width: 100%; height: 100%; font-family: 'Outfit', sans-serif; background: var(--cream-dark); }
+.home-map-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 0.82rem; z-index: 1; }
 .home-map-legend { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; align-items: center; }
 .home-map-legend button { appearance: none; border: 1px solid rgba(74,14,27,0.14); background: var(--white); border-radius: 4px; padding: 8px 12px; font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--text); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: border-color 0.2s, background 0.2s; }
 .home-map-legend button:hover, .home-map-legend button.is-active { border-color: var(--burgundy); background: rgba(74,14,27,0.04); }
 .home-map-dot { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,0.12); }
-.home-map-dot.om { background: #8B3A3A; }
-.home-map-dot.ll { background: #2D5A3D; }
+.home-map-dot.om { background: var(--om); }
+.home-map-dot.ll { background: var(--ll); }
 .home-map-link { margin-left: auto; font-size: 0.75rem; font-weight: 600; color: var(--burgundy); text-decoration: none; border-bottom: 1px solid var(--gold); }
 .home-map-link:hover { opacity: 0.8; }
+/* Same pin chrome as /plan-your-day */
+.winery-pin { cursor: pointer; transition: transform 0.2s; }
+.winery-pin:hover { transform: scale(1.3); z-index: 9999 !important; }
+.pin-dot { width: 24px; height: 24px; border-radius: 50%; border: 2.5px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.2); position: relative; display: flex; align-items: center; justify-content: center; font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700; color: #fff; }
+.pin-dot.om { background: var(--om); }
+.pin-dot.ll { background: var(--ll); }
+.pin-tooltip { position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); margin-bottom: 8px; background: var(--white); padding: 8px 14px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity 0.2s; font-size: 0.75rem; }
+.pin-tooltip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--white); }
+.winery-pin:hover .pin-tooltip { opacity: 1; }
+.pin-tooltip .tt-name { font-weight: 600; color: var(--burgundy); }
+.pin-tooltip .tt-sub { color: var(--text-light); font-size: 0.68rem; margin-top: 2px; }
+.pin-tooltip .tt-action { color: var(--gold); font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+.leaflet-control-zoom { border: none !important; box-shadow: 0 2px 12px rgba(74,14,27,0.1) !important; border-radius: 8px !important; overflow: hidden; }
+.leaflet-control-zoom a { background: var(--white) !important; color: var(--burgundy) !important; font-family: 'Outfit', sans-serif !important; font-weight: 600 !important; width: 36px !important; height: 36px !important; line-height: 36px !important; font-size: 16px !important; border: none !important; border-bottom: 1px solid rgba(74,14,27,0.06) !important; }
+.leaflet-control-zoom a:hover { background: var(--burgundy) !important; color: var(--cream) !important; }
+.leaflet-control-attribution { font-size: 0.6rem !important; }
 .home-tour-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .home-tour-card { background: var(--white); border: 1px solid rgba(74,14,27,0.08); border-radius: 8px; padding: 22px 22px 20px; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform 0.25s, box-shadow 0.25s, opacity 0.25s; }
 .home-tour-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(74,14,27,0.08); }
@@ -150,11 +167,12 @@ nav.scrolled { box-shadow: 0 2px 30px rgba(74,14,27,0.08); }
 .picker-empty.show { display: block; }
 .tour-fit-cta { text-align: center; margin-top: 36px; }
 @media (max-width: 1024px) {
-  .picker-grid, .home-tour-grid { grid-template-columns: 1fr 1fr; }
+  .home-tour-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
   .tour-fit { padding: 64px 20px; }
-  .picker-grid, .home-tour-grid { grid-template-columns: 1fr; }
+  .home-tour-grid { grid-template-columns: 1fr; }
+  .home-map { height: 380px; }
 }
 
 /* SECTION HEADERS */
@@ -1104,10 +1122,11 @@ document.querySelectorAll('.stat-item').forEach((el, i) => {
 
   function initHomeMap() {
     const placeholder = document.getElementById('homeMapPlaceholder');
+    // Same center/zoom defaults as /plan-your-day, then fitBounds to all pins
     const map = L.map(mapEl, {
       center: [44.93, -85.67],
-      zoom: 9,
-      minZoom: 8,
+      zoom: 10,
+      minZoom: 9,
       maxZoom: TCWT_MAP.MAX_ZOOM,
       scrollWheelZoom: false,
       attributionControl: true,
@@ -1115,54 +1134,26 @@ document.querySelectorAll('.stat-item').forEach((el, i) => {
     TCWT_MAP.addBasemap(map);
     if (placeholder) placeholder.remove();
 
-    const om = '#8B3A3A';
-    const ll = '#2D5A3D';
+    const bounds = [];
+    (TCWT_WINERIES || []).forEach(function (w) {
+      const marker = L.marker([w.lat, w.lng], {
+        icon: TCWT_wineryIcon(w, 'Click to filter tours'),
+      }).addTo(map);
+      marker.on('click', function () { filterPeninsula(w.p); });
+      bounds.push([w.lat, w.lng]);
+    });
 
-    fetch('/data-wineries.json')
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        const list = (data && data.wineries) || [];
-        list.forEach(function (w) {
-          if (!w.lat || !w.lng) return;
-          const isOM = String(w.peninsula || '').toLowerCase().indexOf('old mission') !== -1;
-          const color = isOM ? om : ll;
-          const pen = isOM ? 'old-mission' : 'leelanau';
-          const marker = L.circleMarker([w.lat, w.lng], {
-            radius: 6,
-            color: '#fff',
-            weight: 1.5,
-            fillColor: color,
-            fillOpacity: 0.92,
-          });
-          marker.bindTooltip(w.name + (isOM ? ' · Old Mission' : ' · Leelanau'), {
-            direction: 'top',
-            offset: [0, -6],
-          });
-          marker.on('click', function () { filterPeninsula(pen); });
-          marker.addTo(map);
-        });
-        setTimeout(function () { map.invalidateSize(); }, 50);
-      })
-      .catch(function () {
-        // Fallback pins if JSON fails — still usable for peninsula filtering
-        [
-          [44.8649, -85.5198, 'old-mission'],
-          [44.9195, -85.5020, 'old-mission'],
-          [44.9780, -85.6400, 'leelanau'],
-          [44.9620, -85.6950, 'leelanau'],
-        ].forEach(function (p) {
-          L.circleMarker([p[0], p[1]], {
-            radius: 6,
-            color: '#fff',
-            weight: 1.5,
-            fillColor: p[2] === 'old-mission' ? om : ll,
-            fillOpacity: 0.92,
-          })
-            .on('click', function () { filterPeninsula(p[2]); })
-            .addTo(map);
-        });
-        setTimeout(function () { map.invalidateSize(); }, 50);
-      });
+    function layout() {
+      map.invalidateSize();
+      if (bounds.length) {
+        map.fitBounds(bounds, { padding: [36, 36], maxZoom: 11 });
+      }
+    }
+    // Map may still be settling after lazy-load / flex layout
+    layout();
+    setTimeout(layout, 80);
+    setTimeout(layout, 300);
+    window.addEventListener('resize', function () { map.invalidateSize(); });
   }
 
   function bootMap() {
@@ -1173,6 +1164,7 @@ document.querySelectorAll('.stat-item').forEach((el, i) => {
     loadCss(leafletCss);
     loadScript(leafletJs)
       .then(function () { return loadScript('/js/map-basemap.js'); })
+      .then(function () { return loadScript('/js/winery-map-data.js'); })
       .then(initHomeMap)
       .catch(function () {
         const ph = document.getElementById('homeMapPlaceholder');
