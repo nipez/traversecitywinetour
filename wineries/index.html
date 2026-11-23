@@ -618,18 +618,16 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="/js/map-basemap.js"></script>
+<script src="/js/winery-map-data.js"></script>
 <script>
 (function(){
-  var map = L.map('mapPreview', { center:[44.93,-85.67], zoom:10, zoomControl:false, dragging:false, scrollWheelZoom:false, doubleClickZoom:false, attributionControl:false, keyboard:false });
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { subdomains:'abcd', maxZoom:19 }).addTo(map);
+  var map = L.map('mapPreview', { center:[44.93,-85.67], zoom:10, maxZoom: TCWT_MAP.MAX_ZOOM, zoomControl:false, dragging:false, scrollWheelZoom:false, doubleClickZoom:false, attributionControl:false, keyboard:false });
+  TCWT_MAP.addBasemap(map);
   var OM = '#8B3A3A', LL = '#2D5A3D';
-  [[44.8649,-85.5198,OM],[44.9195,-85.5020,OM],[44.8540,-85.5272,OM],[44.8867,-85.5098,OM],
-   [44.9342,-85.4960,OM],[44.8410,-85.5480,OM],[44.8264,-85.5611,OM],[44.7562,-85.6452,OM],
-   [44.8085,-85.5656,OM],[44.8605,-85.5232,OM],
-   [44.9780,-85.6400,LL],[44.9350,-85.7400,LL],[44.9560,-85.7100,LL],[44.9480,-85.7050,LL],
-   [45.0600,-85.6800,LL],[45.0150,-85.6050,LL],[44.8800,-85.8500,LL],[44.9620,-85.6950,LL],
-   [45.0230,-85.7600,LL],[44.8200,-85.6700,LL]
-  ].forEach(function(w){ L.circleMarker([w[0],w[1]],{radius:5,fillColor:w[2],color:'#fff',weight:1.5,fillOpacity:0.9}).addTo(map); });
+  TCWT_WINERIES.forEach(function(w){
+    L.circleMarker([w.lat,w.lng],{radius:5,fillColor:(w.p==='old-mission'?OM:LL),color:'#fff',weight:1.5,fillOpacity:0.9}).addTo(map);
+  });
 })();
 </script>
 <div class="pen-header winery-section-head">
