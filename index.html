@@ -31,6 +31,10 @@
 <meta name="twitter:image" content="https://traversecitywinetour.com/vineyard.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="/js/map-basemap.js"></script>
+<script src="/js/winery-map-data.js"></script>
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -127,9 +131,11 @@ nav.scrolled { box-shadow: 0 2px 30px rgba(74,14,27,0.08); }
 .pen-map-wrap { background: var(--white); border: 1px solid rgba(74,14,27,0.08); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; min-height: 0; }
 .pen-map-wrap h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--burgundy); margin-bottom: 6px; }
 .pen-map-wrap p { font-size: 0.88rem; color: var(--text-light); margin-bottom: 12px; line-height: 1.55; }
-.home-map { width: 100%; height: 480px; border-radius: 8px; overflow: hidden; background: var(--cream-dark); position: relative; }
-.home-map .leaflet-container { width: 100%; height: 100%; font-family: 'Outfit', sans-serif; background: var(--cream-dark); }
-.home-map-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 0.82rem; z-index: 1; }
+/* Frame owns radius/overflow — Leaflet container stays a plain sized box (matches /plan-your-day). */
+.home-map-frame { width: 100%; height: 560px; border-radius: 8px; overflow: hidden; background: var(--cream-dark); position: relative; }
+#homeMap { width: 100%; height: 100%; background: var(--cream-dark); font-family: 'Outfit', sans-serif; }
+#homeMap.leaflet-container { width: 100% !important; height: 100% !important; background: var(--cream-dark); }
+.leaflet-container img.leaflet-tile { max-width: none !important; max-height: none !important; }
 .home-map-legend { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; align-items: center; }
 .home-map-legend button { appearance: none; border: 1px solid rgba(74,14,27,0.14); background: var(--white); border-radius: 4px; padding: 8px 12px; font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--text); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: border-color 0.2s, background 0.2s; }
 .home-map-legend button:hover, .home-map-legend button.is-active { border-color: var(--burgundy); background: rgba(74,14,27,0.04); }
@@ -139,7 +145,7 @@ nav.scrolled { box-shadow: 0 2px 30px rgba(74,14,27,0.08); }
 .home-map-link { margin-left: auto; font-size: 0.75rem; font-weight: 600; color: var(--burgundy); text-decoration: none; border-bottom: 1px solid var(--gold); }
 .home-map-link:hover { opacity: 0.8; }
 /* Same pin chrome as /plan-your-day */
-.home-map .leaflet-div-icon { background: transparent; border: none; }
+.leaflet-div-icon { background: transparent !important; border: none !important; }
 .winery-pin { cursor: pointer; transition: transform 0.2s; }
 .winery-pin:hover { transform: scale(1.3); z-index: 9999 !important; }
 .pin-dot { width: 24px; height: 24px; border-radius: 50%; border: 2.5px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.2); position: relative; display: flex; align-items: center; justify-content: center; font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700; color: #fff; }
@@ -173,7 +179,7 @@ nav.scrolled { box-shadow: 0 2px 30px rgba(74,14,27,0.08); }
 @media (max-width: 768px) {
   .tour-fit { padding: 64px 20px; }
   .home-tour-grid { grid-template-columns: 1fr; }
-  .home-map { height: 380px; }
+  .home-map-frame { height: 420px; }
 }
 
 /* SECTION HEADERS */
@@ -568,8 +574,8 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       <div class="pen-map-wrap" id="peninsula-map">
         <h3>Wine country map</h3>
         <p>Old Mission and Leelanau winery pins — tap a peninsula to filter tours below.</p>
-        <div class="home-map" id="homeMap" role="img" aria-label="Interactive map of Old Mission and Leelanau wineries">
-          <div class="home-map-placeholder" id="homeMapPlaceholder">Map loads when you scroll here…</div>
+        <div class="home-map-frame">
+          <div id="homeMap" role="region" aria-label="Interactive map of Old Mission and Leelanau wineries"></div>
         </div>
         <div class="home-map-legend">
           <button type="button" data-map-peninsula="old-mission" aria-label="Filter Old Mission tours">
@@ -1098,106 +1104,44 @@ document.querySelectorAll('.stat-item').forEach((el, i) => {
 
   apply();
 
-  // Lazy-load Leaflet + Esri basemap below the fold
+  // Homepage map: same Leaflet stack / center / zoom as /plan-your-day.
+  // Leaflet + winery data are loaded in <head> (not lazy) so the container is
+  // never measured while CSS/scripts are still settling.
   const mapEl = document.getElementById('homeMap');
-  if (!mapEl) return;
+  if (!mapEl || !window.L || !window.TCWT_MAP || !window.TCWT_WINERIES) return;
 
-  function loadScript(src) {
-    return new Promise(function (resolve, reject) {
-      const s = document.createElement('script');
-      s.src = src;
-      s.async = true;
-      s.onload = resolve;
-      s.onerror = reject;
-      document.head.appendChild(s);
-    });
+  const map = L.map(mapEl, {
+    center: [44.93, -85.67],
+    zoom: 10,
+    minZoom: 9,
+    maxZoom: TCWT_MAP.MAX_ZOOM,
+    scrollWheelZoom: false,
+    attributionControl: true,
+  });
+  TCWT_MAP.addBasemap(map);
+
+  TCWT_WINERIES.forEach(function (w) {
+    const marker = L.marker([w.lat, w.lng], {
+      icon: TCWT_wineryIcon(w, 'Click to filter tours'),
+    }).addTo(map);
+    marker.on('click', function () { filterPeninsula(w.p); });
+  });
+
+  // Same default view as /plan-your-day (center + zoom 10). Do NOT fitBounds
+  // on the short homepage canvas — that drops to zoom 9 where 24px pins
+  // swallow the thin Old Mission strip and look east-shifted into the bay.
+  function layoutMap() {
+    map.invalidateSize(false);
+    map.setView([44.93, -85.67], 10, { animate: false });
   }
 
-  function loadCss(href) {
-    return new Promise(function (resolve) {
-      const existing = document.querySelector('link[href="' + href + '"]');
-      if (existing) {
-        // Stylesheet may already be in flight from a prior visit
-        if (existing.sheet) resolve();
-        else existing.addEventListener('load', function () { resolve(); }, { once: true });
-        // Fallback if load already fired without sheet access
-        setTimeout(resolve, 50);
-        return;
-      }
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = href;
-      link.onload = function () { resolve(); };
-      link.onerror = function () { resolve(); };
-      document.head.appendChild(link);
-    });
-  }
-
-  function initHomeMap() {
-    const placeholder = document.getElementById('homeMapPlaceholder');
-    // Same center/zoom defaults as /plan-your-day, then fitBounds to all pins
-    const map = L.map(mapEl, {
-      center: [44.93, -85.67],
-      zoom: 10,
-      minZoom: 9,
-      maxZoom: TCWT_MAP.MAX_ZOOM,
-      scrollWheelZoom: false,
-      attributionControl: true,
-    });
-    TCWT_MAP.addBasemap(map);
-    if (placeholder) placeholder.remove();
-
-    const bounds = [];
-    (TCWT_WINERIES || []).forEach(function (w) {
-      const marker = L.marker([w.lat, w.lng], {
-        icon: TCWT_wineryIcon(w, 'Click to filter tours'),
-      }).addTo(map);
-      marker.on('click', function () { filterPeninsula(w.p); });
-      bounds.push([w.lat, w.lng]);
-    });
-
-    function layout() {
-      map.invalidateSize();
-      if (bounds.length) {
-        map.fitBounds(bounds, { padding: [60, 60], maxZoom: 12 });
-      }
-    }
-    // Map may still be settling after lazy-load / flex layout
-    layout();
-    setTimeout(layout, 80);
-    setTimeout(layout, 300);
-    window.addEventListener('resize', function () { map.invalidateSize(); });
-  }
-
-  function bootMap() {
-    if (mapEl.dataset.booted) return;
-    mapEl.dataset.booted = '1';
-    const leafletCss = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';
-    const leafletJs = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
-    // Await CSS before creating markers — missing Leaflet CSS offsets divIcons
-    loadCss(leafletCss)
-      .then(function () { return loadScript(leafletJs); })
-      .then(function () { return loadScript('/js/map-basemap.js'); })
-      .then(function () { return loadScript('/js/winery-map-data.js'); })
-      .then(initHomeMap)
-      .catch(function () {
-        const ph = document.getElementById('homeMapPlaceholder');
-        if (ph) ph.textContent = 'Map unavailable — use the peninsula buttons below.';
-      });
-  }
-
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          bootMap();
-          io.disconnect();
-        }
-      });
-    }, { rootMargin: '200px 0px' });
-    io.observe(mapEl);
-  } else {
-    bootMap();
+  requestAnimationFrame(function () {
+    layoutMap();
+    requestAnimationFrame(layoutMap);
+  });
+  window.addEventListener('resize', function () { map.invalidateSize(false); });
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(function () { map.invalidateSize(false); }).observe(mapEl);
   }
 })();
 </script>
