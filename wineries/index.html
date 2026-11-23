@@ -618,10 +618,11 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="/js/map-basemap.js"></script>
 <script>
 (function(){
-  var map = L.map('mapPreview', { center:[44.93,-85.67], zoom:10, zoomControl:false, dragging:false, scrollWheelZoom:false, doubleClickZoom:false, attributionControl:false, keyboard:false });
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', { subdomains:'abcd', maxZoom:19 }).addTo(map);
+  var map = L.map('mapPreview', { center:[44.93,-85.67], zoom:10, maxZoom: TCWT_MAP.MAX_ZOOM, zoomControl:false, dragging:false, scrollWheelZoom:false, doubleClickZoom:false, attributionControl:false, keyboard:false });
+  TCWT_MAP.addBasemap(map);
   var OM = '#8B3A3A', LL = '#2D5A3D';
   [[44.8649,-85.5198,OM],[44.9195,-85.5020,OM],[44.8540,-85.5272,OM],[44.8867,-85.5098,OM],
    [44.9342,-85.4960,OM],[44.8410,-85.5480,OM],[44.8264,-85.5611,OM],[44.7562,-85.6452,OM],

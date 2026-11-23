@@ -123,16 +123,20 @@ nav.scrolled { box-shadow: 0 2px 30px rgba(74,14,27,0.08); }
 .picker-opts span { display: inline-block; padding: 10px 14px; border: 1px solid rgba(74,14,27,0.14); border-radius: 4px; font-size: 0.82rem; color: var(--text); background: var(--white); transition: background 0.2s, border-color 0.2s, color 0.2s; }
 .picker-opts input:checked + span { background: var(--burgundy); color: var(--cream); border-color: var(--burgundy); }
 .picker-opts input:focus-visible + span { outline: 2px solid var(--gold); outline-offset: 2px; }
-.pen-map-wrap { background: var(--white); border: 1px solid rgba(74,14,27,0.08); border-radius: 10px; padding: 24px; }
+.pen-map-wrap { background: var(--white); border: 1px solid rgba(74,14,27,0.08); border-radius: 10px; padding: 20px; display: flex; flex-direction: column; min-height: 0; }
 .pen-map-wrap h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--burgundy); margin-bottom: 6px; }
-.pen-map-wrap p { font-size: 0.88rem; color: var(--text-light); margin-bottom: 16px; line-height: 1.55; }
-.pen-map svg { width: 100%; height: auto; display: block; }
-.pen-map a.region { cursor: pointer; transition: opacity 0.2s; }
-.pen-map a.region:hover .region-fill { opacity: 1; }
-.pen-map .region-fill { fill: rgba(74,14,27,0.12); stroke: var(--burgundy); stroke-width: 1.5; opacity: 0.85; transition: fill 0.2s, opacity 0.2s; }
-.pen-map a.region:hover .region-fill,
-.pen-map a.region.is-active .region-fill { fill: rgba(201,169,110,0.45); }
-.pen-map .region-label { fill: var(--burgundy); font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; }
+.pen-map-wrap p { font-size: 0.88rem; color: var(--text-light); margin-bottom: 12px; line-height: 1.55; }
+.home-map { width: 100%; height: 320px; border-radius: 8px; overflow: hidden; background: var(--cream-dark); position: relative; }
+.home-map .leaflet-container { width: 100%; height: 100%; font-family: 'Outfit', sans-serif; }
+.home-map-placeholder { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--text-light); font-size: 0.82rem; }
+.home-map-legend { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; align-items: center; }
+.home-map-legend button { appearance: none; border: 1px solid rgba(74,14,27,0.14); background: var(--white); border-radius: 4px; padding: 8px 12px; font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 600; color: var(--text); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: border-color 0.2s, background 0.2s; }
+.home-map-legend button:hover, .home-map-legend button.is-active { border-color: var(--burgundy); background: rgba(74,14,27,0.04); }
+.home-map-dot { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,0.12); }
+.home-map-dot.om { background: #8B3A3A; }
+.home-map-dot.ll { background: #2D5A3D; }
+.home-map-link { margin-left: auto; font-size: 0.75rem; font-weight: 600; color: var(--burgundy); text-decoration: none; border-bottom: 1px solid var(--gold); }
+.home-map-link:hover { opacity: 0.8; }
 .home-tour-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 .home-tour-card { background: var(--white); border: 1px solid rgba(74,14,27,0.08); border-radius: 8px; padding: 22px 22px 20px; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform 0.25s, box-shadow 0.25s, opacity 0.25s; }
 .home-tour-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(74,14,27,0.08); }
@@ -543,33 +547,19 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       </form>
 
       <div class="pen-map-wrap" id="peninsula-map">
-        <h3>Two peninsulas map</h3>
-        <p>Jump to Old Mission, Leelanau, or downtown Traverse City tour options.</p>
-        <div class="pen-map" aria-hidden="false">
-          <svg viewBox="0 0 320 280" role="img" aria-label="Schematic map of Old Mission Peninsula, Leelanau Peninsula, and Traverse City">
-            <title>Traverse City wine country schematic</title>
-            <!-- Water -->
-            <rect x="0" y="0" width="320" height="280" fill="#E8F0F2"/>
-            <!-- Leelanau (west) -->
-            <a class="region" href="#tour-cards" data-map-peninsula="leelanau" aria-label="Leelanau Peninsula tours">
-              <path class="region-fill" d="M28 36 L78 28 L96 70 L110 130 L98 200 L70 240 L42 220 L34 160 L22 90 Z"/>
-              <text class="region-label" x="48" y="130">Leelanau</text>
-            </a>
-            <!-- Bay -->
-            <ellipse cx="160" cy="150" rx="36" ry="70" fill="#D5E4EA"/>
-            <!-- Old Mission (east finger) -->
-            <a class="region" href="#tour-cards" data-map-peninsula="old-mission" aria-label="Old Mission Peninsula tours">
-              <path class="region-fill" d="M188 48 L212 40 L228 90 L236 150 L228 200 L210 230 L196 210 L190 150 L184 90 Z"/>
-              <text class="region-label" x="198" y="130">Old</text>
-              <text class="region-label" x="194" y="144">Mission</text>
-            </a>
-            <!-- Traverse City base -->
-            <a class="region" href="#tour-cards" data-map-peninsula="tc" aria-label="Traverse City area tours">
-              <path class="region-fill" d="M90 228 L230 228 L250 258 L70 258 Z"/>
-              <text class="region-label" x="130" y="248">Traverse City</text>
-            </a>
-            <text x="150" y="20" text-anchor="middle" fill="#7A7068" font-size="10" font-family="Outfit,sans-serif" letter-spacing="0.12em">GRAND TRAVERSE BAY</text>
-          </svg>
+        <h3>Wine country map</h3>
+        <p>Old Mission and Leelanau winery pins — tap a peninsula to filter tours below.</p>
+        <div class="home-map" id="homeMap" role="img" aria-label="Interactive map of Old Mission and Leelanau wineries">
+          <div class="home-map-placeholder" id="homeMapPlaceholder">Map loads when you scroll here…</div>
+        </div>
+        <div class="home-map-legend">
+          <button type="button" data-map-peninsula="old-mission" aria-label="Filter Old Mission tours">
+            <span class="home-map-dot om" aria-hidden="true"></span> Old Mission
+          </button>
+          <button type="button" data-map-peninsula="leelanau" aria-label="Filter Leelanau tours">
+            <span class="home-map-dot ll" aria-hidden="true"></span> Leelanau
+          </button>
+          <a class="home-map-link" href="/plan-your-day">Build a full itinerary →</a>
         </div>
       </div>
     </div>
@@ -1025,7 +1015,7 @@ document.querySelectorAll('.stat-item').forEach((el, i) => {
   el.style.transitionDelay = `${i * 0.1}s`;
 });
 
-// Homepage tour picker (no framework)
+// Homepage tour picker + lazy Leaflet map (no framework)
 (function () {
   const form = document.getElementById('tourPicker');
   const cards = Array.from(document.querySelectorAll('#tour-cards .home-tour-card'));
@@ -1050,11 +1040,11 @@ document.querySelectorAll('.stat-item').forEach((el, i) => {
     return true;
   }
 
-  function syncMap() {
+  function syncLegend() {
     const pen = selected('peninsula');
-    document.querySelectorAll('[data-map-peninsula]').forEach(function (link) {
-      const active = pen !== 'any' && link.getAttribute('data-map-peninsula') === pen;
-      link.classList.toggle('is-active', active);
+    document.querySelectorAll('[data-map-peninsula]').forEach(function (btn) {
+      const active = pen !== 'any' && btn.getAttribute('data-map-peninsula') === pen;
+      btn.classList.toggle('is-active', active);
     });
   }
 
@@ -1066,23 +1056,143 @@ document.querySelectorAll('.stat-item').forEach((el, i) => {
       if (ok) shown += 1;
     });
     if (empty) empty.classList.toggle('show', shown === 0);
-    syncMap();
+    syncLegend();
+  }
+
+  function filterPeninsula(pen) {
+    const radio = form.querySelector('input[name="peninsula"][value="' + pen + '"]');
+    if (radio) {
+      radio.checked = true;
+      apply();
+    }
+    const cardsEl = document.getElementById('tour-cards');
+    if (cardsEl) cardsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   form.addEventListener('change', apply);
 
-  document.querySelectorAll('[data-map-peninsula]').forEach(function (link) {
-    link.addEventListener('click', function () {
-      const pen = link.getAttribute('data-map-peninsula');
-      const radio = form.querySelector('input[name="peninsula"][value="' + pen + '"]');
-      if (radio) {
-        radio.checked = true;
-        apply();
-      }
+  document.querySelectorAll('[data-map-peninsula]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      filterPeninsula(btn.getAttribute('data-map-peninsula'));
     });
   });
 
   apply();
+
+  // Lazy-load Leaflet + Esri basemap below the fold
+  const mapEl = document.getElementById('homeMap');
+  if (!mapEl) return;
+
+  function loadScript(src) {
+    return new Promise(function (resolve, reject) {
+      const s = document.createElement('script');
+      s.src = src;
+      s.async = true;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  function loadCss(href) {
+    if (document.querySelector('link[href="' + href + '"]')) return;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    document.head.appendChild(link);
+  }
+
+  function initHomeMap() {
+    const placeholder = document.getElementById('homeMapPlaceholder');
+    const map = L.map(mapEl, {
+      center: [44.93, -85.67],
+      zoom: 9,
+      minZoom: 8,
+      maxZoom: TCWT_MAP.MAX_ZOOM,
+      scrollWheelZoom: false,
+      attributionControl: true,
+    });
+    TCWT_MAP.addBasemap(map);
+    if (placeholder) placeholder.remove();
+
+    const om = '#8B3A3A';
+    const ll = '#2D5A3D';
+
+    fetch('/data-wineries.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        const list = (data && data.wineries) || [];
+        list.forEach(function (w) {
+          if (!w.lat || !w.lng) return;
+          const isOM = String(w.peninsula || '').toLowerCase().indexOf('old mission') !== -1;
+          const color = isOM ? om : ll;
+          const pen = isOM ? 'old-mission' : 'leelanau';
+          const marker = L.circleMarker([w.lat, w.lng], {
+            radius: 6,
+            color: '#fff',
+            weight: 1.5,
+            fillColor: color,
+            fillOpacity: 0.92,
+          });
+          marker.bindTooltip(w.name + (isOM ? ' · Old Mission' : ' · Leelanau'), {
+            direction: 'top',
+            offset: [0, -6],
+          });
+          marker.on('click', function () { filterPeninsula(pen); });
+          marker.addTo(map);
+        });
+        setTimeout(function () { map.invalidateSize(); }, 50);
+      })
+      .catch(function () {
+        // Fallback pins if JSON fails — still usable for peninsula filtering
+        [
+          [44.8649, -85.5198, 'old-mission'],
+          [44.9195, -85.5020, 'old-mission'],
+          [44.9780, -85.6400, 'leelanau'],
+          [44.9620, -85.6950, 'leelanau'],
+        ].forEach(function (p) {
+          L.circleMarker([p[0], p[1]], {
+            radius: 6,
+            color: '#fff',
+            weight: 1.5,
+            fillColor: p[2] === 'old-mission' ? om : ll,
+            fillOpacity: 0.92,
+          })
+            .on('click', function () { filterPeninsula(p[2]); })
+            .addTo(map);
+        });
+        setTimeout(function () { map.invalidateSize(); }, 50);
+      });
+  }
+
+  function bootMap() {
+    if (mapEl.dataset.booted) return;
+    mapEl.dataset.booted = '1';
+    const leafletCss = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';
+    const leafletJs = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
+    loadCss(leafletCss);
+    loadScript(leafletJs)
+      .then(function () { return loadScript('/js/map-basemap.js'); })
+      .then(initHomeMap)
+      .catch(function () {
+        const ph = document.getElementById('homeMapPlaceholder');
+        if (ph) ph.textContent = 'Map unavailable — use the peninsula buttons below.';
+      });
+  }
+
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          bootMap();
+          io.disconnect();
+        }
+      });
+    }, { rootMargin: '200px 0px' });
+    io.observe(mapEl);
+  } else {
+    bootMap();
+  }
 })();
 </script>
 

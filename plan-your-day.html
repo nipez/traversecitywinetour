@@ -33,6 +33,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="/js/map-basemap.js"></script>
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -775,11 +776,8 @@ function getPeninsulas() {
 // ═══════════════════════════════════════════
 // INIT MAP
 // ═══════════════════════════════════════════
-var map = L.map('map', { center: [44.93, -85.67], zoom: 10, minZoom: 9, maxZoom: 17, zoomControl: true });
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; <a href="https://carto.com/">CARTO</a>',
-  subdomains: 'abcd', maxZoom: 19
-}).addTo(map);
+var map = L.map('map', { center: [44.93, -85.67], zoom: 10, minZoom: 9, maxZoom: TCWT_MAP.MAX_ZOOM, zoomControl: true });
+TCWT_MAP.addBasemap(map);
 
 // Create markers
 W.forEach(function(w) {
