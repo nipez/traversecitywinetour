@@ -106,6 +106,53 @@ nav.scrolled { box-shadow: 0 2px 30px rgba(74,14,27,0.08); }
 .btn-burgundy { display: inline-flex; align-items: center; gap: 8px; background: var(--burgundy); color: var(--cream); padding: 16px 36px; font-family: 'Outfit', sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: background 0.3s; }
 .btn-burgundy:hover { background: var(--wine); }
 
+/* TOUR PICKER + MAP */
+.tour-fit { padding: 88px 40px; background: var(--cream); border-bottom: 1px solid rgba(74,14,27,0.06); }
+.tour-fit-inner { max-width: 1100px; margin: 0 auto; }
+.diff-banner { text-align: center; max-width: 720px; margin: 0 auto 48px; }
+.diff-banner p { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; line-height: 1.65; color: var(--text); }
+.diff-banner a { color: var(--burgundy); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--gold); }
+.picker-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: start; margin-bottom: 40px; }
+.picker-panel { background: var(--white); border: 1px solid rgba(74,14,27,0.08); border-radius: 10px; padding: 28px 28px 24px; }
+.picker-q { margin: 0 0 22px; padding: 0; border: 0; min-inline-size: 0; }
+.picker-q:last-child { margin-bottom: 0; }
+.picker-q legend { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; font-weight: 600; padding: 0; }
+.picker-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.picker-opts label { display: inline-flex; align-items: center; gap: 0; cursor: pointer; }
+.picker-opts input { position: absolute; opacity: 0; pointer-events: none; }
+.picker-opts span { display: inline-block; padding: 10px 14px; border: 1px solid rgba(74,14,27,0.14); border-radius: 4px; font-size: 0.82rem; color: var(--text); background: var(--white); transition: background 0.2s, border-color 0.2s, color 0.2s; }
+.picker-opts input:checked + span { background: var(--burgundy); color: var(--cream); border-color: var(--burgundy); }
+.picker-opts input:focus-visible + span { outline: 2px solid var(--gold); outline-offset: 2px; }
+.pen-map-wrap { background: var(--white); border: 1px solid rgba(74,14,27,0.08); border-radius: 10px; padding: 24px; }
+.pen-map-wrap h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--burgundy); margin-bottom: 6px; }
+.pen-map-wrap p { font-size: 0.88rem; color: var(--text-light); margin-bottom: 16px; line-height: 1.55; }
+.pen-map svg { width: 100%; height: auto; display: block; }
+.pen-map a.region { cursor: pointer; transition: opacity 0.2s; }
+.pen-map a.region:hover .region-fill { opacity: 1; }
+.pen-map .region-fill { fill: rgba(74,14,27,0.12); stroke: var(--burgundy); stroke-width: 1.5; opacity: 0.85; transition: fill 0.2s, opacity 0.2s; }
+.pen-map a.region:hover .region-fill,
+.pen-map a.region.is-active .region-fill { fill: rgba(201,169,110,0.45); }
+.pen-map .region-label { fill: var(--burgundy); font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; }
+.home-tour-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.home-tour-card { background: var(--white); border: 1px solid rgba(74,14,27,0.08); border-radius: 8px; padding: 22px 22px 20px; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: transform 0.25s, box-shadow 0.25s, opacity 0.25s; }
+.home-tour-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(74,14,27,0.08); }
+.home-tour-card.is-hidden { display: none; }
+.home-tour-type { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.home-tour-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--burgundy); margin-bottom: 8px; line-height: 1.25; }
+.home-tour-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.55; flex: 1; margin-bottom: 12px; }
+.home-tour-meta { font-size: 0.78rem; color: var(--text); display: flex; flex-wrap: wrap; gap: 8px 14px; margin-bottom: 12px; }
+.home-tour-link { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--burgundy); }
+.picker-empty { display: none; text-align: center; padding: 28px; color: var(--text-light); grid-column: 1 / -1; }
+.picker-empty.show { display: block; }
+.tour-fit-cta { text-align: center; margin-top: 36px; }
+@media (max-width: 1024px) {
+  .picker-grid, .home-tour-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .tour-fit { padding: 64px 20px; }
+  .picker-grid, .home-tour-grid { grid-template-columns: 1fr; }
+}
+
 /* SECTION HEADERS */
 .section-header { text-align: center; margin-bottom: 60px; }
 .section-tag { font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
@@ -417,7 +464,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         Get a Quote
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </button>
-      <a href="/wine-tours" class="btn-outline">Pricing &amp; Details</a>
+      <a href="/tours/" class="btn-outline">Browse Tours</a>
     </div>
   </div>
   <a href="#discover" class="hero-scroll">
@@ -434,12 +481,12 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       <div class="stat-label">Wineries & Tasting Rooms</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">2</div>
-      <div class="stat-label">Scenic Peninsulas</div>
+      <div class="stat-number">21</div>
+      <div class="stat-label">Local Tour Companies</div>
     </div>
     <div class="stat-item">
-      <div class="stat-number">50+</div>
-      <div class="stat-label">Years of Winemaking</div>
+      <div class="stat-number">2</div>
+      <div class="stat-label">Scenic Peninsulas</div>
     </div>
     <div class="stat-item">
       <div class="stat-number">45°</div>
@@ -448,8 +495,147 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
   </div>
 </section>
 
+<!-- WHICH TOUR FITS + MAP -->
+<section class="tour-fit" id="which-tour" aria-labelledby="tour-fit-title">
+  <div class="tour-fit-inner">
+    <div class="diff-banner">
+      <div class="section-tag">Why book through us</div>
+      <h2 class="section-title" id="tour-fit-title">We compare every local wine tour company</h2>
+      <div class="section-divider"></div>
+      <p style="margin-top:16px;">OTA catalogs only list a few operators. We compare all <a href="/wine-tour-guides/">21 verified Traverse City wine tour companies</a> — join-in buses, private SUVs, Sprinters, bike tours, and designated drivers — then help you book the right day.</p>
+    </div>
+
+    <div class="picker-grid">
+      <form class="picker-panel" id="tourPicker" aria-label="Which tour fits you">
+        <div class="section-tag" style="margin-bottom:8px;">Three quick questions</div>
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--burgundy);margin-bottom:20px;">Which tour fits your day?</h3>
+
+        <fieldset class="picker-q">
+          <legend>1. Peninsula</legend>
+          <div class="picker-opts">
+            <label><input type="radio" name="peninsula" value="any" checked><span>Either</span></label>
+            <label><input type="radio" name="peninsula" value="old-mission"><span>Old Mission</span></label>
+            <label><input type="radio" name="peninsula" value="leelanau"><span>Leelanau</span></label>
+            <label><input type="radio" name="peninsula" value="tc"><span>TC / mixed</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="picker-q">
+          <legend>2. Group size / vehicle</legend>
+          <div class="picker-opts">
+            <label><input type="radio" name="vehicle" value="any" checked><span>Any</span></label>
+            <label><input type="radio" name="vehicle" value="join-in"><span>Join-in seat</span></label>
+            <label><input type="radio" name="vehicle" value="suv"><span>Private / SUV</span></label>
+            <label><input type="radio" name="vehicle" value="van"><span>Van / Sprinter</span></label>
+            <label><input type="radio" name="vehicle" value="own-car"><span>They drive my car</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="picker-q">
+          <legend>3. Budget / time</legend>
+          <div class="picker-opts">
+            <label><input type="radio" name="budget" value="any" checked><span>Flexible</span></label>
+            <label><input type="radio" name="budget" value="per-seat"><span>Per-person seat</span></label>
+            <label><input type="radio" name="budget" value="half-day"><span>Half-day private</span></label>
+            <label><input type="radio" name="budget" value="full-private"><span>Full private day</span></label>
+          </div>
+        </fieldset>
+      </form>
+
+      <div class="pen-map-wrap" id="peninsula-map">
+        <h3>Two peninsulas map</h3>
+        <p>Jump to Old Mission, Leelanau, or downtown Traverse City tour options.</p>
+        <div class="pen-map" aria-hidden="false">
+          <svg viewBox="0 0 320 280" role="img" aria-label="Schematic map of Old Mission Peninsula, Leelanau Peninsula, and Traverse City">
+            <title>Traverse City wine country schematic</title>
+            <!-- Water -->
+            <rect x="0" y="0" width="320" height="280" fill="#E8F0F2"/>
+            <!-- Leelanau (west) -->
+            <a class="region" href="#tour-cards" data-map-peninsula="leelanau" aria-label="Leelanau Peninsula tours">
+              <path class="region-fill" d="M28 36 L78 28 L96 70 L110 130 L98 200 L70 240 L42 220 L34 160 L22 90 Z"/>
+              <text class="region-label" x="48" y="130">Leelanau</text>
+            </a>
+            <!-- Bay -->
+            <ellipse cx="160" cy="150" rx="36" ry="70" fill="#D5E4EA"/>
+            <!-- Old Mission (east finger) -->
+            <a class="region" href="#tour-cards" data-map-peninsula="old-mission" aria-label="Old Mission Peninsula tours">
+              <path class="region-fill" d="M188 48 L212 40 L228 90 L236 150 L228 200 L210 230 L196 210 L190 150 L184 90 Z"/>
+              <text class="region-label" x="198" y="130">Old</text>
+              <text class="region-label" x="194" y="144">Mission</text>
+            </a>
+            <!-- Traverse City base -->
+            <a class="region" href="#tour-cards" data-map-peninsula="tc" aria-label="Traverse City area tours">
+              <path class="region-fill" d="M90 228 L230 228 L250 258 L70 258 Z"/>
+              <text class="region-label" x="130" y="248">Traverse City</text>
+            </a>
+            <text x="150" y="20" text-anchor="middle" fill="#7A7068" font-size="10" font-family="Outfit,sans-serif" letter-spacing="0.12em">GRAND TRAVERSE BAY</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="home-tour-grid" id="tour-cards">
+      <a class="home-tour-card" href="/tours/magic-shuttle-old-mission-4-winery" data-peninsula="old-mission" data-vehicle="join-in" data-budget="per-seat">
+        <div class="home-tour-type">Join-in · Bus</div>
+        <h3>Magic Shuttle Old Mission 4-Winery</h3>
+        <p>Five-hour shared bus to four Old Mission stops. Civic Center pickup.</p>
+        <div class="home-tour-meta"><span>From $79/person</span><span>~5 hours</span></div>
+        <span class="home-tour-link">View tour →</span>
+      </a>
+      <a class="home-tour-card" href="/tours/magic-shuttle-leelanau" data-peninsula="leelanau" data-vehicle="join-in" data-budget="per-seat">
+        <div class="home-tour-type">Join-in · Bus</div>
+        <h3>Magic Shuttle Leelanau Tour</h3>
+        <p>Leelanau Wine Trail day with longer stops. Same Civic Center meet point.</p>
+        <div class="home-tour-meta"><span>Confirm live rate</span><span>~5 hours</span></div>
+        <span class="home-tour-link">View tour →</span>
+      </a>
+      <a class="home-tour-card" href="/tours/movie-stars-suv-join-in" data-peninsula="old-mission" data-vehicle="join-in suv" data-budget="per-seat">
+        <div class="home-tour-type">Semi-private · SUV</div>
+        <h3>Movie Stars SUV Join-In</h3>
+        <p>Luxury Yukon/Suburban seats, downtown pickup — no party bus.</p>
+        <div class="home-tour-meta"><span>From $89/person</span><span>4–5 hours</span></div>
+        <span class="home-tour-link">View tour →</span>
+      </a>
+      <a class="home-tour-card" href="/tours/tc-brew-bus-join-in" data-peninsula="old-mission tc" data-vehicle="join-in" data-budget="per-seat">
+        <div class="home-tour-type">Join-in · Mixed</div>
+        <h3>TC Brew Bus Join-In</h3>
+        <p>Chateau Chantal, Old Mission Distilling, and Silver Spruce in one afternoon.</p>
+        <div class="home-tour-meta"><span>$82 + tax</span><span>Gratuity included</span></div>
+        <span class="home-tour-link">View tour →</span>
+      </a>
+      <a class="home-tour-card" href="/tours/private-suv-wine-tour" data-peninsula="old-mission leelanau" data-vehicle="suv" data-budget="half-day full-private">
+        <div class="home-tour-type">Private · SUV</div>
+        <h3>Private SUV Wine Tour</h3>
+        <p>Your group only — Suburban, Wagoneer, or Yukon days with hotel pickup.</p>
+        <div class="home-tour-meta"><span>From $375 / 3 hrs</span><span>Up to ~7 guests</span></div>
+        <span class="home-tour-link">View options →</span>
+      </a>
+      <a class="home-tour-card" href="/tours/private-van-sprinter-wine-tour" data-peninsula="old-mission leelanau" data-vehicle="van" data-budget="half-day full-private">
+        <div class="home-tour-type">Private · Van / Sprinter</div>
+        <h3>Private Van &amp; Sprinter</h3>
+        <p>Mid-size groups: TC Brew Bus from $499 / 4 hrs; TASTE TC Sprinter rates published.</p>
+        <div class="home-tour-meta"><span>From $499 / 4 hrs</span><span>4–12+ guests</span></div>
+        <span class="home-tour-link">View options →</span>
+      </a>
+      <a class="home-tour-card" href="/tours/designated-driver-wine-tour" data-peninsula="tc old-mission leelanau" data-vehicle="own-car" data-budget="half-day full-private">
+        <div class="home-tour-type">Private · Your car</div>
+        <h3>Designated Driver Tour</h3>
+        <p>They drive the vehicle you already have — published hourly rates with a 5-hour minimum.</p>
+        <div class="home-tour-meta"><span>From $59/hr</span><span>5-hr minimum</span></div>
+        <span class="home-tour-link">View tour →</span>
+      </a>
+      <p class="picker-empty" id="pickerEmpty">No tours match those filters — reset to “Either / Any / Flexible” or <a href="/tours/" style="color:var(--burgundy);">browse the full catalog</a>.</p>
+    </div>
+
+    <div class="tour-fit-cta">
+      <a href="/tours/" class="btn-burgundy">See all bookable tours</a>
+      <a href="/wine-tour-guides/" class="btn-outline-dark" style="margin-left:12px;">Compare all 21 companies</a>
+    </div>
+  </div>
+</section>
+
 <!-- PENINSULAS -->
-<section class="peninsulas">
+<section class="peninsulas" id="peninsulas">
   <div style="max-width: 1340px; margin: 0 auto;">
     <div class="section-header">
       <div class="section-tag">Two Peninsulas, Endless Possibilities</div>
@@ -658,13 +844,13 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       <div class="section-divider"></div>
     </div>
     <div class="plan-grid">
-      <a href="/wine-tour-guides/" class="plan-card">
+      <a href="/tours/" class="plan-card">
         <div class="plan-card-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3.5V16h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
         </div>
-        <h3>Wine Tour Guides</h3>
-        <p>Compare verified local guides for Old Mission and Leelanau — private, group, limo, and bus options.</p>
-        <span class="plan-card-link">Compare Guides <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <h3>Bookable Tours</h3>
+        <p>Specific join-in and private days with duration, pickup, and verified from-prices — plus a quote CTA.</p>
+        <span class="plan-card-link">Browse Tours <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
       </a>
       <a href="/where-to-stay" class="plan-card">
         <div class="plan-card-icon">
@@ -789,6 +975,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       </ul></div>
       <div class="footer-col"><h4>Plan Your Trip</h4><ul>
         <li><a href="/wine-tours">Wine Tours</a></li>
+        <li><a href="/tours/">Bookable Tours</a></li>
         <li><a href="/wine-tour-guides/">Wine Tour Guides</a></li>
         <li><a href="/bachelorette">Bachelorette Parties</a></li>
         <li><a href="/where-to-stay">Hotels & Lodging</a></li>
@@ -826,7 +1013,7 @@ const obs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.winery-card, .pen-card, .exp-card, .plan-card, .journal-card, .stat-item').forEach(el => {
+document.querySelectorAll('.winery-card, .pen-card, .exp-card, .plan-card, .journal-card, .stat-item, .home-tour-card').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -837,6 +1024,66 @@ document.querySelectorAll('.winery-card, .pen-card, .exp-card, .plan-card, .jour
 document.querySelectorAll('.stat-item').forEach((el, i) => {
   el.style.transitionDelay = `${i * 0.1}s`;
 });
+
+// Homepage tour picker (no framework)
+(function () {
+  const form = document.getElementById('tourPicker');
+  const cards = Array.from(document.querySelectorAll('#tour-cards .home-tour-card'));
+  const empty = document.getElementById('pickerEmpty');
+  if (!form || !cards.length) return;
+
+  function selected(name) {
+    const el = form.querySelector('input[name="' + name + '"]:checked');
+    return el ? el.value : 'any';
+  }
+
+  function matches(card) {
+    const pen = selected('peninsula');
+    const veh = selected('vehicle');
+    const bud = selected('budget');
+    const cPen = (card.getAttribute('data-peninsula') || '').split(/\s+/);
+    const cVeh = (card.getAttribute('data-vehicle') || '').split(/\s+/);
+    const cBud = (card.getAttribute('data-budget') || '').split(/\s+/);
+    if (pen !== 'any' && cPen.indexOf(pen) === -1) return false;
+    if (veh !== 'any' && cVeh.indexOf(veh) === -1) return false;
+    if (bud !== 'any' && cBud.indexOf(bud) === -1) return false;
+    return true;
+  }
+
+  function syncMap() {
+    const pen = selected('peninsula');
+    document.querySelectorAll('[data-map-peninsula]').forEach(function (link) {
+      const active = pen !== 'any' && link.getAttribute('data-map-peninsula') === pen;
+      link.classList.toggle('is-active', active);
+    });
+  }
+
+  function apply() {
+    let shown = 0;
+    cards.forEach(function (card) {
+      const ok = matches(card);
+      card.classList.toggle('is-hidden', !ok);
+      if (ok) shown += 1;
+    });
+    if (empty) empty.classList.toggle('show', shown === 0);
+    syncMap();
+  }
+
+  form.addEventListener('change', apply);
+
+  document.querySelectorAll('[data-map-peninsula]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      const pen = link.getAttribute('data-map-peninsula');
+      const radio = form.querySelector('input[name="peninsula"][value="' + pen + '"]');
+      if (radio) {
+        radio.checked = true;
+        apply();
+      }
+    });
+  });
+
+  apply();
+})();
 </script>
 
 <script src="/js/leads.js" defer></script>
