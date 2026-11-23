@@ -139,6 +139,7 @@ nav.scrolled { box-shadow: 0 2px 30px rgba(74,14,27,0.08); }
 .home-map-link { margin-left: auto; font-size: 0.75rem; font-weight: 600; color: var(--burgundy); text-decoration: none; border-bottom: 1px solid var(--gold); }
 .home-map-link:hover { opacity: 0.8; }
 /* Same pin chrome as /plan-your-day */
+.home-map .leaflet-div-icon { background: transparent; border: none; }
 .winery-pin { cursor: pointer; transition: transform 0.2s; }
 .winery-pin:hover { transform: scale(1.3); z-index: 9999 !important; }
 .pin-dot { width: 24px; height: 24px; border-radius: 50%; border: 2.5px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.2); position: relative; display: flex; align-items: center; justify-content: center; font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 700; color: #fff; }
@@ -1113,11 +1114,23 @@ document.querySelectorAll('.stat-item').forEach((el, i) => {
   }
 
   function loadCss(href) {
-    if (document.querySelector('link[href="' + href + '"]')) return;
-    const link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = href;
-    document.head.appendChild(link);
+    return new Promise(function (resolve) {
+      const existing = document.querySelector('link[href="' + href + '"]');
+      if (existing) {
+        // Stylesheet may already be in flight from a prior visit
+        if (existing.sheet) resolve();
+        else existing.addEventListener('load', function () { resolve(); }, { once: true });
+        // Fallback if load already fired without sheet access
+        setTimeout(resolve, 50);
+        return;
+      }
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      link.onload = function () { resolve(); };
+      link.onerror = function () { resolve(); };
+      document.head.appendChild(link);
+    });
   }
 
   function initHomeMap() {
@@ -1146,7 +1159,7 @@ document.querySelectorAll('.stat-item').forEach((el, i) => {
     function layout() {
       map.invalidateSize();
       if (bounds.length) {
-        map.fitBounds(bounds, { padding: [36, 36], maxZoom: 11 });
+        map.fitBounds(bounds, { padding: [60, 60], maxZoom: 12 });
       }
     }
     // Map may still be settling after lazy-load / flex layout
@@ -1161,8 +1174,9 @@ document.querySelectorAll('.stat-item').forEach((el, i) => {
     mapEl.dataset.booted = '1';
     const leafletCss = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css';
     const leafletJs = 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js';
-    loadCss(leafletCss);
-    loadScript(leafletJs)
+    // Await CSS before creating markers — missing Leaflet CSS offsets divIcons
+    loadCss(leafletCss)
+      .then(function () { return loadScript(leafletJs); })
       .then(function () { return loadScript('/js/map-basemap.js'); })
       .then(function () { return loadScript('/js/winery-map-data.js'); })
       .then(initHomeMap)
