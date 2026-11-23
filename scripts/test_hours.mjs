@@ -138,7 +138,7 @@ function assertEq(a, b, msg) {
     console.log("Unparseable:");
     bad.forEach((b) => console.log(" -", b.join(" | ")));
   }
-  assert(usable + missing === 35 + 6 + 15, "expected venue counts");
+  assert(usable + missing === 34 + 6 + 15, "expected venue counts");
 }
 
 if (failed) {

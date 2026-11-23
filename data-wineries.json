@@ -1298,26 +1298,6 @@
       "lat": 45.1134,
       "lng": -85.8456,
       "description": "Laurentide Winery takes its name from the ancient Laurentide Ice Sheet, the glacier whose retreat carved the Leelanau Peninsula landscape and deposited the well-drained soils that make this region so exceptional for viticulture."
-    },
-    {
-      "name": "Tandem Ciders",
-      "peninsula": "Leelanau",
-      "type": "Artisan Cidery & Winery",
-      "address": "2055 N. Setterbo Rd, Suttons Bay, MI 49682",
-      "phone": "(231) 271-0050",
-      "website": "https://www.tandemciders.com",
-      "hours": "Daily 12–6pm (seasonal)",
-      "known_for": [
-        "Dry Hard Cider",
-        "Apple Wine",
-        "Pear Cider",
-        "Seasonal Blends"
-      ],
-      "slug": "tandem-ciders",
-      "featured": false,
-      "lat": 45.0423,
-      "lng": -85.7534,
-      "description": "Tandem Ciders occupies a unique niche on the Leelanau Peninsula wine trail — a dedicated artisan cidery that celebrates the peninsula's deep apple-growing heritage alongside its more recently established wine culture."
     }
   ],
   "articles": [
