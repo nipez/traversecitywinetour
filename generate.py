@@ -306,7 +306,9 @@ window.addEventListener('scroll',()=>{{nav.classList.toggle('scrolled',window.sc
 const obs=new IntersectionObserver(e=>{{e.forEach(x=>{{if(x.isIntersecting){{x.target.style.opacity='1';x.target.style.transform='translateY(0)';}}}});}},{{threshold:0.1}});
 document.querySelectorAll('.winery-card,.article-card,.plan-card,.tour-card,.stay-card,.pricing-card,.fade-in,.journal-card,.pen-card').forEach(el=>{{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity 0.6s ease, transform 0.6s ease';obs.observe(el);}});
 </script>
-<script src="{prefix}js/leads.js" defer></script>'''
+<script src="{prefix}js/leads.js" defer></script>
+<script src="{prefix}js/hours.js" defer></script>
+<script src="{prefix}js/open-this-week.js" defer></script>'''
 
 def close():
     return '</body></html>'
@@ -317,7 +319,8 @@ def winery_card_html(w, show_peninsula=True, img_prefix=""):
     if show_peninsula: badges += f'<span class="winery-peninsula-tag">{w["peninsula"]}</span>'
     img = "vineyard.jpg" if w['peninsula'] == 'Old Mission' else "wineglasses.jpg"
     filt = f' filter: {w.get("photo_filter","")};' if w.get("photo_filter") else ''
-    return f'''<a href="/wineries/{w["slug"]}" class="winery-card">
+    hours_attr = (w.get("hours") or "").replace("&", "&amp;").replace('"', "&quot;")
+    return f'''<a href="/wineries/{w["slug"]}" class="winery-card" data-hours="{hours_attr}">
   <div class="winery-img"><div class="winery-img-inner" style="background-image: url('{img_prefix}{img}');{filt}"></div>{badges}</div>
   <div class="winery-info">
     <h3 class="winery-name">{w["name"]}</h3>
@@ -459,6 +462,7 @@ directory = f"""{head("All Wineries | Traverse City Wine Tours", "Complete direc
 {topbar()}{navbar("../")}
 <section class="page-hero"><div class="page-hero-bg" style="background-image: url('../vineyard.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">{len(wineries)} Wineries</div><h1>Traverse City <em>Wineries</em></h1><p class="page-hero-desc">Explore every winery, vineyard, and tasting room across both peninsulas.</p></div></section>
 <div class="breadcrumbs"><a href="/">Home</a><span>›</span><span class="current">All Wineries</span></div>
+<div id="openThisWeek" data-otw-scope="directory"></div>
 <section style="padding: 60px 40px 120px; max-width: 1340px; margin: 0 auto;">
   <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 48px; flex-wrap: wrap;">
     <button class="filter-btn active" onclick="filterW('all',this)">All ({len(wineries)})</button>
@@ -532,11 +536,22 @@ for w in wineries:
     schema_addr = f'"streetAddress":"{addr_parts[0]}","addressLocality":"{locality}","addressRegion":"{region}","addressCountry":"US"'
     if postal:
         schema_addr += f',"postalCode":"{postal}"'
+    hours_raw = (w.get("hours") or "").strip()
+    hours_attr = hours_raw.replace("&", "&amp;").replace('"', "&quot;")
+    hours_html = hours_raw.replace("&", "&amp;").replace("<", "&lt;")
+    opening_hours_json = f',"openingHours":{json.dumps(hours_raw)}' if hours_raw else ""
+    # Live pages also emit openingHoursSpecification via scripts/patch_open_this_week.py.
+    # Keep generate.py schema aligned with openingHours + hours block markup.
     schema = f'''<script type="application/ld+json">
-{{"@context":"https://schema.org","@type":"Winery","name":"{w['name']}","description":"{desc_full}","address":{{"@type":"PostalAddress",{schema_addr}}},"telephone":"{w['phone']}","url":"https://traversecitywinetour.com/wineries/{w['slug']}","sameAs":["{w['website']}"]}}</script>'''
+{{"@context":"https://schema.org","@type":"Winery","name":"{w['name']}","description":"{desc_full}","address":{{"@type":"PostalAddress",{schema_addr}}},"telephone":"{w['phone']}","url":"https://traversecitywinetour.com/wineries/{w['slug']}","sameAs":["{w['website']}"]{opening_hours_json}}}</script>'''
 
     seo_title = (w.get("seo_title") or "").strip() or _winery_seo_title(w["name"])
     seo_desc = (w.get("seo_description") or "").strip() or _winery_seo_desc(w["name"], w["peninsula"])
+    hours_block = (
+        f'<div class="sidebar-detail" data-hours-block data-hours="{hours_attr}">'
+        f'{ICON_CLOCK_18} <div><div class="hours-raw">{hours_html or "Hours not listed — check with the winery"}</div>'
+        f'<p class="winery-hours-note">Hours change seasonally — call ahead to confirm before you go.</p></div></div>'
+    )
     page = f"""{head(seo_title, seo_desc, f"/wineries/{w['slug']}", winery_css)}
 {schema}
 {topbar()}{navbar("../")}
@@ -555,7 +570,7 @@ for w in wineries:
       <h3>Visit Information</h3>
       <div class="sidebar-detail">{ICON_PIN_18} <div>{w['address']}</div></div>
       <div class="sidebar-detail">{ICON_PHONE_18} <div>{w['phone']}</div></div>
-      <div class="sidebar-detail">{ICON_CLOCK_18} <div>{w['hours']}</div></div>
+      {hours_block}
       <div class="sidebar-detail">{ICON_GLOBE_18} <div><a href="{w['website']}" target="_blank" rel="noopener">{w['website'].replace('https://www.','').replace('https://','')}</a></div></div>
       <a href="{w['website']}" target="_blank" rel="noopener" class="sidebar-cta">Visit Official Website</a>
     </div>

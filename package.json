@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "wrangler pages dev . --persist-to .wrangler/state",
-    "test": "node scripts/test_leads.mjs",
+    "test": "node scripts/test_leads.mjs && node scripts/test_hours.mjs",
     "db:migrate:local": "wrangler d1 migrations apply tcwinetour-leads --local",
     "db:migrate": "wrangler d1 migrations apply tcwinetour-leads --remote"
   },

@@ -571,6 +571,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <p style="font-size:1rem;line-height:1.85;color:var(--text);margin-bottom:16px;">Season matters too. Summer and harvest weekends are the busiest; spring and late fall trade crowds for quieter bars and easier reservations. Many rooms stay open through winter with shorter hours or appointment windows — useful if you want a slower tasting pace. Whatever the season, group size changes the logistics: couples can walk in more often, while six-plus guests should call ahead for seating and pour schedules.</p>
     <p style="font-size:1rem;line-height:1.85;color:var(--text);margin-bottom:20px;">Use the jump links below to browse by peninsula, or search the full directory. Each winery page covers hours, map pins, and how to add the stop to a private tour.</p>
     <div style="display:flex;flex-wrap:wrap;gap:12px;">
+      <a href="#open-this-week" style="display:inline-flex;align-items:center;padding:10px 16px;border:1px solid rgba(74,14,27,0.15);border-radius:4px;color:var(--burgundy);text-decoration:none;font-size:0.78rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;">Open this week →</a>
       <a href="#sec-old" style="display:inline-flex;align-items:center;padding:10px 16px;border:1px solid rgba(74,14,27,0.15);border-radius:4px;color:var(--burgundy);text-decoration:none;font-size:0.78rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;">Old Mission Peninsula →</a>
       <a href="#sec-lee" style="display:inline-flex;align-items:center;padding:10px 16px;border:1px solid rgba(74,14,27,0.15);border-radius:4px;color:var(--burgundy);text-decoration:none;font-size:0.78rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;">Leelanau Peninsula →</a>
       <a href="#winery-faq" style="display:inline-flex;align-items:center;padding:10px 16px;border:1px solid rgba(74,14,27,0.15);border-radius:4px;color:var(--burgundy);text-decoration:none;font-size:0.78rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;">Winery FAQ →</a>
@@ -630,6 +631,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
   });
 })();
 </script>
+<div id="openThisWeek" data-otw-scope="directory"></div>
 <div class="pen-header winery-section-head">
       <div>
         <span class="section-tag">Old Mission Peninsula</span>
@@ -639,7 +641,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       <span class="pen-count">24 Wineries</span>
     </div>
     <div class="winery-grid" id="grid-old">
-      <a href="/wineries/chateau-grand-traverse" class="winery-card" data-name="chateau grand traverse" data-type="estate winery & tasting room">
+      <a href="/wineries/chateau-grand-traverse" class="winery-card" data-hours="Mon–Sat 10am–6pm · Sun 12–5pm" data-name="chateau grand traverse" data-type="estate winery & tasting room">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/winery-placeholder.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-badge">Featured</span>
@@ -654,7 +656,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/peninsula-cellars" class="winery-card" data-name="peninsula cellars" data-type="family owned winery">
+      <a href="/wineries/peninsula-cellars" class="winery-card" data-hours="Mon–Sat 10am–6pm · Sun 12–6pm" data-name="peninsula cellars" data-type="family owned winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/vineyard.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Old Mission</span>
@@ -668,7 +670,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/chateau-chantal" class="winery-card" data-name="chateau chantal" data-type="winery & b&b inn">
+      <a href="/wineries/chateau-chantal" class="winery-card" data-hours="Mon–Sat 11am–7pm · Sun 12–6pm" data-name="chateau chantal" data-type="winery & b&b inn">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/wineglasses.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-badge">Featured</span>
@@ -683,7 +685,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/brys-estate" class="winery-card" data-name="brys estate vineyard & winery" data-type="estate vineyard & winery">
+      <a href="/wineries/brys-estate" class="winery-card" data-hours="Mon–Sat 11am–6pm · Sun 12–6pm" data-name="brys estate vineyard & winery" data-type="estate vineyard & winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/grapes.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Old Mission</span>
@@ -697,7 +699,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/bowers-harbor-vineyards" class="winery-card" data-name="bowers harbor vineyards" data-type="vineyard & tasting room">
+      <a href="/wineries/bowers-harbor-vineyards" class="winery-card" data-hours="Mon–Sat 10:30am–6pm · Sun 12–6pm" data-name="bowers harbor vineyards" data-type="vineyard & tasting room">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/cheers.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Old Mission</span>
@@ -711,7 +713,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/2-lads-winery" class="winery-card" data-name="2 lads winery" data-type="modern estate winery">
+      <a href="/wineries/2-lads-winery" class="winery-card" data-hours="Daily 12–6pm" data-name="2 lads winery" data-type="modern estate winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/winery-placeholder.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Old Mission</span>
@@ -725,7 +727,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/mari-vineyards" class="winery-card" data-name="mari vineyards" data-type="estate winery & underground cellar">
+      <a href="/wineries/mari-vineyards" class="winery-card" data-hours="Daily 12–6pm" data-name="mari vineyards" data-type="estate winery & underground cellar">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/vineyard.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Old Mission</span>
@@ -739,7 +741,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/bonobo-winery" class="winery-card" data-name="bonobo winery" data-type="boutique winery">
+      <a href="/wineries/bonobo-winery" class="winery-card" data-hours="Mon–Sat 11am–6pm · Sun 12–5pm" data-name="bonobo winery" data-type="boutique winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/wineglasses.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Old Mission</span>
@@ -753,7 +755,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/left-foot-charley" class="winery-card" data-name="left foot charley" data-type="urban winery">
+      <a href="/wineries/left-foot-charley" class="winery-card" data-hours="Mon–Sat 12–8pm · Sun 12–6pm" data-name="left foot charley" data-type="urban winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/grapes.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Old Mission</span>
@@ -767,7 +769,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/hawthorne-vineyards" class="winery-card" data-name="hawthorne vineyards" data-type="estate vineyard & winery">
+      <a href="/wineries/hawthorne-vineyards" class="winery-card" data-hours="Daily 12–6pm (seasonal)" data-name="hawthorne vineyards" data-type="estate vineyard & winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/cheers.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Old Mission</span>
@@ -781,7 +783,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/tabone-vineyards" class="winery-card" data-name="tabone vineyards" data-type="small-batch estate winery">
+      <a href="/wineries/tabone-vineyards" class="winery-card" data-hours="Thu–Sun 12–5pm (seasonal)" data-name="tabone vineyards" data-type="small-batch estate winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/winery-placeholder.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Old Mission</span>
@@ -813,7 +815,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       <span class="pen-count">11 Wineries</span>
     </div>
     <div class="winery-grid" id="grid-lee">
-      <a href="/wineries/black-star-farms" class="winery-card" data-name="black star farms" data-type="winery, inn & farm market">
+      <a href="/wineries/black-star-farms" class="winery-card" data-hours="Daily 10am–6pm" data-name="black star farms" data-type="winery, inn & farm market">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/winery-placeholder.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-badge">Featured</span>
@@ -828,7 +830,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/l-mawby" class="winery-card" data-name="l. mawby" data-type="sparkling wine house">
+      <a href="/wineries/l-mawby" class="winery-card" data-hours="Thu–Mon 12–5pm (Seasonal)" data-name="l. mawby" data-type="sparkling wine house">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/vineyard.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-badge">Featured</span>
@@ -843,7 +845,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/ciccone-vineyard" class="winery-card" data-name="ciccone vineyard & winery" data-type="family estate winery">
+      <a href="/wineries/ciccone-vineyard" class="winery-card" data-hours="Mon–Sat 12–6pm · Sun 12–5pm" data-name="ciccone vineyard & winery" data-type="family estate winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/wineglasses.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -857,7 +859,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/good-harbor-vineyards" class="winery-card" data-name="good harbor vineyards" data-type="estate winery">
+      <a href="/wineries/good-harbor-vineyards" class="winery-card" data-hours="Mon–Sat 11am–5pm · Sun 12–5pm" data-name="good harbor vineyards" data-type="estate winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/grapes.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -871,7 +873,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/forty-five-north" class="winery-card" data-name="forty-five north vineyard & winery" data-type="vineyard & winery">
+      <a href="/wineries/forty-five-north" class="winery-card" data-hours="Daily 11am–6pm (Seasonal)" data-name="forty-five north vineyard & winery" data-type="vineyard & winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/cheers.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -885,7 +887,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/shady-lane-cellars" class="winery-card" data-name="shady lane cellars" data-type="winery in historic fieldstone farm">
+      <a href="/wineries/shady-lane-cellars" class="winery-card" data-hours="Daily 11am–6pm" data-name="shady lane cellars" data-type="winery in historic fieldstone farm">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/winery-placeholder.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -899,7 +901,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/leelanau-cellars" class="winery-card" data-name="leelanau cellars" data-type="pioneer estate winery">
+      <a href="/wineries/leelanau-cellars" class="winery-card" data-hours="Mon–Sat 10am–6pm · Sun 12–5pm" data-name="leelanau cellars" data-type="pioneer estate winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/vineyard.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -913,7 +915,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/brengman-brothers" class="winery-card" data-name="brengman brothers" data-type="winery & tasting room">
+      <a href="/wineries/brengman-brothers" class="winery-card" data-hours="Daily 11am–6pm" data-name="brengman brothers" data-type="winery & tasting room">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/wineglasses.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -927,7 +929,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/gills-pier" class="winery-card" data-name="gill's pier vineyard & winery" data-type="vineyard & winery">
+      <a href="/wineries/gills-pier" class="winery-card" data-hours="Daily 12–5pm (Seasonal)" data-name="gill's pier vineyard & winery" data-type="vineyard & winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/grapes.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -941,7 +943,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/bel-lago" class="winery-card" data-name="bel lago vineyard & winery" data-type="estate vineyard & winery">
+      <a href="/wineries/bel-lago" class="winery-card" data-hours="Mon–Sat 12–5pm · Sun 12–5pm" data-name="bel lago vineyard & winery" data-type="estate vineyard & winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/cheers.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -955,7 +957,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/verterra-winery" class="winery-card" data-name="verterra winery" data-type="artisan winery">
+      <a href="/wineries/verterra-winery" class="winery-card" data-hours="Daily 12–6pm (Seasonal)" data-name="verterra winery" data-type="artisan winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/winery-placeholder.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -969,7 +971,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/aurora-cellars" class="winery-card" data-name="aurora cellars" data-type="boutique winery & tasting room">
+      <a href="/wineries/aurora-cellars" class="winery-card" data-hours="Daily 11am–6pm (seasonal)" data-name="aurora cellars" data-type="boutique winery & tasting room">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/vineyard.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -983,7 +985,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/blustone-vineyards" class="winery-card" data-name="blustone vineyards" data-type="modern boutique winery">
+      <a href="/wineries/blustone-vineyards" class="winery-card" data-hours="Daily 12–6pm (seasonal)" data-name="blustone vineyards" data-type="modern boutique winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/wineglasses.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -997,7 +999,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/boathouse-vineyards" class="winery-card" data-name="boathouse vineyards" data-type="waterfront vineyard & winery">
+      <a href="/wineries/boathouse-vineyards" class="winery-card" data-hours="Daily 12–6pm (seasonal)" data-name="boathouse vineyards" data-type="waterfront vineyard & winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/grapes.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -1011,7 +1013,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/rove-estate" class="winery-card" data-name="rove estate" data-type="estate vineyard & winery">
+      <a href="/wineries/rove-estate" class="winery-card" data-hours="Daily 12–7pm (seasonal)" data-name="rove estate" data-type="estate vineyard & winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/cheers.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -1025,7 +1027,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/chateau-fontaine" class="winery-card" data-name="chateau fontaine" data-type="estate vineyard & winery">
+      <a href="/wineries/chateau-fontaine" class="winery-card" data-hours="Daily 11am–6pm (seasonal)" data-name="chateau fontaine" data-type="estate vineyard & winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/winery-placeholder.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -1039,7 +1041,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/raftshol-vineyards" class="winery-card" data-name="raftshol vineyards" data-type="historic family estate winery">
+      <a href="/wineries/raftshol-vineyards" class="winery-card" data-hours="Thu–Sun 12–5pm (seasonal)" data-name="raftshol vineyards" data-type="historic family estate winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/vineyard.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -1053,7 +1055,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/willow-vineyard" class="winery-card" data-name="willow vineyard" data-type="boutique hillside winery">
+      <a href="/wineries/willow-vineyard" class="winery-card" data-hours="Fri–Sun 12–5pm (seasonal)" data-name="willow vineyard" data-type="boutique hillside winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/wineglasses.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -1067,7 +1069,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/silver-leaf-vineyard" class="winery-card" data-name="silver leaf vineyard & winery" data-type="small-batch estate winery">
+      <a href="/wineries/silver-leaf-vineyard" class="winery-card" data-hours="Fri–Sun 11am–5pm (seasonal)" data-name="silver leaf vineyard & winery" data-type="small-batch estate winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/grapes.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -1081,7 +1083,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/chateau-de-leelanau" class="winery-card" data-name="chateau de leelanau" data-type="sparkling & estate winery">
+      <a href="/wineries/chateau-de-leelanau" class="winery-card" data-hours="Daily 11am–6pm (seasonal)" data-name="chateau de leelanau" data-type="sparkling & estate winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/cheers.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -1095,7 +1097,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/good-neighbor-organic" class="winery-card" data-name="good neighbor organic winery" data-type="certified organic vineyard & winery">
+      <a href="/wineries/good-neighbor-organic" class="winery-card" data-hours="Sat–Sun 12–5pm (seasonal)" data-name="good neighbor organic winery" data-type="certified organic vineyard & winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/winery-placeholder.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -1109,7 +1111,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/longview-winery" class="winery-card" data-name="longview winery" data-type="boutique estate winery">
+      <a href="/wineries/longview-winery" class="winery-card" data-hours="Fri–Sun 12–5pm (seasonal)" data-name="longview winery" data-type="boutique estate winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/vineyard.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -1123,7 +1125,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
           <span class="winery-link">View Details <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
         </div>
       </a>
-      <a href="/wineries/laurentide-winery" class="winery-card" data-name="laurentide winery" data-type="modern boutique winery">
+      <a href="/wineries/laurentide-winery" class="winery-card" data-hours="Daily 12–6pm (seasonal)" data-name="laurentide winery" data-type="modern boutique winery">
         <div class="winery-img">
           <div class="winery-img-inner" style="background-image:url('/wineglasses.jpg');background-size:cover;background-position:center;"></div>
           <span class="winery-pen-tag">Leelanau</span>
@@ -1343,5 +1345,7 @@ const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.targ
 document.querySelectorAll('.winery-card').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity 0.5s ease,transform 0.5s ease';obs.observe(el);});
 </script>
 <script src="/js/leads.js" defer></script>
+<script src="/js/hours.js" defer></script>
+<script src="/js/open-this-week.js" defer></script>
 </body>
 </html>
