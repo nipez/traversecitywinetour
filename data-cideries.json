@@ -7,7 +7,7 @@
     "address": "2055 N Setterbo Rd, Suttons Bay, MI 49682",
     "phone": "(231) 271-0050",
     "website": "https://www.tandemciders.com",
-    "hours": "Thu\u2013Sun 12\u20136pm (seasonal hours vary)",
+    "hours": "Mon–Sat 12–6pm · Sun 12–5pm",
     "description": "One of Michigan's most acclaimed cideries, Tandem uses locally sourced Leelanau and Old Mission Peninsula apples to craft small-batch, terroir-driven ciders. Their rustic barn tasting room is a must-visit.",
     "known_for": [
       "Farmhouse Cider",
@@ -23,7 +23,20 @@
     ],
     "photo": "vineyard.jpg",
     "lat": 44.9542,
-    "lng": -85.6387
+    "lng": -85.6387,
+    "hoursStatus": "verified",
+    "hoursCheckedAt": "2026-11-25",
+    "hoursSource": "https://www.tandemciders.com",
+    "hoursSchedules": [
+      {
+        "id": "current",
+        "label": "Taproom",
+        "validFrom": "01-01",
+        "validThrough": "12-31",
+        "hours": "Mon–Sat 12–6pm · Sun 12–5pm"
+      }
+    ],
+    "holidayClosures": []
   },
   {
     "name": "Suttons Bay Ciders",
@@ -33,7 +46,7 @@
     "address": "715 S Maple St, Suttons Bay, MI 49682",
     "phone": "(231) 271-4545",
     "website": "https://www.suttonsbayciders.com",
-    "hours": "Daily 12\u20138pm (seasonal hours vary)",
+    "hours": "Mon–Fri 12–8pm · Sat 11am–8pm · Sun 12–8pm",
     "description": "Family-friendly cidery with panoramic views of West Grand Traverse Bay. Known for creative fruit-forward ciders using local apples, cherries, berries, and lavender sourced from Leelanau Peninsula farms.",
     "known_for": [
       "Smackintosh",
@@ -50,7 +63,20 @@
     ],
     "photo": "wineglasses.jpg",
     "lat": 44.9701,
-    "lng": -85.6452
+    "lng": -85.6452,
+    "hoursStatus": "verified",
+    "hoursCheckedAt": "2026-11-25",
+    "hoursSource": "https://www.suttonsbayciders.com",
+    "hoursSchedules": [
+      {
+        "id": "current",
+        "label": "Current",
+        "validFrom": "01-01",
+        "validThrough": "12-31",
+        "hours": "Mon–Fri 12–8pm · Sat 11am–8pm · Sun 12–8pm"
+      }
+    ],
+    "holidayClosures": []
   },
   {
     "name": "Taproot Cider House",
@@ -60,7 +86,7 @@
     "address": "215 E Front St, Traverse City, MI 49686",
     "phone": "(231) 943-0043",
     "website": "http://www.taproottc.com",
-    "hours": "Mon\u2013Thu 3\u201310pm \u00b7 Fri 12\u201311pm \u00b7 Sat 11am\u201311pm \u00b7 Sun 11am\u20139pm",
+    "hours": "Mon–Thu 11am–9pm · Fri–Sat 11am–10pm · Sun 12–9pm",
     "description": "Downtown Traverse City's premier cider destination, featuring house-crafted hard ciders, spirits, and a farm-to-table food menu. Live music, outdoor patio, and a welcoming atmosphere make this a TC favorite.",
     "known_for": [
       "House Craft Ciders",
@@ -77,7 +103,20 @@
     ],
     "photo": "grapes.jpg",
     "lat": 44.764,
-    "lng": -85.6206
+    "lng": -85.6206,
+    "hoursStatus": "verified",
+    "hoursCheckedAt": "2026-11-25",
+    "hoursSource": "http://www.taproottc.com/locations",
+    "hoursSchedules": [
+      {
+        "id": "fall",
+        "label": "Fall hours",
+        "validFrom": "09-01",
+        "validThrough": "12-31",
+        "hours": "Mon–Thu 11am–9pm · Fri–Sat 11am–10pm · Sun 12–9pm"
+      }
+    ],
+    "holidayClosures": []
   },
   {
     "name": "Northern Natural Cider House",
@@ -87,7 +126,7 @@
     "address": "324 E Front St, Traverse City, MI 49686",
     "phone": "(231) 943-1078",
     "website": "https://www.northernnaturalwinery.com",
-    "hours": "Mon\u2013Sat 12\u20138pm \u00b7 Sun 12\u20136pm",
+    "hours": "Fri 3–9pm · Sat 12–9pm · Sun 12–6pm",
     "description": "A downtown TC gem focusing on natural, low-intervention ciders and wines made from Michigan fruit. The relaxed tasting room environment and commitment to organic practices make it a standout among local producers.",
     "known_for": [
       "Natural Ciders",
@@ -101,7 +140,20 @@
     ],
     "photo": "vineyard.jpg",
     "lat": 44.7645,
-    "lng": -85.6198
+    "lng": -85.6198,
+    "hoursStatus": "verified",
+    "hoursCheckedAt": "2026-11-25",
+    "hoursSource": "https://www.northernnaturalwinery.com",
+    "hoursSchedules": [
+      {
+        "id": "current",
+        "label": "Tasting house",
+        "validFrom": "01-01",
+        "validThrough": "12-31",
+        "hours": "Fri 3–9pm · Sat 12–9pm · Sun 12–6pm"
+      }
+    ],
+    "holidayClosures": []
   },
   {
     "name": "Bel Lago Winery & Cidery",
@@ -111,7 +163,7 @@
     "address": "6530 S Lake Shore Dr, Cedar, MI 49621",
     "phone": "(231) 228-4800",
     "website": "https://www.bellago.com",
-    "hours": "Daily 11am\u20136pm (seasonal hours vary)",
+    "hours": "Fri–Sat 12–5pm",
     "description": "Estate winery and cidery set on a stunning Lake Leelanau property. Bel Lago crafts both award-winning wines and heritage-style hard ciders using estate-grown and locally sourced fruit in a beautiful lakeside setting.",
     "known_for": [
       "Heritage Hard Cider",
@@ -127,7 +179,13 @@
     ],
     "photo": "wineglasses.jpg",
     "lat": 44.8621,
-    "lng": -85.7849
+    "lng": -85.7849,
+    "hoursStatus": "call-ahead",
+    "hoursCheckedAt": "2026-11-25",
+    "hoursSource": "https://www.bellagowine.com/visit",
+    "hoursNote": "Same Bel Lago visit page; Sun/Mon not listed — call ahead.",
+    "hoursSchedules": [],
+    "holidayClosures": []
   },
   {
     "name": "Left Foot Charley Cider",
@@ -137,13 +195,13 @@
     "address": "806 Red Dr #100, Traverse City, MI 49684",
     "phone": "(231) 995-0500",
     "website": "https://www.leftfootcharley.com",
-    "hours": "Mon\u2013Thu 12\u20137pm \u00b7 Fri\u2013Sat 12\u20138pm \u00b7 Sun 12\u20136pm",
+    "hours": "Sun–Mon 12–6pm · Tue–Sat 12–7pm",
     "description": "Bryan Ulbrich's celebrated natural winery also produces some of Michigan's finest artisan hard ciders. Using the same minimal-intervention philosophy applied to his wines, Left Foot Charley ciders are complex, dry, and unlike anything else in the region.",
     "known_for": [
       "Cinnamon Girl Cider",
       "Henry's Pippin",
       "Dry Artisan Ciders",
-      "P\u00e9tillant Naturel"
+      "Pétillant Naturel"
     ],
     "amenities": [
       "Tasting Room",
@@ -153,6 +211,19 @@
     ],
     "photo": "grapes.jpg",
     "lat": 44.7558,
-    "lng": -85.6089
+    "lng": -85.6089,
+    "hoursStatus": "verified",
+    "hoursCheckedAt": "2026-11-25",
+    "hoursSource": "https://www.leftfootcharley.com/",
+    "hoursSchedules": [
+      {
+        "id": "current",
+        "label": "Tasting room",
+        "validFrom": "01-01",
+        "validThrough": "12-31",
+        "hours": "Sun–Mon 12–6pm · Tue–Sat 12–7pm"
+      }
+    ],
+    "holidayClosures": []
   }
 ]

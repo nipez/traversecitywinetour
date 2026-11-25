@@ -332,31 +332,31 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
 // ────────────────────────────────────────────────────────────
 const wineries = [
   // OLD MISSION PENINSULA — thin finger stretching north from TC
-  { name:"Chateau Grand Traverse", type:"Estate Winery & Tasting Room", peninsula:"old-mission", lat:44.8310, lng:-85.4740, address:"12239 Center Rd", hours:"Mon–Sat 10am–6pm · Sun 12–5pm", phone:"(231) 223-7355", wines:["Riesling","Ice Wine","Late Harvest","Pinot Grigio","Merlot"], link:"/wineries/chateau-grand-traverse" },
-  { name:"Chateau Chantal", type:"Winery & B&B Inn", peninsula:"old-mission", lat:44.8620, lng:-85.4830, address:"15900 Rue de Vin", hours:"Mon–Sat 11am–7pm · Sun 12–6pm", phone:"(231) 223-4110", wines:["Sparkling","Pinot Noir","Chardonnay","Riesling"], link:"/wineries/chateau-chantal" },
-  { name:"Peninsula Cellars", type:"Family Owned Winery", peninsula:"old-mission", lat:44.8170, lng:-85.4700, address:"11480 Center Rd", hours:"Mon–Sat 10am–6pm · Sun 12–6pm", phone:"(231) 933-9787", wines:["Gewürztraminer","Riesling","Pinot Grigio","Red Blends"], link:"/wineries/peninsula-cellars" },
-  { name:"Brys Estate", type:"Estate Vineyard & Winery", peninsula:"old-mission", lat:44.8490, lng:-85.4790, address:"3309 Blue Water Rd", hours:"Mon–Sat 11am–6pm · Sun 12–6pm", phone:"(231) 223-9303", wines:["Pinot Blanc","Riesling","Merlot","Cab Franc"], link:"/wineries/brys-estate" },
-  { name:"2 Lads Winery", type:"Modern Tasting Room", peninsula:"old-mission", lat:44.8580, lng:-85.4750, address:"16985 Smokey Hollow Rd", hours:"Daily 12–6pm", phone:"(231) 223-7722", wines:["Pinot Grigio","Rosé","Cab Franc","Riesling"], link:"/wineries/2-lads-winery" },
-  { name:"Bowers Harbor Vineyards", type:"Estate Winery", peninsula:"old-mission", lat:44.8060, lng:-85.5020, address:"2896 Bowers Harbor Rd", hours:"Mon–Sat 10:30am–6pm · Sun 12–6pm", phone:"(231) 223-7615", wines:["Riesling","Pinot Grigio","Langley Red","Rosé"], link:"/wineries/bowers-harbor-vineyards" },
-  { name:"Hawthorne Vineyards", type:"Boutique Winery", peninsula:"old-mission", lat:44.8380, lng:-85.4760, address:"1000 Camino Maria Dr", hours:"Daily 12–6pm (seasonal)", phone:"(231) 223-4157", wines:["Chardonnay","Pinot Noir","Riesling"], link:"/wineries/hawthorne-vineyards" },
-  { name:"Left Foot Charley", type:"Urban Winery", peninsula:"old-mission", lat:44.7640, lng:-85.6180, address:"806 Red Dr, Traverse City", hours:"Mon–Sat 12–8pm · Sun 12–6pm", phone:"(231) 995-0500", wines:["Riesling","Blaufränkisch","Pinot Blanc","Cider"], link:"/wineries/left-foot-charley" },
-  { name:"Mari Vineyards", type:"Estate Winery", peninsula:"old-mission", lat:44.8440, lng:-85.4770, address:"8175 Center Rd", hours:"Daily 12–6pm", phone:"(231) 938-6116", wines:["Sangiovese","Nebbiolo","Cab Franc","Riesling"], link:"/wineries/mari-vineyards" },
-  { name:"Bonobo Winery", type:"Tasting Room & Patio", peninsula:"old-mission", lat:44.7990, lng:-85.4680, address:"12011 Center Rd", hours:"Mon–Sat 11am–6pm · Sun 12–5pm", phone:"(231) 282-9463", wines:["Rosé","Pinot Noir","Riesling","Sparkling"], link:"/wineries/bonobo-winery" },
+  { name:"Chateau Grand Traverse", type:"Estate Winery & Tasting Room", peninsula:"old-mission", lat:44.8310, lng:-85.4740, address:"12239 Center Rd", hours:"Sun–Thu 11am–5pm · Fri–Sat 11am–6pm", phone:"(231) 223-7355", wines:["Riesling","Ice Wine","Late Harvest","Pinot Grigio","Merlot"], link:"/wineries/chateau-grand-traverse", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"chateau-grand-traverse"  },
+  { name:"Chateau Chantal", type:"Winery & B&B Inn", peninsula:"old-mission", lat:44.8620, lng:-85.4830, address:"15900 Rue de Vin", hours:"Daily 11am–5pm", phone:"(231) 223-4110", wines:["Sparkling","Pinot Noir","Chardonnay","Riesling"], link:"/wineries/chateau-chantal", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"chateau-chantal"  },
+  { name:"Peninsula Cellars", type:"Family Owned Winery", peninsula:"old-mission", lat:44.8170, lng:-85.4700, address:"11480 Center Rd", hours:"Daily 10am–5pm", phone:"(231) 933-9787", wines:["Gewürztraminer","Riesling","Pinot Grigio","Red Blends"], link:"/wineries/peninsula-cellars", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"peninsula-cellars"  },
+  { name:"Brys Estate", type:"Estate Vineyard & Winery", peninsula:"old-mission", lat:44.8490, lng:-85.4790, address:"3309 Blue Water Rd", hours:"Fri–Sat 11am–6pm · Sun–Thu 12–5pm", phone:"(231) 223-9303", wines:["Pinot Blanc","Riesling","Merlot","Cab Franc"], link:"/wineries/brys-estate", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"brys-estate"  },
+  { name:"2 Lads Winery", type:"Modern Tasting Room", peninsula:"old-mission", lat:44.8580, lng:-85.4750, address:"16985 Smokey Hollow Rd", hours:"Daily 11am–5pm", phone:"(231) 223-7722", wines:["Pinot Grigio","Rosé","Cab Franc","Riesling"], link:"/wineries/2-lads-winery", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"2-lads-winery"  },
+  { name:"Bowers Harbor Vineyards", type:"Estate Winery", peninsula:"old-mission", lat:44.8060, lng:-85.5020, address:"2896 Bowers Harbor Rd", hours:"Daily 11am–6pm", phone:"(231) 223-7615", wines:["Riesling","Pinot Grigio","Langley Red","Rosé"], link:"/wineries/bowers-harbor-vineyards", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"bowers-harbor-vineyards"  },
+  { name:"Hawthorne Vineyards", type:"Boutique Winery", peninsula:"old-mission", lat:44.8380, lng:-85.4760, address:"1000 Camino Maria Dr", hours:"Sun–Thu 11am–6pm · Fri–Sat 11am–7pm", phone:"(231) 223-4157", wines:["Chardonnay","Pinot Noir","Riesling"], link:"/wineries/hawthorne-vineyards", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"hawthorne-vineyards"  },
+  { name:"Left Foot Charley", type:"Urban Winery", peninsula:"old-mission", lat:44.7640, lng:-85.6180, address:"806 Red Dr, Traverse City", hours:"Sun–Mon 12–6pm · Tue–Sat 12–7pm", phone:"(231) 995-0500", wines:["Riesling","Blaufränkisch","Pinot Blanc","Cider"], link:"/wineries/left-foot-charley", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"left-foot-charley"  },
+  { name:"Mari Vineyards", type:"Estate Winery", peninsula:"old-mission", lat:44.8440, lng:-85.4770, address:"8175 Center Rd", hours:"Daily 9am–5pm", phone:"(231) 938-6116", wines:["Sangiovese","Nebbiolo","Cab Franc","Riesling"], link:"/wineries/mari-vineyards", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"mari-vineyards"  },
+  { name:"Bonobo Winery", type:"Tasting Room & Patio", peninsula:"old-mission", lat:44.7990, lng:-85.4680, address:"12011 Center Rd", hours:"Mon–Thu 1–7pm · Fri–Sat 12–8pm · Sun 12–6pm", phone:"(231) 282-9463", wines:["Rosé","Pinot Noir","Riesling","Sparkling"], link:"/wineries/bonobo-winery", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"bonobo-winery"  },
 
   // LEELANAU PENINSULA — large peninsula NW of TC
-  { name:"Black Star Farms", type:"Winery, Inn & Agricultural Estate", peninsula:"leelanau", lat:44.8980, lng:-85.6460, address:"10844 E Revold Rd, Suttons Bay", hours:"Daily 10am–6pm", phone:"(231) 944-1270", wines:["Arcturos Red","Riesling","Pinot Gris","Dessert Wines"], link:"/wineries/black-star-farms" },
-  { name:"45 North Vineyard & Winery", type:"Vineyard & Winery", peninsula:"leelanau", lat:44.8810, lng:-85.7260, address:"8580 E Horn Rd, Lake Leelanau", hours:"Daily 11am–6pm (Seasonal)", phone:"(231) 256-2553", wines:["Riesling","Pinot Noir","Cab Franc","Rosé"], link:"/wineries/forty-five-north" },
-  { name:"L. Mawby", type:"Sparkling Wine House", peninsula:"leelanau", lat:44.9130, lng:-85.6970, address:"4519 S Elm Valley Rd, Suttons Bay", hours:"Thu–Mon 12–5pm (Seasonal)", phone:"(231) 271-3522", wines:["Sparkling Brut","Sparkling Rosé","Blanc de Blancs"], link:"/wineries/l-mawby" },
-  { name:"Ciccone Vineyard", type:"Estate Vineyard & Winery", peninsula:"leelanau", lat:44.9050, lng:-85.6850, address:"10343 E Hilltop Rd, Suttons Bay", hours:"Mon–Sat 12–6pm · Sun 12–5pm", phone:"(231) 271-5551", wines:["Dolcetto","Pinot Grigio","Gewürztraminer","Cab Franc"], link:"/wineries/ciccone-vineyard" },
-  { name:"Gill's Pier Winery", type:"Vineyard & Winery", peninsula:"leelanau", lat:44.9780, lng:-85.7050, address:"5620 N Manitou Trail, Northport", hours:"Daily 12–5pm (Seasonal)", phone:"(231) 256-7003", wines:["Riesling","Pinot Noir","Grüner Veltliner"], link:"/wineries/gills-pier" },
-  { name:"Leelanau Cellars", type:"Historic Winery", peninsula:"leelanau", lat:44.9320, lng:-85.6050, address:"5019 N West Bay Shore Dr, Omena", hours:"Mon–Sat 10am–6pm · Sun 12–5pm", phone:"(231) 386-5201", wines:["Winter White","Witches Brew","Riesling","Red Blends"], link:"/wineries/leelanau-cellars" },
-  { name:"Bel Lago Vineyard", type:"Vineyard & Winery", peninsula:"leelanau", lat:44.8550, lng:-85.8050, address:"6530 S Lake Shore Dr, Cedar", hours:"Mon–Sat 12–5pm · Sun 12–5pm", phone:"(231) 228-4800", wines:["Pinot Grigio","Auxerrois","Tempranillo","Pinot Noir"], link:"/wineries/bel-lago" },
-  { name:"Shady Lane Cellars", type:"Estate Winery", peninsula:"leelanau", lat:44.9100, lng:-85.6600, address:"9580 Shady Ln, Suttons Bay", hours:"Daily 11am–6pm", phone:"(231) 947-8865", wines:["Riesling","Franc-n-Blanc","Pinot Noir","Sparkling"], link:"/wineries/shady-lane-cellars" },
-  { name:"Verterra Winery", type:"Tasting Room", peninsula:"leelanau", lat:44.9420, lng:-85.7580, address:"103 E River St, Leland", hours:"Daily 12–6pm (Seasonal)", phone:"(231) 256-2115", wines:["Pinot Noir","Chardonnay","Riesling","Merlot"], link:"/wineries/verterra-winery" },
-  { name:"Brengman Brothers", type:"Winery & Cider Room", peninsula:"leelanau", lat:44.8200, lng:-85.6700, address:"9720 S Center Hwy", hours:"Daily 11am–6pm", phone:"(231) 944-0004", wines:["Hard Cider","Riesling","Pinot Noir","Rosé"], link:"/wineries/brengman-brothers" },
-  { name:"Raftshol Vineyards", type:"Family Vineyard & Winery", peninsula:"leelanau", lat:44.8830, lng:-85.6200, address:"1865 N West Bay Shore Dr, Suttons Bay", hours:"Thu–Sun 12–5pm (seasonal)", phone:"(231) 271-5650", wines:["Cherry Wine","Riesling","Cab Franc","Rosé"], link:"/wineries/raftshol-vineyards" },
-  { name:"Willow Vineyards", type:"Boutique Winery", peninsula:"leelanau", lat:44.9070, lng:-85.6750, address:"10702 E Hilltop Rd, Suttons Bay", hours:"Fri–Sun 12–5pm (seasonal)", phone:"(231) 271-4810", wines:["Pinot Noir","Riesling","Pinot Gris","Sparkling"], link:"/wineries/willow-vineyard" },
-  { name:"Good Harbor Vineyards", type:"Estate Winery", peninsula:"leelanau", lat:44.8830, lng:-85.8300, address:"34 S Manitou Trail, Lake Leelanau", hours:"Mon–Sat 11am–5pm · Sun 12–5pm", phone:"(231) 256-7165", wines:["Fishtown White","Riesling","Pinot Grigio","Moonstruck"], link:"/wineries/good-harbor-vineyards" },
+  { name:"Black Star Farms", type:"Winery, Inn & Agricultural Estate", peninsula:"leelanau", lat:44.8980, lng:-85.6460, address:"10844 E Revold Rd, Suttons Bay", hours:"Sun–Thu 11am–5:30pm · Fri–Sat 11am–6pm", phone:"(231) 944-1270", wines:["Arcturos Red","Riesling","Pinot Gris","Dessert Wines"], link:"/wineries/black-star-farms", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"black-star-farms"  },
+  { name:"45 North Vineyard & Winery", type:"Vineyard & Winery", peninsula:"leelanau", lat:44.8810, lng:-85.7260, address:"8580 E Horn Rd, Lake Leelanau", hours:"Sun–Thu 12–5pm · Fri–Sat 12–6pm", phone:"(231) 256-2553", wines:["Riesling","Pinot Noir","Cab Franc","Rosé"], link:"/wineries/forty-five-north", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"forty-five-north"  },
+  { name:"L. Mawby", type:"Sparkling Wine House", peninsula:"leelanau", lat:44.9130, lng:-85.6970, address:"4519 S Elm Valley Rd, Suttons Bay", hours:"Sun–Mon 12–5pm · Thu–Fri 12–5pm · Sat 12–6pm", phone:"(231) 271-3522", wines:["Sparkling Brut","Sparkling Rosé","Blanc de Blancs"], link:"/wineries/l-mawby", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"l-mawby"  },
+  { name:"Ciccone Vineyard", type:"Estate Vineyard & Winery", peninsula:"leelanau", lat:44.9050, lng:-85.6850, address:"10343 E Hilltop Rd, Suttons Bay", hours:"Closed for the winter season", phone:"(231) 271-5551", wines:["Dolcetto","Pinot Grigio","Gewürztraminer","Cab Franc"], link:"/wineries/ciccone-vineyard", hoursStatus:"closed-season", hoursCheckedAt:"2026-11-25", slug:"ciccone-vineyard"  },
+  { name:"Gill's Pier Winery", type:"Vineyard & Winery", peninsula:"leelanau", lat:44.9780, lng:-85.7050, address:"5620 N Manitou Trail, Northport", hours:"", phone:"(231) 256-7003", wines:["Riesling","Pinot Noir","Grüner Veltliner"], link:"/wineries/gills-pier", hoursStatus:"call-ahead", hoursCheckedAt:"2026-11-25", slug:"gills-pier"  },
+  { name:"Leelanau Cellars", type:"Historic Winery", peninsula:"leelanau", lat:44.9320, lng:-85.6050, address:"5019 N West Bay Shore Dr, Omena", hours:"Mon–Sat 10am–6pm · Sun 11am–5pm", phone:"(231) 386-5201", wines:["Winter White","Witches Brew","Riesling","Red Blends"], link:"/wineries/leelanau-cellars", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"leelanau-cellars"  },
+  { name:"Bel Lago Vineyard", type:"Vineyard & Winery", peninsula:"leelanau", lat:44.8550, lng:-85.8050, address:"6530 S Lake Shore Dr, Cedar", hours:"Fri–Sat 12–5pm", phone:"(231) 228-4800", wines:["Pinot Grigio","Auxerrois","Tempranillo","Pinot Noir"], link:"/wineries/bel-lago", hoursStatus:"call-ahead", hoursCheckedAt:"2026-11-25", slug:"bel-lago"  },
+  { name:"Shady Lane Cellars", type:"Estate Winery", peninsula:"leelanau", lat:44.9100, lng:-85.6600, address:"9580 Shady Ln, Suttons Bay", hours:"Sun–Thu 12–6pm · Fri–Sat 11am–7pm", phone:"(231) 947-8865", wines:["Riesling","Franc-n-Blanc","Pinot Noir","Sparkling"], link:"/wineries/shady-lane-cellars", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"shady-lane-cellars"  },
+  { name:"Verterra Winery", type:"Tasting Room", peninsula:"leelanau", lat:44.9420, lng:-85.7580, address:"103 E River St, Leland", hours:"Sun–Thu 12–5pm · Fri–Sat 12–6pm", phone:"(231) 256-2115", wines:["Pinot Noir","Chardonnay","Riesling","Merlot"], link:"/wineries/verterra-winery", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"verterra-winery"  },
+  { name:"Brengman Brothers", type:"Winery & Cider Room", peninsula:"leelanau", lat:44.8200, lng:-85.6700, address:"9720 S Center Hwy", hours:"Sun–Thu 1–7pm · Fri–Sat 12–8pm", phone:"(231) 944-0004", wines:["Hard Cider","Riesling","Pinot Noir","Rosé"], link:"/wineries/brengman-brothers", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"brengman-brothers"  },
+  { name:"Raftshol Vineyards", type:"Family Vineyard & Winery", peninsula:"leelanau", lat:44.8830, lng:-85.6200, address:"1865 N West Bay Shore Dr, Suttons Bay", hours:"", phone:"(231) 271-5650", wines:["Cherry Wine","Riesling","Cab Franc","Rosé"], link:"/wineries/raftshol-vineyards", hoursStatus:"call-ahead", hoursCheckedAt:"2026-11-25", slug:"raftshol-vineyards"  },
+  { name:"Willow Vineyards", type:"Boutique Winery", peninsula:"leelanau", lat:44.9070, lng:-85.6750, address:"10702 E Hilltop Rd, Suttons Bay", hours:"Closed for the season (reopens mid-June)", phone:"(231) 271-4810", wines:["Pinot Noir","Riesling","Pinot Gris","Sparkling"], link:"/wineries/willow-vineyard", hoursStatus:"closed-season", hoursCheckedAt:"2026-11-25", slug:"willow-vineyard"  },
+  { name:"Good Harbor Vineyards", type:"Estate Winery", peninsula:"leelanau", lat:44.8830, lng:-85.8300, address:"34 S Manitou Trail, Lake Leelanau", hours:"Mon, Thu 11am–6pm · Fri–Sun 11am–7pm", phone:"(231) 256-7165", wines:["Fishtown White","Riesling","Pinot Grigio","Moonstruck"], link:"/wineries/good-harbor-vineyards", hoursStatus:"verified", hoursCheckedAt:"2026-11-25", slug:"good-harbor-vineyards"  },
 ];
 window.wineries = wineries;
 
@@ -621,7 +621,20 @@ function draw() {
   function otwOk(w) {
     if (typeof window.otwOnlyOpen === 'undefined' || !window.otwOnlyOpen) return true;
     if (!window.TCWT_HOURS) return true;
-    if (!w._parsed) w._parsed = TCWT_HOURS.parseHours(w.hours || '');
+    if (!w._parsed) {
+      var meta = (w.slug && TCWT_HOURS.lookupVenueMeta && TCWT_HOURS.lookupVenueMeta(w.slug)) || {
+        hours: w.hours || '',
+        hoursStatus: w.hoursStatus || 'verified',
+        hoursCheckedAt: w.hoursCheckedAt,
+        hoursSchedules: w.hoursSchedules || [],
+        holidayClosures: w.holidayClosures || [],
+        holidayHours: w.holidayHours || [],
+        holidayRanges: w.holidayRanges || [],
+      };
+      w._parsed = TCWT_HOURS.resolveVenueHours
+        ? TCWT_HOURS.resolveVenueHours(meta)
+        : TCWT_HOURS.parseHours(w.hours || '');
+    }
     return TCWT_HOURS.dayStatus(w._parsed, window.otwDayIndex ?? TCWT_HOURS.todayDayIndex()) === 'open';
   }
   const filtered = wineries.filter(w => (activeFilter === 'all' || w.peninsula === activeFilter) && otwOk(w));
@@ -646,7 +659,18 @@ function getHovered(mx, my) {
   wineries.forEach(w => {
     if (activeFilter !== 'all' && w.peninsula !== activeFilter) return;
     if (typeof window.otwOnlyOpen !== 'undefined' && window.otwOnlyOpen && window.TCWT_HOURS) {
-      if (!w._parsed) w._parsed = TCWT_HOURS.parseHours(w.hours || '');
+      if (!w._parsed) {
+        var meta2 = (w.slug && TCWT_HOURS.lookupVenueMeta && TCWT_HOURS.lookupVenueMeta(w.slug)) || {
+          hours: w.hours || '',
+          hoursStatus: w.hoursStatus || 'verified',
+          hoursCheckedAt: w.hoursCheckedAt,
+          hoursSchedules: w.hoursSchedules || [],
+          holidayClosures: w.holidayClosures || [],
+        };
+        w._parsed = TCWT_HOURS.resolveVenueHours
+          ? TCWT_HOURS.resolveVenueHours(meta2)
+          : TCWT_HOURS.parseHours(w.hours || '');
+      }
       if (TCWT_HOURS.dayStatus(w._parsed, window.otwDayIndex ?? TCWT_HOURS.todayDayIndex()) !== 'open') return;
     }
     const [x, y] = geo(w.lat, w.lng);
@@ -771,7 +795,8 @@ window.addEventListener('resize', resize);
 resize();
 </script>
 
-<script src="/js/hours.js"></script>
+<script src="/js/venue-hours-data.js" defer></script>
+<script src="/js/hours.js" defer></script>
 <script src="/js/open-this-week.js" defer></script>
 <script>
 document.addEventListener('tcwt:open-day', function(e){
