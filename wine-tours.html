@@ -11,8 +11,8 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book a Private Wine Tour in Traverse City | Pricing &amp; Quote</title>
-<meta name="description" content="Request a private or group wine tour quote in Traverse City. Compare pricing, pickup options, and Old Mission or Leelanau itineraries.">
+<title>Traverse City Wine Tours | Compare Operators, Prices &amp; Peninsulas</title>
+<meta name="description" content="Compare Traverse City wine tours: 21 local operators, published price ranges, Old Mission vs Leelanau, and bookable join-in or private days — then request a quote.">
 <link rel="canonical" href="https://traversecitywinetour.com/wine-tours">
 <meta name="robots" content="index, follow">
 <link rel="icon" href="/logo.svg" type="image/svg+xml">
@@ -20,14 +20,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Traverse City Wine Tour">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="Book a Private Wine Tour in Traverse City | Pricing &amp; Quote">
-<meta property="og:description" content="Request a private or group wine tour quote in Traverse City. Compare pricing, pickup options, and Old Mission or Leelanau itineraries.">
+<meta property="og:title" content="Traverse City Wine Tours | Compare Operators, Prices &amp; Peninsulas">
+<meta property="og:description" content="Compare Traverse City wine tours: 21 local operators, published price ranges, Old Mission vs Leelanau, and bookable join-in or private days — then request a quote.">
 <meta property="og:url" content="https://traversecitywinetour.com/wine-tours">
 <meta property="og:image" content="https://traversecitywinetour.com/vineyard.jpg">
 <meta property="og:image:alt" content="Vineyards in Traverse City wine country, Michigan">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Book a Private Wine Tour in Traverse City | Pricing &amp; Quote">
-<meta name="twitter:description" content="Request a private or group wine tour quote in Traverse City. Compare pricing, pickup options, and Old Mission or Leelanau itineraries.">
+<meta name="twitter:title" content="Traverse City Wine Tours | Compare Operators, Prices &amp; Peninsulas">
+<meta name="twitter:description" content="Compare Traverse City wine tours: 21 local operators, published price ranges, Old Mission vs Leelanau, and bookable join-in or private days — then request a quote.">
 <meta name="twitter:image" content="https://traversecitywinetour.com/vineyard.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -231,6 +231,31 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
 .section-desc { line-height: 1.75; font-size: 1.1rem; }
 .winery-detail { font-size: 0.9rem; line-height: 1.6; }
 
+
+.compare-wrap { overflow-x: auto; margin: 28px 0 12px; border: 1px solid rgba(74,14,27,0.08); border-radius: 8px; }
+.compare-table { width: 100%; border-collapse: collapse; min-width: 720px; }
+.compare-table th, .compare-table td { text-align: left; padding: 14px 16px; border-bottom: 1px solid rgba(74,14,27,0.08); vertical-align: top; font-size: 0.9rem; line-height: 1.55; }
+.compare-table th { background: var(--cream); color: var(--burgundy); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.compare-table td a { color: var(--burgundy); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--gold); }
+.compare-note { font-size: 0.85rem; color: var(--text-light); margin: 8px 0 0; }
+.pen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 28px 0; }
+.pen-box { background: var(--cream); border-radius: 8px; padding: 28px; }
+.pen-box h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; color: var(--burgundy); margin-bottom: 10px; }
+.pen-box p { font-size: 0.92rem; color: var(--text); line-height: 1.7; margin: 0; }
+.pen-box a { color: var(--burgundy); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--gold); }
+.bookable-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 24px 0 8px; }
+.bookable-card { display: block; text-decoration: none; color: inherit; border: 1px solid rgba(74,14,27,0.1); border-radius: 8px; padding: 22px 24px; transition: transform 0.3s, box-shadow 0.3s; background: var(--white); }
+.bookable-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(74,14,27,0.08); }
+.bookable-card .tag { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+.bookable-card h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--burgundy); margin-bottom: 8px; }
+.bookable-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin: 0; }
+.faq-item { border-bottom: 1px solid rgba(74,14,27,0.08); padding: 22px 0; }
+.faq-item:last-child { border-bottom: none; }
+.faq-item h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--burgundy); margin: 0 0 10px; }
+.faq-item p { font-size: 0.95rem; line-height: 1.75; color: var(--text); margin: 0; }
+.faq-item a { color: var(--burgundy); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--gold); }
+@media (max-width: 768px) { .pen-grid, .bookable-grid { grid-template-columns: 1fr; } }
+
 </style>
 </head>
 <body>
@@ -242,8 +267,8 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       "@type": "WebPage",
       "@id": "https://traversecitywinetour.com/wine-tours",
       "url": "https://traversecitywinetour.com/wine-tours",
-      "name": "Book a Traverse City Wine Tour | Private & Group",
-      "description": "Book a guided Traverse City wine tour. Compare private drivers, group shuttles, and custom Old Mission or Leelanau itineraries.",
+      "name": "Traverse City Wine Tours | Compare Operators, Prices & Peninsulas",
+      "description": "Compare Traverse City wine tours: 21 local operators, published price ranges, Old Mission vs Leelanau, and bookable join-in or private days — then request a quote.",
       "isPartOf": {
         "@id": "https://traversecitywinetour.com/#website"
       }
@@ -261,8 +286,46 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Book a Private Wine Tour in Traverse City",
+          "name": "Traverse City Wine Tours",
           "item": "https://traversecitywinetour.com/wine-tours"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://traversecitywinetour.com/wine-tours#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much do Traverse City wine tours cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Published ranges vary by style. Join-in seats often start around $79–$89 per person (Magic Shuttle Bus from $79; Movie Stars SUV join-in from $89; TC Brew Bus join-in $82 + tax). Private SUVs start near $375 for three hours (Grand Traverse Rides) or $420 for a four-hour Wagoneer package (Veer Charters). Private Sprinters and vans commonly run $499–$799 for four hours depending on operator and day. Tasting fees are usually extra — confirm live rates before you deposit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I book Old Mission or Leelanau for a wine tour?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Old Mission is closer to downtown Traverse City and suits shorter half-day tours. Leelanau is more spread out and rewards a longer day with village and lake stops. Many operators run both; choose based on time, scenery, and which tasting rooms you want."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between a join-in tour and a private wine tour?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A join-in tour sells individual seats on a shared vehicle with a set itinerary and published per-person price. A private tour books the whole vehicle for your group, so you control pace, stops, and often peninsula choice — usually priced as a vehicle rate rather than per seat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where should I start if I am searching for Traverse City wine tours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use this page to compare operators, price ranges, and peninsulas, then open a bookable day under /tours/ or request a quote below. For the full 21-company directory with outbound booking links, see /wine-tour-guides/."
+          }
         }
       ]
     }
@@ -284,32 +347,121 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
   </div>
 </nav>
-<section class="page-hero"><div class="page-hero-bg" style="background-image: url('/wineglasses.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Pricing &amp; Quote</div><h1>Book a Private <em>Wine Tour</em> in Traverse City</h1><p class="page-hero-desc">Compare private drivers and group shuttles, request a quote, and lock in hotel pickup for Old Mission or Leelanau.</p></div></section>
+<section class="page-hero"><div class="page-hero-bg" style="background-image: url('/wineglasses.jpg');"></div><div class="page-hero-content"><div class="page-hero-tag">Operators · Prices · Peninsulas</div><h1>Traverse City <em>Wine Tours</em></h1><p class="page-hero-desc">Compare local operators and published price ranges, choose Old Mission or Leelanau, then book a join-in seat or request a private quote.</p></div></section>
 <div class="breadcrumbs"><a href="/">Home</a><span>›</span><span class="current">Wine Tours</span></div>
-<div style="max-width:1000px;margin:0 auto;padding:24px 40px 0;font-size:0.95rem;line-height:1.7;color:var(--text-light);">Start with our homepage overview of <a href="/" style="color:var(--burgundy);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold);">Traverse City wine tours</a>, then use this page to request a quote. Prefer a specific bookable day (bus seat, SUV join-in, or private vehicle)? Browse the <a href="/tours/" style="color:var(--burgundy);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold);">tours catalog</a>. Comparing operators by peninsula or vehicle type? See the full <a href="/wine-tour-guides/" style="color:var(--burgundy);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold);">Traverse City wine tour guides</a> hub (all 21 companies) for Old Mission, Leelanau, private vs group, and limo/bus guides.</div>
-<!-- Quick links to bookable tour pages -->
-<div style="max-width:1000px;margin:0 auto;padding:20px 40px 0;display:flex;flex-wrap:wrap;gap:10px;">
-  <a href="/tours/magic-shuttle-old-mission-4-winery" style="display:inline-flex;padding:8px 14px;border:1px solid rgba(74,14,27,0.12);border-radius:4px;color:var(--burgundy);text-decoration:none;font-size:0.78rem;font-weight:600;">Old Mission 4-winery bus</a>
-  <a href="/tours/magic-shuttle-leelanau" style="display:inline-flex;padding:8px 14px;border:1px solid rgba(74,14,27,0.12);border-radius:4px;color:var(--burgundy);text-decoration:none;font-size:0.78rem;font-weight:600;">Leelanau bus tour</a>
-  <a href="/tours/movie-stars-suv-join-in" style="display:inline-flex;padding:8px 14px;border:1px solid rgba(74,14,27,0.12);border-radius:4px;color:var(--burgundy);text-decoration:none;font-size:0.78rem;font-weight:600;">Movie Stars SUV</a>
-  <a href="/tours/tc-brew-bus-join-in" style="display:inline-flex;padding:8px 14px;border:1px solid rgba(74,14,27,0.12);border-radius:4px;color:var(--burgundy);text-decoration:none;font-size:0.78rem;font-weight:600;">TC Brew Bus join-in</a>
-  <a href="/tours/private-suv-wine-tour" style="display:inline-flex;padding:8px 14px;border:1px solid rgba(74,14,27,0.12);border-radius:4px;color:var(--burgundy);text-decoration:none;font-size:0.78rem;font-weight:600;">Private SUV</a>
-  <a href="/tours/" style="display:inline-flex;padding:8px 14px;border:1px solid var(--burgundy);border-radius:4px;color:var(--cream);background:var(--burgundy);text-decoration:none;font-size:0.78rem;font-weight:600;">All tours →</a>
-</div>
-<!-- BACHELORETTE CALLOUT -->
-<div style="max-width:1000px;margin:0 auto;padding:32px 40px 0;">
-  <a href="/bachelorette" style="display:flex;align-items:center;justify-content:space-between;gap:24px;background:linear-gradient(135deg,#4A0E1B 0%,#6B1A2A 60%,#722F37 100%);border-radius:8px;padding:28px 36px;text-decoration:none;transition:transform 0.3s,box-shadow 0.3s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 30px rgba(74,14,27,0.2)';" onmouseout="this.style.transform='';this.style.boxShadow='';">
-    <div>
-      <div style="font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:#C9A96E;margin-bottom:8px;">🥂 Planning a Bach Weekend?</div>
-      <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:500;color:#F5F0E8;margin-bottom:6px;">Traverse City Bachelorette Party Wine Tours</h3>
-      <p style="font-size:0.85rem;color:rgba(245,240,232,0.6);line-height:1.5;">Bus operators, group-friendly wineries, done-for-you itineraries &amp; a free MOH planning kit.</p>
+
+<section style="padding: 40px 40px 20px; max-width: 1000px; margin: 0 auto;">
+  <div class="section-header" style="margin-bottom: 28px;">
+    <div class="section-tag">The comparison landing</div>
+    <h2 class="section-title">One page for Traverse City wine tours</h2>
+    <div class="section-divider"></div>
+  </div>
+  <p style="font-size:1rem;line-height:1.75;color:var(--text);margin-bottom:16px;">Searches for “Traverse City wine tours” used to split across the homepage, this page, and the <a href="/wine-tour-guides/" style="color:var(--burgundy);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold);">wine tour guides hub</a>. This page is the primary landing: operator styles, sourced price ranges, Old Mission vs Leelanau, and links into specific <a href="/tours/" style="color:var(--burgundy);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold);">bookable tour days</a>. The guides hub stays the deep 21-company directory; the homepage keeps the overview and quote modal.</p>
+  <p style="font-size:0.95rem;line-height:1.7;color:var(--text-light);margin:0;">We do not invent rates. Figures below are published on operator sites already cited in our guides — always reconfirm before you deposit. Tasting fees are usually paid separately at each winery.</p>
+</section>
+
+<section style="padding: 20px 40px 10px; max-width: 1000px; margin: 0 auto;">
+  <div class="section-tag">Published ranges</div>
+  <h2 class="section-title">Tour operators &amp; price ranges</h2>
+  <p class="section-desc" style="margin-top:12px;max-width:720px;">A shortlist of styles and verified from-prices. For every company (including ones without public dollar amounts), open the full comparison on <a href="/wine-tour-guides/" style="color:var(--burgundy);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold);">/wine-tour-guides/</a>.</p>
+  <div class="compare-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr><th>Operator / style</th><th>Best for</th><th>Published price range</th><th>Bookable page</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Magic Shuttle Bus · join-in</td>
+          <td>Shared bus seats on a set itinerary</td>
+          <td>Old Mission 4-winery from $79/person (5 hours)</td>
+          <td><a href="/tours/magic-shuttle-old-mission-4-winery">Old Mission bus</a> · <a href="/tours/magic-shuttle-leelanau">Leelanau bus</a></td>
+        </tr>
+        <tr>
+          <td>TC Brew Bus · join-in</td>
+          <td>Wine + distillery + brewery afternoon</td>
+          <td>$82 + tax/person (gratuity included)</td>
+          <td><a href="/tours/tc-brew-bus-join-in">TC Brew Bus join-in</a></td>
+        </tr>
+        <tr>
+          <td>Movie Stars Wine Tours · SUV join-in / private</td>
+          <td>Semi-private luxury SUVs</td>
+          <td>Join-in from $89; private examples from $245–$599</td>
+          <td><a href="/tours/movie-stars-suv-join-in">Movie Stars SUV</a></td>
+        </tr>
+        <tr>
+          <td>Grand Traverse Rides / Veer Charters · private SUV</td>
+          <td>Couples &amp; small groups (your vehicle only)</td>
+          <td>Suburban from $375/3 hrs; Wagoneer packages $420–$630</td>
+          <td><a href="/tours/private-suv-wine-tour">Private SUV tours</a></td>
+        </tr>
+        <tr>
+          <td>TC Brew Bus / TASTE TC · private van &amp; Sprinter</td>
+          <td>Mid-size private groups</td>
+          <td>From $499/4 hrs (TC Brew Bus); TASTE TC $699–$799/4 hrs</td>
+          <td><a href="/tours/private-van-sprinter-wine-tour">Private van / Sprinter</a></td>
+        </tr>
+        <tr>
+          <td>Designated Driver TC · your car</td>
+          <td>Keep your own vehicle; they drive</td>
+          <td>From $59/hr (1–6 people), 5-hour minimum — confirm live</td>
+          <td><a href="/tours/designated-driver-wine-tour">Designated driver</a></td>
+        </tr>
+        <tr>
+          <td>Grand Traverse Tours · join-in &amp; private</td>
+          <td>Mercedes shuttle / Escalade / limo mix</td>
+          <td>Private 4-hour examples $379–$799 by vehicle &amp; day</td>
+          <td><a href="/wine-tour-guides/#grand-traverse-tours">Guides hub card</a></td>
+        </tr>
+        <tr>
+          <td>Wander with Direction · seasonal VW</td>
+          <td>Classic Kombi private days (seasonal)</td>
+          <td>$200/hour, 4–6 hour packages</td>
+          <td><a href="/wine-tour-guides/#wander-with-direction">Guides hub card</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="compare-note">Sources: operator pages already cited on <a href="/wine-tour-guides/" style="color:var(--burgundy);">wine-tour-guides</a> and the linked <a href="/tours/" style="color:var(--burgundy);">/tours/</a> product pages. Rates change — confirm before you pay a deposit.</p>
+</section>
+
+<section style="padding: 40px 40px 10px; max-width: 1000px; margin: 0 auto;">
+  <div class="section-tag">Choose a peninsula</div>
+  <h2 class="section-title">Old Mission vs Leelanau</h2>
+  <div class="pen-grid">
+    <div class="pen-box">
+      <h3>Old Mission Peninsula</h3>
+      <p>Closer to downtown lodging, shorter hops between tasting rooms, and the easier half-day default. Strong for first visits, winter weather windows, and join-in buses that leave from the Civic Center. Start with the <a href="/tours/magic-shuttle-old-mission-4-winery">Old Mission 4-winery bus</a> or a <a href="/tours/private-suv-wine-tour">private SUV</a>.</p>
     </div>
-    <div style="flex-shrink:0;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#C9A96E;white-space:nowrap;display:flex;align-items:center;gap:8px;">
-      See the Guide <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    <div class="pen-box">
+      <h3>Leelanau Peninsula</h3>
+      <p>More space between estates, lake and village stops, and a fuller day-trip feel. Better when you have daylight and want room to linger. Compare the <a href="/tours/magic-shuttle-leelanau">Leelanau bus tour</a> or build a private day via <a href="/wine-tour-guides/leelanau-peninsula">Leelanau tour guides</a>.</p>
     </div>
-  </a>
-</div>
-<section style="padding: 60px 40px 40px; max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+  </div>
+  <p style="font-size:0.95rem;line-height:1.7;color:var(--text-light);">Still choosing? Read <a href="/journal/old-mission-vs-leelanau" style="color:var(--burgundy);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold);">Old Mission vs Leelanau</a> or browse peninsula-focused operator lists in the <a href="/wine-tour-guides/" style="color:var(--burgundy);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold);">guides hub</a>.</p>
+</section>
+
+<section style="padding: 40px 40px 10px; max-width: 1000px; margin: 0 auto;">
+  <div class="section-tag">Bookable days</div>
+  <h2 class="section-title">Jump to a specific tour</h2>
+  <p class="section-desc" style="margin-top:12px;">These product pages list duration, pickup, and from-prices with quote or OTA buttons.</p>
+  <div class="bookable-grid">
+    <a class="bookable-card" href="/tours/magic-shuttle-old-mission-4-winery"><div class="tag">Join-in · from $79</div><h3>Old Mission 4-Winery Bus</h3><p>Magic Shuttle Bus · ~5 hours · Civic Center pickup</p></a>
+    <a class="bookable-card" href="/tours/magic-shuttle-leelanau"><div class="tag">Join-in · Leelanau</div><h3>Leelanau Peninsula Wine Tour</h3><p>Magic Shuttle Bus · longer Wine Trail day</p></a>
+    <a class="bookable-card" href="/tours/movie-stars-suv-join-in"><div class="tag">SUV join-in · from $89</div><h3>Movie Stars SUV Join-In</h3><p>Semi-private Yukon/Suburban · downtown pickup</p></a>
+    <a class="bookable-card" href="/tours/tc-brew-bus-join-in"><div class="tag">Join-in · $82 + tax</div><h3>TC Brew Bus Join-In</h3><p>Wine, distillery, and brewery afternoon</p></a>
+    <a class="bookable-card" href="/tours/private-suv-wine-tour"><div class="tag">Private · from $375</div><h3>Private SUV Wine Tours</h3><p>Suburban / Wagoneer / Yukon · your group only</p></a>
+    <a class="bookable-card" href="/tours/private-van-sprinter-wine-tour"><div class="tag">Private · from $499</div><h3>Private Van &amp; Sprinter</h3><p>Mid-size groups · hotel pickup</p></a>
+    <a class="bookable-card" href="/tours/designated-driver-wine-tour"><div class="tag">Your car · from $59/hr</div><h3>Designated Driver Wine Tour</h3><p>Licensed driver in your vehicle</p></a>
+    <a class="bookable-card" href="/tours/"><div class="tag">Full catalog</div><h3>All bookable tours →</h3><p>Every product page with verified from-prices</p></a>
+  </div>
+</section>
+
+<section style="padding: 40px 40px 20px; max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px;">
+  <div class="section-header" style="margin-bottom: 0;">
+    <div class="section-tag">Partner operators</div>
+    <h2 class="section-title">Request a quote from a partner</h2>
+    <p style="margin-top:16px;color:var(--text-light);max-width:640px;margin-left:auto;margin-right:auto;">Four partners take quote requests through the form below. Prefer to browse every company first? Use the <a href="/wine-tour-guides/" style="color:var(--burgundy);font-weight:600;text-decoration:none;border-bottom:1px solid var(--gold);">21-operator guides hub</a>.</p>
+  </div>
   <div class="tour-card">
     <h3>Traverse City Wine &amp; Beer Tours</h3>
     <div class="tour-type">Group &amp; Custom Tours</div>
@@ -323,7 +475,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
   <div class="tour-card">
     <h3>Grand Traverse Tours</h3>
     <div class="tour-type">Public &amp; Private Tours</div>
-    <p>Winery, brewery, and distillery tours on both peninsulas, with join-in public seats and private group charters.</p>
+    <p>Winery, brewery, and distillery tours on both peninsulas, with join-in public seats and private group charters. Published private 4-hour fleet examples run roughly $379–$799 by vehicle and day.</p>
     <div class="tour-features"><span class="tour-feature">Join-In Tours</span><span class="tour-feature">Private Groups</span><span class="tour-feature">Winery &amp; Brewery</span><span class="tour-feature">Limo Service</span></div>
     <div class="tour-card-actions">
       <a href="https://www.grandtraversetours.com/" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;" target="_blank" rel="noopener">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -343,7 +495,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
   <div class="tour-card">
     <h3>TASTE TC</h3>
     <div class="tour-type">Luxury Private Tours</div>
-    <p>Personalized private tours of Traverse City, Old Mission, and Leelanau with luxury vehicles and local guides.</p>
+    <p>Personalized private Sprinter tours (about 4–12 guests). Published four-hour rates: Sunday–Thursday $699; Friday–Saturday $799. Seasonal closure listed Nov 1, 2026 – Apr 15, 2027.</p>
     <div class="tour-features"><span class="tour-feature">Private Tours</span><span class="tour-feature">Luxury Vehicles</span><span class="tour-feature">Custom Itineraries</span><span class="tour-feature">Local Guides</span></div>
     <div class="tour-card-actions">
       <a href="https://tastetc.com/" class="btn-primary" style="font-size:0.75rem;padding:12px 24px;" target="_blank" rel="noopener">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
@@ -351,6 +503,7 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     </div>
   </div>
 </section>
+
 <section id="tour-inquiry" style="padding: 20px 40px 80px; max-width: 1000px; margin: 0 auto;">
   <div class="section-header" style="margin-bottom: 32px;">
     <div class="section-tag">Inquiry</div>
@@ -397,6 +550,29 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
     <button type="submit" class="btn-primary">Send tour request</button>
     <p class="form-note">By submitting you agree we may share this request with the selected operator. See our <a href="/privacy">privacy policy</a>.</p>
   </form>
+</section>
+
+<section style="padding: 20px 40px 80px; max-width: 1000px; margin: 0 auto;">
+  <div class="section-header" style="margin-bottom: 24px;">
+    <div class="section-tag">FAQ</div>
+    <h2 class="section-title">Traverse City wine tour questions</h2>
+  </div>
+  <div class="faq-item">
+    <h3>How much do Traverse City wine tours cost?</h3>
+    <p>Published ranges vary by style. Join-in seats often start around $79–$89 per person (Magic Shuttle Bus from $79; Movie Stars SUV join-in from $89; TC Brew Bus join-in $82 + tax). Private SUVs start near $375 for three hours (Grand Traverse Rides) or $420 for a four-hour Wagoneer package (Veer Charters). Private Sprinters and vans commonly run $499–$799 for four hours depending on operator and day. Tasting fees are usually extra — confirm live rates before you deposit.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Should I book Old Mission or Leelanau for a wine tour?</h3>
+    <p>Old Mission is closer to downtown Traverse City and suits shorter half-day tours. Leelanau is more spread out and rewards a longer day with village and lake stops. Many operators run both; choose based on time, scenery, and which tasting rooms you want.</p>
+  </div>
+  <div class="faq-item">
+    <h3>What is the difference between a join-in tour and a private wine tour?</h3>
+    <p>A join-in tour sells individual seats on a shared vehicle with a set itinerary and published per-person price. A private tour books the whole vehicle for your group, so you control pace, stops, and often peninsula choice — usually priced as a vehicle rate rather than per seat.</p>
+  </div>
+  <div class="faq-item">
+    <h3>Where should I start if I am searching for Traverse City wine tours?</h3>
+    <p>Use this page to compare operators, price ranges, and peninsulas, then open a bookable day under <a href="/tours/">/tours/</a> or request a quote below. For the full 21-company directory with outbound booking links, see <a href="/wine-tour-guides/">/wine-tour-guides/</a>.</p>
+  </div>
 </section>
 <section class="newsletter" id="newsletter">
   <div class="newsletter-inner">
