@@ -299,7 +299,7 @@ p,li{font-size:1rem;line-height:1.75;}
 </div>
 
     <div class="cards-grid">
-      <div class="venue-card cider" data-hours="Thu–Sun 12–6pm (seasonal hours vary)">
+      <div class="venue-card cider" data-hours="Mon–Sat 12–6pm · Sun 12–5pm" data-hours-status="verified" data-hours-checked="2026-11-25" data-hours-slug="tandem-ciders">
         <div class="venue-card-img cider">🍎</div>
         <div class="venue-card-body">
           <div class="venue-area">Leelanau Peninsula</div>
@@ -309,7 +309,7 @@ p,li{font-size:1rem;line-height:1.75;}
           <a href="/cideries/tandem-ciders" class="venue-link">View Details →</a>
         </div>
       </div>
-      <div class="venue-card cider" data-hours="Daily 12–8pm (seasonal hours vary)">
+      <div class="venue-card cider" data-hours="Mon–Fri 12–8pm · Sat 11am–8pm · Sun 12–8pm" data-hours-status="verified" data-hours-checked="2026-11-25" data-hours-slug="suttons-bay-ciders">
         <div class="venue-card-img cider">🍎</div>
         <div class="venue-card-body">
           <div class="venue-area">Leelanau Peninsula</div>
@@ -319,7 +319,7 @@ p,li{font-size:1rem;line-height:1.75;}
           <a href="/cideries/suttons-bay-ciders" class="venue-link">View Details →</a>
         </div>
       </div>
-      <div class="venue-card cider" data-hours="Mon–Thu 3–10pm · Fri 12–11pm · Sat 11am–11pm · Sun 11am–9pm">
+      <div class="venue-card cider" data-hours="Mon–Thu 11am–9pm · Fri–Sat 11am–10pm · Sun 12–9pm" data-hours-status="verified" data-hours-checked="2026-11-25" data-hours-slug="taproot-cider-house">
         <div class="venue-card-img cider">🍎</div>
         <div class="venue-card-body">
           <div class="venue-area">Downtown Traverse City</div>
@@ -329,7 +329,7 @@ p,li{font-size:1rem;line-height:1.75;}
           <a href="/cideries/taproot-cider-house" class="venue-link">View Details →</a>
         </div>
       </div>
-      <div class="venue-card cider" data-hours="Mon–Sat 12–8pm · Sun 12–6pm">
+      <div class="venue-card cider">
         <div class="venue-card-img cider">🍎</div>
         <div class="venue-card-body">
           <div class="venue-area">Downtown Traverse City</div>
@@ -339,7 +339,7 @@ p,li{font-size:1rem;line-height:1.75;}
           <a href="/cideries/northern-natural-cider-house" class="venue-link">View Details →</a>
         </div>
       </div>
-      <div class="venue-card cider" data-hours="Daily 11am–6pm (seasonal hours vary)">
+      <div class="venue-card cider" data-hours="Fri–Sat 12–5pm" data-hours-status="call-ahead" data-hours-checked="2026-11-25" data-hours-slug="bel-lago-cidery">
         <div class="venue-card-img cider">🍎</div>
         <div class="venue-card-body">
           <div class="venue-area">Leelanau Peninsula</div>
@@ -349,7 +349,7 @@ p,li{font-size:1rem;line-height:1.75;}
           <a href="/cideries/bel-lago-cidery" class="venue-link">View Details →</a>
         </div>
       </div>
-      <div class="venue-card cider" data-hours="Mon–Thu 12–7pm · Fri–Sat 12–8pm · Sun 12–6pm">
+      <div class="venue-card cider" data-hours="Sun–Mon 12–6pm · Tue–Sat 12–7pm" data-hours-status="verified" data-hours-checked="2026-11-25" data-hours-slug="left-foot-charley-cider">
         <div class="venue-card-img cider">🍎</div>
         <div class="venue-card-body">
           <div class="venue-area">Downtown Traverse City</div>
@@ -408,6 +408,7 @@ const nav=document.getElementById('mainNav');
 window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>10);});
 </script>
 <script src="/js/leads.js" defer></script>
+<script src="/js/venue-hours-data.js" defer></script>
 <script src="/js/hours.js" defer></script>
 <script src="/js/open-this-week.js" defer></script>
 </body>
