@@ -341,6 +341,54 @@ def _parse_hours_spec_simple(raw: str):
     return parse_hours_spec(raw)
 
 
+def _remove_json_array_prop(html: str, prop: str) -> str:
+    r"""Remove ,"prop": [ ... ] including nested arrays (dayOfWeek lists).
+
+    The previous `[^\]]*` pattern stopped at the first `]` inside dayOfWeek and
+    left orphaned OpeningHoursSpecification fragments after `geo`.
+    """
+    pattern = re.compile(rf',\s*"{re.escape(prop)}"\s*:\s*\[')
+    m = pattern.search(html)
+    if not m:
+        return html
+    start = m.start()
+    i = m.end() - 1  # index of '['
+    depth = 0
+    in_string = False
+    escape = False
+    for j in range(i, len(html)):
+        ch = html[j]
+        if in_string:
+            if escape:
+                escape = False
+            elif ch == "\\":
+                escape = True
+            elif ch == '"':
+                in_string = False
+            continue
+        if ch == '"':
+            in_string = True
+        elif ch == "[":
+            depth += 1
+        elif ch == "]":
+            depth -= 1
+            if depth == 0:
+                return html[:start] + html[j + 1 :]
+    return html
+
+
+def _strip_orphan_hours_after_geo(html: str) -> str:
+    """Remove leftover ,"opens":... fragments spliced after geo by the bad regex."""
+    return re.sub(
+        r'("geo"\s*:\s*\{\s*"@type"\s*:\s*"GeoCoordinates"\s*,\s*'
+        r'"latitude"\s*:\s*-?[0-9.]+\s*,\s*"longitude"\s*:\s*-?[0-9.]+\s*\})'
+        r'\s*,\s*"opens"[\s\S]*?\](?=\s*\n\s*\})',
+        r"\1",
+        html,
+        count=1,
+    )
+
+
 def _patch_schema(html: str, venue: dict, hours: str) -> str:
     status = venue.get("hoursStatus") or "call-ahead"
     # Update openingHours string
@@ -367,12 +415,9 @@ def _patch_schema(html: str, venue: dict, hours: str) -> str:
             )
 
     # Remove existing specification; re-add only when verified + parseable
-    html = re.sub(
-        r',\s*"openingHoursSpecification"\s*:\s*\[[^\]]*\]',
-        "",
-        html,
-        count=1,
-    )
+    html = _remove_json_array_prop(html, "openingHoursSpecification")
+    # Defensive: clear any prior bad-regex orphans after geo
+    html = _strip_orphan_hours_after_geo(html)
 
     if status != "verified" or not hours:
         return html
