@@ -1,0 +1,945 @@
+{
+  "checkedAt": "2026-11-25",
+  "notes": "Winter/holiday hours research. Only sourced schedules; unverified venues are call-ahead.",
+  "wineries": {
+    "chateau-grand-traverse": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.cgtwines.com/contact/",
+      "hours": "Sun–Thu 11am–5pm · Fri–Sat 11am–6pm",
+      "hoursSchedules": [
+        {
+          "id": "winter",
+          "label": "Winter",
+          "validFrom": "11-01",
+          "validThrough": "04-30",
+          "hours": "Sun–Thu 11am–5pm · Fri–Sat 11am–6pm"
+        },
+        {
+          "id": "spring",
+          "label": "Spring",
+          "validFrom": "05-05",
+          "validThrough": "05-21",
+          "hours": "Sun–Wed 11am–6pm · Thu–Sat 11am–8pm"
+        },
+        {
+          "id": "summer",
+          "label": "Summer",
+          "validFrom": "05-22",
+          "validThrough": "08-31",
+          "hours": "Sun–Wed 10am–7pm · Thu–Sat 10am–9pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "black-star-farms": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.blackstarfarms.com/contact/",
+      "hours": "Sun–Thu 11am–5:30pm · Fri–Sat 11am–6pm",
+      "hoursSchedules": [
+        {
+          "id": "year-round",
+          "label": "Year-round",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Sun–Thu 11am–5:30pm · Fri–Sat 11am–6pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "peninsula-cellars": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.peninsulacellars.com/visit/",
+      "hours": "Daily 10am–5pm",
+      "hoursSchedules": [
+        {
+          "id": "winter",
+          "label": "November–May",
+          "validFrom": "11-01",
+          "validThrough": "05-31",
+          "hours": "Daily 10am–5pm"
+        },
+        {
+          "id": "summer",
+          "label": "June–October",
+          "validFrom": "06-01",
+          "validThrough": "10-31",
+          "hours": "Daily 10am–6pm"
+        }
+      ],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" },
+        { "id": "christmas", "name": "Christmas Day", "monthDay": "12-25" },
+        { "id": "new-years", "name": "New Year's Day", "monthDay": "01-01" },
+        { "id": "easter", "name": "Easter" }
+      ],
+      "holidayHours": [
+        { "id": "christmas-eve", "monthDay": "12-24", "hours": "Daily 10am–3pm" },
+        { "id": "new-years-eve", "monthDay": "12-31", "hours": "Daily 10am–3pm" }
+      ]
+    },
+    "chateau-chantal": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.chateauchantal.com/contact/",
+      "hours": "Daily 11am–5pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Tasting room",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Daily 11am–5pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "brys-estate": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://brysestate.com/visit_tastingroom/",
+      "hours": "Fri–Sat 11am–6pm · Sun–Thu 12–5pm",
+      "hoursNote": "Published through December 31 only; call ahead after New Year's.",
+      "hoursSchedules": [
+        {
+          "id": "late-fall",
+          "label": "November–December",
+          "validFrom": "11-01",
+          "validThrough": "12-31",
+          "hours": "Fri–Sat 11am–6pm · Sun–Thu 12–5pm"
+        }
+      ],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" },
+        { "id": "christmas-eve", "name": "Christmas Eve", "monthDay": "12-24" },
+        { "id": "christmas", "name": "Christmas Day", "monthDay": "12-25" }
+      ]
+    },
+    "bowers-harbor-vineyards": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.bowersharbor.com/faq/",
+      "hours": "Sun–Thu 11am–5pm · Fri–Sat 11am–6pm",
+      "hoursSchedules": [
+        {
+          "id": "winter",
+          "label": "December–March",
+          "validFrom": "12-01",
+          "validThrough": "03-31",
+          "hours": "Sun–Thu 11am–5pm · Fri–Sat 11am–6pm"
+        },
+        {
+          "id": "shoulder",
+          "label": "April & November",
+          "validFrom": "04-01",
+          "validThrough": "04-30",
+          "hours": "Daily 11am–6pm"
+        },
+        {
+          "id": "november",
+          "label": "November",
+          "validFrom": "11-01",
+          "validThrough": "11-30",
+          "hours": "Daily 11am–6pm"
+        },
+        {
+          "id": "may",
+          "label": "May",
+          "validFrom": "05-01",
+          "validThrough": "05-31",
+          "hours": "Daily 11am–6pm"
+        },
+        {
+          "id": "summer",
+          "label": "June–October",
+          "validFrom": "06-01",
+          "validThrough": "10-31",
+          "hours": "Sun–Thu 11am–6pm · Fri–Sat 11am–7pm"
+        }
+      ],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" },
+        { "id": "christmas", "name": "Christmas Day", "monthDay": "12-25" }
+      ],
+      "holidayHours": [
+        { "id": "christmas-eve", "monthDay": "12-24", "hours": "Daily 11am–3pm" },
+        { "id": "new-years-eve", "monthDay": "12-31", "hours": "Daily 11am–5pm" },
+        { "id": "new-years", "monthDay": "01-01", "hours": "Daily 12–4pm" }
+      ]
+    },
+    "2-lads-winery": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.2lwinery.com/",
+      "hours": "Daily 11am–5pm",
+      "hoursSchedules": [
+        {
+          "id": "winter",
+          "label": "November–April",
+          "validFrom": "11-01",
+          "validThrough": "04-30",
+          "hours": "Daily 11am–5pm"
+        },
+        {
+          "id": "summer",
+          "label": "May–October",
+          "validFrom": "05-01",
+          "validThrough": "10-31",
+          "hours": "Daily 11am–6pm"
+        }
+      ],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" }
+      ]
+    },
+    "mari-vineyards": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.marivineyards.com/",
+      "hours": "Daily 9am–5pm",
+      "hoursSchedules": [
+        {
+          "id": "year-round",
+          "label": "Year-round",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Daily 9am–5pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "bonobo-winery": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.bonobowinery.com/contact",
+      "hours": "Mon–Thu 1–7pm · Fri–Sat 12–8pm · Sun 12–6pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Current",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Mon–Thu 1–7pm · Fri–Sat 12–8pm · Sun 12–6pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "left-foot-charley": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.leftfootcharley.com/",
+      "hours": "Sun–Mon 12–6pm · Tue–Sat 12–7pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Tasting room",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Sun–Mon 12–6pm · Tue–Sat 12–7pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "l-mawby": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://mawby.wine/contact",
+      "hours": "Sun–Mon 12–5pm · Thu–Fri 12–5pm · Sat 12–6pm",
+      "hoursSchedules": [
+        {
+          "id": "winter",
+          "label": "Winter",
+          "validFrom": "11-01",
+          "validThrough": "04-30",
+          "hours": "Sun–Mon 12–5pm · Thu–Fri 12–5pm · Sat 12–6pm"
+        }
+      ],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" },
+        { "id": "christmas-eve", "name": "Christmas Eve", "monthDay": "12-24" },
+        { "id": "christmas", "name": "Christmas Day", "monthDay": "12-25" },
+        { "id": "new-years", "name": "New Year's Day", "monthDay": "01-01" },
+        { "id": "easter", "name": "Easter" }
+      ]
+    },
+    "ciccone-vineyard": {
+      "hoursStatus": "closed-season",
+      "hoursSource": "https://cicconevineyard.com/weddings",
+      "hours": "Closed for the winter season",
+      "hoursNote": "Official site: temporarily closed for winter. Call ahead for spring reopening.",
+      "hoursSchedules": [],
+      "holidayClosures": []
+    },
+    "good-harbor-vineyards": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.goodharbor.com/visit-us",
+      "hours": "Mon, Thu 11am–6pm · Fri–Sun 11am–7pm",
+      "hoursNote": "Only November hours published on visit page; call ahead after November.",
+      "hoursSchedules": [
+        {
+          "id": "november",
+          "label": "November",
+          "validFrom": "11-01",
+          "validThrough": "11-30",
+          "hours": "Mon, Thu 11am–6pm · Fri–Sun 11am–7pm"
+        }
+      ],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" },
+        { "id": "christmas-eve", "name": "Christmas Eve", "monthDay": "12-24" },
+        { "id": "christmas", "name": "Christmas Day", "monthDay": "12-25" },
+        { "id": "new-years", "name": "New Year's Day", "monthDay": "01-01" },
+        { "id": "easter", "name": "Easter" }
+      ]
+    },
+    "forty-five-north": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.fortyfivenorth.com/tasting-room/",
+      "hours": "Sun–Thu 12–5pm · Fri–Sat 12–6pm",
+      "hoursSchedules": [
+        {
+          "id": "fall-winter",
+          "label": "Fall/Winter",
+          "validFrom": "11-01",
+          "validThrough": "04-30",
+          "hours": "Sun–Thu 12–5pm · Fri–Sat 12–6pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "shady-lane-cellars": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.shadylanecellars.com/visit/",
+      "hours": "Sun–Thu 12–6pm · Fri–Sat 11am–7pm",
+      "hoursSchedules": [
+        {
+          "id": "year-round",
+          "label": "Year-round",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Sun–Thu 12–6pm · Fri–Sat 11am–7pm"
+        }
+      ],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" },
+        { "id": "black-friday", "name": "Black Friday", "relativeTo": "thanksgiving+1" },
+        { "id": "christmas-eve", "name": "Christmas Eve", "monthDay": "12-24" },
+        { "id": "christmas", "name": "Christmas Day", "monthDay": "12-25" },
+        { "id": "new-years", "name": "New Year's Day", "monthDay": "01-01" },
+        { "id": "easter", "name": "Easter" },
+        { "id": "labor-day", "name": "Labor Day" }
+      ],
+      "holidayRanges": [
+        { "id": "holiday-break", "from": "12-24", "through": "01-01", "name": "Dec 24–Jan 1" }
+      ]
+    },
+    "leelanau-cellars": {
+      "hoursStatus": "verified",
+      "hoursSource": "http://www.leelanaucellars.com/visit-us/",
+      "hours": "Mon–Sat 10am–6pm · Sun 11am–5pm",
+      "hoursNote": "Site asks guests to call ahead for holiday hours.",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Current",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Mon–Sat 10am–6pm · Sun 11am–5pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "brengman-brothers": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://brengmanfamilywines.com/contact/",
+      "hours": "Sun–Thu 1–7pm · Fri–Sat 12–8pm",
+      "hoursSchedules": [
+        {
+          "id": "fall-winter",
+          "label": "Fall/Winter",
+          "validFrom": "11-01",
+          "validThrough": "04-30",
+          "hours": "Sun–Thu 1–7pm · Fri–Sat 12–8pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "gills-pier": {
+      "hoursStatus": "call-ahead",
+      "hoursSource": null,
+      "hours": "",
+      "hoursNote": "Official gillspier.com domain is for sale; winter hours could not be verified.",
+      "hoursSchedules": [],
+      "holidayClosures": []
+    },
+    "bel-lago": {
+      "hoursStatus": "call-ahead",
+      "hoursSource": "https://www.bellagowine.com/visit",
+      "hours": "Fri–Sat 12–5pm",
+      "hoursNote": "Visit page lists Fri–Sat 12–5pm and Tue–Thu closed; Sunday/Monday not listed — call ahead.",
+      "hoursSchedules": [],
+      "holidayClosures": []
+    },
+    "verterra-winery": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.verterrawinery.com/visit-us/hours/",
+      "hours": "Sun–Thu 12–5pm · Fri–Sat 12–6pm",
+      "hoursSchedules": [
+        {
+          "id": "late-fall",
+          "label": "Nov 2–Dec 31 (Leland)",
+          "validFrom": "11-02",
+          "validThrough": "12-31",
+          "hours": "Sun–Thu 12–5pm · Fri–Sat 12–6pm"
+        },
+        {
+          "id": "deep-winter",
+          "label": "Jan 2–Feb 28 (Leland)",
+          "validFrom": "01-02",
+          "validThrough": "02-28",
+          "hours": "Thu–Mon 12–5pm"
+        },
+        {
+          "id": "late-summer",
+          "label": "Aug 17–Nov 1 (Leland)",
+          "validFrom": "08-17",
+          "validThrough": "11-01",
+          "hours": "Mon–Sat 12–6pm · Sun 12–5pm"
+        }
+      ],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" },
+        { "id": "christmas-eve", "name": "Christmas Eve", "monthDay": "12-24" },
+        { "id": "christmas", "name": "Christmas Day", "monthDay": "12-25" },
+        { "id": "new-years", "name": "New Year's Day", "monthDay": "01-01" },
+        { "id": "easter", "name": "Easter" }
+      ]
+    },
+    "hawthorne-vineyards": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.hawthornevineyards.com/contact-us/contact-us.html",
+      "hours": "Sun–Thu 11am–6pm · Fri–Sat 11am–7pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Open daily",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Sun–Thu 11am–6pm · Fri–Sat 11am–7pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "tabone-vineyards": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://tabonevineyards.com",
+      "hours": "Mon 12–5pm · Thu 12–5pm · Fri 11am–5pm · Sat 11am–5pm · Sun 12–5pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Current",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Mon 12–5pm · Thu 12–5pm · Fri 11am–5pm · Sat 11am–5pm · Sun 12–5pm"
+        }
+      ],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" },
+        { "id": "black-friday", "name": "Black Friday", "relativeTo": "thanksgiving+1" },
+        { "id": "christmas-eve", "name": "Christmas Eve", "monthDay": "12-24" },
+        { "id": "christmas", "name": "Christmas Day", "monthDay": "12-25" },
+        { "id": "new-years-eve", "name": "New Year's Eve", "monthDay": "12-31" },
+        { "id": "new-years", "name": "New Year's Day", "monthDay": "01-01" },
+        { "id": "easter", "name": "Easter" }
+      ]
+    },
+    "aurora-cellars": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.auroracellars.com/visit-us",
+      "hours": "Mon–Fri 12–6pm · Sat–Sun 12–7pm",
+      "hoursNote": "Only November hours published; call ahead after November.",
+      "hoursSchedules": [
+        {
+          "id": "november",
+          "label": "November",
+          "validFrom": "11-01",
+          "validThrough": "11-30",
+          "hours": "Mon–Fri 12–6pm · Sat–Sun 12–7pm"
+        }
+      ],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" },
+        { "id": "christmas-eve", "name": "Christmas Eve", "monthDay": "12-24" },
+        { "id": "christmas", "name": "Christmas Day", "monthDay": "12-25" },
+        { "id": "new-years", "name": "New Year's Day", "monthDay": "01-01" },
+        { "id": "easter", "name": "Easter" }
+      ]
+    },
+    "blustone-vineyards": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.blustonevineyards.com/visit",
+      "hours": "Thu–Fri 12–5pm · Sat 12–6pm · Sun–Mon 12–5pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Current",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Thu–Fri 12–5pm · Sat 12–6pm · Sun–Mon 12–5pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "boathouse-vineyards": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.boathousevineyards.com/contact/",
+      "hours": "Sun–Thu 12–5pm · Fri–Sat 12–6pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Current",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Sun–Thu 12–5pm · Fri–Sat 12–6pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "rove-estate": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.roveestate.com",
+      "hours": "Mon–Thu 12–6pm · Fri–Sat 12–7pm · Sun 12–5pm",
+      "hoursSchedules": [
+        {
+          "id": "winter",
+          "label": "Winter",
+          "validFrom": "11-01",
+          "validThrough": "04-30",
+          "hours": "Mon–Thu 12–6pm · Fri–Sat 12–7pm · Sun 12–5pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "chateau-fontaine": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.chateaufontaine.com",
+      "hours": "Daily 12–5pm",
+      "hoursSchedules": [
+        {
+          "id": "november",
+          "label": "November 1–29",
+          "validFrom": "11-01",
+          "validThrough": "11-29",
+          "hours": "Daily 12–5pm"
+        },
+        {
+          "id": "december",
+          "label": "December",
+          "validFrom": "12-01",
+          "validThrough": "12-31",
+          "hours": "Thu–Mon 12–5pm"
+        },
+        {
+          "id": "winter",
+          "label": "January–April",
+          "validFrom": "01-01",
+          "validThrough": "04-30",
+          "hours": "Thu–Mon 12–5pm"
+        }
+      ],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" },
+        { "id": "christmas-eve", "name": "Christmas Eve", "monthDay": "12-24" },
+        { "id": "christmas", "name": "Christmas Day", "monthDay": "12-25" }
+      ],
+      "holidayHours": [
+        { "id": "new-years-eve", "monthDay": "12-31", "hours": "Daily 12–3pm" }
+      ]
+    },
+    "raftshol-vineyards": {
+      "hoursStatus": "call-ahead",
+      "hoursSource": null,
+      "hours": "",
+      "hoursNote": "Official site could not be verified; call ahead.",
+      "hoursSchedules": [],
+      "holidayClosures": []
+    },
+    "willow-vineyard": {
+      "hoursStatus": "closed-season",
+      "hoursSource": "https://willowvineyardwine.com",
+      "hours": "Closed for the season (reopens mid-June)",
+      "hoursNote": "Season hours June 13–October 20, 2026 on official site.",
+      "hoursSchedules": [
+        {
+          "id": "summer-2026",
+          "label": "Season",
+          "validFrom": "06-13",
+          "validThrough": "10-20",
+          "hours": "Sun 12–4pm · Thu 1–7pm · Fri 12–5pm · Sat 11:30am–5:30pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "silver-leaf-vineyard": {
+      "hoursStatus": "call-ahead",
+      "hoursSource": null,
+      "hours": "",
+      "hoursNote": "Winter hours could not be verified on the official site.",
+      "hoursSchedules": [],
+      "holidayClosures": []
+    },
+    "chateau-de-leelanau": {
+      "hoursStatus": "call-ahead",
+      "hoursSource": null,
+      "hours": "",
+      "hoursNote": "Official domain is parked; winter hours unverified.",
+      "hoursSchedules": [],
+      "holidayClosures": []
+    },
+    "good-neighbor-organic": {
+      "hoursStatus": "call-ahead",
+      "hoursSource": null,
+      "hours": "",
+      "hoursNote": "Official domain does not resolve; winter hours unverified.",
+      "hoursSchedules": [],
+      "holidayClosures": []
+    },
+    "longview-winery": {
+      "hoursStatus": "call-ahead",
+      "hoursSource": null,
+      "hours": "",
+      "hoursNote": "Official domain does not resolve; winter hours unverified.",
+      "hoursSchedules": [],
+      "holidayClosures": []
+    },
+    "laurentide-winery": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://laurentidewinery.com/contact.asp",
+      "hours": "Fri–Tue 12–5pm",
+      "hoursSchedules": [
+        {
+          "id": "november",
+          "label": "November",
+          "validFrom": "11-01",
+          "validThrough": "11-30",
+          "hours": "Fri–Tue 12–5pm"
+        },
+        {
+          "id": "winter",
+          "label": "December–April",
+          "validFrom": "12-01",
+          "validThrough": "04-30",
+          "hours": "Thu–Mon 12–5pm"
+        },
+        {
+          "id": "may",
+          "label": "May",
+          "validFrom": "05-01",
+          "validThrough": "05-31",
+          "hours": "Daily 12–5pm"
+        },
+        {
+          "id": "summer",
+          "label": "June–October",
+          "validFrom": "06-01",
+          "validThrough": "10-31",
+          "hours": "Daily 12–6pm"
+        }
+      ],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" },
+        { "id": "christmas", "name": "Christmas Day", "monthDay": "12-25" },
+        { "id": "new-years", "name": "New Year's Day", "monthDay": "01-01" },
+        { "id": "easter", "name": "Easter" },
+        { "id": "labor-day", "name": "Labor Day" }
+      ]
+    }
+  },
+  "cideries": {
+    "tandem-ciders": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.tandemciders.com",
+      "hours": "Mon–Sat 12–6pm · Sun 12–5pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Taproom",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Mon–Sat 12–6pm · Sun 12–5pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "suttons-bay-ciders": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.suttonsbayciders.com",
+      "hours": "Mon–Fri 12–8pm · Sat 11am–8pm · Sun 12–8pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Current",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Mon–Fri 12–8pm · Sat 11am–8pm · Sun 12–8pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "taproot-cider-house": {
+      "hoursStatus": "verified",
+      "hoursSource": "http://www.taproottc.com/locations",
+      "hours": "Mon–Thu 11am–9pm · Fri–Sat 11am–10pm · Sun 12–9pm",
+      "hoursSchedules": [
+        {
+          "id": "fall",
+          "label": "Fall hours",
+          "validFrom": "09-01",
+          "validThrough": "12-31",
+          "hours": "Mon–Thu 11am–9pm · Fri–Sat 11am–10pm · Sun 12–9pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "northern-natural-cider-house": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.northernnaturalwinery.com",
+      "hours": "Fri 3–9pm · Sat 12–9pm · Sun 12–6pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Tasting house",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Fri 3–9pm · Sat 12–9pm · Sun 12–6pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "bel-lago-cidery": {
+      "hoursStatus": "call-ahead",
+      "hoursSource": "https://www.bellagowine.com/visit",
+      "hours": "Fri–Sat 12–5pm",
+      "hoursNote": "Same Bel Lago visit page; Sun/Mon not listed — call ahead.",
+      "hoursSchedules": [],
+      "holidayClosures": []
+    },
+    "left-foot-charley-cider": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.leftfootcharley.com/",
+      "hours": "Sun–Mon 12–6pm · Tue–Sat 12–7pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Tasting room",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Sun–Mon 12–6pm · Tue–Sat 12–7pm"
+        }
+      ],
+      "holidayClosures": []
+    }
+  },
+  "breweries": {
+    "rare-bird-brewpub": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.rarebirdbrewpub.com",
+      "hours": "Daily 12–10pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Current",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Daily 12–10pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "right-brain-brewery": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.rightbrainbrewery.com/17/hours-of-operation-",
+      "hours": "Sun 12–8pm · Mon 12–9pm · Tue–Thu 12–10pm · Fri–Sat 11am–10pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Current",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Sun 12–8pm · Mon 12–9pm · Tue–Thu 12–10pm · Fri–Sat 11am–10pm"
+        }
+      ],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" },
+        { "id": "christmas", "name": "Christmas Day", "monthDay": "12-25" }
+      ],
+      "holidayHours": [
+        { "id": "christmas-eve", "monthDay": "12-24", "hours": "Daily 12–6pm" },
+        { "id": "new-years-eve", "monthDay": "12-31", "hours": "Daily 11am–10pm" },
+        { "id": "new-years", "monthDay": "01-01", "hours": "Daily 11am–10pm" }
+      ]
+    },
+    "workshop-brewing-company": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.workshopbrewing.com/contact",
+      "hours": "Mon–Thu 12–10pm · Fri–Sat 12–11pm · Sun 12–10pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Taproom",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Mon–Thu 12–10pm · Fri–Sat 12–11pm · Sun 12–10pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "filling-station-microbrewery": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.thefillingstationmicrobrewery.com",
+      "hours": "Thu–Mon 11am–10pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Current",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Thu–Mon 11am–10pm"
+        }
+      ],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" }
+      ]
+    },
+    "north-peak-brewing": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.northpeakbeer.com/traverse-city",
+      "hours": "Mon–Sat 11am–10pm · Sun 12–8pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Current",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Mon–Sat 11am–10pm · Sun 12–8pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "middlecoast-brewing": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://middlecoastbrewingco.com/",
+      "hours": "Mon–Sat 11am–10pm · Sun 11am–8pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Current",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Mon–Sat 11am–10pm · Sun 11am–8pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "brewery-ferment": {
+      "hoursStatus": "call-ahead",
+      "hoursSource": null,
+      "hours": "",
+      "hoursNote": "Official domain did not resolve; hours unverified.",
+      "hoursSchedules": [],
+      "holidayClosures": []
+    },
+    "brewery-terra-firma": {
+      "hoursStatus": "call-ahead",
+      "hoursSource": "https://breweryterrafirma.com",
+      "hours": "",
+      "hoursNote": "Site lists address/phone but no taproom hours.",
+      "hoursSchedules": [],
+      "holidayClosures": []
+    },
+    "earthen-ales": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://www.earthenales.com/taproom/",
+      "hours": "Sun–Mon 12–8pm · Tue–Sat 12–9pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Taproom",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Sun–Mon 12–8pm · Tue–Sat 12–9pm"
+        }
+      ],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" }
+      ]
+    },
+    "hop-lot-brewing": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://hoplotbrewing.com",
+      "hours": "Sun 12–8pm · Mon–Thu 12–8:30pm · Fri–Sat 12–9pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Taproom",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Sun 12–8pm · Mon–Thu 12–8:30pm · Fri–Sat 12–9pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "jolly-pumpkin": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://traversecity.jollypumpkin.com/",
+      "hours": "Mon–Fri 3–9pm · Sat 12–9pm · Sun 12–8pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Traverse City",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Mon–Fri 3–9pm · Sat 12–9pm · Sun 12–8pm"
+        }
+      ],
+      "holidayClosures": []
+    },
+    "lake-ann-brewing": {
+      "hoursStatus": "verified",
+      "hoursSource": "https://lakeannbrewing.com",
+      "hours": "Mon 4–9pm · Tue–Thu 2–10pm · Fri–Sat 12–11pm",
+      "hoursSchedules": [
+        {
+          "id": "current",
+          "label": "Regular",
+          "validFrom": "01-01",
+          "validThrough": "12-31",
+          "hours": "Mon 4–9pm · Tue–Thu 2–10pm · Fri–Sat 12–11pm"
+        }
+      ],
+      "holidayHours": [
+        { "id": "thanksgiving", "monthDay": null, "relativeTo": "thanksgiving", "hours": "Daily 12–4pm" }
+      ],
+      "holidayClosures": []
+    },
+    "silver-spruce-brewing": {
+      "hoursStatus": "call-ahead",
+      "hoursSource": "https://silversprucebrewing.com",
+      "hours": "",
+      "hoursNote": "No taproom hours on official site pages checked.",
+      "hoursSchedules": [],
+      "holidayClosures": []
+    },
+    "shorts-brewing-bellaire": {
+      "hoursStatus": "call-ahead",
+      "hoursSource": "https://www.shortsbrewing.com/locations/bellaire/",
+      "hours": "Sun–Wed 11am–10pm · Fri–Sat 11am–11pm",
+      "hoursNote": "Thursday not listed on official location page; Thanksgiving closed — call ahead.",
+      "hoursSchedules": [],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" }
+      ]
+    },
+    "shorts-brewing-elk-rapids": {
+      "hoursStatus": "call-ahead",
+      "hoursSource": "https://www.shortsbrewing.com/locations/elk-rapids/",
+      "hours": "Mon–Wed 2–8pm · Fri–Sat 11am–9pm · Sun 12–8pm",
+      "hoursNote": "Thursday not listed on official location page; Thanksgiving closed — call ahead.",
+      "hoursSchedules": [],
+      "holidayClosures": [
+        { "id": "thanksgiving", "name": "Thanksgiving" }
+      ]
+    }
+  }
+}

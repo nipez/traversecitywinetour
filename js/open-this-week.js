@@ -58,6 +58,7 @@
       ".otw-badge.closed{background:rgba(74,14,27,0.08);color:#6B5E54;}" +
       ".otw-badge.unknown{background:rgba(201,169,110,0.18);color:#8a6a2a;}" +
       ".otw-day-hours{font-size:0.72rem;color:var(--text-light,#6B5E54);margin-top:4px;}" +
+      ".otw-checked{font-size:0.72rem;color:var(--text-light,#6B5E54);}" +
       ".winery-card.otw-dim{opacity:0.38;}" +
       ".sidebar-detail[data-hours-block]{flex-direction:column;align-items:stretch;gap:8px;}" +
       ".sidebar-detail[data-hours-block] > svg{display:none;}" +
@@ -66,12 +67,23 @@
       ".winery-hours-week th{font-weight:600;color:var(--burgundy,#4A0E1B);width:3.2rem;padding-right:12px;}" +
       ".winery-hours-week tr.is-today th,.winery-hours-week tr.is-today td{color:var(--burgundy,#4A0E1B);font-weight:600;}" +
       ".winery-hours-note{display:block;margin-top:10px;font-size:0.78rem;color:var(--text-light,#6B5E54);line-height:1.45;}" +
+      ".winery-hours-checked{display:block;margin-top:6px;font-size:0.72rem;color:var(--text-light,#6B5E54);}" +
       "@media(max-width:768px){" +
       "#open-this-week,.otw-bar{scroll-margin-top:230px;}" +
       ".otw-bar{padding:12px 16px;}" +
       ".otw-day{padding:9px 11px;font-size:0.68rem;}" +
       "}";
     document.head.appendChild(css);
+  }
+
+  function latestCheckedLabel() {
+    var data = window.TCWT_VENUE_HOURS || {};
+    var latest = null;
+    Object.keys(data).forEach(function (k) {
+      var c = data[k] && data[k].hoursCheckedAt;
+      if (c && (!latest || c > latest)) latest = c;
+    });
+    return H.formatCheckedNote(latest);
   }
 
   function renderBar(mount, state) {
@@ -92,6 +104,7 @@
         );
       })
       .join("");
+    var checked = latestCheckedLabel();
 
     mount.innerHTML =
       '<div class="otw-bar" id="open-this-week">' +
@@ -100,6 +113,9 @@
       '<h2 class="otw-title">Open this week</h2>' +
       '<p class="otw-note">' +
       H.SEASONAL_NOTE +
+      (checked
+        ? ' <span class="otw-checked">' + checked + ".</span>"
+        : "") +
       "</p>" +
       "</div>" +
       '<div class="otw-days" role="group" aria-label="Choose a day">' +
@@ -113,6 +129,17 @@
       "</div>" +
       "</div>" +
       "</div>";
+  }
+
+  function badgeLabel(status) {
+    if (status === "open") return "Open";
+    if (status === "closed") return "Closed";
+    return "Call ahead";
+  }
+
+  function resolveCard(card) {
+    if (typeof H.resolveFromCard === "function") return H.resolveFromCard(card);
+    return H.parseHours(card.getAttribute("data-hours") || "");
   }
 
   function cardHours(card) {
@@ -131,7 +158,26 @@
 
     if (mapScope && Array.isArray(window.wineries)) {
       window.wineries.forEach(function (w) {
-        var parsed = H.parseHours(w.hours || "");
+        var meta =
+          (w.slug && H.lookupVenueMeta && H.lookupVenueMeta(w.slug)) ||
+          (w.name &&
+            window.TCWT_VENUE_HOURS &&
+            Object.keys(window.TCWT_VENUE_HOURS).map(function (k) {
+              return window.TCWT_VENUE_HOURS[k];
+            }).find(function (m) {
+              return m && m.name === w.name;
+            })) ||
+          {
+            hours: w.hours || "",
+            hoursStatus: w.hoursStatus || "verified",
+            hoursCheckedAt: w.hoursCheckedAt,
+            hoursSchedules: w.hoursSchedules || [],
+            holidayClosures: w.holidayClosures || [],
+          };
+        var parsed = H.resolveVenueHours
+          ? H.resolveVenueHours(meta)
+          : H.parseHours(w.hours || "");
+        w._parsed = parsed;
         var status = H.dayStatus(parsed, state.day);
         if (status === "open") open++;
         else if (status === "closed") closed++;
@@ -145,7 +191,7 @@
           closed +
           " closed · " +
           unknown +
-          " hours not listed";
+          " call ahead";
       }
       document.dispatchEvent(
         new CustomEvent("tcwt:open-day", {
@@ -156,7 +202,7 @@
     }
 
     cards.forEach(function (card) {
-      var parsed = H.parseHours(cardHours(card));
+      var parsed = resolveCard(card);
       var status = H.dayStatus(parsed, state.day);
       var label = H.dayHoursLabel(parsed, state.day);
 
@@ -169,8 +215,7 @@
         else card.appendChild(badge);
       }
       badge.className = "otw-badge " + status;
-      badge.textContent =
-        status === "open" ? "Open" : status === "closed" ? "Closed" : "Hours TBD";
+      badge.textContent = badgeLabel(status);
 
       var dayLine = card.querySelector(".otw-day-hours");
       if (!dayLine) {
@@ -185,7 +230,7 @@
       }
       dayLine.textContent =
         status === "unknown"
-          ? H.MISSING_LABEL
+          ? label
           : H.DAY_SHORT[state.day] + ": " + label;
 
       if (status === "open") open++;
@@ -200,15 +245,14 @@
         card.style.display = "none";
         card.classList.remove("otw-dim");
       } else {
-        // Leave display to existing peninsula/search filters unless we hid it
         if (card.style.display === "none" && card.dataset.otwHidden === "1") {
           card.style.display = "";
         }
         card.dataset.otwHidden = hide ? "1" : "0";
-        card.classList.toggle("otw-dim", state.onlyOpen === false && status === "closed");
-        if (!state.onlyOpen && card.dataset.otwHidden === "0") {
-          // don't force show if search filter hid it — directory page re-applies
-        }
+        card.classList.toggle(
+          "otw-dim",
+          state.onlyOpen === false && (status === "closed" || status === "unknown")
+        );
       }
       if (state.onlyOpen) {
         card.dataset.otwHidden = hide ? "1" : "0";
@@ -225,7 +269,7 @@
         closed +
         " closed · " +
         unknown +
-        " hours not listed";
+        " call ahead";
     }
 
     // Section visibility when only-open
@@ -279,17 +323,32 @@
   function enhanceDetailSidebar() {
     var host = qs("[data-hours-block]");
     if (!host) return;
-    var raw = host.getAttribute("data-hours") || host.textContent;
-    var parsed = H.parseHours(raw);
+    var slug = host.getAttribute("data-hours-slug");
+    var meta = slug && H.lookupVenueMeta ? H.lookupVenueMeta(slug) : null;
+    var parsed = meta
+      ? H.resolveVenueHours(meta)
+      : H.parseHours(host.getAttribute("data-hours") || host.textContent);
     var rows = H.weeklyRows(parsed);
     var today = H.todayDayIndex();
+    var checked = H.formatCheckedNote(parsed.checkedAt || host.getAttribute("data-hours-checked"));
+    var checkedHtml = checked
+      ? '<span class="winery-hours-checked">' + checked + "</span>"
+      : "";
     if (!rows) {
+      var missing =
+        parsed.hoursStatus === "call-ahead"
+          ? H.CALL_AHEAD_LABEL
+          : parsed.hoursStatus === "closed-season"
+            ? H.CLOSED_SEASON_LABEL
+            : H.MISSING_LABEL;
       host.innerHTML =
         "<div>" +
-        H.MISSING_LABEL +
+        missing +
         '</div><p class="winery-hours-note">' +
         H.SEASONAL_NOTE +
-        "</p>";
+        (parsed.note ? " " + parsed.note : "") +
+        "</p>" +
+        checkedHtml;
       return;
     }
     var table =
@@ -317,6 +376,7 @@
       "<div><strong style=\"display:block;margin-bottom:6px;color:var(--burgundy,#4A0E1B);font-size:0.82rem;letter-spacing:0.04em;text-transform:uppercase;\">Hours</strong>" +
       table +
       note +
+      checkedHtml +
       "</div>";
   }
 

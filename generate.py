@@ -307,6 +307,7 @@ const obs=new IntersectionObserver(e=>{{e.forEach(x=>{{if(x.isIntersecting){{x.t
 document.querySelectorAll('.winery-card,.article-card,.plan-card,.tour-card,.stay-card,.pricing-card,.fade-in,.journal-card,.pen-card').forEach(el=>{{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity 0.6s ease, transform 0.6s ease';obs.observe(el);}});
 </script>
 <script src="{prefix}js/leads.js" defer></script>
+<script src="{prefix}js/venue-hours-data.js" defer></script>
 <script src="{prefix}js/hours.js" defer></script>
 <script src="{prefix}js/open-this-week.js" defer></script>'''
 
@@ -537,20 +538,39 @@ for w in wineries:
     if postal:
         schema_addr += f',"postalCode":"{postal}"'
     hours_raw = (w.get("hours") or "").strip()
+    hours_status = (w.get("hoursStatus") or "call-ahead").strip()
+    hours_checked = (w.get("hoursCheckedAt") or "").strip()
     hours_attr = hours_raw.replace("&", "&amp;").replace('"', "&quot;")
     hours_html = hours_raw.replace("&", "&amp;").replace("<", "&lt;")
-    opening_hours_json = f',"openingHours":{json.dumps(hours_raw)}' if hours_raw else ""
-    # Live pages also emit openingHoursSpecification via scripts/patch_open_this_week.py.
-    # Keep generate.py schema aligned with openingHours + hours block markup.
+    # Only emit openingHours when verified with a parseable string — seasonal
+    # OpeningHoursSpecification is added by scripts/apply_winter_hours.py.
+    opening_hours_json = (
+        f',"openingHours":{json.dumps(hours_raw)}'
+        if hours_raw and hours_status == "verified"
+        else ""
+    )
     schema = f'''<script type="application/ld+json">
 {{"@context":"https://schema.org","@type":"Winery","name":"{w['name']}","description":"{desc_full}","address":{{"@type":"PostalAddress",{schema_addr}}},"telephone":"{w['phone']}","url":"https://traversecitywinetour.com/wineries/{w['slug']}","sameAs":["{w['website']}"]{opening_hours_json}}}</script>'''
 
     seo_title = (w.get("seo_title") or "").strip() or _winery_seo_title(w["name"])
     seo_desc = (w.get("seo_description") or "").strip() or _winery_seo_desc(w["name"], w["peninsula"])
+    hours_fallback = (
+        "Call ahead — hours not verified for this season"
+        if hours_status == "call-ahead"
+        else ("Closed for the season" if hours_status == "closed-season" else "Hours not listed — check with the winery")
+    )
+    checked_note = (
+        f'<span class="winery-hours-checked">Hours last checked {hours_checked}</span>'
+        if hours_checked
+        else ""
+    )
     hours_block = (
-        f'<div class="sidebar-detail" data-hours-block data-hours="{hours_attr}">'
-        f'{ICON_CLOCK_18} <div><div class="hours-raw">{hours_html or "Hours not listed — check with the winery"}</div>'
-        f'<p class="winery-hours-note">Hours change seasonally — call ahead to confirm before you go.</p></div></div>'
+        f'<div class="sidebar-detail" data-hours-block data-hours="{hours_attr}" '
+        f'data-hours-status="{hours_status}" data-hours-checked="{hours_checked}" '
+        f'data-hours-slug="{w["slug"]}">'
+        f'{ICON_CLOCK_18} <div><div class="hours-raw">{hours_html or hours_fallback}</div>'
+        f'<p class="winery-hours-note">Hours change seasonally — call ahead to confirm before you go.</p>'
+        f'{checked_note}</div></div>'
     )
     page = f"""{head(seo_title, seo_desc, f"/wineries/{w['slug']}", winery_css)}
 {schema}

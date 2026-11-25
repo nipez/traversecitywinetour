@@ -13,9 +13,11 @@ const root = join(__dirname, "..");
 
 function loadHours() {
   const code = readFileSync(join(root, "js/hours.js"), "utf8");
+  const dataCode = readFileSync(join(root, "js/venue-hours-data.js"), "utf8");
   const sandbox = { window: {}, globalThis: {} };
   sandbox.globalThis = sandbox;
-  vm.runInNewContext(code, sandbox);
+  sandbox.window = sandbox;
+  vm.runInNewContext(dataCode + "\n" + code, sandbox);
   return sandbox.window.TCWT_HOURS || sandbox.TCWT_HOURS;
 }
 
@@ -107,7 +109,85 @@ function assertEq(a, b, msg) {
   );
 }
 
-// Coverage against repo data
+// Seasonal schedule pick (winter)
+{
+  const venue = {
+    hoursStatus: "verified",
+    hoursCheckedAt: "2026-11-25",
+    hours: "Daily 11am–5pm",
+    hoursSchedules: [
+      {
+        id: "winter",
+        validFrom: "11-01",
+        validThrough: "04-30",
+        hours: "Daily 11am–5pm",
+      },
+      {
+        id: "summer",
+        validFrom: "05-01",
+        validThrough: "10-31",
+        hours: "Daily 11am–6pm",
+      },
+    ],
+    holidayClosures: [],
+  };
+  const carrier = H.detroitNow();
+  // Force November-like carrier fields
+  carrier._y = 2026;
+  carrier._mo = 10; // November
+  carrier._d = 25;
+  const resolved = H.resolveVenueHours(venue, carrier);
+  assert(resolved.ok, "winter resolve ok");
+  assertEq(resolved.displayHours, "Daily 11am–5pm", "winter hours picked");
+  assertEq(H.dayStatus(resolved, 1), "open", "winter mon open");
+  const spec = H.toOpeningHoursSpecification(resolved);
+  assert(spec && spec[0].validFrom, "schema has validFrom");
+  assert(spec[0].validThrough, "schema has validThrough");
+}
+
+// Call-ahead never shows open
+{
+  const venue = {
+    hoursStatus: "call-ahead",
+    hours: "Fri–Sat 12–5pm",
+    hoursSchedules: [],
+  };
+  const resolved = H.resolveVenueHours(venue);
+  assertEq(H.dayStatus(resolved, 5), "unknown", "call-ahead fri unknown");
+  assertEq(H.toOpeningHoursSpecification(resolved), null, "no schema for call-ahead");
+}
+
+// Closed season
+{
+  const venue = {
+    hoursStatus: "closed-season",
+    hours: "Closed for the season",
+    hoursSchedules: [
+      {
+        id: "summer",
+        validFrom: "06-13",
+        validThrough: "10-20",
+        hours: "Sat 12–5pm",
+      },
+    ],
+  };
+  const carrier = H.detroitNow();
+  carrier._y = 2026;
+  carrier._mo = 10;
+  carrier._d = 25;
+  const resolved = H.resolveVenueHours(venue, carrier);
+  assertEq(H.dayStatus(resolved, 6), "closed", "closed-season sat closed");
+  assertEq(H.toOpeningHoursSpecification(resolved), null, "no schema closed-season");
+}
+
+// Month-day range wrap
+{
+  assert(H.monthDayInRange("11-25", "11-01", "04-30"), "nov in winter wrap");
+  assert(H.monthDayInRange("02-10", "11-01", "04-30"), "feb in winter wrap");
+  assert(!H.monthDayInRange("06-15", "11-01", "04-30"), "jun not in winter wrap");
+}
+
+// Coverage against repo data — every venue must be verified, call-ahead, or closed-season
 {
   const require = createRequire(import.meta.url);
   const wineryData = require(join(root, "data-wineries.json"));
@@ -118,27 +198,64 @@ function assertEq(a, b, msg) {
     ["cideries", cideries],
     ["breweries", breweries],
   ];
-  let usable = 0;
-  let missing = 0;
+  let verified = 0;
+  let callAhead = 0;
+  let closedSeason = 0;
   const bad = [];
   for (const [label, items] of sets) {
     for (const v of items) {
-      const p = H.parseHours(v.hours);
-      if (p.ok) usable++;
-      else {
-        missing++;
-        bad.push([label, v.name, v.hours]);
+      const status = v.hoursStatus;
+      if (!["verified", "call-ahead", "closed-season"].includes(status)) {
+        bad.push([label, v.name, "missing hoursStatus"]);
+        continue;
+      }
+      if (!v.hoursCheckedAt) bad.push([label, v.name, "missing hoursCheckedAt"]);
+      if (status === "verified") {
+        verified++;
+        const resolved = H.resolveVenueHours(v);
+        // For today's date: either parseable schedule, holiday closed, or call-ahead fallback
+        if (
+          resolved.hoursStatus === "verified" &&
+          resolved.ok === false &&
+          !resolved.holidayClosed
+        ) {
+          // verified but no covering schedule today → treated as call-ahead internally
+        }
+        if (resolved.ok && resolved.byDay.some(Boolean)) {
+          const spec = H.toOpeningHoursSpecification(resolved);
+          assert(spec && spec.length, `schema for ${v.name}`);
+        }
+      } else if (status === "call-ahead") {
+        callAhead++;
+        const resolved = H.resolveVenueHours(v);
+        assertEq(
+          H.toOpeningHoursSpecification(resolved),
+          null,
+          `no schema call-ahead ${v.name}`
+        );
+      } else {
+        closedSeason++;
       }
     }
   }
   console.log(
-    `Coverage: ${usable} usable / ${usable + missing} total; ${missing} missing/unparseable`
+    `Status: ${verified} verified / ${callAhead} call-ahead / ${closedSeason} closed-season`
   );
   if (bad.length) {
-    console.log("Unparseable:");
+    console.log("Bad venues:");
     bad.forEach((b) => console.log(" -", b.join(" | ")));
   }
-  assert(usable + missing === 34 + 6 + 15, "expected venue counts");
+  assert(bad.length === 0, "all venues have status + checkedAt");
+  assert(verified + callAhead + closedSeason === 34 + 6 + 15, "expected venue counts");
+}
+
+// formatCheckedNote
+{
+  assertEq(
+    H.formatCheckedNote("2026-11-25"),
+    "Hours last checked Nov 25, 2026",
+    "checked note format"
+  );
 }
 
 if (failed) {
