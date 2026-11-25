@@ -185,13 +185,23 @@ def _meta_desc(text, max_len=155):
 
 
 def _winery_seo_title(name: str) -> str:
+    """Visit/tour-oriented title under ~60 chars."""
     full = f"{name} | Hours, Map & Wine-Tour Stop in Traverse City"
     if len(full) <= 60:
         return full
     short = f"{name} | Hours, Map & Wine-Tour Stop"
     if len(short) <= 60:
         return short
-    return f"{name} | Hours, Map & Tour Stop"
+    # Prefer keeping Wine-Tour by shortening the display name over dropping Wine-
+    base = name
+    for trim in (" Vineyard & Winery", " Vineyard and Winery", " Vineyards", " Vineyard", " Winery", " Cellars"):
+        if base.endswith(trim):
+            base = base[: -len(trim)].strip()
+            break
+    trimmed = f"{base} | Hours, Map & Wine-Tour Stop"
+    if len(trimmed) <= 60:
+        return trimmed
+    return f"{base} | Hours & Wine-Tour Stop"[:60]
 
 
 def _winery_seo_desc(name: str, peninsula: str) -> str:
