@@ -32,6 +32,18 @@ WINERY_BAND_RE = re.compile(
     re.IGNORECASE | re.DOTALL,
 )
 
+# Leftover pre-planner "Visitor Guide" card with guided-tour CTA (replace missed these).
+LEGACY_VISITOR_GUIDE_CARD_RE = re.compile(
+    r'\n?\s*<div class="sidebar-card">\s*'
+    r"<h3>Visitor Guide</h3>\s*"
+    r"<p[^>]*>Need a ride\?.*?</p>\s*"
+    r'<button type="button" class="winery-tour-cta"[^>]*>'
+    r".*?on a guided wine tour</button>\s*"
+    r'(?:<a href="/wine-tours" class="winery-tour-secondary">.*?</a>\s*)?'
+    r"</div>",
+    re.IGNORECASE | re.DOTALL,
+)
+
 # Brewery/cidery: replace previous tour CTA block after Visit Website.
 VENUE_CTA_AFTER_WEBSITE_RE = re.compile(
     r'(<a href="[^"]*" target="_blank" rel="noopener" class="cta-btn">'
@@ -185,6 +197,9 @@ def patch_winery(path: Path) -> bool:
         html, n = pattern.subn(r"\1\n    " + card, html, count=1)
         if not n:
             return False
+
+    # Drop any leftover Visitor Guide card the first-pass regex skipped.
+    html = LEGACY_VISITOR_GUIDE_CARD_RE.sub("", html)
 
     band = winery_band(name, slug)
     if WINERY_BAND_RE.search(html):

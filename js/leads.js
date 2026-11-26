@@ -298,7 +298,7 @@
             <textarea id="tour-quote-message" name="message" placeholder="Hotel pickup, occasion, other stops…"></textarea>
           </div>
           <p class="form-note">We’ll match you with a local wine-tour operator. No payment is collected here.</p>
-          <button type="submit" class="form-submit">Request tour quote</button>
+          <button type="submit" class="form-submit">Request a driver quote</button>
         </form>
         <div class="tour-quote-success" id="tourQuoteSuccess">
           <h3>Request received</h3>
@@ -381,9 +381,12 @@
     const itinerary = stopName ? "1. " + stopName : "";
     const plannerUrl = plannerStop ? plannerUrlForStop(plannerStop) : "";
 
-    overlay.querySelector("#tourQuoteTitle").textContent = stopName
+    const quoteTitle = stopName
       ? "Request a driver quote"
       : "Request a tour quote";
+    overlay.querySelector("#tourQuoteTitle").textContent = quoteTitle;
+    const submitBtn = overlay.querySelector("#tourQuoteForm .form-submit");
+    if (submitBtn) submitBtn.textContent = quoteTitle;
     overlay.querySelector("#tourQuoteSummaryLabel").textContent = summaryLabel;
     overlay.querySelector("#tourQuoteWineryLabel").textContent = label;
     overlay.querySelector("#tourQuoteWinery").value = winery;
