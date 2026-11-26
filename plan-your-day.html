@@ -35,6 +35,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="/js/map-basemap.js"></script>
 <script src="/js/winery-map-data.js"></script>
+<script src="/js/planner-extra-stops.js"></script>
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -543,8 +544,23 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
 // ═══════════════════════════════════════════
 // WINERY DATA (Google Maps verified coords)
 // ═══════════════════════════════════════════
-var W = TCWT_WINERIES;
-var WMap = TCWT_WINERY_MAP;
+var W = TCWT_WINERIES.slice();
+var WMap = Object.assign({}, TCWT_WINERY_MAP);
+var stopBySlug = Object.assign({}, TCWT_STOP_BY_SLUG || {});
+if (typeof TCWT_mergePlannerExtras === "function") {
+  TCWT_mergePlannerExtras(W, WMap, stopBySlug);
+}
+
+function resolveStopToken(token) {
+  if (typeof TCWT_resolvePlannerStop === "function") {
+    return TCWT_resolvePlannerStop(token, WMap, stopBySlug);
+  }
+  if (typeof TCWT_resolveStopToken === "function") {
+    return TCWT_resolveStopToken(token);
+  }
+  var t = String(token || "").trim();
+  return WMap[t] ? t : null;
+}
 
 // ═══════════════════════════════════════════
 // CURATED ROUTES
@@ -711,8 +727,8 @@ var OM_IDS = ['cgt','cc','pc','be','2l','bh','hv','lfc','mv','bn'];
 // Leelanau peninsula IDs
 var LL_IDS = ['bsf','45n','lm','cic','gp','lc','bl','sl','vt','bb','rv','wv','gh'];
 
-function isOM(id) { return OM_IDS.indexOf(id) > -1; }
-function isLL(id) { return LL_IDS.indexOf(id) > -1; }
+function isOM(id) { return !!(WMap[id] && WMap[id].p === "old-mission"); }
+function isLL(id) { return !!(WMap[id] && WMap[id].p === "leelanau"); }
 
 // TC is the hub connecting the two peninsulas — drive through it takes 8 min from south OM, 15 from north Leelanau
 var TC_DRIVE_FROM_OM = { 'cgt':22,'cc':32,'pc':18,'be':26,'2l':36,'bh':16,'hv':14,'lfc':8,'mv':12,'bn':20 };
@@ -1049,7 +1065,10 @@ document.getElementById('driverModal').addEventListener('click', function(e) {
 
 function buildPlannerUrl() {
   var params = new URLSearchParams();
-  params.set('stops', itinerary.join(','));
+  params.set('stops', itinerary.map(function(id) {
+    var w = WMap[id];
+    return (w && w.slug) || id;
+  }).join(','));
   params.set('start', document.getElementById('startTime').value);
   return window.location.origin + '/plan-your-day?' + params.toString();
 }
@@ -1154,7 +1173,14 @@ function copyText() {
 (function() {
   var params = new URLSearchParams(window.location.search);
   if (params.has('stops')) {
-    var ids = params.get('stops').split(',').filter(function(id){ return WMap[id]; });
+    var ids = params.get('stops').split(',').map(resolveStopToken).filter(Boolean);
+    // De-dupe while preserving order
+    var seen = {};
+    ids = ids.filter(function(id) {
+      if (seen[id]) return false;
+      seen[id] = true;
+      return true;
+    }).slice(0, 8);
     if (ids.length > 0) {
       itinerary = ids;
       if (params.has('start')) {
@@ -1163,6 +1189,11 @@ function copyText() {
         if (opts.indexOf(params.get('start')) > -1) sel.value = params.get('start');
       }
       update();
+      // Keep Quick-Start cards collapsed so the prefilled itinerary is visible.
+      var curatedCards = document.getElementById('curatedCards');
+      var curatedToggle = document.getElementById('curatedToggleBtn');
+      if (curatedCards) curatedCards.classList.add('hidden');
+      if (curatedToggle) curatedToggle.textContent = 'Show ▼';
       var bounds = L.latLngBounds(itinerary.map(function(id){ var w=WMap[id]; return [w.lat,w.lng]; }));
       map.fitBounds(bounds, { padding: [60,60], maxZoom: 12 });
     }
