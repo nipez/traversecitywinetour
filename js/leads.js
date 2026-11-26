@@ -190,9 +190,16 @@
       .sidebar-card .winery-tour-cta,
       .info-card .winery-tour-cta { width:100%; margin-top:16px; }
       .sidebar-card .winery-tour-secondary,
-      .info-card .winery-tour-secondary { display:block; width:100%; text-align:center; margin-top:12px; padding:12px; border:1px solid rgba(74,14,27,0.15); border-radius:4px; color:#4A0E1B; font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:500; letter-spacing:0.04em; text-decoration:none; transition:border-color 0.3s,color 0.3s; }
+      .info-card .winery-tour-secondary,
+      .sidebar-card .winery-tour-quote,
+      .info-card .winery-tour-quote { display:block; width:100%; text-align:center; margin-top:12px; padding:12px; border:1px solid rgba(74,14,27,0.15); border-radius:4px; background:transparent; color:#4A0E1B; font-family:'Outfit',sans-serif; font-size:0.78rem; font-weight:500; letter-spacing:0.04em; text-decoration:none; cursor:pointer; transition:border-color 0.3s,color 0.3s; }
       .sidebar-card .winery-tour-secondary:hover,
-      .info-card .winery-tour-secondary:hover { border-color:#4A0E1B; }
+      .info-card .winery-tour-secondary:hover,
+      .sidebar-card .winery-tour-quote:hover,
+      .info-card .winery-tour-quote:hover { border-color:#4A0E1B; }
+      .venue-plan-actions { display:flex; flex-direction:column; gap:0; margin-top:4px; }
+      .winery-tour-cta-band-actions { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+      .winery-tour-cta-band-actions .winery-tour-quote { display:inline-flex; width:auto; margin-top:0; min-height:48px; padding:14px 20px; }
 
       .tour-quote-overlay { position:fixed; inset:0; z-index:3000; display:flex; align-items:center; justify-content:center; padding:16px; background:rgba(44,36,32,0.6); backdrop-filter:blur(4px); opacity:0; pointer-events:none; transition:opacity 0.25s; }
       .tour-quote-overlay.show { opacity:1; pointer-events:auto; }
@@ -210,8 +217,9 @@
       .tour-quote-form .form-group { margin-bottom:12px; }
       .tour-quote-form .form-group.full { grid-column:1 / -1; }
       .tour-quote-form label { display:block; font-size:0.72rem; font-weight:600; letter-spacing:0.04em; margin-bottom:5px; color:#3A3330; }
-      .tour-quote-form input,
+      .tour-quote-form input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
       .tour-quote-form textarea { width:100%; padding:10px 12px; border:1px solid rgba(74,14,27,0.15); border-radius:6px; font:inherit; font-size:0.9rem; background:#fff; color:#3A3330; }
+      .tour-quote-form input[type="checkbox"] { width:auto; min-width:16px; margin-top:3px; accent-color:#4A0E1B; }
       .tour-quote-form textarea { min-height:72px; resize:vertical; }
       .tour-quote-form .form-submit { width:100%; margin-top:4px; padding:12px 20px; background:#4A0E1B; color:#F5F0E8; border:none; border-radius:6px; font-family:'Outfit',sans-serif; font-size:0.82rem; font-weight:600; letter-spacing:0.04em; cursor:pointer; }
       .tour-quote-form .form-submit:hover { background:#6B1A2A; }
@@ -259,6 +267,8 @@
           <input type="hidden" name="venue_type" id="tourQuoteVenueType" value="">
           <input type="hidden" name="interest" id="tourQuoteInterest" value="">
           <input type="hidden" name="operator" id="tourQuoteOperator" value="">
+          <input type="hidden" name="itinerary" id="tourQuoteItinerary" value="">
+          <input type="hidden" name="planner_url" id="tourQuotePlannerUrl" value="">
           <div class="form-row">
             <div class="form-group">
               <label for="tour-quote-name">Name</label>
@@ -288,7 +298,7 @@
             <textarea id="tour-quote-message" name="message" placeholder="Hotel pickup, occasion, other stops…"></textarea>
           </div>
           <p class="form-note">We’ll match you with a local wine-tour operator. No payment is collected here.</p>
-          <button type="submit" class="form-submit">Request tour quote</button>
+          <button type="submit" class="form-submit">Request a driver quote</button>
         </form>
         <div class="tour-quote-success" id="tourQuoteSuccess">
           <h3>Request received</h3>
@@ -315,6 +325,17 @@
     return overlay;
   }
 
+  function plannerUrlForStop(stopToken) {
+    if (!stopToken) return "";
+    try {
+      const url = new URL("/plan-your-day", window.location.origin);
+      url.searchParams.set("stops", stopToken);
+      return url.toString();
+    } catch {
+      return "/plan-your-day?stops=" + encodeURIComponent(stopToken);
+    }
+  }
+
   function openTourQuoteModal(opts) {
     if (typeof opts === "string") {
       opts = { winery: opts, winerySlug: arguments[1] || "" };
@@ -335,6 +356,8 @@
     const venueSlug = opts.venueSlug || "";
     const venueType = opts.venueType || "";
     const interest = opts.interest || "";
+    const plannerStop = opts.plannerStop || winerySlug || venueSlug || "";
+    const stopName = winery || venue || "";
     const label =
       opts.label ||
       winery ||
@@ -344,16 +367,26 @@
     const operator =
       opts.operator ||
       (winery
-        ? "Tour including " + winery
+        ? "Driver quote including " + winery
         : venue
-          ? "Tour including " + venue
+          ? "Driver quote including " + venue
           : interest
             ? interest + " quote"
             : "Guided wine tour quote");
     const summaryLabel = interest && !winery && !venue
       ? "Tour interest"
-      : "Guided visit including";
+      : stopName
+        ? "Driver quote stop"
+        : "Guided visit including";
+    const itinerary = stopName ? "1. " + stopName : "";
+    const plannerUrl = plannerStop ? plannerUrlForStop(plannerStop) : "";
 
+    const quoteTitle = stopName
+      ? "Request a driver quote"
+      : "Request a tour quote";
+    overlay.querySelector("#tourQuoteTitle").textContent = quoteTitle;
+    const submitBtn = overlay.querySelector("#tourQuoteForm .form-submit");
+    if (submitBtn) submitBtn.textContent = quoteTitle;
     overlay.querySelector("#tourQuoteSummaryLabel").textContent = summaryLabel;
     overlay.querySelector("#tourQuoteWineryLabel").textContent = label;
     overlay.querySelector("#tourQuoteWinery").value = winery;
@@ -363,6 +396,8 @@
     overlay.querySelector("#tourQuoteVenueType").value = venueType;
     overlay.querySelector("#tourQuoteInterest").value = interest;
     overlay.querySelector("#tourQuoteOperator").value = operator;
+    overlay.querySelector("#tourQuoteItinerary").value = itinerary;
+    overlay.querySelector("#tourQuotePlannerUrl").value = plannerUrl;
 
     overlay.classList.add("show");
     document.body.style.overflow = "hidden";
@@ -393,6 +428,7 @@
           interest: el.getAttribute("data-tour-interest") || "",
           operator: el.getAttribute("data-operator") || "",
           label: el.getAttribute("data-tour-label") || "",
+          plannerStop: el.getAttribute("data-planner-stop") || "",
         });
       });
     });

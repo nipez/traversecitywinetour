@@ -456,8 +456,8 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       ],
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 44.9234,
-        "longitude": -85.4751
+        "latitude": 44.80853,
+        "longitude": -85.56553
       }
     },
     {
@@ -530,12 +530,15 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
       <a href="https://www.marivineyards.com" target="_blank" rel="noopener" class="sidebar-cta">Visit Official Website</a>
     </div>
     <div class="sidebar-card">
-      <h3>Visitor Guide</h3>
-      <p style="font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 16px;">Need a ride? Browse our partner wine tour companies for guided visits to Mari Vineyards and nearby wineries.</p>
-      <button type="button" class="winery-tour-cta" data-tour-quote data-winery-name="Mari Vineyards" data-winery-slug="mari-vineyards">Visit Mari Vineyards on a guided wine tour</button>
+      <h3>Plan Your Visit</h3>
+      <p style="font-size:0.88rem;color:var(--text-light);line-height:1.6;margin-bottom:16px;">Build a tasting day that includes Mari Vineyards, or request a short driver quote — no payment collected here.</p>
+      <div class="venue-plan-actions">
+      <a href="/plan-your-day?stops=mari-vineyards" class="winery-tour-cta">Plan a day here</a>
+      <button type="button" class="winery-tour-quote" data-tour-quote data-winery-name="Mari Vineyards" data-winery-slug="mari-vineyards" data-planner-stop="mari-vineyards">Get a driver quote</button>
       <a href="/wine-tours" class="winery-tour-secondary">Browse wine tour operators</a>
     </div>
-  </div>
+    </div>
+    </div>
 </div>
 
 <section class="wine-club-section">
@@ -607,15 +610,19 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
   </div>
 </a></div></div></section>
 
-<section class="winery-tour-cta-band" aria-label="Request a guided tour">
+<section class="winery-tour-cta-band" aria-label="Plan a day or request a driver quote">
   <div class="winery-tour-cta-band-inner">
     <div class="winery-tour-cta-copy">
-      <h2>Visit Mari Vineyards on a guided wine tour</h2>
-      <p>Tell us your date and group size — we’ll follow up with local driver options that can include Mari Vineyards.</p>
+      <h2>Add Mari Vineyards to your day</h2>
+      <p>Open the planner with this stop already added, or send a quick driver-quote request. We’ll follow up with local options.</p>
     </div>
-    <button type="button" class="winery-tour-cta" data-tour-quote data-winery-name="Mari Vineyards" data-winery-slug="mari-vineyards">Visit Mari Vineyards on a guided wine tour</button>
+    <div class="winery-tour-cta-band-actions">
+      <a href="/plan-your-day?stops=mari-vineyards" class="winery-tour-cta">Plan a day here</a>
+      <button type="button" class="winery-tour-quote" data-tour-quote data-winery-name="Mari Vineyards" data-winery-slug="mari-vineyards" data-planner-stop="mari-vineyards">Get a driver quote</button>
+    </div>
   </div>
 </section>
+
 <section class="newsletter">
   <div class="newsletter-inner">
     <h2>Stay Connected to Wine Country</h2>

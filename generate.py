@@ -606,20 +606,26 @@ for w in wineries:
     </div>
     <div class="sidebar-card">
       <h3>Plan Your Visit</h3>
-      <p style="font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 16px;">Need a ride? Request a short tour quote for guided visits to {w['name']} and nearby wineries — we’ll match you with a local operator.</p>
-      <button type="button" class="winery-tour-cta" data-tour-quote data-winery-name="{w['name']}" data-winery-slug="{w['slug']}">Visit {w['name']} on a guided wine tour</button>
+      <p style="font-size: 0.88rem; color: var(--text-light); line-height: 1.6; margin-bottom: 16px;">Build a tasting day that includes {w['name']}, or request a short driver quote — no payment collected here.</p>
+      <div class="venue-plan-actions">
+      <a href="/plan-your-day?stops={w['slug']}" class="winery-tour-cta">Plan a day here</a>
+      <button type="button" class="winery-tour-quote" data-tour-quote data-winery-name="{w['name']}" data-winery-slug="{w['slug']}" data-planner-stop="{w['slug']}">Get a driver quote</button>
       <a href="../wine-tours" class="winery-tour-secondary">Browse wine tour operators</a>
+      </div>
     </div>
   </div>
 </div>
 <section class="related-wineries"><div class="related-inner"><div class="section-header"><div class="section-tag">More on {w['peninsula']} Peninsula</div><h2 class="section-title">Nearby Wineries</h2><div class="section-divider"></div></div><div class="winery-grid">{related_cards}</div></div></section>
-<section class="winery-tour-cta-band" aria-label="Request a guided tour">
+<section class="winery-tour-cta-band" aria-label="Plan a day or request a driver quote">
   <div class="winery-tour-cta-band-inner">
     <div class="winery-tour-cta-copy">
-      <h2>Visit {w['name']} on a guided wine tour</h2>
-      <p>Tell us your date and group size — we’ll follow up with local driver options that can include {w['name']}.</p>
+      <h2>Add {w['name']} to your day</h2>
+      <p>Open the planner with this stop already added, or send a quick driver-quote request. We’ll follow up with local options.</p>
     </div>
-    <button type="button" class="winery-tour-cta" data-tour-quote data-winery-name="{w['name']}" data-winery-slug="{w['slug']}">Visit {w['name']} on a guided wine tour</button>
+    <div class="winery-tour-cta-band-actions">
+      <a href="/plan-your-day?stops={w['slug']}" class="winery-tour-cta">Plan a day here</a>
+      <button type="button" class="winery-tour-quote" data-tour-quote data-winery-name="{w['name']}" data-winery-slug="{w['slug']}" data-planner-stop="{w['slug']}">Get a driver quote</button>
+    </div>
   </div>
 </section>
 {newsletter_section()}{footer_section("../")}{scripts("../")}{close()}"""

@@ -98,12 +98,14 @@ const wineryTour = parseLeadBody(JSON.stringify({
   consent: true,
   source_page: "/wineries/willow-vineyard",
   payload: {
-    operator: "Tour including Willow Vineyard",
+    operator: "Driver quote including Willow Vineyard",
     winery: "Willow Vineyard",
     winery_slug: "willow-vineyard",
     party_size: "6",
     preferred_date: "2026-08-15",
     phone: "231-555-0199",
+    itinerary: "1. Willow Vineyard",
+    planner_url: "https://traversecitywinetour.com/plan-your-day?stops=willow-vineyard",
     message: "Include nearby Shady Lane if possible",
     ignore_me: "nope",
   },
@@ -111,7 +113,12 @@ const wineryTour = parseLeadBody(JSON.stringify({
 assert.equal(wineryTour.lead.type, "tour");
 assert.equal(wineryTour.lead.payload.winery, "Willow Vineyard");
 assert.equal(wineryTour.lead.payload.winery_slug, "willow-vineyard");
-assert.equal(wineryTour.lead.payload.operator, "Tour including Willow Vineyard");
+assert.equal(wineryTour.lead.payload.operator, "Driver quote including Willow Vineyard");
+assert.equal(wineryTour.lead.payload.itinerary, "1. Willow Vineyard");
+assert.equal(
+  wineryTour.lead.payload.planner_url,
+  "https://traversecitywinetour.com/plan-your-day?stops=willow-vineyard"
+);
 assert.equal(wineryTour.lead.payload.party_size, "6");
 assert.equal(wineryTour.lead.payload.ignore_me, undefined);
 assert.equal(wineryTour.lead.source_page, "/wineries/willow-vineyard");
