@@ -14,7 +14,7 @@ npx serve .
 
 Then open the URL `serve` prints (usually http://localhost:3000). Newsletter and lead forms need the Pages Function below.
 
-Lead capture (newsletter, lodging “Get listed”, bachelorette planning kit):
+Lead capture (newsletter, lodging “Get listed”, bachelorette planning kit, tour quotes, and plan-your-day “Email me this plan” itinerary saves):
 
 ```bash
 npm install

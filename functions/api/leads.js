@@ -82,7 +82,47 @@ export async function onRequestPost(context) {
   // Best-effort notify after a successful insert. Never fail the form caller.
   await notifyLeadBestEffort(env, request, { id, ...lead });
 
+  // Optional newsletter opt-in from itinerary "Email me this plan" only.
+  // Never auto-subscribe; only when the visitor ticked the box.
+  if (lead.type === "itinerary" && isTruthyOptIn(lead.payload?.newsletter_opt_in)) {
+    await insertNewsletterOptInBestEffort(env, lead, ipHash);
+  }
+
   return jsonResponse({ ok: true, id }, 201, corsHeaders(request));
+}
+
+function isTruthyOptIn(value) {
+  const v = String(value || "")
+    .trim()
+    .toLowerCase();
+  return v === "true" || v === "1" || v === "on" || v === "yes";
+}
+
+async function insertNewsletterOptInBestEffort(env, lead, ipHash) {
+  try {
+    await env.DB.prepare(
+      `INSERT INTO leads (
+        id, type, email, name, payload, source_page,
+        utm_source, utm_medium, utm_campaign, ip_hash, status
+      ) VALUES (?, 'newsletter', ?, ?, ?, ?, ?, ?, ?, ?, 'new')`
+    )
+      .bind(
+        crypto.randomUUID(),
+        lead.email,
+        lead.name,
+        JSON.stringify({}),
+        lead.source_page,
+        lead.utm_source,
+        lead.utm_medium,
+        lead.utm_campaign,
+        ipHash
+      )
+      .run();
+  } catch (error) {
+    const message = String(error?.message || error);
+    if (/UNIQUE|constraint/i.test(message)) return;
+    console.error("itinerary newsletter opt-in insert failed", message);
+  }
 }
 
 export async function onRequest(context) {
