@@ -13,6 +13,7 @@ const TYPE_LABELS = {
   advertise: "Advertise inquiry",
   contact: "Contact message",
   tour: "Tour inquiry",
+  itinerary: "Saved itinerary",
 };
 
 /**
@@ -134,6 +135,7 @@ export function formatLeadNotify(lead, adminUrl) {
     "start_time",
     "itinerary",
     "planner_url",
+    "newsletter_opt_in",
   ];
   const seen = new Set();
   const payloadLines = [];

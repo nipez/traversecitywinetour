@@ -189,6 +189,46 @@ assert.equal(guideTour.lead.source_page, "/wine-tour-guides/private-group-tours"
 
 expectError({ type: "tour", email: "a@b.com", consent: true }, "Name is required");
 
+const itineraryLead = parseLeadBody(JSON.stringify({
+  type: "itinerary",
+  email: "TEST-itinerary@example.com",
+  consent: true,
+  source_page: "/plan-your-day",
+  payload: {
+    party_size: "4",
+    preferred_date: "2026-09-20",
+    start_time: "11:00 (11:00 AM)",
+    itinerary: "1. Chateau Grand Traverse · 2. Brys Estate · 3. Bonobo Winery",
+    planner_url: "https://traversecitywinetour.com/plan-your-day?stops=chateau-grand-traverse,brys-estate,bonobo-winery&start=11:00",
+    newsletter_opt_in: "true",
+    ignore_me: "nope",
+  },
+}));
+assert.equal(itineraryLead.lead.type, "itinerary");
+assert.equal(itineraryLead.lead.email, "test-itinerary@example.com");
+assert.equal(itineraryLead.lead.name, null);
+assert.equal(itineraryLead.lead.payload.party_size, "4");
+assert.equal(itineraryLead.lead.payload.preferred_date, "2026-09-20");
+assert.equal(itineraryLead.lead.payload.start_time, "11:00 (11:00 AM)");
+assert.equal(
+  itineraryLead.lead.payload.itinerary,
+  "1. Chateau Grand Traverse · 2. Brys Estate · 3. Bonobo Winery"
+);
+assert.equal(
+  itineraryLead.lead.payload.planner_url,
+  "https://traversecitywinetour.com/plan-your-day?stops=chateau-grand-traverse,brys-estate,bonobo-winery&start=11:00"
+);
+assert.equal(itineraryLead.lead.payload.newsletter_opt_in, "true");
+assert.equal(itineraryLead.lead.payload.ignore_me, undefined);
+assert.equal(itineraryLead.lead.source_page, "/plan-your-day");
+
+expectError({
+  type: "itinerary",
+  email: "a@b.com",
+  consent: true,
+  payload: {},
+}, "A plan link or itinerary is required");
+
 expectError({ type: "advertise", email: "a@b.com", consent: true }, "Name is required");
 
 const advertise = parseLeadBody(JSON.stringify({
@@ -318,6 +358,35 @@ assert.match(tourNotify.text, /planner_url: https:\/\/traversecitywinetour.com\/
 assert.match(tourNotify.text, /start_time: 11:00/);
 assert.ok(
   tourNotify.text.indexOf("itinerary:") < tourNotify.text.indexOf("planner_url:"),
+  "itinerary should appear before planner_url in notify body"
+);
+
+const itineraryNotify = formatLeadNotify(
+  {
+    id: "lead-itinerary-1",
+    type: "itinerary",
+    email: "test-itinerary@example.com",
+    name: null,
+    source_page: "/plan-your-day",
+    payload: {
+      party_size: "4",
+      preferred_date: "2026-09-20",
+      start_time: "11:00 (11:00 AM)",
+      itinerary: "1. Chateau Grand Traverse · 2. Brys Estate · 3. Bonobo Winery",
+      planner_url: "https://traversecitywinetour.com/plan-your-day?stops=chateau-grand-traverse,brys-estate,bonobo-winery&start=11:00",
+      newsletter_opt_in: "true",
+    },
+  },
+  "https://traversecitywinetour.com/admin/leads"
+);
+assert.match(itineraryNotify.subject, /Saved itinerary/);
+assert.match(itineraryNotify.subject, /test-itinerary@example.com/);
+assert.match(itineraryNotify.text, /Type: itinerary/);
+assert.match(itineraryNotify.text, /planner_url: https:\/\/traversecitywinetour.com\/plan-your-day/);
+assert.match(itineraryNotify.text, /newsletter_opt_in: true/);
+assert.match(itineraryNotify.text, /Source page: \/plan-your-day/);
+assert.ok(
+  itineraryNotify.text.indexOf("itinerary:") < itineraryNotify.text.indexOf("planner_url:"),
   "itinerary should appear before planner_url in notify body"
 );
 

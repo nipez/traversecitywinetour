@@ -5,6 +5,7 @@ export const LEAD_TYPES = new Set([
   "advertise",
   "contact",
   "tour",
+  "itinerary",
 ]);
 
 export const PAYLOAD_FIELDS = {
@@ -35,6 +36,16 @@ export const PAYLOAD_FIELDS = {
     "venue_type",
     "interest",
     "message",
+  ],
+  // plan-your-day "Email me this plan" — shareable URL + optional
+  // group size/date. newsletter_opt_in is opt-in only (never default).
+  itinerary: [
+    "party_size",
+    "preferred_date",
+    "start_time",
+    "itinerary",
+    "planner_url",
+    "newsletter_opt_in",
   ],
 };
 
@@ -179,6 +190,12 @@ export function parseLeadBody(text) {
     }
     if (!payload.message) {
       return { error: "A message is required", status: 400 };
+    }
+  }
+
+  if (type === "itinerary") {
+    if (!payload.planner_url && !payload.itinerary) {
+      return { error: "A plan link or itinerary is required", status: 400 };
     }
   }
 
