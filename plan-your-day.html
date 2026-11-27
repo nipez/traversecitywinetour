@@ -234,34 +234,91 @@ nav { position: sticky; top: 0; z-index: 1000; background: var(--white); border-
 .btn-copy-card:hover { border-color: var(--burgundy); color: var(--burgundy); }
 
 /* Shareable URL + email-plan capture inside share modal */
-.share-link-row { margin: 0 28px 8px; display: flex; gap: 8px; align-items: stretch; }
-.share-link-row input { flex: 1; min-width: 0; padding: 10px 12px; border: 1px solid rgba(74,14,27,0.15); border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: 0.72rem; color: var(--text); background: var(--cream); }
-.share-link-row button { flex: 0 0 auto; padding: 10px 14px; border-radius: 6px; border: none; background: var(--burgundy); color: var(--cream); font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-weight: 600; cursor: pointer; }
+.modal.share-modal {
+  max-width: 480px;
+  width: 92%;
+  max-height: 90vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.modal.share-modal .modal-top { padding: 12px 18px; flex-shrink: 0; }
+.modal.share-modal .modal-top h2 { font-size: 1.05rem; }
+.modal.share-modal .share-card {
+  margin: 8px 18px 6px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.modal.share-modal .sc-header { padding: 10px 14px; }
+.modal.share-modal .sc-tag { margin-bottom: 2px; }
+.modal.share-modal .sc-title { font-size: 0.98rem; }
+.modal.share-modal .sc-subtitle { margin-top: 2px; }
+.modal.share-modal .sc-stops {
+  padding: 6px 14px;
+  max-height: 7.5rem;
+  overflow-y: auto;
+}
+.modal.share-modal .sc-stop { padding: 4px 0; gap: 8px; }
+.modal.share-modal .sc-stop-num { width: 18px; height: 18px; font-size: 0.6rem; }
+.modal.share-modal .sc-footer { padding: 6px 14px; }
+.share-capture { display: flex; flex-direction: column; gap: 8px; padding: 0 18px; flex: 1 1 auto; min-height: 0; }
+.share-link-row { margin: 0; display: flex; gap: 8px; align-items: stretch; }
+.share-link-row input { flex: 1; min-width: 0; padding: 8px 10px; border: 1px solid rgba(74,14,27,0.15); border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: 0.7rem; color: var(--text); background: var(--cream); }
+.share-link-row button { flex: 0 0 auto; padding: 8px 12px; border-radius: 6px; border: none; background: var(--burgundy); color: var(--cream); font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-weight: 600; cursor: pointer; }
 .share-link-row button.copied { background: var(--success); }
-.email-plan { margin: 8px 28px 0; padding: 16px; border: 1px solid rgba(74,14,27,0.08); border-radius: 10px; background: linear-gradient(180deg, #fff, var(--cream)); }
-.email-plan-title { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--burgundy); margin: 0 0 4px; }
-.email-plan-desc { font-size: 0.75rem; color: var(--text-light); line-height: 1.5; margin: 0 0 12px; }
-.email-plan-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.email-plan-form .form-group { margin-bottom: 10px; }
+.email-plan { margin: 0; padding: 10px 12px; border: 1px solid rgba(74,14,27,0.08); border-radius: 10px; background: linear-gradient(180deg, #fff, var(--cream)); }
+.email-plan-title { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--burgundy); margin: 0 0 2px; }
+.email-plan-desc { font-size: 0.68rem; color: var(--text-light); line-height: 1.35; margin: 0 0 8px; }
+.email-plan-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.email-plan-form .form-group { margin-bottom: 6px; }
 .email-plan-form .form-group.full { grid-column: 1 / -1; }
-.email-plan-form label { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 4px; color: var(--text); }
-.email-plan-form input:not([type="checkbox"]):not([type="hidden"]) { width: 100%; padding: 9px 11px; border: 1px solid rgba(74,14,27,0.15); border-radius: 6px; font-family: inherit; font-size: 0.88rem; background: var(--white); color: var(--text); }
-.email-plan-form .newsletter-opt { display: flex; align-items: flex-start; gap: 8px; margin: 4px 0 8px; font-size: 0.72rem; line-height: 1.45; color: var(--text-light); }
-.email-plan-form .newsletter-opt input { margin-top: 2px; accent-color: var(--burgundy); flex: 0 0 auto; }
-.email-plan-form .form-submit { width: 100%; padding: 11px 16px; background: var(--burgundy); color: var(--cream); border: none; border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; }
+.email-plan-form label { display: block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.04em; margin-bottom: 3px; color: var(--text); }
+.email-plan-form input:not([type="checkbox"]):not([type="hidden"]) { width: 100%; padding: 7px 9px; border: 1px solid rgba(74,14,27,0.15); border-radius: 6px; font-family: inherit; font-size: 0.82rem; background: var(--white); color: var(--text); }
+.email-plan-form .newsletter-opt { display: flex; align-items: flex-start; gap: 6px; margin: 2px 0 4px; font-size: 0.65rem; line-height: 1.35; color: var(--text-light); }
+.email-plan-form .newsletter-opt input { margin-top: 1px; accent-color: var(--burgundy); flex: 0 0 auto; }
+.email-plan-form .form-submit { width: 100%; padding: 9px 12px; background: var(--burgundy); color: var(--cream); border: none; border-radius: 6px; font-family: 'Outfit', sans-serif; font-size: 0.74rem; font-weight: 600; letter-spacing: 0.04em; cursor: pointer; }
 .email-plan-form .form-submit:hover { background: var(--wine); }
 .email-plan-form .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
-.email-plan-form .lead-consent { margin: 8px 0; font-size: 0.72rem; }
-.email-plan-success { display: none; text-align: center; padding: 8px 4px 4px; }
-.email-plan-success h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--burgundy); margin: 0 0 6px; }
-.email-plan-success p { font-size: 0.78rem; color: var(--text-light); line-height: 1.5; margin: 0 0 10px; }
-.email-plan-success .share-link-row { margin: 0 0 12px; }
-.email-plan-driver { margin-top: 4px; }
-@media (max-width: 640px) {
-  .email-plan-form .form-row { grid-template-columns: 1fr; }
-  .share-link-row { margin: 0 16px 8px; flex-direction: column; }
-  .email-plan { margin: 8px 16px 0; }
-  .modal-actions { padding-left: 16px; padding-right: 16px; }
+.email-plan-form .lead-consent { display: flex; align-items: flex-start; margin: 4px 0 6px; font-size: 0.65rem; line-height: 1.35; gap: 8px; }
+.email-plan-form .lead-consent input { flex: 0 0 auto; width: 14px; height: 14px; margin-top: 1px; }
+.email-plan-form .lead-consent span { flex: 1 1 auto; min-width: 0; }
+.email-plan-success { display: none; text-align: center; padding: 4px 2px 0; }
+.email-plan-success h3 { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: var(--burgundy); margin: 0 0 4px; }
+.email-plan-success p { font-size: 0.72rem; color: var(--text-light); line-height: 1.4; margin: 0 0 8px; }
+.email-plan-success .share-link-row { margin: 0 0 8px; }
+.email-plan-driver { margin-top: 0; }
+.modal.share-modal .modal-actions {
+  padding: 8px 18px 12px;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  gap: 8px;
+}
+.modal.share-modal .modal-actions button { padding: 9px 10px; font-size: 0.72rem; }
+.modal.share-modal .modal-actions .btn-driver-share {
+  width: auto;
+  margin-top: 0;
+  flex: 1.35;
+}
+@media (min-width: 720px) {
+  .modal.share-modal { max-width: 720px; }
+  .share-capture {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
+    gap: 12px;
+    align-items: start;
+  }
+  .share-link-row { flex-direction: column; }
+  .share-link-row button { width: 100%; }
+  .modal.share-modal .sc-stops { max-height: 9rem; }
+}
+@media (max-width: 719px) {
+  .email-plan-form .form-row { grid-template-columns: 1fr 1fr; gap: 6px; }
+  .share-capture { padding: 0 12px; gap: 6px; }
+  .modal.share-modal .share-card { margin: 6px 12px 4px; }
+  .modal.share-modal .modal-top { padding: 10px 12px; }
+  .modal.share-modal .modal-actions { padding: 6px 12px 10px; }
+  .modal.share-modal .sc-stops { max-height: 5.5rem; }
 }
 
 /* Driver quote modal */
@@ -491,54 +548,56 @@ p, li, td, th, label, blockquote { font-size: 1rem; line-height: 1.7; }
 
 <!-- SHARE MODAL -->
 <div class="modal-overlay" id="shareModal">
-  <div class="modal" style="overflow-y:auto;">
+  <div class="modal share-modal" role="dialog" aria-modal="true" aria-labelledby="shareModalTitle">
     <div class="modal-top">
-      <h2>Share Your Wine Day</h2>
+      <h2 id="shareModalTitle">Share Your Wine Day</h2>
       <button class="modal-close" onclick="closeModal()" type="button" aria-label="Close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
     </div>
     <div class="share-card" id="shareCard"></div>
-    <div class="share-link-row">
-      <input type="text" id="shareUrlInput" readonly aria-label="Shareable plan link" value="">
-      <button type="button" id="btnCopyLink" onclick="copyLink()">Copy Link</button>
-    </div>
-    <div class="email-plan" id="emailPlanBox">
-      <form class="email-plan-form" id="emailPlanForm" data-lead-form="itinerary" data-success="emailPlanSuccess">
-        <h3 class="email-plan-title">Email me this plan</h3>
-        <p class="email-plan-desc">We’ll save your itinerary link so we can follow up. Optional — you can also just copy the link above.</p>
-        <input type="hidden" name="itinerary" id="emailPlanItinerary" value="">
-        <input type="hidden" name="start_time" id="emailPlanStartTime" value="">
-        <input type="hidden" name="planner_url" id="emailPlanPlannerUrl" value="">
-        <div class="form-group full">
-          <label for="email-plan-email">Email</label>
-          <input type="email" id="email-plan-email" name="email" required autocomplete="email" placeholder="you@example.com">
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="email-plan-date">Trip date <span style="font-weight:400;color:var(--text-light);">(optional)</span></label>
-            <input type="date" id="email-plan-date" name="preferred_date">
+    <div class="share-capture">
+      <div class="share-link-row">
+        <input type="text" id="shareUrlInput" readonly aria-label="Shareable plan link" value="">
+        <button type="button" id="btnCopyLink" onclick="copyLink()">Copy Link</button>
+      </div>
+      <div class="email-plan" id="emailPlanBox">
+        <form class="email-plan-form" id="emailPlanForm" data-lead-form="itinerary" data-success="emailPlanSuccess">
+          <h3 class="email-plan-title">Email me this plan</h3>
+          <p class="email-plan-desc">Optional — save this link so we can follow up.</p>
+          <input type="hidden" name="itinerary" id="emailPlanItinerary" value="">
+          <input type="hidden" name="start_time" id="emailPlanStartTime" value="">
+          <input type="hidden" name="planner_url" id="emailPlanPlannerUrl" value="">
+          <div class="form-group full">
+            <label for="email-plan-email">Email</label>
+            <input type="email" id="email-plan-email" name="email" required autocomplete="email" placeholder="you@example.com">
           </div>
-          <div class="form-group">
-            <label for="email-plan-party">Group size <span style="font-weight:400;color:var(--text-light);">(optional)</span></label>
-            <input type="number" id="email-plan-party" name="party_size" min="1" max="50" placeholder="e.g. 4">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email-plan-date">Trip date <span style="font-weight:400;color:var(--text-light);">(optional)</span></label>
+              <input type="date" id="email-plan-date" name="preferred_date">
+            </div>
+            <div class="form-group">
+              <label for="email-plan-party">Group size <span style="font-weight:400;color:var(--text-light);">(optional)</span></label>
+              <input type="number" id="email-plan-party" name="party_size" min="1" max="50" placeholder="e.g. 4">
+            </div>
           </div>
+          <label class="newsletter-opt">
+            <input type="checkbox" name="newsletter_opt_in" value="true">
+            <span>Also send me occasional wine-country tips.</span>
+          </label>
+          <button type="submit" class="form-submit">Email me this plan</button>
+        </form>
+        <div class="email-plan-success" id="emailPlanSuccess">
+          <h3>Plan saved</h3>
+          <p>Saved. Copy the link anytime, or request a driver for this day.</p>
+          <div class="share-link-row">
+            <input type="text" id="emailPlanSuccessUrl" readonly aria-label="Your saved plan link" value="">
+            <button type="button" id="btnCopySavedLink" onclick="copySavedLink()">Copy</button>
+          </div>
+          <button type="button" class="btn-driver-share email-plan-driver" id="btnDriverFromEmailPlan">Get a Driver for This Day</button>
         </div>
-        <label class="newsletter-opt">
-          <input type="checkbox" name="newsletter_opt_in" value="true">
-          <span>Also subscribe me to occasional wine-country tips (optional — not required to save this plan).</span>
-        </label>
-        <button type="submit" class="form-submit">Email me this plan</button>
-      </form>
-      <div class="email-plan-success" id="emailPlanSuccess">
-        <h3>Plan saved</h3>
-        <p>Thanks — we saved your itinerary. Copy the link anytime, or request a driver quote for this day.</p>
-        <div class="share-link-row">
-          <input type="text" id="emailPlanSuccessUrl" readonly aria-label="Your saved plan link" value="">
-          <button type="button" id="btnCopySavedLink" onclick="copySavedLink()">Copy</button>
-        </div>
-        <button type="button" class="btn-driver-share email-plan-driver" id="btnDriverFromEmailPlan">Get a Driver for This Day</button>
       </div>
     </div>
-    <div class="modal-actions" style="flex-wrap:wrap;">
+    <div class="modal-actions">
       <button class="btn-copy-card" onclick="copyText()" type="button">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
         Copy as Text
